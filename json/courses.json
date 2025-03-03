@@ -1,0 +1,40 @@
+{
+    "courses": [
+      {
+        "course_name": "Web Development",
+        "category": "Programming",
+        "prerequisites": [],
+        "open_for_registration": true,
+        "instructors": [
+          {
+            "name": "Barhamgi",
+            "available_slots": 40
+          }
+        ]
+      },
+      {
+        "course_name": "OOP",
+        "category": "Programming",
+        "prerequisites": ["Programming concepts"],
+        "open_for_registration": true,
+        "instructors": [
+          {
+            "name": "Ziad Ali",
+            "available_slots": 40
+          }
+        ]
+      },
+      {
+        "course_name": "Fundamentals of Database",
+        "category": "Databases",
+        "prerequisites": [],
+        "open_for_registration": false,
+        "instructors": [
+          {
+            "name": "Rehab",
+            "available_slots": 40
+          }
+        ]
+      }
+    ]
+  }

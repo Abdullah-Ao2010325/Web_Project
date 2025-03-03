@@ -1,0 +1,22 @@
+{
+    "instructors": [
+      {
+        "username": "instructor1",
+        "password": "password123",
+        "name": "Barhamgi",
+        "teaching_courses": ["OOP", "Web Development"]
+      },
+      {
+        "username": "instructor2",
+        "password": "password123",
+        "name": "Rehab",
+        "teaching_courses": ["Fundamentals of Database"]
+      },
+      {
+        "username": "instructor3",
+        "password": "password123",
+        "name": "Ziad Ali",
+        "teaching_courses": ["Programming concepts", "OOP"]
+      }
+    ]
+  }

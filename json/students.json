@@ -1,0 +1,32 @@
+{
+    "students": [
+      {
+        "username": "ba2205895@qu.edu.qa",
+        "password": "password123",
+        "name": "Basheer Ahmed",
+        "id": "202205895",
+        "completed_courses": [
+          {
+            "course_name": "OOP",
+            "grade": "A"
+          },
+          {
+            "course_name": "Fundamentals of Database",
+            "grade": "A"
+          }
+        ]
+      },
+      {
+        "username": "aa2147583@qu.edu.qa",
+        "password": "password123",
+        "name": "Ali Ahmed",
+        "id": "202147583",
+        "completed_courses": [
+          {
+            "course_name": "Web Development",
+            "grade": "B"
+          }
+        ]
+      }
+    ]
+  }
