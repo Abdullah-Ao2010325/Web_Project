@@ -8,13 +8,13 @@
 body {
     height: 100vh;
     width: 100%;
-
 }
 
 .navbar {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    gap: 30px;
     background-color: #6d1204; 
     padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -28,6 +28,8 @@ body {
 
 .nav-links {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     list-style: none;
     gap: 30px;
 }
@@ -52,17 +54,71 @@ body {
 }
 
 main {
-    background-color: black;
+    height: 100%;
 }
 
 #Classes_Cards {
-    background-color: rgb(129, 129, 129);
+    border: solid;
+    background-color: rgb(251, 250, 250);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 0;
+    margin: 40px;
+    padding: 20px;
+    height: 90%;
 }
 
-#Classes_Cards p {
-    color: white;
+#Classes_Cards #CCard,h3 {
+    border: solid 1px;
 }
 
+#CCard {
+    background-color: rgb(222, 221, 221);
+    text-align: center;
+    margin: 10px;
+    width: 90%;
+    height: 17em;
+    display: flex; 
+    flex-direction: column;
+}
+
+#Sections {
+    margin: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 1px rgb(44, 163, 38) solid;
+}
+
+#Sections a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+#Section {
+    background-color: rgb(210, 242, 242);
+    width: 90%;
+    border: 1px red solid;
+}
 body {
     background-color: rgb(151, 151, 151);
+}
+
+@media (min-width:500px ) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        
+    }
+
+    .nav-links {
+        flex-direction: row;
+    }
 }
