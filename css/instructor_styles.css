@@ -50,3 +50,19 @@ body {
     padding: 2px;
     border: solid black;
 }
+
+main {
+    background-color: black;
+}
+
+#Classes_Cards {
+    background-color: rgb(129, 129, 129);
+}
+
+#Classes_Cards p {
+    color: white;
+}
+
+body {
+    background-color: rgb(151, 151, 151);
+}
