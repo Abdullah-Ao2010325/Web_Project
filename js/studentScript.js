@@ -1,48 +1,85 @@
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("Script loaded successfully!");
+// Get DOM elements
+const loginForm = document.querySelector('.login-form-box form');
+const emailInput = loginForm.querySelector('input[type="text"]');
+const passwordInput = loginForm.querySelector('input[type="password"]');
 
-    const loginForm = document.querySelector(".login-form-box form");
-    if (!loginForm) {
-        console.error("Login form not found!");
-        return;
+// Function to validate input
+function validateInput(email, password) {
+    if (!email || !password) {
+        throw new Error('Please fill in all fields');
     }
+    if (email.length < 3 || password.length < 6) {
+        throw new Error('Invalid input length');
+    }
+}
 
-    loginForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        console.log("Form submitted");
+// Function to handle login
+async function handleLogin(e) {
+    e.preventDefault();
+    
+    try {
+        // Validate input first
+        validateInput(emailInput.value, passwordInput.value);
+        
+        const response = await fetch('data/students.json');
+        if (!response.ok) {
+            throw new Error('Network response failed');
+        }
+        
+        const data = await response.json();
+        
+        // Use trim() to remove whitespace
+        const student = data.students.find(student => 
+            student.username === emailInput.value.trim() && 
+            student.password === passwordInput.value.trim()
+        );
+        
+        if (student) {
+            // Remove sensitive data before storing
+            const safeStudentData = {
+                username: student.username,
+                name: student.name,
+                id: student.id
+                // Add other non-sensitive fields as needed
+            };
+            
+            // Store student info in sessionStorage instead of localStorage for better security
+            sessionStorage.setItem('currentStudent', JSON.stringify(safeStudentData));
+            window.location.href = 'studentPage.html';
+        } else {
+            throw new Error('Invalid credentials');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert(error.message || 'An error occurred during login');
+    } finally {
+        // Clear password field for security
+        passwordInput.value = '';
+    }
+}
 
-        const email = loginForm.querySelector('input[type="text"]').value;
-        const password = loginForm.querySelector('input[type="password"]').value;
-        console.log("Email:", email, "Password:", password);
+// Add event listener to login form
+loginForm.addEventListener('submit', handleLogin);
 
-        // Fetch the users.json file
-        fetch("json/students.json")
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Failed to fetch users data");
-                }
-                return response.json(); // Parse the JSON data
-            })
-            .then((data) => {
-                console.log("Users data loaded:", data); // Log the fetched data
-                const students = data.students;
-                const foundStudent = students.find(
-                    (student) =>
-                        student.username === email && student.password === password
-                );
-
-                if (foundStudent) {
-                    console.log("Student found:", foundStudent);
-                    sessionStorage.setItem("loggedInUser", JSON.stringify(foundStudent));
-                    window.location.href = "student.html";
-                } else {
-                    console.log("Invalid email or password");
-                    alert("Invalid email or password. Please try again.");
-                }
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-                alert("An error occurred. Please try again later.");
+// Check if user is logged in when loading student page
+document.addEventListener('DOMContentLoaded', () => {
+    const currentStudent = sessionStorage.getItem('currentStudent');
+    
+    // Protect student page
+    if (window.location.pathname.includes('studentPage.html')) {
+        if (!currentStudent) {
+            window.location.href = 'index.html';
+            return;
+        }
+        
+        // Handle logout
+        const logoutBtn = document.querySelector('.logout-btn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                sessionStorage.removeItem('currentStudent');
+                window.location.href = 'index.html';
             });
-    });
+        }
+    }
 });

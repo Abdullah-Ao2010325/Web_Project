@@ -10,12 +10,12 @@
 
 body {
     display: grid;
-    grid-template-rows: auto 1fr; /* Navbar takes auto height, rest is 1fr */
+    grid-template-rows: auto 1fr; 
     height: 100vh;
-    background-color: #ecebeb; /* Light gray background */
+    background-color: #ecebeb; 
 }
 
-/* Navbar Styles */
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -48,23 +48,23 @@ body {
 }
 
 .nav-links a:hover {
-    color: #ffcc00; /* Hover color */
+    color: #ffcc00; 
 }
 
-/* Logout Icon Styles */
+
 .nav-links .material-symbols-rounded {
     vertical-align: middle;
     margin-right: 5px;
 }
 
-/* Grid Layout Styles */
+
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 columns */
-    grid-template-rows: repeat(5, 1fr); /* 5 rows */
+    grid-template-columns: repeat(5, 1fr); 
+    grid-template-rows: repeat(5, 1fr); 
     gap: 10px;
     padding: 20px;
-    grid-row: 2; /* Grid is in the second row */
+    grid-row: 2; 
 }
 
 .grid-item {
@@ -80,5 +80,5 @@ body {
 }
 
 .grid-item:hover {
-    transform: scale(1.05); /* Hover effect */
+    transform: scale(1.05); 
 }
