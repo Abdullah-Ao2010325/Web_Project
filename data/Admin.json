@@ -3,12 +3,16 @@
       {
         "username": "admin1",
         "password": "password123",
-        "name": "Basheer"
+        "firstName": "Basheer",
+        "lastName": "Alabbasi",
+        "role": "Admin"
       },
       {
         "username": "admin2",
         "password": "password123",
-        "name": "Hamed"
+        "firstName": "Hamed",
+        "lastName" : "AbuMatar",
+        "role": "Admin"
       }
     ]
   }

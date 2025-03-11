@@ -3,8 +3,10 @@
       {
         "username": "ba2205895@qu.edu.qa",
         "password": "password123",
-        "name": "Basheer Ahmed",
+        "firstName": "Basheer",
+        "lastName": "Ahmed",
         "id": "202205895",
+        "role": "Student",
         "completed_courses": [
           {
             "course_name": "OOP",
@@ -19,8 +21,10 @@
       {
         "username": "aa2147583@qu.edu.qa",
         "password": "password123",
-        "name": "Ali Ahmed",
+        "firstName": "Ali",
+        "lastName": "Ahmed",
         "id": "202147583",
+        "role" : "Student",
         "completed_courses": [
           {
             "course_name": "Web Development",

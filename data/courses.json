@@ -2,8 +2,7 @@
     "courses": [
       {
         "course_name": "Web Development",
-        "category": "Programming",
-        "prerequisites": [],
+        "prerequisites": ["Programming concepts", "OOP"],
         "open_for_registration": true,
         "instructors": [
           {
@@ -14,7 +13,6 @@
       },
       {
         "course_name": "OOP",
-        "category": "Programming",
         "prerequisites": ["Programming concepts"],
         "open_for_registration": true,
         "instructors": [
@@ -26,7 +24,6 @@
       },
       {
         "course_name": "Fundamentals of Database",
-        "category": "Databases",
         "prerequisites": [],
         "open_for_registration": false,
         "instructors": [

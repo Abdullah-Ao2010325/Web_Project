@@ -1,0 +1,28 @@
+{
+    "instructors": [
+      {
+        "username": "instructor1",
+        "password": "password123",
+        "firstName": "Mahmood",
+        "lastName": "Barhamgi",
+        "teaching_courses": ["OOP", "Web Development"],
+        "role": "Instructor"
+      },
+      {
+        "username": "instructor2",
+        "password": "password123",
+        "firstName": "Rehab",
+        "lastName": "Ali",
+        "teaching_courses": ["Fundamentals of Database"],
+        "role": "Instructor"
+      },
+      {
+        "username": "instructor3",
+        "password": "password123",
+        "firstName": "Ziad",
+        "lastName": "Ali",
+        "teaching_courses": ["Programming concepts", "OOP"],
+        "role": "Instructor"
+      }
+    ]
+  }

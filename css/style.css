@@ -262,8 +262,6 @@ form button:hover {
 
 
 
-
-
 @media (max-width: 950px) {
     .navbar :is(.hamburger-btn, .close-btn) {
         display: block;
