@@ -1,0 +1,168 @@
+[
+    {
+      "course_name": "Web Development",
+      "Term": "Spring",
+      "section": "L01",
+      "course_number": 350,
+      "major": "CMPS",
+      "prerequisites": ["Programming concepts", "OOP"],
+      "open_for_registration": true,
+      "capacity": 40,
+      "instructors": [
+        {
+          "firstName": "Mahmood"
+        }
+      ]
+    },
+    {
+      "course_name": "OOP",
+      "Term": ["Fall", "Spring"],
+      "section": "L02",
+      "course_number": 251,
+      "prerequisites": ["Programming concepts"],
+      "major": ["CMPS","CMPE"],
+      "open_for_registration": true,
+      "capacity": 40,
+      "instructors": [
+        {
+          "firstName": "Zeyad"
+        }
+      ]
+    },
+    {
+      "course_name": "Fundamentals of Database",
+      "Term": "Spring",
+      "section": "L03",
+      "course_number": 351,
+      "major": "CMPS",
+      "prerequisites": [],
+      "open_for_registration": false,
+      "capacity": 40,
+      "instructors": [
+        {
+          "firstName": "Rehab"
+        }
+      ]
+    },
+    {
+      "course_name": "Linear Algebra",
+      "Term": ["Fall", "Spring"],
+      "section": "L04",
+      "course_number": 231,
+      "major": "MATH",
+      "prerequisites": ["Calculus 2"],
+      "open_for_registration": false,
+      "capacity": 40,
+      "instructors": [
+        {
+          "name": "Yousuf"
+        }
+      ]
+    },
+    {
+      "course_name": "Calculus 1",
+      "Term": ["Fall", "Spring"],
+      "section": "L05",
+      "course_number": 101,
+      "major": "MATH",
+      "prerequisites": [null],
+      "open_for_registration": true,
+      "capacity": 40,
+      "instructors": [
+        {
+          "name": "Yousuf"
+        }
+      ]
+    },
+    {
+      "course_name": "Calculus 2",
+      "Term": ["Fall", "Spring"],
+      "section": "L06",
+      "course_number": 102,
+      "major": "MATH",
+      "prerequisites": ["Calculus 1"],
+      "open_for_registration": false,
+      "capacity": 40,
+      "instructors": [
+        {
+          "name": "Yousuf"
+        }
+      ]
+    },
+    {
+      "course_name": "Operating systems",
+      "Term": ["Spring","Fall"],
+      "section": "L07",
+      "course_number": 405,
+      "major": ["CMPS","CMPE"],
+      "prerequisites": ["OOP"],
+      "open_for_registration": true,
+      "capacity": 40,
+      "instructors": [
+        {
+          "firstName": "Moatz"
+        }
+      ]
+    },
+    {
+      "course_name": "Data Structures",
+      "Term": ["Spring","Fall"],
+      "section": "L08",
+      "course_number": 303,
+      "major": ["CMPS","CMPE"],
+      "prerequisites": ["Programming concepts","OOP"],
+      "open_for_registration": false,
+      "capacity": 40,
+      "instructors": [
+        {
+          "firstName": "Ayman"
+        }
+      ]
+    },
+    {
+      "course_name": "Electronics",
+      "Term": ["Fall"],
+      "section": "L09",
+      "course_number": 330,
+      "major": "CMPE",
+      "prerequisites": [null],
+      "open_for_registration": true,
+      "capacity": 40,
+      "instructors": [
+        {
+          "firstName": "Mohammed"
+        }
+      ]
+    },
+    {
+      "course_name": "Programming concepts",
+      "Term": ["Fall"],
+      "section": "L10",
+      "course_number": 151,
+      "major": ["CMPS","CMPE"],
+      "prerequisites": [null],
+      "open_for_registration": true,
+      "capacity": 40,
+      "instructors": [
+        {
+          "firstName": "Zeyad"
+        }
+      ]
+    },
+    {
+      "course_name": "Computer Architecture 1",
+      "Term": ["Spring"],
+      "section": "L11",
+      "course_number": 278,
+      "major": "CMPE",
+      "prerequisites": [null],
+      "open_for_registration": true,
+      "capacity": 40,
+      "instructors": [
+        {
+          "firstName": "Amel"
+        }
+      ]
+    }
+]
+  
