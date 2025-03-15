@@ -2,16 +2,20 @@
     {
       "major": "CMPS",
       "totalCreditHours": 120,
+      "totalNumberofCourses": 70,
       "courses": ["OOP", "Web Development, Programming concepts, Data structures, Operating systems", "Fundamentals of Database"]
     },
     {
       "major": "CMPE",
       "totalCreditHours": 128,
+      "totalNumberofCourses": 75,
       "courses": ["Computer Architecture 1", "Data Structures, Electronics, Operating systems, Programming concepts"]
     },
     {
       "major": "MATH",
       "totalCreditHours": 130,
+      "totalNumberofCourses": 60,
       "courses": ["Linear Algebra", "Calculus 1", "Calculus 2"]
     }
 ]
+

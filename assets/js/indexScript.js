@@ -1,4 +1,3 @@
-// Navbar and popup functionality
 const navbarMenu = document.querySelector(".navbar .links");
 const hamburgerBtn = document.querySelector(".hamburger-btn");
 const hideMenuBtn = navbarMenu.querySelector(".close-btn");
@@ -56,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else if (user.role === 'Instructor') {
                         window.location.href = 'side_Instructor/instructorDashboard.html';
                     } else if (user.role === 'Admin') {
-                        window.location.href = 'side_admin/adminDashboard.html';
+                        window.location.href = 'side_admin/admin.html';
                     }
                 } else {
                     

@@ -8,7 +8,9 @@
       "role": "Student",
       "major": "CMPS",
       "GPA": 2,
-      "totalCreditHours": 50,
+      "advisor": "Salwa Askri",
+      "taken": "20",
+      "registered": "4",
       "completed_courses": [
         {
           "course_name": "OOP",
@@ -36,7 +38,9 @@
       "role" : "Student",
       "major": "CMPE",
       "GPA": 4.0,
-      "totalCreditHours": 80,
+      "advisor": "Abeer Ahmed",
+      "taken": "30",
+      "registered": "5",
       "completed_courses": [
         {
           "course_name": "Web Development",
@@ -60,7 +64,9 @@
       "role" : "Student",
       "major": "MATH",
       "GPA": 3.5,
-      "totalCreditHours": 20,
+      "advisor": "Rana Jamal",
+      "taken": "25",
+      "registered": "4",
       "completed_courses": [
         {
           "course_name": ["Linear Algebra","Operating systems"],
