@@ -24,6 +24,7 @@
       "registered_courses": [
         {
           "course_name": "Data Structures",
+
           "grade": null
         }
       ]
@@ -88,6 +89,10 @@
       "lastName": "Barhamgi",
       "instructorId": "23445",
       "teaching_courses": ["OOP", "Web Development"],
+      "teaching_sections": {
+        "OOP": ["Section A", "Section B"],
+        "Web Development": ["Section C"]
+      },
       "role": "Instructor"
     },
 
@@ -98,6 +103,9 @@
       "lastName": "Ali",
       "instructorId": "23446",
       "teaching_courses": ["Fundamentals of Database"],
+      "teaching_sections": {
+        "Fundamentals of Database": ["Section A", "Section B"]
+      },
       "role": "Instructor"
     },
 
@@ -108,6 +116,10 @@
       "lastName": "Ali",
       "instructorId": "23447",
       "teaching_courses": ["Programming concepts", "OOP"],
+      "teaching_sections": {
+        "Programming concepts": ["Section A", "Section B"],
+        "OOP": ["Section C"]
+      },
       "role": "Instructor"
     },
 
@@ -118,6 +130,11 @@
       "lastName": "Omer",
       "instructorId": "23448",
       "teaching_courses": ["Linear Algebra","Calculus 1", "Calculus 2"],
+      "teaching_sections": {
+        "Linear Algebra": ["Section A", "Section B"],
+        "Calculus 1": ["Section C"],
+        "Calculus 2":["Section D"]
+      },
       "role": "Instructor"
     },
 
@@ -128,6 +145,9 @@
       "lastName": "Zeyan",
       "instructorId": "23449",
       "teaching_courses": ["Data Structures"],
+      "teaching_sections": {
+        "Data Structures": ["Section A", "Section B","Section C"]
+      },
       "role": "Instructor"
     },
 
@@ -138,6 +158,9 @@
       "lastName": "Saleh",
       "instructorId": "23449",
       "teaching_courses": ["Operating systems"],
+      "teaching_sections": {
+        "Operating systems": ["Section A", "Section B","Section C"]
+      },
       "role": "Instructor"
     },
 
