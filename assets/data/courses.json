@@ -25,7 +25,7 @@
       "capacity": 40,
       "instructors": [
         {
-          "firstName": "Zeyad"
+          "instructorId": ["23445", "23447"]
         }
       ]
     },
@@ -40,7 +40,7 @@
       "capacity": 40,
       "instructors": [
         {
-          "firstName": "Rehab"
+          "instructorId": "23446"
         }
       ]
     },
@@ -55,7 +55,7 @@
       "capacity": 40,
       "instructors": [
         {
-          "name": "Yousuf"
+          "firstName": "Yousuf"
         }
       ]
     },
@@ -65,12 +65,12 @@
       "section": "L05",
       "course_number": 101,
       "major": "MATH",
-      "prerequisites": [null],
+      "prerequisites": [],
       "open_for_registration": true,
       "capacity": 40,
       "instructors": [
         {
-          "name": "Yousuf"
+          "firstName": "Yousuf"
         }
       ]
     },
@@ -85,7 +85,7 @@
       "capacity": 40,
       "instructors": [
         {
-          "name": "Yousuf"
+          "instructorId": "23448"
         }
       ]
     },
@@ -100,7 +100,7 @@
       "capacity": 40,
       "instructors": [
         {
-          "firstName": "Moatz"
+          "instructorId": "23449"
         }
       ]
     },
@@ -125,7 +125,7 @@
       "section": "L09",
       "course_number": 330,
       "major": "CMPE",
-      "prerequisites": [null],
+      "prerequisites": [],
       "open_for_registration": true,
       "capacity": 40,
       "instructors": [
@@ -140,12 +140,12 @@
       "section": "L10",
       "course_number": 151,
       "major": ["CMPS","CMPE"],
-      "prerequisites": [null],
+      "prerequisites": [],
       "open_for_registration": true,
       "capacity": 40,
       "instructors": [
         {
-          "firstName": "Zeyad"
+          "instructorId": "23447"
         }
       ]
     },
@@ -155,7 +155,7 @@
       "section": "L11",
       "course_number": 278,
       "major": "CMPE",
-      "prerequisites": [null],
+      "prerequisites": [],
       "open_for_registration": true,
       "capacity": 40,
       "instructors": [
