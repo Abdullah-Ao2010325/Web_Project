@@ -24,7 +24,7 @@
       "registered_courses": [
         {
           "course_name": "Data Structures",
-
+          "section": "Section A",
           "grade": null
         }
       ]
@@ -51,6 +51,7 @@
       "registered_courses": [
         {
           "course_name": "Operating systems",
+          "section": "Section B",
           "grade": null
         }
       ]
@@ -77,6 +78,7 @@
       "registered_courses": [
         {
           "course_name": "Fundamentals of Database",
+          "section": "Section B",
           "grade": null
         }
       ]
