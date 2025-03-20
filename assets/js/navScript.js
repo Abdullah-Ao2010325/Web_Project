@@ -3,25 +3,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault(); 
+            e.preventDefault();
+            const href = link.getAttribute('href');
 
             switch (href) {
-                case 'index.html':
-                    window.location.href = 'index.html';
+                case 'studentDashboard':
+                    window.location.href = 'studentDashboard.html';
                     break;
-
-                case 'courseRegistration.html':
+                case 'courseRegistration':
                     window.location.href = 'courseRegistration.html';
                     break;
-
-                case 'LearningPath.html':
+                case 'LearningPath':
                     window.location.href = 'LearningPath.html';
                     break;
-
                 case '#':
                     showLogoutConfirmation();
                     break;
-
                 default:
                     console.log('Unknown navigation link:', href);
             }
@@ -29,41 +26,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function showLogoutConfirmation() {
-        const overlay = document.createElement('div');
-        overlay.className = 'modal-overlay';
+        let logoutBox = document.querySelector('.logout-confirmation');
+        if (logoutBox) {
+            logoutBox.style.display = 'block';
+            return;
+        }
 
-        const modal = document.createElement('div');
-        modal.className = 'modal-content';
-
-        modal.innerHTML = `
-            <h2>Confirm Logout</h2> <!-- Fixed typo from "Confirmlogout" to "Confirm Logout" -->
+        logoutBox = document.createElement('div');
+        logoutBox.className = 'logout-confirmation';
+        logoutBox.innerHTML = `
+            <h2>Confirm Logout</h2>
             <p>Are you sure you want to log out of your Qatar University account?</p>
-            <div class="modal-buttons">
-                <button class="modal-btn confirm-btn">Yes, Log Out</button>
-                <button class="modal-btn cancel-btn">Cancel</button>
+            <div class="logout-buttons">
+                <button class="logout-btn confirm-btn">Yes</button>
+                <button class="logout-btn cancel-btn">Cancel</button>
             </div>
         `;
 
-        document.body.appendChild(overlay);
-        document.body.appendChild(modal);
+        const container = document.querySelector('.container');
+        container.appendChild(logoutBox);
 
-        const confirmBtn = modal.querySelector('.confirm-btn');
-        const cancelBtn = modal.querySelector('.cancel-btn');
+        const confirmBtn = logoutBox.querySelector('.confirm-btn');
+        const cancelBtn = logoutBox.querySelector('.cancel-btn');
 
         confirmBtn.addEventListener('click', () => {
             localStorage.removeItem('loggedInUsername');
             localStorage.removeItem('loggedInPassword');
-            window.location.href = '../index.html'; 
+            window.location.href = '../index.html';
         });
 
         cancelBtn.addEventListener('click', () => {
-            document.body.removeChild(overlay);
-            document.body.removeChild(modal);
-        });
-
-        overlay.addEventListener('click', () => {
-            document.body.removeChild(overlay);
-            document.body.removeChild(modal);
+            logoutBox.style.display = 'none';
         });
     }
 });

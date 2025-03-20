@@ -114,7 +114,7 @@
     {
       "username": "instructor3",
       "password": "password123",
-      "firstName": "Ziad",
+      "firstName": "Zeyad",
       "lastName": "Ali",
       "instructorId": "23447",
       "teaching_courses": ["Programming concepts", "OOP"],
@@ -156,12 +156,39 @@
     {
       "username": "instructor6",  
       "password": "password123",
-      "firstName": "Moatz",
+      "firstName": "Moataz",
       "lastName": "Saleh",
       "instructorId": "23449",
       "teaching_courses": ["Operating systems"],
       "teaching_sections": {
         "Operating systems": ["Section A", "Section B","Section C"]
+      },
+      "role": "Instructor"
+    },
+
+    {
+      "username": "instructor7",  
+      "password": "password123",
+      "firstName": "Mohammed",
+      "lastName": "Mohammed",
+      "instructorId": "23450",
+      "teaching_courses": ["Programming concepts, Electronics"],
+      "teaching_sections": {
+        "Programming concepts": ["Section A", "Section B","Section C"],
+        "Electronics": ["Section B"]
+      },
+      "role": "Instructor"
+    },
+
+    {
+      "username": "instructor8",  
+      "password": "password123",
+      "firstName": "Amel",
+      "lastName": "Bedir",
+      "instructorId": "23451",
+      "teaching_courses": ["Computer Architecture 1"],
+      "teaching_sections": {
+        "Computer Architecture 1": ["Section A", "Section B"]
       },
       "role": "Instructor"
     },

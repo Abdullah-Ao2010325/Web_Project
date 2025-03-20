@@ -1,7 +1,5 @@
-/* Student Page */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
 
-/* General Styles */
 * {
     margin: 0;
     padding: 0;
@@ -47,7 +45,7 @@ body {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 10px; 
+    gap: 5px;
     align-items: center;
 }
 
@@ -71,6 +69,7 @@ body {
 .nav-links .material-symbols-rounded {
     vertical-align: middle;
     margin-right: 5px;
+    font-size: 1rem;
 }
 
 .container {
@@ -258,9 +257,9 @@ body {
 }
 
 .course-boxes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 55px; 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px; 
     padding: 20px 0;
 }
 
@@ -268,9 +267,6 @@ body {
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    flex: 0 1 calc(25% - 30px); 
-    min-width: 250px; 
-    max-width: 250px; 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden; 
     display: flex;
@@ -342,7 +338,6 @@ body {
     margin: 10px 0;
 }
 
-/* Styles for the logout confirmation modal */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -409,4 +404,304 @@ body {
 
 .cancel-btn:hover {
     background-color: #bbb;
+}
+
+.logout-confirmation {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 2px solid #6d1204;
+    width: 350px;
+    max-width: 90%;
+    z-index: 1000;
+}
+
+.logout-confirmation h2 {
+    margin: 0 0 10px;
+    color: #6d1204;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.logout-confirmation p {
+    margin: 0 0 15px;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.logout-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.logout-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 48%;
+}
+
+.logout-btn.confirm-btn {
+    background-color: #6d1204;
+    color: #fff;
+}
+
+.logout-btn.confirm-btn:hover {
+    background-color: #4a0d03;
+}
+
+.logout-btn.cancel-btn {
+    background-color: #ffcc00;
+    color: #6d1204;
+}
+
+.logout-btn.cancel-btn:hover {
+    background-color: #e6b800;
+}
+
+@media (min-width: 724px) and (max-width: 1023px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 20px;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .track-progress {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-welcome-section {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .welcome-logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .welcome-message {
+        max-width: 100%;
+    }
+
+    .welcome-message h1 {
+        font-size: 1.5rem;
+    }
+
+    .welcome-message p {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+
+    .progress-box {
+        max-width: 600px;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .course-boxes {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 40px;
+        justify-content: center;
+    }
+
+    .search-bars {
+        flex-wrap: wrap;
+        gap: 10px;
+        max-width: 100%;
+        justify-content: center;
+    }
+
+    .search-bar {
+        width: 200px;
+    }
+
+    .logout-confirmation {
+        top: 70px;
+        width: 300px;
+    }
+
+    .logout-confirmation h2 {
+        font-size: 1.2rem;
+    }
+
+    .logout-confirmation p {
+        font-size: 0.9rem;
+    }
+
+    .logout-btn {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 723px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px 15px;
+        gap: 10px;
+    }
+
+    .logo img {
+        width: 40px;
+    }
+
+    .university-name {
+        font-size: 1rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3px;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+
+    .nav-links .material-symbols-rounded {
+        font-size: 0.9rem;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 15px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .track-progress {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-welcome-section {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+    }
+
+    .welcome-logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .welcome-message {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .welcome-message h1 {
+        font-size: 1.3rem;
+    }
+
+    .welcome-message p {
+        font-size: 0.85rem;
+    }
+
+    .progress-box {
+        max-width: 100%;
+        width: 90%;
+        padding: 10px;
+    }
+
+    .progress-item {
+        font-size: 0.9rem;
+    }
+
+    .stat-box {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+    }
+
+    .course-section h2 {
+        font-size: 1.2rem;
+    }
+
+    .search-bars {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+        max-width: 100%;
+    }
+
+    .search-bar {
+        width: 100%;
+        padding: 6px;
+    }
+
+    .search-bar input,
+    .search-bar select {
+        font-size: 0.85rem;
+    }
+
+    .course-boxes {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        justify-content: center;
+    }
+
+    .course-header h3 {
+        font-size: 0.9rem;
+    }
+
+    .course-details {
+        padding: 15px;
+    }
+
+    .course-detail-item .label,
+    .course-detail-item .value {
+        font-size: 0.85rem;
+    }
+
+    .logout-confirmation {
+        top: 100px;
+        width: 280px;
+        padding: 15px;
+    }
+
+    .logout-confirmation h2 {
+        font-size: 1.1rem;
+    }
+
+    .logout-confirmation p {
+        font-size: 0.85rem;
+    }
+
+    .logout-btn {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
 }

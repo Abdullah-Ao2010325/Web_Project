@@ -25,7 +25,7 @@
       "capacity": 40,
       "instructors": [
         {
-          "instructorId": ["23445", "23447"]
+          "firstName": "Zeyad"
         }
       ]
     },
@@ -40,7 +40,7 @@
       "capacity": 40,
       "instructors": [
         {
-          "instructorId": "23446"
+          "firstName": "Rehab"
         }
       ]
     },
@@ -85,7 +85,7 @@
       "capacity": 40,
       "instructors": [
         {
-          "instructorId": "23448"
+          "firstName": "Yousuf"
         }
       ]
     },
@@ -100,7 +100,7 @@
       "capacity": 40,
       "instructors": [
         {
-          "instructorId": "23449"
+          "firstName": "Moataz"
         }
       ]
     },
@@ -145,7 +145,7 @@
       "capacity": 40,
       "instructors": [
         {
-          "instructorId": "23447"
+          "firstName": "Mohammed"
         }
       ]
     },

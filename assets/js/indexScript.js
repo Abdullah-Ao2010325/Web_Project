@@ -1,70 +1,70 @@
-const navbarMenu = document.querySelector(".navbar .links");
-const hamburgerBtn = document.querySelector(".hamburger-btn");
-const hideMenuBtn = navbarMenu.querySelector(".close-btn");
-const showPopupBtn = document.querySelector(".login-btn");
-const formPopup = document.querySelector(".form-interface"); 
-const hidePopupBtn = formPopup.querySelector(".close-btn");
-
-hamburgerBtn.addEventListener("click", () => {
-    navbarMenu.classList.toggle("show-menu");
-});
-
-hideMenuBtn.addEventListener("click", () =>  hamburgerBtn.click());
-
-showPopupBtn.addEventListener("click", () => {
-    document.body.classList.toggle("show-popup");
-});
-
-hidePopupBtn.addEventListener("click", () => showPopupBtn.click());
-
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.querySelector('.form-container form');
+    const showPopupBtn = document.querySelector('.login-btn');
+    const formPopup = document.querySelector('.form-interface');
+    const hidePopupBtn = formPopup.querySelector('.close-btn');
 
     if (!loginForm) {
-        console.error("Login form not found.");
+        console.error("Login form not found in the DOM.");
         return;
     }
 
-    loginForm.addEventListener('submit', function (event) {
+    showPopupBtn.addEventListener('click', () => {
+        document.body.classList.toggle('show-popup');
+    });
+
+    hidePopupBtn.addEventListener('click', () => {
+        document.body.classList.remove('show-popup');
+    });
+
+    loginForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
-        
         const username = document.querySelector('.form-container input[type="text"]').value;
         const password = document.querySelector('.form-container input[type="password"]').value;
+
+        const existingError = loginForm.querySelector('.error-message');
+        if (existingError) existingError.remove();
+
         const errorMessage = document.createElement('div');
+        errorMessage.className = 'error-message';
         errorMessage.style.color = 'red';
         errorMessage.style.marginTop = '10px';
+        errorMessage.style.fontSize = '0.9rem';
 
-        
-        fetch('../assets/data/users.json')
-            .then(response => response.json())
-            .then(users => {
-                
-                const user = users.find(
-                    user => user.username === username && user.password === password
-                );
+        try {
+            const response = await fetch('../assets/data/users.json'); // Adjust path if needed
+            if (!response.ok) {
+                throw new Error(`Failed to fetch users.json: ${response.status} ${response.statusText}`);
+            }
+            const users = await response.json();
+            console.log("users.json fetched successfully:", users);
 
-                if (user) {
-                   
-                    localStorage.setItem('loggedInUsername', username);
-                    localStorage.setItem('loggedInPassword', password);
+            const user = users.find(
+                user => user.username === username && user.password === password
+            );
 
-                    
-                    if (user.role === 'Student') {
-                        window.location.href = 'side_student/studentDashboard.html';
-                    } else if (user.role === 'Instructor') {
-                        window.location.href = 'side_Instructor/instructorDashboard.html';
-                    } else if (user.role === 'Admin') {
-                        window.location.href = 'side_admin/admin.html';
-                    }
-                } else {
-                    
-                    errorMessage.textContent = 'Invalid username or password. Please try again.';
-                    loginForm.appendChild(errorMessage);
+            if (user) {
+                console.log("Login successful for user:", user.username);
+                localStorage.setItem('loggedInUsername', username);
+                localStorage.setItem('loggedInPassword', password);
+
+                if (user.role === 'Student') {
+                    window.location.href = 'side_student/studentDashboard.html';
+                } else if (user.role === 'Instructor') {
+                    window.location.href = 'side_Instructor/instructorDashboard.html';
+                } else if (user.role === 'Admin') {
+                    window.location.href = 'side_admin/admin.html';
                 }
-            })
-            .catch(error => {
-                console.error("Error fetching user data:", error);
-            });
+            } else {
+                console.log("Login failed: No matching user found.");
+                errorMessage.textContent = 'Email or password is incorrect';
+                loginForm.appendChild(errorMessage);
+            }
+        } catch (error) {
+            console.error("Error during login process:", error.message);
+            errorMessage.textContent = 'Email or password is incorrect';
+            loginForm.appendChild(errorMessage);
+        }
     });
 });
