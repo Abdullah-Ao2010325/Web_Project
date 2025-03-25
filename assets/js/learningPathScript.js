@@ -1,105 +1,120 @@
-// document.addEventListener('DOMContentLoaded', () => {
-//     const loggedInUsername = localStorage.getItem('loggedInUsername');
-//     if (!loggedInUsername) {
-//         console.error('No logged-in user found. Redirecting to login page.');
-//         window.location.href = '../index.html';
-//         return;
-//     }
+document.addEventListener('DOMContentLoaded', () => {
+    const loggedInUsername = localStorage.getItem('loggedInUsername');
+    if (!loggedInUsername) {
+        console.error('No logged-in user found. Redirecting to login page.');
+        window.location.href = '../index.html';
+        return;
+    }
 
-//     let allCourses = [];
+    let studentData = null;
+    let allCourses = [];
+    let allUsers = [];
 
-//     async function fetchJSON(fileName, paths) {
-//         for (const path of paths) {
-//             try {
-//                 const response = await fetch(path);
-//                 if (!response.ok) throw new Error(`Failed to fetch ${fileName} from ${path}`);
-//                 const data = await response.json();
-//                 console.log(`Successfully fetched ${fileName} from ${path}`);
-//                 return data;
-//             } catch (e) {
-//                 console.warn(`Attempt failed for ${path}: ${e.message}`);
-//             }
-//         }
-//         throw new Error(`All paths failed for ${fileName}`);
-//     }
+    async function fetchJSON(fileName, paths) {
+        for (const path of paths) {
+            try {
+                const response = await fetch(path);
+                const data = await response.json();
+                return data;
+            } catch (e) {
+                console.warn(`Attempt failed for ${path}: ${e.message}`);
+            }
+        }
+        throw new Error(`All paths failed for ${fileName}`);
+    }
 
-//     const usersPaths = ['/assets/data/users.json'];
-//     fetchJSON('users.json', usersPaths)
-//         .then(users => {
-//             const student = users.find(user => user.role === 'Student' && user.username === loggedInUsername);
-//             if (!student) {
-//                 console.error('Student data not found for:', loggedInUsername);
-//                 alert('Student data not found. Redirecting to login.');
-//                 window.location.href = '../index.html';
-//                 return;
-//             }
+    // Fetch all necessary data
+    Promise.all([
+        fetchJSON('users.json', ['/assets/data/users.json']),
+        fetchJSON('courses.json', ['/assets/data/courses.json'])
+    ])
+        .then(([users, courses]) => {
+            allUsers = users;
+            allCourses = courses;
+            studentData = users.find(user => user.role === 'Student' && user.username === loggedInUsername);
 
-//             const completedCourses = student.completed_courses || [];
-//             const registeredCourses = student.registered_courses || [];
+            if (!studentData) {
+                console.error('Student data not found for:', loggedInUsername);
+                alert('Student data not found. Redirecting to login.');
+                window.location.href = '../index.html';
+                return;
+            }
 
-//             const coursesPaths = ['/assets/data/courses.json'];
-//             fetchJSON('courses.json', coursesPaths)
-//                 .then(courses => {
-//                     allCourses = courses;
+            // Initial render with "Completed" courses
+            renderCourses('Completed');
 
-//                     // Populate Completed Courses
-//                     const completedContainer = document.getElementById('completed-courses');
-//                     completedCourses.forEach(course => {
-//                         const courseBox = document.createElement('div');
-//                         courseBox.classList.add('learning-path-course');
-//                         courseBox.innerHTML = `
-//                             <h4>${course.course_name}</h4>
-//                             <p>Grade: <span class="grade">${course.grade}</span></p>
-//                         `;
-//                         completedContainer.appendChild(courseBox);
-//                     });
+            // Filter event listener
+            const statusFilter = document.getElementById('courseStatus');
+            statusFilter.addEventListener('change', (e) => {
+                renderCourses(e.target.value);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            alert('Failed to load learning path data. Please log in again.');
+            window.location.href = '../index.html';
+        });
 
-//                     // Populate In-Progress Courses
-//                     const inProgressContainer = document.getElementById('in-progress-courses');
-//                     registeredCourses.forEach(course => {
-//                         const courseBox = document.createElement('div');
-//                         courseBox.classList.add('learning-path-course');
-//                         courseBox.innerHTML = `
-//                             <h4>${course.course_name}</h4>
-//                             <p>Section: ${course.section || 'N/A'}</p>
-//                             <p class="status">Status: In Progress</p>
-//                         `;
-//                         inProgressContainer.appendChild(courseBox);
-//                     });
+    function renderCourses(status) {
+        const courseCardsContainer = document.querySelector('.course-cards');
+        courseCardsContainer.innerHTML = '';
 
-//                     // Populate Pending Courses
-//                     const pendingContainer = document.getElementById('pending-courses');
-//                     const studentMajor = student.major;
-//                     const completedCourseNames = completedCourses.map(c => c.course_name);
-//                     const registeredCourseNames = registeredCourses.map(c => c.course_name);
+        let coursesToDisplay = [];
+        if (status === 'Completed') {
+            coursesToDisplay = studentData.completed_courses.map(course => ({
+                course_name: course.course_name,
+                grade: course.grade,
+                status: 'Completed'
+            }));
+        } else if (status === 'In Progress') {
+            coursesToDisplay = studentData.registered_courses
+                .map(rc => {
+                    const course = allCourses.find(c => c.offering_id === rc.offering_id);
+                    return course && course.status === 'In Progress' ? {
+                        course_name: course.course_name,
+                        term: Array.isArray(course.Term) ? course.Term[0] : course.Term,
+                        section: course.section,
+                        instructor: allUsers.find(u => u.username === course.instructors[0].username)?.firstName || 'N/A',
+                        status: 'In Progress'
+                    } : null;
+                })
+                .filter(course => course !== null);
+        } else if (status === 'Pending') {
+            coursesToDisplay = studentData.registered_courses
+                .map(rc => {
+                    const course = allCourses.find(c => c.offering_id === rc.offering_id);
+                    return course && (course.status === 'Pending' || course.status === 'Validated') ? {
+                        course_name: course.course_name,
+                        term: Array.isArray(course.Term) ? course.Term[0] : course.Term,
+                        section: course.section,
+                        instructor: allUsers.find(u => u.username === course.instructors[0].username)?.firstName || 'N/A',
+                        status: course.status
+                    } : null;
+                })
+                .filter(course => course !== null);
+        }
 
-//                     const pendingCourses = allCourses.filter(course => {
-//                         const matchesMajor = Array.isArray(course.major)
-//                             ? course.major.includes(studentMajor)
-//                             : course.major === studentMajor;
-//                         const isOpen = course.open_for_registration;
-//                         const notTakenOrRegistered = !completedCourseNames.includes(course.course_name) &&
-//                             !registeredCourseNames.includes(course.course_name);
-//                         return matchesMajor && isOpen && notTakenOrRegistered;
-//                     });
+        if (coursesToDisplay.length === 0) {
+            courseCardsContainer.innerHTML = `<p>No courses found for "${status}" status.</p>`;
+            return;
+        }
 
-//                     pendingCourses.forEach(course => {
-//                         const term = Array.isArray(course.Term) ? course.Term[0] : course.Term;
-//                         const courseBox = document.createElement('div');
-//                         courseBox.classList.add('learning-path-course');
-//                         courseBox.innerHTML = `
-//                             <h4>${course.course_name}</h4>
-//                             <p>Term: ${term || 'N/A'}</p>
-//                             <p class="status">Status: Registration Open</p>
-//                         `;
-//                         pendingContainer.appendChild(courseBox);
-//                     });
-//                 })
-//                 .catch(error => console.error('Error fetching courses:', error));
-//         })
-//         .catch(error => {
-//             console.error('Error fetching users:', error);
-//             alert('Failed to load data. Please log in again.');
-//             window.location.href = '../index.html';
-//         });
-// });
+        coursesToDisplay.forEach(course => {
+            const card = document.createElement('div');
+            card.classList.add('learning-card');
+            card.innerHTML = `
+                <div class="card-header">
+                    <h3>${course.course_name}</h3>
+                    <span class="status ${course.status.toLowerCase().replace(' ', '-')}">${course.status}</span>
+                </div>
+                <div class="card-details">
+                    ${course.grade ? `<p><strong>Grade:</strong> ${course.grade}</p>` : ''}
+                    ${course.term ? `<p><strong>Term:</strong> ${course.term}</p>` : ''}
+                    ${course.section ? `<p><strong>Section:</strong> ${course.section}</p>` : ''}
+                    ${course.instructor ? `<p><strong>Instructor:</strong> ${course.instructor}</p>` : ''}
+                </div>
+            `;
+            courseCardsContainer.appendChild(card);
+        });
+    }
+});

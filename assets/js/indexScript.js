@@ -33,10 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         errorMessage.style.fontSize = '0.9rem';
 
         try {
-            const response = await fetch('../assets/data/users.json'); // Adjust path if needed
-            if (!response.ok) {
-                throw new Error(`Failed to fetch users.json: ${response.status} ${response.statusText}`);
-            }
+            const response = await fetch('../assets/data/users.json');
             const users = await response.json();
             console.log("users.json fetched successfully:", users);
 

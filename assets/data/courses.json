@@ -3,166 +3,176 @@
       "course_name": "Web Development",
       "Term": "Spring",
       "section": "L01",
-      "course_number": 350,
+      "course_number": "CMPS 350",
       "major": "CMPS",
+      "category": "Programming",
       "prerequisites": ["Programming concepts", "OOP"],
       "open_for_registration": true,
       "capacity": 40,
-      "instructors": [
-        {
-          "firstName": "Mahmood"
-        }
-      ]
+      "offering_id": "OFR001",
+      "instructors": [{"username": "instructor1"}],
+      "registered_students": ["ba2205895"],
+      "status": "Pending",
+      "grades": {}
     },
     {
       "course_name": "OOP",
-      "Term": ["Fall", "Spring"],
+      "Term": ["Fall / Spring"],
       "section": "L02",
-      "course_number": 251,
+      "course_number": "CMPS 251",
+      "major": ["CMPS", "CMPE"],
+      "category": "Programming",
       "prerequisites": ["Programming concepts"],
-      "major": ["CMPS","CMPE"],
       "open_for_registration": true,
       "capacity": 40,
-      "instructors": [
-        {
-          "firstName": "Zeyad"
-        }
-      ]
+      "offering_id": "OFR002",
+      "instructors": [{"username": "instructor3"}],
+      "registered_students": [],
+      "status": "Validated",
+      "grades": {"ba2205895": "A", "aa2147583": "A"}
     },
     {
       "course_name": "Fundamentals of Database",
       "Term": "Spring",
       "section": "L03",
-      "course_number": 351,
+      "course_number": "CMPS 351",
       "major": "CMPS",
+      "category": "Databases",
       "prerequisites": [],
       "open_for_registration": false,
       "capacity": 40,
-      "instructors": [
-        {
-          "firstName": "Rehab"
-        }
-      ]
+      "offering_id": "OFR003",
+      "instructors": [{"username": "instructor2"}],
+      "registered_students": [],
+      "status": "In Progress",
+      "grades": {"ba2205895": "A"}
     },
     {
       "course_name": "Linear Algebra",
-      "Term": ["Fall", "Spring"],
+      "Term": ["Fall / Spring"],
       "section": "L04",
-      "course_number": 231,
+      "course_number": "MATH 231",
       "major": "MATH",
+      "category": "Mathematics",
       "prerequisites": ["Calculus 2"],
       "open_for_registration": false,
       "capacity": 40,
-      "instructors": [
-        {
-          "firstName": "Yousuf"
-        }
-      ]
+      "offering_id": "OFR004",
+      "instructors": [{"username": "instructor4"}],
+      "registered_students": [],
+      "status": "Validated",
+      "grades": {}
     },
     {
       "course_name": "Calculus 1",
-      "Term": ["Fall", "Spring"],
+      "Term": ["Fall / Spring"],
       "section": "L05",
-      "course_number": 101,
+      "course_number": "MATH 101",
       "major": "MATH",
+      "category": "Mathematics",
       "prerequisites": [],
       "open_for_registration": true,
       "capacity": 40,
-      "instructors": [
-        {
-          "firstName": "Yousuf"
-        }
-      ]
+      "offering_id": "OFR005",
+      "instructors": [{"username": "instructor4"}],
+      "registered_students": [],
+      "status": "Pending",
+      "grades": {}
     },
     {
       "course_name": "Calculus 2",
-      "Term": ["Fall", "Spring"],
+      "Term": ["Fall / Spring"],
       "section": "L06",
-      "course_number": 102,
+      "course_number": "MATH 102",
       "major": "MATH",
+      "category": "Mathematics",
       "prerequisites": ["Calculus 1"],
       "open_for_registration": false,
       "capacity": 40,
-      "instructors": [
-        {
-          "firstName": "Yousuf"
-        }
-      ]
+      "offering_id": "OFR006",
+      "instructors": [{"username": "instructor4"}],
+      "registered_students": [],
+      "status": "In Progress",
+      "grades": {}
     },
     {
       "course_name": "Operating systems",
-      "Term": ["Spring","Fall"],
+      "Term": ["Spring / Fall"],
       "section": "L07",
-      "course_number": 405,
-      "major": ["CMPS","CMPE"],
+      "course_number": "CMPS 405",
+      "major": ["CMPS", "CMPE"],
+      "category": "Systems",
       "prerequisites": ["OOP"],
       "open_for_registration": true,
       "capacity": 40,
-      "instructors": [
-        {
-          "firstName": "Moataz"
-        }
-      ]
+      "offering_id": "OFR007",
+      "instructors": [{"username": "instructor6"}],
+      "registered_students": ["aa2147583"],
+      "status": "Pending",
+      "grades": {}
     },
     {
       "course_name": "Data Structures",
-      "Term": ["Spring","Fall"],
+      "Term": ["Spring / Fall"],
       "section": "L08",
-      "course_number": 303,
-      "major": ["CMPS","CMPE"],
-      "prerequisites": ["Programming concepts","OOP"],
-      "open_for_registration": false,
-      "capacity": 40,
-      "instructors": [
-        {
-          "firstName": "Ayman"
-        }
-      ]
+      "course_number": "CMPS 303",
+      "major": ["CMPS", "CMPE"],
+      "category": "Programming",
+      "prerequisites": ["Programming concepts", "OOP"],
+      "open_for_registration": true,
+      "capacity": 1,
+      "offering_id": "OFR008",
+      "instructors": [{"username": "instructor5"}],
+      "registered_students": ["ba2205895"],
+      "status": "Pending",
+      "grades": {}
     },
     {
       "course_name": "Electronics",
       "Term": ["Fall"],
       "section": "L09",
-      "course_number": 330,
+      "course_number": "CMPE 330",
       "major": "CMPE",
+      "category": "Hardware",
       "prerequisites": [],
       "open_for_registration": true,
       "capacity": 40,
-      "instructors": [
-        {
-          "firstName": "Mohammed"
-        }
-      ]
+      "offering_id": "OFR009",
+      "instructors": [{"username": "instructor7"}],
+      "registered_students": [],
+      "status": "Validated",
+      "grades": {}
     },
     {
       "course_name": "Programming concepts",
       "Term": ["Fall"],
       "section": "L10",
-      "course_number": 151,
-      "major": ["CMPS","CMPE"],
+      "course_number": "CMPS 151",
+      "major": ["CMPS", "CMPE"],
+      "category": "Programming",
       "prerequisites": [],
       "open_for_registration": true,
       "capacity": 40,
-      "instructors": [
-        {
-          "firstName": "Mohammed"
-        }
-      ]
+      "offering_id": "OFR010",
+      "instructors": [{"username": "instructor7"}],
+      "registered_students": [],
+      "status": "In Progress",
+      "grades": {"aa2147583": "B+", "ka2345732": "B+"}
     },
     {
       "course_name": "Computer Architecture 1",
       "Term": ["Spring"],
       "section": "L11",
-      "course_number": 278,
+      "course_number": "CMPE 278",
       "major": "CMPE",
+      "category": "Hardware",
       "prerequisites": [],
       "open_for_registration": true,
       "capacity": 40,
-      "instructors": [
-        {
-          "firstName": "Amel"
-        }
-      ]
+      "offering_id": "OFR011",
+      "instructors": [{"username": "instructor8"}],
+      "registered_students": [],
+      "status": "Pending",
+      "grades": {}
     }
-]
-  
+  ]

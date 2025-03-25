@@ -10,9 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 case 'studentDashboard':
                     window.location.href = 'studentDashboard.html';
                     break;
-                case 'courseRegistration':
-                    window.location.href = 'courseRegistration.html';
-                    break;
                 case 'LearningPath':
                     window.location.href = 'LearningPath.html';
                     break;

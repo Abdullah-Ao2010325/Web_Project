@@ -1,216 +1,160 @@
 [
-    {
-      "username": "ba2205895",
-      "password": "password123",
-      "firstName": "Basheer",
-      "lastName": "Ahmed",
-      "id": "202205895",
-      "role": "Student",
-      "major": "CMPS",
-      "GPA": 2,
-      "advisor": "Salwa Askri",
-      "taken": "20",
-      "registered": "4",
-      "completed_courses": [
-        {
-          "course_name": "OOP",
-          "grade": "A"
-        },
-        {
-          "course_name": "Fundamentals of Database",
-          "grade": "A"
-        }
-      ],
-      "registered_courses": [
-        {
-          "course_name": "Data Structures",
-          "section": "Section A",
-          "grade": null
-        }
-      ]
-    },
-
-    {
-      "username": "aa2147583",
-      "password": "password123",
-      "firstName": "Ali",
-      "lastName": "Ahmed",
-      "id": "202147583",
-      "role" : "Student",
-      "major": "CMPE",
-      "GPA": 4.0,
-      "advisor": "Abeer Ahmed",
-      "taken": "30",
-      "registered": "5",
-      "completed_courses": [
-        {
-          "course_name": "Web Development",
-          "grade": "B"
-        }
-      ],
-      "registered_courses": [
-        {
-          "course_name": "Operating systems",
-          "section": "Section B",
-          "grade": null
-        }
-      ]
-    },
-
-    {
-      "username": "ka2345732",
-      "password": "password123",
-      "firstName": "Khaled",
-      "lastName": "Ahmed",
-      "id": "202345732",
-      "role" : "Student",
-      "major": "MATH",
-      "GPA": 3.5,
-      "advisor": "Rana Jamal",
-      "taken": "25",
-      "registered": "4",
-      "completed_courses": [
-        {
-          "course_name": ["Linear Algebra","Operating systems"],
-          "grade": ["B","A"]
-        }
-      ],
-      "registered_courses": [
-        {
-          "course_name": "Fundamentals of Database",
-          "section": "Section B",
-          "grade": null
-        }
-      ]
-    },
-
-    {
-      "username": "instructor1",
-      "password": "password123",
-      "firstName": "Mahmood",
-      "lastName": "Barhamgi",
-      "instructorId": "23445",
-      "teaching_courses": ["OOP", "Web Development"],
-      "teaching_sections": {
-        "OOP": ["Section A", "Section B"],
-        "Web Development": ["Section C"]
-      },
-      "role": "Instructor"
-    },
-
-    {
-      "username": "instructor2",
-      "password": "password123",
-      "firstName": "Rehab",
-      "lastName": "Ali",
-      "instructorId": "23446",
-      "teaching_courses": ["Fundamentals of Database"],
-      "teaching_sections": {
-        "Fundamentals of Database": ["Section A", "Section B"]
-      },
-      "role": "Instructor"
-    },
-
-    {
-      "username": "instructor3",
-      "password": "password123",
-      "firstName": "Zeyad",
-      "lastName": "Ali",
-      "instructorId": "23447",
-      "teaching_courses": ["Programming concepts", "OOP"],
-      "teaching_sections": {
-        "Programming concepts": ["Section A", "Section B"],
-        "OOP": ["Section C"]
-      },
-      "role": "Instructor"
-    },
-
-    {
-      "username": "instructor4",  
-      "password": "password123",
-      "firstName": "Yousuf",
-      "lastName": "Omer",
-      "instructorId": "23448",
-      "teaching_courses": ["Linear Algebra","Calculus 1", "Calculus 2"],
-      "teaching_sections": {
-        "Linear Algebra": ["Section A", "Section B"],
-        "Calculus 1": ["Section C"],
-        "Calculus 2":["Section D"]
-      },
-      "role": "Instructor"
-    },
-
-    {
-      "username": "instructor5",  
-      "password": "password123",
-      "firstName": "Ayman",
-      "lastName": "Zeyan",
-      "instructorId": "23449",
-      "teaching_courses": ["Data Structures"],
-      "teaching_sections": {
-        "Data Structures": ["Section A", "Section B","Section C"]
-      },
-      "role": "Instructor"
-    },
-
-    {
-      "username": "instructor6",  
-      "password": "password123",
-      "firstName": "Moataz",
-      "lastName": "Saleh",
-      "instructorId": "23449",
-      "teaching_courses": ["Operating systems"],
-      "teaching_sections": {
-        "Operating systems": ["Section A", "Section B","Section C"]
-      },
-      "role": "Instructor"
-    },
-
-    {
-      "username": "instructor7",  
-      "password": "password123",
-      "firstName": "Mohammed",
-      "lastName": "Mohammed",
-      "instructorId": "23450",
-      "teaching_courses": ["Programming concepts, Electronics"],
-      "teaching_sections": {
-        "Programming concepts": ["Section A", "Section B","Section C"],
-        "Electronics": ["Section B"]
-      },
-      "role": "Instructor"
-    },
-
-    {
-      "username": "instructor8",  
-      "password": "password123",
-      "firstName": "Amel",
-      "lastName": "Bedir",
-      "instructorId": "23451",
-      "teaching_courses": ["Computer Architecture 1"],
-      "teaching_sections": {
-        "Computer Architecture 1": ["Section A", "Section B"]
-      },
-      "role": "Instructor"
-    },
-
-    {
-      "username": "admin1",
-      "password": "password123",
-      "firstName": "Basheer",
-      "lastName": "Alabbasi",
-      "AdminId": "12345",
-      "role": "Admin"
-    },
-
-    {
-      "username": "admin2",
-      "password": "password123",
-      "firstName": "Hamed",
-      "lastName" : "AbuMatar",
-      "AdminId": "12346",
-      "role": "Admin"
-    }
+  {
+    "username": "ba2205895",
+    "password": "password123",
+    "firstName": "Basheer",
+    "lastName": "Ahmed",
+    "id": "202205895",
+    "role": "Student",
+    "major": "CMPS",
+    "GPA": 2,
+    "advisor": "Salwa Askri",
+    "taken": "20",
+    "registered": "4",
+    "completed_courses": [
+      {"course_name": "Programming concepts", "grade": "A"},
+      {"course_name": "OOP", "grade": "A"}
+    ],
+    "registered_courses": [
+      {"course_name": "Data Structures", "offering_id": "OFR008", "grade": null}
+    ]
+  },
+  {
+    "username": "aa2147583",
+    "password": "password123",
+    "firstName": "Ali",
+    "lastName": "Ahmed",
+    "id": "202147583",
+    "role": "Student",
+    "major": "CMPE",
+    "GPA": 4.0,
+    "advisor": "Abeer Ahmed",
+    "taken": "30",
+    "registered": "5",
+    "completed_courses": [
+      {"course_name": "Web Development", "grade": "B"},
+      {"course_name": "OOP", "grade": "A"},
+      {"course_name": "Programming concepts", "grade": "B+"}
+    ],
+    "registered_courses": [
+      {"course_name": "Operating systems", "offering_id": "OFR007", "grade": null}
+    ]
+  },
+  {
+    "username": "ka2345732",
+    "password": "password123",
+    "firstName": "Khaled",
+    "lastName": "Ahmed",
+    "id": "202345732",
+    "role": "Student",
+    "major": "MATH",
+    "GPA": 3.5,
+    "advisor": "Rana Jamal",
+    "taken": "25",
+    "registered": "4",
+    "completed_courses": [
+      {"course_name": "Web Development", "grade": "B"},
+      {"course_name": "OOP", "grade": "A"},
+      {"course_name": "Programming concepts", "grade": "B+"}
+    ],
+    "registered_courses": [
+      {"course_name": "Fundamentals of Database", "offering_id": "OFR003", "grade": null}
+    ]
+  },
+  {
+    "username": "instructor1",
+    "password": "password123",
+    "firstName": "Mahmood",
+    "lastName": "Barhamgi",
+    "instructorId": "23445",
+    "role": "Instructor",
+    "expertise": "CMPS",
+    "teaching_courses": ["OOP", "Web Development"]
+  },
+  {
+    "username": "instructor2",
+    "password": "password123",
+    "firstName": "Rehab",
+    "lastName": "Ali",
+    "instructorId": "23446",
+    "role": "Instructor",
+    "expertise": "CMPS",
+    "teaching_courses": ["Fundamentals of Database"]
+  },
+  {
+    "username": "instructor3",
+    "password": "password123",
+    "firstName": "Zeyad",
+    "lastName": "Ali",
+    "instructorId": "23447",
+    "role": "Instructor",
+    "expertise": "CMPS",
+    "teaching_courses": ["Programming concepts", "OOP"]
+  },
+  {
+    "username": "instructor4",
+    "password": "password123",
+    "firstName": "Yousuf",
+    "lastName": "Omer",
+    "instructorId": "23448",
+    "role": "Instructor",
+    "expertise": "MATH",
+    "teaching_courses": ["Linear Algebra", "Calculus 1", "Calculus 2"]
+  },
+  {
+    "username": "instructor5",
+    "password": "password123",
+    "firstName": "Ayman",
+    "lastName": "Zeyan",
+    "instructorId": "23449",
+    "role": "Instructor",
+    "expertise": "CMPS",
+    "teaching_courses": ["Data Structures"]
+  },
+  {
+    "username": "instructor6",
+    "password": "password123",
+    "firstName": "Moataz",
+    "lastName": "Saleh",
+    "instructorId": "23449",
+    "role": "Instructor",
+    "expertise": "CMPS",
+    "teaching_courses": ["Operating systems"]
+  },
+  {
+    "username": "instructor7",
+    "password": "password123",
+    "firstName": "Mohammed",
+    "lastName": "Mohammed",
+    "instructorId": "23450",
+    "role": "Instructor",
+    "expertise": "CMPE",
+    "teaching_courses": ["Programming concepts", "Electronics"]
+  },
+  {
+    "username": "instructor8",
+    "password": "password123",
+    "firstName": "Amel",
+    "lastName": "Bedir",
+    "instructorId": "23451",
+    "role": "Instructor",
+    "expertise": "CMPE",
+    "teaching_courses": ["Computer Architecture 1"]
+  },
+  {
+    "username": "admin1",
+    "password": "password123",
+    "firstName": "Basheer",
+    "lastName": "Alabbasi",
+    "AdminId": "12345",
+    "role": "Admin"
+  },
+  {
+    "username": "admin2",
+    "password": "password123",
+    "firstName": "Hamed",
+    "lastName": "AbuMatar",
+    "AdminId": "12346",
+    "role": "Admin"
+  }
 ]
-
-
-  
