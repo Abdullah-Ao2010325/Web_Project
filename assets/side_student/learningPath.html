@@ -20,24 +20,22 @@
             <ul class="nav-links">
                 <li><a href="studentDashboard"><span class="material-symbols-rounded">home</span>Dashboard</a></li>
                 <li><a href="LearningPath"><span class="material-symbols-rounded">school</span>Learning Path</a></li>
-                <li><a href="#"><span class="logout-btn material-symbols-rounded">logout</span>Logout</a></li>
+                <li><a href="#"><span class="material-symbols-rounded">logout</span>Logout</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <div class="container">
-            <div class="learning-path-section">
-                <h2>Your Learning Path</h2>
-                <div class="filter-bar">
-                    <label for="courseStatus">Filter by Status:</label>
-                    <select id="courseStatus">
-                        <option value="Completed">Completed</option>
-                        <option value="In Progress">In Progress</option>
-                        <option value="Pending">Pending</option>
-                    </select>
-                </div>
-                <div class="course-cards"></div>
+            <h2 class="learning-path-title">Your Learning Path</h2>
+            <div class="filter-bar">
+                <label for="courseStatus">Filter by Status:</label>
+                <select id="courseStatus">
+                    <option value="Completed">Completed</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Pending">Pending</option>
+                </select>
             </div>
+            <ul class="course-list"></ul>
         </div>
     </main>
 </body>
