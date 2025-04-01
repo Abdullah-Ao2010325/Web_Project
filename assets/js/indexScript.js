@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const hidePopupBtn = formPopup.querySelector('.close-btn');
 
     if (!loginForm) {
-        console.error("Login form not found in the DOM.");
         return;
     }
 
@@ -35,14 +34,12 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch('../assets/data/users.json');
             const users = await response.json();
-            console.log("users.json fetched successfully:", users);
 
             const user = users.find(
                 user => user.username === username && user.password === password
             );
 
             if (user) {
-                console.log("Login successful for user:", user.username);
                 localStorage.setItem('loggedInUsername', username);
                 localStorage.setItem('loggedInPassword', password);
 
@@ -54,13 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     window.location.href = 'side_admin/admin.html';
                 }
             } else {
-                console.log("Login failed: No matching user found.");
                 errorMessage.textContent = 'Email or password is incorrect';
                 loginForm.appendChild(errorMessage);
             }
         } catch (error) {
-            console.error("Error during login process:", error.message);
-            errorMessage.textContent = 'Email or password is incorrect';
+            errorMessage.textContent = 'Error logging in. Please try again.';
             loginForm.appendChild(errorMessage);
         }
     });

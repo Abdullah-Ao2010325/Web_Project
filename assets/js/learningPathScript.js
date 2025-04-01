@@ -127,10 +127,18 @@ document.addEventListener('DOMContentLoaded', function() {
             const li = document.createElement('li');
             li.classList.add('course-item');
             let detailsHtml = '';
-            detailsHtml += '<span class="course-detail"><strong>Grade:</strong> ' + course.grade + '</span>';
-            detailsHtml += '<span class="course-detail"><strong>Term:</strong> ' + course.term + '</span>';
-            detailsHtml += '<span class="course-detail"><strong>Section:</strong> ' + course.section + '</span>';
-            detailsHtml += '<span class="course-detail"><strong>Instructor:</strong> ' + course.instructor + '</span>';
+            if(course.grade) {
+                detailsHtml += '<span class="course-detail"><strong>Grade:</strong> ' + course.grade + '</span>';
+            }
+            if(course.term) {   
+                detailsHtml += '<span class="course-detail"><strong>Term:</strong> ' + course.term + '</span>';
+            }
+            if(course.section) {
+                detailsHtml += '<span class="course-detail"><strong>Section:</strong> ' + course.section + '</span>';
+            }
+            if(course.instructor) {
+                detailsHtml += '<span class="course-detail"><strong>Instructor:</strong> ' + course.instructor + '</span>';
+            }
 
             li.innerHTML = `
                 <div class="course-item-content">

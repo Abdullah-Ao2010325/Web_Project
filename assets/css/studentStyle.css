@@ -268,20 +268,20 @@ body {
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden; 
+    overflow: hidden;
     display: flex;
     flex-direction: column;
 }
 
 .course-box:hover {
-    transform: translateY(-5px); 
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); 
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .course-header {
     background-color: #6d1204; 
     padding: 15px 20px;
-    border-bottom: 2px solid #ffcc00; 
+    border-bottom: 2px solid #ffcc00;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -289,9 +289,9 @@ body {
 
 .course-header h3 {
     margin: 0;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    color: #fff; 
+    color: #fff;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -299,7 +299,7 @@ body {
 }
 
 .course-details {
-    padding: 20px;
+    padding: 25px; 
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -310,53 +310,57 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 0;
+    padding: 10px 0;
+    line-height: 1.5; 
 }
 
 .course-detail-item .label {
     font-weight: 500;
     color: #333;
-    font-size: 0.95rem;
+    font-size: 1rem; 
     display: flex;
     align-items: center;
-    gap: 5px; 
+    gap: 5px;
 }
-
 .course-detail-item .label .material-symbols-rounded {
     font-size: 1rem;
-    color: #6d1204; 
+    color: #6d1204;
 }
 
 .course-detail-item .value {
-    color: #6d1204; 
+    color: #6d1204;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 1rem; 
 }
 
 .divider {
     border-top: 1px solid #ddd;
-    margin: 10px 0;
+    margin: 15px 0; 
 }
-
 .register-btn {
     background-color: #ffcc00;
     color: #6d1204;
     border: none;
     padding: 10px; 
     border-radius: 5px;
-    font-size: 0.9rem;
+    font-size: 0.95rem; 
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 15px; 
-    width: 120px; 
-    display: block; 
-    margin-left: auto; 
-    margin-right: auto; 
+    margin-top: 20px; 
+    width: 120px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .register-btn:hover {
     background-color: #e6b800;
+}
+
+.register-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
 
 .registration-modal {
@@ -380,19 +384,19 @@ body {
     color: #6d1204;
     font-size: 1.4rem;
     font-weight: 600;
-    text-align: center; 
+    text-align: center;
 }
 
 .registration-modal p {
     margin: 0 0 20px;
     color: #333;
     font-size: 0.95rem;
-    text-align: center; 
+    text-align: center;
 }
 
 .registration-modal button {
-    display: block; 
-    margin: 0 auto; 
+    display: block;
+    margin: 0 auto;
     padding: 8px 15px;
     border: none;
     border-radius: 5px;
@@ -469,6 +473,197 @@ body {
 
 .logout-btn.cancel-btn:hover {
     background-color: #e6b800;
+}
+
+/* Popup for selecting class/instructor */
+.class-selection-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 2px solid #6d1204;
+    width: 400px;
+    max-width: 90%;
+    z-index: 1000;
+    text-align: center;
+}
+
+.class-selection-modal h2 {
+    margin: 0 0 15px;
+    color: #6d1204;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.class-selection-modal p {
+    margin: 0 0 20px;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.class-selection-modal .class-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.class-selection-modal .class-option button {
+    background-color: #ffcc00;
+    color: #6d1204;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.class-selection-modal .class-option button:hover {
+    background-color: #e6b800;
+}
+
+.class-selection-modal .class-option button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.class-selection-modal .close-btn {
+    background-color: #6d1204;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.class-selection-modal .close-btn:hover {
+    background-color: #4a0d03;
+}
+
+.learning-path-section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.learning-path-section h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-bar label {
+    font-size: 1rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.filter-bar select {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: border-color 0.3s;
+    width: 150px;
+}
+
+.filter-bar select:hover, .filter-bar select:focus {
+    border-color: #6d1204;
+    outline: none;
+}
+
+.course-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.course-item {
+    background-color: #f9f9f9;
+    border-left: 4px solid #6d1204;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.course-item:hover {
+    background-color: #f0f0f0;
+}
+
+.course-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.course-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.course-item .status {
+    font-size: 0.85rem;
+    padding: 4px 8px;
+    border-radius: 12px;
+    color: #fff;
+    margin-left: auto;
+}
+
+.status.completed { background-color: #28a745; }
+.status.in-progress { background-color: #ff8c00; }
+.status.pending { background-color: #007bff; }
+.status.validated { background-color: #17a2b8; }
+
+.course-item-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.course-item-details span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.course-item-details strong {
+    color: #333;
+    font-weight: 500;
+}
+
+.no-courses {
+    font-size: 0.95rem;
+    color: #666;
+    text-align: center;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
 }
 
 @media (min-width: 724px) and (max-width: 1023px) {
@@ -557,6 +752,7 @@ body {
         padding: 6px 12px;
         font-size: 0.85rem;
     }
+
     .learning-path-section {
         padding: 15px;
     }
@@ -593,7 +789,6 @@ body {
     .logo img {
         width: 40px;
     }
-    
 
     .university-name {
         font-size: 1rem;
@@ -733,10 +928,10 @@ body {
     }
 
     .register-btn {
-        padding: 8px; 
+        padding: 8px;
         font-size: 0.85rem;
-        margin-top: 10px; 
-        width: 100px; 
+        margin-top: 10px;
+        width: 100px;
     }
 
     .registration-modal {
@@ -746,20 +941,49 @@ body {
 
     .registration-modal h2 {
         font-size: 1.2rem;
-        text-align: center; 
+        text-align: center;
     }
 
     .registration-modal p {
         font-size: 0.85rem;
-        text-align: center; 
+        text-align: center;
     }
 
     .registration-modal button {
         padding: 6px 12px;
         font-size: 0.85rem;
-        display: block; 
-        margin: 0 auto; 
+        display: block;
+        margin: 0 auto;
     }
+
+    .class-selection-modal {
+        width: 280px;
+        padding: 15px;
+    }
+
+    .class-selection-modal h2 {
+        font-size: 1.2rem;
+    }
+
+    .class-selection-modal p {
+        font-size: 0.85rem;
+    }
+
+    .class-selection-modal .class-option {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+
+    .class-selection-modal .class-option button {
+        padding: 4px 8px;
+        font-size: 0.8rem;
+    }
+
+    .class-selection-modal .close-btn {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
     .learning-path-section {
         padding: 15px;
     }
@@ -797,122 +1021,3 @@ body {
         padding: 3px 6px;
     }
 }
-
-/* Learning Path Section */
-.learning-path-section {
-    margin: 20px 0;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.learning-path-section h2 {
-    font-size: 1.8rem;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.filter-bar {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.filter-bar label {
-    font-size: 1rem;
-    color: #555;
-    font-weight: 500;
-}
-
-.filter-bar select {
-    padding: 6px 12px;
-    font-size: 0.9rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    cursor: pointer;
-    transition: border-color 0.3s;
-    width: 150px;
-}
-
-.filter-bar select:hover, .filter-bar select:focus {
-    border-color: #6d1204;
-    outline: none;
-}
-
-/* Course List for Learning Path */
-.course-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.course-item {
-    background-color: #f9f9f9;
-    border-left: 4px solid #6d1204;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.course-item:hover {
-    background-color: #f0f0f0;
-}
-
-.course-item-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 8px;
-}
-
-.course-name {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #333;
-}
-
-.course-item .status {
-    font-size: 0.85rem;
-    padding: 4px 8px;
-    border-radius: 12px;
-    color: #fff;
-    margin-left: auto;
-}
-
-.status.completed { background-color: #28a745; }
-.status.in-progress { background-color: #ff8c00; }
-.status.pending { background-color: #007bff; }
-.status.validated { background-color: #17a2b8; }
-
-.course-item-details {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.course-item-details span {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.course-item-details strong {
-    color: #333;
-    font-weight: 500;
-}
-
-.no-courses {
-    font-size: 0.95rem;
-    color: #666;
-    text-align: center;
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-}
-
