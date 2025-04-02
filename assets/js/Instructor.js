@@ -25,6 +25,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     let users = [];
     let currentClassId = null;
 
+    const container = document.getElementById('Classes_Cards');
+    const studentSection = document.querySelector('.Students_List');
+
+    document.querySelector('.nav-links li:nth-child(1) a').addEventListener('click', (e) => {
+        e.preventDefault();
+        container.style.display = 'block';
+        studentSection.style.display = 'none';
+    });
+
+    document.querySelector('.logout-btn').addEventListener('click', (e) => {
+        e.preventDefault();
+        localStorage.removeItem('loggedInUsername');
+        window.location.href = '../index.html';
+    });
+
     try {
         users = await fetchJSON('users.json', ['../../assets/data/users.json']);
         instructorData = users.find(user => user.role === 'Instructor' && user.username === loggedInUsername);
@@ -50,9 +65,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
             classMap[courseName].push(cls.section);
         });
-
-        const container = document.getElementById('Classes_Cards');
-        const studentSection = document.querySelector('.Students_List');
 
         container.innerHTML = '';
         studentSection.style.display = 'none';
@@ -110,6 +122,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         const registeredStudents = registrations.filter(reg => reg.class_id === classId);
         const studentList = users.filter(user => registeredStudents.some(reg => reg.student_id === user.student_id));
 
+        const savedGrades = JSON.parse(localStorage.getItem(`grades_${classId}`)) || [];
+
         studentList.forEach(student => {
             const row = document.createElement('tr');
 
@@ -128,6 +142,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             input.max = 100;
             input.style.width = '60px';
             input.dataset.studentId = student.student_id;
+
+            const existingGrade = savedGrades.find(g => g.student_id === student.student_id);
+            if (existingGrade) {
+                input.value = existingGrade.grade;
+            }
+
             gradeCell.appendChild(input);
             row.appendChild(gradeCell);
 
@@ -140,29 +160,23 @@ document.addEventListener('DOMContentLoaded', async () => {
         const currentClass = assignedClasses.find(cls => cls.class_id === currentClassId);
         const courseId = currentClass ? currentClass.course_id : null;
 
+        const savedGrades = [];
+
         inputs.forEach(input => {
             const studentId = parseInt(input.dataset.studentId);
             const grade = parseInt(input.value);
-            const student = users.find(u => u.student_id === studentId);
 
-            if (student && !isNaN(grade)) {
-                const alreadyCompleted = student.completed_courses.some(cc => cc.class_id === currentClassId);
-
-                if (!alreadyCompleted) {
-                    student.completed_courses.push({
-                        course_id: courseId,
-                        class_id: currentClassId,
-                        grade: grade
-                    });
-                }
-
-                const registrationIndex = registrations.findIndex(r => r.student_id === studentId && r.class_id === currentClassId);
-                if (registrationIndex !== -1) {
-                    registrations.splice(registrationIndex, 1);
-                }
+            if (!isNaN(studentId) && !isNaN(grade)) {
+                savedGrades.push({
+                    student_id: studentId,
+                    class_id: currentClassId,
+                    course_id: courseId,
+                    grade: grade
+                });
             }
         });
 
-        alert('Grades saved successfully!');
+        localStorage.setItem(`grades_${currentClassId}`, JSON.stringify(savedGrades));
+        alert('Grades saved to localStorage!');
     });
 });
