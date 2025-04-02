@@ -6,7 +6,8 @@
     <title>Learning Path</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
-    <link rel="stylesheet" href="../css/studentStyle.css">
+    <!-- <link rel="stylesheet" href="../css/studentStyle.css"> -->
+    <link rel="stylesheet" href="../css/learningPathStyle.css">
 </head>
 <body>
     <header>
@@ -25,14 +26,33 @@
     <main>
         <div class="container">
             <h2 class="learning-path-title">Your Learning Path</h2>
+            <!-- Progress Summary Section -->
+            <div class="progress-summary">
+                <div class="summary-box completed">
+                    <span class="material-symbols-rounded">check_circle</span>
+                    <span>Completed: <strong id="completed-count">0</strong></span>
+                </div>
+                <div class="summary-box in-progress">
+                    <span class="material-symbols-rounded">pending</span>
+                    <span>In Progress: <strong id="in-progress-count">0</strong></span>
+                </div>
+                <div class="summary-box pending">
+                    <span class="material-symbols-rounded">schedule</span>
+                    <span>Pending: <strong id="pending-count">0</strong></span>
+                </div>
+            </div>
+            <!-- Filter Bar -->
             <div class="filter-bar">
                 <label for="courseStatus">Filter by Status:</label>
                 <select id="courseStatus">
+                    <option value="All">All</option>
                     <option value="Completed">Completed</option>
                     <option value="In Progress">In Progress</option>
                     <option value="Pending">Pending</option>
                 </select>
+                <button id="clear-filter" class="clear-filter-btn">Clear Filter</button>
             </div>
+            <!-- Course List -->
             <ul class="course-list"></ul>
         </div>
     </main>

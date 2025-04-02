@@ -90,13 +90,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.querySelector('.progress-bar-remaining').style.width = `${remainingPercent}%`;
     }
 
-    // Filter courses that the student has not completed
+    // Filter courses that the student has not completed or registered (including pending)
+    const studentRegistrations = allRegistrations.filter(reg => reg.student_id === studentData.student_id);
+    const registeredCourseIds = studentRegistrations.map(reg => {
+        const classItem = allClasses.find(cls => cls.class_id === reg.class_id);
+        return classItem ? classItem.course_id : null;
+    }).filter(id => id !== null);
+
     const availableCourses = allCourses.filter(course => {
-        return !completedCourses.includes(course.course_id);
+        return !completedCourses.includes(course.course_id) && !registeredCourseIds.includes(course.course_id);
     });
 
     // Render courses (one card per course)
-    renderCourses(availableCourses);
+    renderCourses(availableCourses, studentRegistrations);
 
     // Set up filters
     const majorFilter = document.getElementById('Major');
@@ -120,10 +126,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             return matchesMajor && matchesTerm && matchesSearch;
         });
 
-        renderCourses(filteredCourses);
+        renderCourses(filteredCourses, studentRegistrations);
     }
 
-    function renderCourses(courses) {
+    function renderCourses(courses, studentRegistrations) {
         const courseBoxesContainer = document.querySelector('.course-boxes');
         courseBoxesContainer.innerHTML = '';
 
@@ -136,7 +142,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const courseClasses = allClasses.filter(cls => cls.course_id === course.course_id);
             if (courseClasses.length === 0) return; // Skip if no classes available
 
-            const isRegistered = allRegistrations.some(reg =>
+            const isRegistered = studentRegistrations.some(reg =>
                 reg.student_id === studentData.student_id &&
                 courseClasses.some(cls => cls.class_id === reg.class_id)
             );
@@ -161,10 +167,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <span class="value">${courseClasses.map(cls => cls.section).join(', ') || 'N/A'}</span>
                     </div>
                     <div class="course-actions">
-                        <button class="register-btn" data-course-id="${course.course_id}">
+                        <button class="register-btn" data-course-id="${course.course_id}" style="width: 100px;">
                             ${isRegistered ? 'Change Section' : 'Register'}
                         </button>
-                        ${isRegistered ? `<button class="withdraw-btn" data-course-id="${course.course_id}">Withdraw</button>` : ''}
+                        ${isRegistered ? `<button class="withdraw-btn" data-course-id="${course.course_id}" style="width: 100px;">Withdraw</button>` : ''}
                     </div>
                 </div>
             `;
@@ -176,6 +182,65 @@ document.addEventListener('DOMContentLoaded', async () => {
             btn.addEventListener('click', (e) => {
                 const courseId = parseInt(e.target.getAttribute('data-course-id'));
                 handleRegistration(courseId);
+            });
+        });
+
+        document.querySelectorAll('.withdraw-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const courseId = parseInt(e.target.getAttribute('data-course-id'));
+                handleWithdrawal(courseId);
+            });
+        });
+
+        // Render registered courses (including pending)
+        const registeredCourses = allCourses.filter(course => 
+            studentRegistrations.some(reg => {
+                const classItem = allClasses.find(cls => cls.class_id === reg.class_id);
+                return classItem && classItem.course_id === course.course_id;
+            })
+        );
+        registeredCourses.forEach(course => {
+            const courseClasses = allClasses.filter(cls => cls.course_id === course.course_id);
+            const studentReg = studentRegistrations.find(reg => 
+                reg.student_id === studentData.student_id && 
+                courseClasses.some(cls => cls.class_id === reg.class_id)
+            );
+            if (studentReg) {
+                const classItem = allClasses.find(cls => cls.class_id === studentReg.class_id);
+                const courseBox = document.createElement('div');
+                courseBox.classList.add('course-box');
+                courseBox.innerHTML = `
+                    <div class="course-header">
+                        <h3 title="${course.course_name}">${course.course_name || 'Unnamed Course'}</h3>
+                    </div>
+                    <div class="course-details">
+                        <div class="course-detail-item">
+                            <span class="label"><span class="material-symbols-rounded">tag</span>Course Number:</span>
+                            <span class="value">${course.course_number || 'N/A'}</span>
+                        </div>
+                        <div class="course-detail-item">
+                            <span class="label"><span class="material-symbols-rounded">school</span>Major:</span>
+                            <span class="value">${Array.isArray(course.major) ? course.major.join(', ') : course.major || 'N/A'}</span>
+                        </div>
+                        <div class="course-detail-item">
+                            <span class="label"><span class="material-symbols-rounded">class</span>Section:</span>
+                            <span class="value">${classItem ? classItem.section : 'N/A'}</span>
+                        </div>
+                        <div class="course-actions">
+                            <button class="change-section-btn" data-course-id="${course.course_id}" style="width: 100px;">Change Section</button>
+                            <button class="withdraw-btn" data-course-id="${course.course_id}" style="width: 100px;">Withdraw</button>
+                        </div>
+                    </div>
+                `;
+                courseBoxesContainer.appendChild(courseBox);
+            }
+        });
+
+        // Add event listeners for change section and withdraw buttons
+        document.querySelectorAll('.change-section-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const courseId = parseInt(e.target.getAttribute('data-course-id'));
+                handleChangeSection(courseId);
             });
         });
 
@@ -200,22 +265,42 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const prerequisitesMet = coursePrereqs.every(prereqClassId =>
             completedCourses.includes(prereqClassId) &&
-            studentData.completed_courses.find(cc => cc.class_id === prereqClassId).grade !== 'F'
+            studentData.completed_courses.find(cc => cc.class_id === prereqClassId && cc.grade !== 'F')
         );
 
         if (!prerequisitesMet) {
             const missingPrereqs = course.prerequisites.map(prereq => {
                 const prereqCourse = allCourses.find(c => c.course_id === prereq);
-                return prereqCourse.course_name;
+                return prereqCourse ? prereqCourse.course_name : 'Unknown Course';
             }).filter(prereq => !studentData.completed_courses.some(cc => {
                 const ccCourse = allClasses.find(cls => cls.class_id === cc.class_id);
                 return ccCourse && ccCourse.course_id === prereq && cc.grade !== 'F';
             }));
-            showMessage('Prerequisites Not Met', `You cannot register for "${course.course_name}" because you haven't completed: ${missingPrereqs.join(', ')}.`);
+            showMessage('Prerequisites Not Met', `You cannot register for "${course.course_name}" because you haven't completed: ${missingPrereqs.join(', ')} with a passing grade.`);
+            return;
+        }
+
+        // Check if any class is open for registration
+        const availableClass = courseClasses.find(cls => 
+            cls.open_for_registration === true &&
+            cls.status === 'Validated' &&
+            allRegistrations.filter(reg => reg.class_id === cls.class_id).length < cls.capacity
+        );
+
+        if (!availableClass) {
+            showMessage('No Available Classes', `No available classes for "${course.course_name}" at this time.`);
             return;
         }
 
         // Show class selection popup
+        showClassSelectionPopup(course, courseClasses);
+    }
+
+    function handleChangeSection(courseId) {
+        const course = allCourses.find(c => c.course_id === courseId);
+        const courseClasses = allClasses.filter(cls => cls.course_id === courseId);
+
+        // Show class selection popup for changing section
         showClassSelectionPopup(course, courseClasses);
     }
 
@@ -315,7 +400,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Update progress stats and re-render
         updateProgressStats();
         showMessage('Registration Updated', `You have successfully ${existingRegistration ? 'changed your section for' : 'registered for'} "${course.course_name} (${classItem.section})". Awaiting administrator approval.`);
-        renderCourses(availableCourses);
+        renderCourses(availableCourses.filter(c => c.course_id !== course.course_id), allRegistrations);
     }
 
     function handleWithdrawal(courseId) {
@@ -357,7 +442,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Update progress stats and re-render
             updateProgressStats();
             showMessage('Withdrawal Successful', `You have successfully withdrawn from "${course.course_name}".`);
-            renderCourses(availableCourses);
+            renderCourses(availableCourses, allRegistrations);
             modal.remove();
         });
 

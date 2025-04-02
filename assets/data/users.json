@@ -898,7 +898,7 @@
     "registered_courses": 2,
     "completed_courses": [
       {"class_id": 5, "grade": "B"},
-      {"class_id Waleed": 13, "grade": "A-"},
+      {"class_id": 13, "grade": "A-"},
       {"class_id": 14, "grade": "B"}
     ]
   },

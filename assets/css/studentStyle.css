@@ -375,6 +375,22 @@ body {
     background-color: #c82333;
 }
 
+.change-section-btn {
+    background-color: #ffcc00;
+    color: #6d1204;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 120px;
+}
+
+.change-section-btn:hover {
+    background-color: #e6b800;
+}
+
 .register-btn:disabled,
 .withdraw-btn:disabled {
     background-color: #ccc;
@@ -567,7 +583,7 @@ body {
 
 .class-selection-modal .close-btn {
     background-color: #6d1204;
-    color: #fff;
+    color: #ffffff;
     border: none;
     padding: 8px 15px;
     border-radius: 5px;
@@ -711,6 +727,10 @@ body {
     background-color: #f9f9f9;
     border-radius: 5px;
 }
+
+
+
+
 
 @media (min-width: 724px) and (max-width: 1023px) {
     .container {
@@ -1118,3 +1138,4 @@ body {
         padding: 3px 6px;
     }
 }
+
