@@ -152,5 +152,16 @@
       "open_for_registration": true,
       "status": "Pending",
       "registered_students": []
+    },
+    {
+      "class_id": 15,
+      "course_id": 7,
+      "term": "Fall",
+      "section": "L02",
+      "instructor_id": 23448,
+      "capacity": 40,
+      "open_for_registration": true,
+      "status": "Pending",
+      "registered_students": []
     }
   ]

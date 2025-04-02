@@ -9,17 +9,17 @@
 
 body {
     display: grid;
-    grid-template-rows: auto 1fr; 
+    grid-template-rows: auto 1fr;
     height: 100vh;
-    background-color: #ecebeb; 
+    background-color: #ecebeb;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #6d1204; 
-    padding: 12px 25px; 
+    background-color: #6d1204;
+    padding: 12px 25px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -55,7 +55,7 @@ body {
     font-size: 1rem;
     font-weight: 500;
     transition: all 0.3s ease;
-    padding: 8px 15px; 
+    padding: 8px 15px;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -75,8 +75,8 @@ body {
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px; 
-    padding: 30px; 
+    gap: 30px;
+    padding: 30px;
 }
 
 .track-progress {
@@ -84,16 +84,16 @@ body {
 }
 
 .track-progress h2 {
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 
 .progress-box {
     background-color: #fff;
-    padding: 20px; 
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 100%; 
-    max-width: 600px; 
+    width: 100%;
+    max-width: 600px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -119,59 +119,59 @@ body {
 
 .progress-bar-container {
     width: 100%;
-    height: 8px; 
-    margin-top: 10px; 
-    background-color: #d3d3d3; 
+    height: 8px;
+    margin-top: 10px;
+    background-color: #d3d3d3;
     display: flex;
     align-items: center;
     border-radius: 5px;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .progress-bar-taken {
     height: 100%;
-    background-color: #28a745; 
+    background-color: #28a745;
 }
 
 .progress-bar-registered {
     height: 100%;
-    background-color: #ff8c00; 
+    background-color: #ff8c00;
 }
 
 .progress-bar-remaining {
     height: 100%;
-    background-color: #d3d3d3; 
+    background-color: #d3d3d3;
 }
 
 .course-stats {
     display: flex;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     text-align: center;
-    margin-top: 15px; 
-    gap: 15px; 
+    margin-top: 15px;
+    gap: 15px;
 }
 
 .stat-box {
-    padding: 5px 10px; 
-    border-radius: 15px; 
-    color: #000; 
+    padding: 5px 10px;
+    border-radius: 15px;
+    color: #000;
     font-weight: 600;
     font-size: 0.9rem;
     display: flex;
-    align-items: center; 
+    align-items: center;
     gap: 5px;
 }
 
 .stat-box.taken {
-    background-color: #e6f4ea; 
+    background-color: #e6f4ea;
 }
 
 .stat-box.registered {
-    background-color: #fff3e0; 
+    background-color: #fff3e0;
 }
 
 .stat-box.remaining {
-    background-color: #e9ecef; 
+    background-color: #e9ecef;
 }
 
 .logo-welcome-section {
@@ -180,12 +180,12 @@ body {
     flex-direction: column;
     align-items: center;
     margin-top: 25px;
-    gap: 20px; 
+    gap: 20px;
 }
 
 .welcome-logo {
-    width: 120px; 
-    height: 120px; 
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -196,7 +196,7 @@ body {
 
 .welcome-message h1 {
     margin: 0;
-    font-size: 1.8rem; 
+    font-size: 1.8rem;
 }
 
 .welcome-message p {
@@ -209,14 +209,14 @@ body {
 }
 
 .course-section h2 {
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
 }
 
 .search-bars {
     display: flex;
     gap: 15px;
     margin-bottom: 25px;
-    max-width: 750px; 
+    max-width: 750px;
 }
 
 .search-bar {
@@ -224,11 +224,11 @@ body {
     align-items: center;
     gap: 10px;
     background-color: #fff;
-    padding: 8px; 
+    padding: 8px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    flex: 0 0 auto; 
-    width: 240px; 
+    flex: 0 0 auto;
+    width: 240px;
 }
 
 .search-bar .material-symbols-rounded {
@@ -237,18 +237,18 @@ body {
 
 .search-bar input,
 .search-bar select {
-    padding: 6px; 
+    padding: 6px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    font-size: 0.9rem; 
+    font-size: 0.9rem;
     outline: none;
-    width: 100%; 
-    transition: border-color 0.3s ease; 
+    width: 100%;
+    transition: border-color 0.3s ease;
 }
 
 .search-bar input:hover,
 .search-bar select:hover {
-    border-color: #6d1204; 
+    border-color: #6d1204;
 }
 
 .search-bar label {
@@ -259,7 +259,7 @@ body {
 .course-boxes {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px; 
+    gap: 30px;
     padding: 20px 0;
 }
 
@@ -279,7 +279,7 @@ body {
 }
 
 .course-header {
-    background-color: #6d1204; 
+    background-color: #6d1204;
     padding: 15px 20px;
     border-bottom: 2px solid #ffcc00;
     display: flex;
@@ -299,7 +299,7 @@ body {
 }
 
 .course-details {
-    padding: 25px; 
+    padding: 25px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -311,17 +311,18 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
-    line-height: 1.5; 
+    line-height: 1.5;
 }
 
 .course-detail-item .label {
     font-weight: 500;
     color: #333;
-    font-size: 1rem; 
+    font-size: 1rem;
     display: flex;
     align-items: center;
     gap: 5px;
 }
+
 .course-detail-item .label .material-symbols-rounded {
     font-size: 1rem;
     color: #6d1204;
@@ -330,35 +331,52 @@ body {
 .course-detail-item .value {
     color: #6d1204;
     font-weight: 600;
-    font-size: 1rem; 
+    font-size: 1rem;
 }
 
-.divider {
-    border-top: 1px solid #ddd;
-    margin: 15px 0; 
+.course-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
 }
+
 .register-btn {
     background-color: #ffcc00;
     color: #6d1204;
     border: none;
-    padding: 10px; 
+    padding: 10px;
     border-radius: 5px;
-    font-size: 0.95rem; 
+    font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 20px; 
     width: 120px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .register-btn:hover {
     background-color: #e6b800;
 }
 
-.register-btn:disabled {
+.withdraw-btn {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 120px;
+}
+
+.withdraw-btn:hover {
+    background-color: #c82333;
+}
+
+.register-btn:disabled,
+.withdraw-btn:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
@@ -514,6 +532,16 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+.class-selection-modal .class-option:hover {
+    background-color: #f0f0f0;
+}
+
+.class-selection-modal .class-option span {
+    font-size: 0.9rem;
+    color: #333;
 }
 
 .class-selection-modal .class-option button {
@@ -522,7 +550,10 @@ body {
     border: none;
     padding: 5px 10px;
     border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 500;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .class-selection-modal .class-option button:hover {
@@ -544,6 +575,9 @@ body {
     font-weight: 500;
     cursor: pointer;
     margin-top: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .class-selection-modal .close-btn:hover {
@@ -588,7 +622,8 @@ body {
     width: 150px;
 }
 
-.filter-bar select:hover, .filter-bar select:focus {
+.filter-bar select:hover,
+.filter-bar select:focus {
     border-color: #6d1204;
     outline: none;
 }
@@ -633,10 +668,21 @@ body {
     margin-left: auto;
 }
 
-.status.completed { background-color: #28a745; }
-.status.in-progress { background-color: #ff8c00; }
-.status.pending { background-color: #007bff; }
-.status.validated { background-color: #17a2b8; }
+.status.completed {
+    background-color: #28a745;
+}
+
+.status.in-progress {
+    background-color: #ff8c00;
+}
+
+.status.pending {
+    background-color: #007bff;
+}
+
+.status.validated {
+    background-color: #17a2b8;
+}
 
 .course-item-details {
     display: flex;
@@ -776,6 +822,49 @@ body {
 
     .course-name {
         font-size: 1rem;
+    }
+
+    .class-selection-modal {
+        width: 350px;
+        padding: 15px;
+    }
+
+    .class-selection-modal h2 {
+        font-size: 1.2rem;
+    }
+
+    .class-selection-modal p {
+        font-size: 0.9rem;
+    }
+
+    .class-selection-modal .class-option {
+        padding: 8px;
+    }
+
+    .class-selection-modal .class-option span {
+        font-size: 0.85rem;
+    }
+
+    .class-selection-modal .class-option button {
+        padding: 4px 8px;
+        font-size: 0.8rem;
+    }
+
+    .class-selection-modal .close-btn {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
+    .course-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .register-btn,
+    .withdraw-btn {
+        width: 100%;
+        padding: 8px;
+        font-size: 0.9rem;
     }
 }
 
@@ -927,11 +1016,16 @@ body {
         font-size: 0.8rem;
     }
 
-    .register-btn {
+    .register-btn,
+    .withdraw-btn {
         padding: 8px;
         font-size: 0.85rem;
-        margin-top: 10px;
-        width: 100px;
+        width: 100%;
+    }
+
+    .course-actions {
+        flex-direction: column;
+        gap: 8px;
     }
 
     .registration-modal {
@@ -971,6 +1065,9 @@ body {
 
     .class-selection-modal .class-option {
         padding: 8px;
+    }
+
+    .class-selection-modal .class-option span {
         font-size: 0.85rem;
     }
 
