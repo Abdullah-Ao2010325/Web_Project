@@ -117,12 +117,26 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function renderStudentsForClass(classId) {
         const tableBody = document.querySelector('.Students_List tbody');
+        const table = document.querySelector('.Students_List table');
         tableBody.innerHTML = '';
 
         const registeredStudents = registrations.filter(reg => reg.class_id === classId);
         const studentList = users.filter(user => registeredStudents.some(reg => reg.student_id === user.student_id));
 
         const savedGrades = JSON.parse(localStorage.getItem(`grades_${classId}`)) || [];
+
+        const currentClass = assignedClasses.find(cls => cls.class_id === classId);
+        const course = courses.find(c => c.course_id === currentClass.course_id);
+
+        let header = document.querySelector('.class-info-header');
+        if (!header) {
+            header = document.createElement('h2');
+            header.className = 'class-info-header';
+            header.style.textAlign = 'center';
+            header.style.marginBottom = '20px';
+            table.parentElement.insertBefore(header, table);
+        }
+        header.textContent = `${course.course_name} - ${currentClass.section}`;
 
         studentList.forEach(student => {
             const row = document.createElement('tr');
@@ -161,12 +175,24 @@ document.addEventListener('DOMContentLoaded', async () => {
         const courseId = currentClass ? currentClass.course_id : null;
 
         const savedGrades = [];
+        let valid = true;
 
         inputs.forEach(input => {
             const studentId = parseInt(input.dataset.studentId);
-            const grade = parseInt(input.value);
+            const gradeValue = input.value.trim();
 
-            if (!isNaN(studentId) && !isNaN(grade)) {
+            if (gradeValue === '') {
+                input.style.border = '';
+                return;
+            }
+
+            const grade = parseInt(gradeValue);
+
+            if (isNaN(grade) || grade < 0 || grade > 100) {
+                valid = false;
+                input.style.border = '2px solid red';
+            } else {
+                input.style.border = '';
                 savedGrades.push({
                     student_id: studentId,
                     class_id: currentClassId,
@@ -175,6 +201,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                 });
             }
         });
+
+        if (!valid) {
+            alert('Please enter valid grades between 0 and 100. Empty fields are allowed.');
+            return;
+        }
 
         localStorage.setItem(`grades_${currentClassId}`, JSON.stringify(savedGrades));
         alert('Grades saved to localStorage!');
