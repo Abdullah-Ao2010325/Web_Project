@@ -69,6 +69,18 @@ main {
     padding: 20px;
     height: 90%;
 }
+.Students_List {
+    border: solid;
+    background-color: rgb(251, 250, 250);
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+    gap: 0;
+    margin: 40px;
+    padding: 20px;
+    height: 90%;
+}
 
 #Classes_Cards #CCard,h3 {
     border: solid 1px;
