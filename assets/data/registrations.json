@@ -358,5 +358,11 @@
     "student_id": 202300100,
     "class_id": 7,
     "status": "Approved"
+  },
+  {
+    "registration_id": 61,
+    "student_id": 202345732,
+    "class_id": 12,
+    "status": "Pending"
   }
 ]

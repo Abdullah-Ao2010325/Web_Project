@@ -509,7 +509,6 @@ body {
     background-color: #e6b800;
 }
 
-/* Popup for selecting class/instructor */
 .class-selection-modal {
     position: fixed;
     top: 50%;
@@ -600,138 +599,6 @@ body {
     background-color: #4a0d03;
 }
 
-.learning-path-section {
-    margin: 20px 0;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.learning-path-section h2 {
-    font-size: 1.8rem;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.filter-bar {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.filter-bar label {
-    font-size: 1rem;
-    color: #555;
-    font-weight: 500;
-}
-
-.filter-bar select {
-    padding: 6px 12px;
-    font-size: 0.9rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    cursor: pointer;
-    transition: border-color 0.3s;
-    width: 150px;
-}
-
-.filter-bar select:hover,
-.filter-bar select:focus {
-    border-color: #6d1204;
-    outline: none;
-}
-
-.course-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.course-item {
-    background-color: #f9f9f9;
-    border-left: 4px solid #6d1204;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.course-item:hover {
-    background-color: #f0f0f0;
-}
-
-.course-item-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 8px;
-}
-
-.course-name {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #333;
-}
-
-.course-item .status {
-    font-size: 0.85rem;
-    padding: 4px 8px;
-    border-radius: 12px;
-    color: #fff;
-    margin-left: auto;
-}
-
-.status.completed {
-    background-color: #28a745;
-}
-
-.status.in-progress {
-    background-color: #ff8c00;
-}
-
-.status.pending {
-    background-color: #007bff;
-}
-
-.status.validated {
-    background-color: #17a2b8;
-}
-
-.course-item-details {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.course-item-details span {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.course-item-details strong {
-    color: #333;
-    font-weight: 500;
-}
-
-.no-courses {
-    font-size: 0.95rem;
-    color: #666;
-    text-align: center;
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-}
-
-
-
-
-
 @media (min-width: 724px) and (max-width: 1023px) {
     .container {
         grid-template-columns: 1fr;
@@ -801,6 +668,22 @@ body {
         width: 200px;
     }
 
+    .search-bar input,
+    .search-bar select {
+        padding: 6px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        outline: none;
+        width: 100%;
+        transition: border-color 0.3s ease;
+    }
+
+    .search-bar input:hover,
+    .search-bar select:hover {
+        border-color: #6d1204;
+    }
+
     .logout-confirmation {
         top: 70px;
         width: 300px;
@@ -817,31 +700,6 @@ body {
     .logout-btn {
         padding: 6px 12px;
         font-size: 0.85rem;
-    }
-
-    .learning-path-section {
-        padding: 15px;
-    }
-
-    .learning-path-section h2 {
-        font-size: 1.5rem;
-    }
-
-    .filter-bar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .filter-bar select {
-        width: 100%;
-    }
-
-    .course-item {
-        padding: 12px;
-    }
-
-    .course-name {
-        font-size: 1rem;
     }
 
     .class-selection-modal {
@@ -876,15 +734,19 @@ body {
     }
 
     .course-actions {
-        flex-direction: column;
-        gap: 8px;
+        flex-direction: row;
+        gap: 10px;
+        align-items: space-between;
+        width: 100%;
     }
 
     .register-btn,
-    .withdraw-btn {
-        width: 100%;
+    .withdraw-btn,
+    .change-section-btn {
+        width: 50%;
         padding: 8px;
         font-size: 0.9rem;
+        box-sizing: border-box;
     }
 }
 
@@ -1037,15 +899,19 @@ body {
     }
 
     .register-btn,
-    .withdraw-btn {
+    .withdraw-btn,
+    .change-section-btn {
         padding: 8px;
         font-size: 0.85rem;
-        width: 100%;
+        width: 50%;
+        box-sizing: border-box;
     }
 
     .course-actions {
-        flex-direction: column;
-        gap: 8px;
+        flex-direction: row;
+        gap: 10px;
+        align-items: space-between; 
+        width: 100%;
     }
 
     .registration-modal {
@@ -1100,42 +966,4 @@ body {
         padding: 6px 12px;
         font-size: 0.85rem;
     }
-
-    .learning-path-section {
-        padding: 15px;
-    }
-
-    .learning-path-section h2 {
-        font-size: 1.2rem;
-    }
-
-    .filter-bar {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .filter-bar select {
-        width: 100%;
-        font-size: 0.85rem;
-    }
-
-    .course-item {
-        padding: 10px;
-    }
-
-    .course-name {
-        font-size: 0.9rem;
-    }
-
-    .course-item-details {
-        flex-direction: column;
-        gap: 8px;
-        font-size: 0.85rem;
-    }
-
-    .course-item .status {
-        font-size: 0.75rem;
-        padding: 3px 6px;
-    }
 }
-

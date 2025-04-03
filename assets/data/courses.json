@@ -69,7 +69,7 @@
     "course_number": "CMPS 405",
     "major": ["CMPS", "CMPE"],
     "prerequisites": [4],
-    "status": "Pending"
+    "status": "In Progress"
   },
   {
     "course_id": 10,

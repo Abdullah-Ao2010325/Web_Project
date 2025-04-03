@@ -15,14 +15,12 @@ document.addEventListener('DOMContentLoaded', async function() {
     let allRegistrations = [];
 
     try {
-        // Load data using dataManager.js
         const data = await loadData();
         allUsers = data.users;
         allCourses = data.courses;
         allClasses = data.classes;
         allRegistrations = data.registrations;
 
-        // Find the logged-in student
         studentData = allUsers.find(user => user.role === 'Student' && user.username === loggedInUsername);
 
         if (!studentData) {
@@ -31,20 +29,16 @@ document.addEventListener('DOMContentLoaded', async function() {
             return;
         }
 
-        // Debug: Log the studentData to inspect its structure
         console.log('Logged-in student data:', studentData);
 
-        // Initial render with "All" filter
         renderCourses('All');
         updateProgressSummary();
 
-        // Filter change event
         const statusFilter = document.getElementById('courseStatus');
         statusFilter.addEventListener('change', function() {
             renderCourses(statusFilter.value);
         });
 
-        // Clear filter event
         const clearFilterBtn = document.getElementById('clear-filter');
         clearFilterBtn.addEventListener('click', function() {
             statusFilter.value = 'All';
@@ -57,28 +51,24 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 
     function updateProgressSummary() {
-        // Completed courses count
         const completedCount = studentData.completed_courses ? studentData.completed_courses.length : 0;
 
-        // Calculate in-progress and pending based on registrations
         let inProgressCount = 0;
         let pendingCount = 0;
 
-        // Find all registrations for the student
         const studentRegistrations = allRegistrations.filter(reg => reg.student_id === studentData.student_id);
 
         studentRegistrations.forEach(reg => {
             const classData = allClasses.find(cls => cls.class_id === reg.class_id);
             if (classData) {
                 if (reg.status === 'Approved') {
-                    inProgressCount++; // Count Approved as In Progress
+                    inProgressCount++; 
                 } else if (reg.status === 'Pending') {
-                    pendingCount++; // Count Pending as Pending
+                    pendingCount++; 
                 }
             }
         });
 
-        // Update the DOM
         document.getElementById('completed-count').textContent = completedCount;
         document.getElementById('in-progress-count').textContent = inProgressCount;
         document.getElementById('pending-count').textContent = pendingCount;
@@ -90,7 +80,6 @@ document.addEventListener('DOMContentLoaded', async function() {
 
         let coursesToDisplay = [];
 
-        // Completed Courses
         if (status === 'All' || status === 'Completed') {
             if (Array.isArray(studentData.completed_courses)) {
                 studentData.completed_courses.forEach(course => {
@@ -109,7 +98,6 @@ document.addEventListener('DOMContentLoaded', async function() {
             }
         }
 
-        // In Progress and Pending Courses
         if (status === 'All' || status === 'In Progress' || status === 'Pending') {
             const studentRegistrations = allRegistrations.filter(reg => reg.student_id === studentData.student_id);
             studentRegistrations.forEach(reg => {
@@ -120,11 +108,11 @@ document.addEventListener('DOMContentLoaded', async function() {
                         const instructor = allUsers.find(user => user.instructor_id === classData.instructor_id) || { firstName: 'N/A' };
                         let courseStatus;
                         if (reg.status === 'Approved') {
-                            courseStatus = 'In Progress'; // Treat Approved as In Progress
+                            courseStatus = 'In Progress'; 
                         } else if (reg.status === 'Pending') {
                             courseStatus = 'Pending';
                         } else if (reg.status === 'Approved' && classData.status === 'Validated') {
-                            courseStatus = 'Pending'; // Treat validated as pending until it starts
+                            courseStatus = 'Pending'; 
                         }
 
                         if (status === 'All' || (status === 'In Progress' && courseStatus === 'In Progress') || (status === 'Pending' && courseStatus === 'Pending')) {
@@ -141,7 +129,6 @@ document.addEventListener('DOMContentLoaded', async function() {
             });
         }
 
-        // Display message if no courses are found
         if (coursesToDisplay.length === 0) {
             const li = document.createElement('li');
             li.classList.add('no-courses');
@@ -150,7 +137,6 @@ document.addEventListener('DOMContentLoaded', async function() {
             return;
         }
 
-        // Render courses
         coursesToDisplay.forEach(course => {
             const li = document.createElement('li');
             li.classList.add('course-item');
@@ -187,7 +173,6 @@ document.addEventListener('DOMContentLoaded', async function() {
                 </div>
             `;
 
-            // Add toggle functionality for course details
             const toggleButton = li.querySelector('.toggle-details');
             const details = li.querySelector('.course-details');
             toggleButton.addEventListener('click', () => {

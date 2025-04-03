@@ -169,7 +169,6 @@ header {
     background-image: url("../images/login.jpg");
 }
 
-
 .login-form-box .form-container {
     width: 100%;
     padding: 35px;
@@ -259,8 +258,6 @@ form button:hover {
 .form-container .bottom-link {
     text-align: center;
 }
-
-
 
 @media (max-width: 950px) {
     .navbar :is(.hamburger-btn, .close-btn) {

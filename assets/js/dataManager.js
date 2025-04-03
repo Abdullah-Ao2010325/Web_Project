@@ -1,4 +1,3 @@
-// API endpoints (relative paths to JSON files)
 const endpoints = {
     users: '/assets/data/users.json',
     courses: '/assets/data/courses.json',
@@ -7,7 +6,6 @@ const endpoints = {
     majors: '/assets/data/majors.json'
 };
 
-// Fetch data from a given endpoint
 async function fetchData(endpoint) {
     try {
         const response = await fetch(endpoint);
@@ -21,7 +19,6 @@ async function fetchData(endpoint) {
     }
 }
 
-// Load data by always fetching from JSON files and updating localStorage
 async function loadData() {
     const data = {
         users: [],
@@ -32,14 +29,12 @@ async function loadData() {
     };
 
     try {
-        // Always fetch fresh data from JSON files
         data.users = await fetchData(endpoints.users);
         data.courses = await fetchData(endpoints.courses);
         data.classes = await fetchData(endpoints.classes);
         data.registrations = await fetchData(endpoints.registrations);
         data.majors = await fetchData(endpoints.majors);
 
-        // Save fetched data to localStorage
         saveData(data);
         return data;
     } catch (error) {
@@ -48,7 +43,6 @@ async function loadData() {
     }
 }
 
-// Save all data to Local Storage
 function saveData(data) {
     localStorage.setItem('users', JSON.stringify(data.users));
     localStorage.setItem('courses', JSON.stringify(data.courses));

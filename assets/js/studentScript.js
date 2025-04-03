@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     let allRegistrations = allData.registrations;
     let allMajors = allData.majors;
 
-    // Initialize registered_students from approved registrations
     allRegistrations.forEach(reg => {
         if (reg.status === 'Approved') {
             const classItem = allClasses.find(cls => cls.class_id === reg.class_id);
@@ -333,7 +332,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             registration_id: allRegistrations.length + 1,
             student_id: studentData.student_id,
             class_id: classId,
-            status: 'Pending' // New registrations start as Pending
+            status: 'Pending'
         });
 
         allData.registrations = allRegistrations;

@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const showPopupBtn = document.querySelector('.login-btn');
     const formPopup = document.querySelector('.form-interface');
     const hidePopupBtn = formPopup.querySelector('.close-btn');
+    const hamburgerBtn = document.querySelector('.hamburger-btn');
+    const navLinks = document.querySelector('.links');
+    const closeNavBtn = navLinks.querySelector('.close-btn');
 
     if (!loginForm) {
         return;
@@ -14,6 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     hidePopupBtn.addEventListener('click', () => {
         document.body.classList.remove('show-popup');
+    });
+
+    hamburgerBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('show-menu'); 
+    });
+
+    closeNavBtn.addEventListener('click', () => {
+        navLinks.classList.remove('show-menu'); 
     });
 
     loginForm.addEventListener('submit', async (event) => {
