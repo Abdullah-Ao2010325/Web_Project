@@ -21,7 +21,7 @@ async function fetchData(endpoint) {
     }
 }
 
-// Load data from Local Storage or fetch from JSON files if not present
+// Load data by always fetching from JSON files and updating localStorage
 async function loadData() {
     const data = {
         users: [],
@@ -32,27 +32,15 @@ async function loadData() {
     };
 
     try {
-        // Check Local Storage for each dataset
-        const savedUsers = localStorage.getItem('users');
-        data.users = savedUsers ? JSON.parse(savedUsers) : await fetchData(endpoints.users);
-        localStorage.setItem('users', JSON.stringify(data.users));
+        // Always fetch fresh data from JSON files
+        data.users = await fetchData(endpoints.users);
+        data.courses = await fetchData(endpoints.courses);
+        data.classes = await fetchData(endpoints.classes);
+        data.registrations = await fetchData(endpoints.registrations);
+        data.majors = await fetchData(endpoints.majors);
 
-        const savedCourses = localStorage.getItem('courses');
-        data.courses = savedCourses ? JSON.parse(savedCourses) : await fetchData(endpoints.courses);
-        localStorage.setItem('courses', JSON.stringify(data.courses));
-
-        const savedClasses = localStorage.getItem('classes');
-        data.classes = savedClasses ? JSON.parse(savedClasses) : await fetchData(endpoints.classes);
-        localStorage.setItem('classes', JSON.stringify(data.classes));
-
-        const savedRegistrations = localStorage.getItem('registrations');
-        data.registrations = savedRegistrations ? JSON.parse(savedRegistrations) : await fetchData(endpoints.registrations);
-        localStorage.setItem('registrations', JSON.stringify(data.registrations));
-
-        const savedMajors = localStorage.getItem('majors');
-        data.majors = savedMajors ? JSON.parse(savedMajors) : await fetchData(endpoints.majors);
-        localStorage.setItem('majors', JSON.stringify(data.majors));
-
+        // Save fetched data to localStorage
+        saveData(data);
         return data;
     } catch (error) {
         console.error('Error loading data:', error);
@@ -69,5 +57,4 @@ function saveData(data) {
     localStorage.setItem('majors', JSON.stringify(data.majors));
 }
 
-// Export functions to be used by other scripts
 export { loadData, saveData };
