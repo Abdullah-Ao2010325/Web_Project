@@ -7,8 +7,7 @@
       "instructor_id": 23445,
       "capacity": 40,
       "open_for_registration": true,
-      "status": "Pending",
-      "registered_students": [202205895]
+      "registered_students": []
     },
     {
       "class_id": 2,
@@ -18,7 +17,6 @@
       "instructor_id": 23446,
       "capacity": 40,
       "open_for_registration": true,
-      "status": "Pending",
       "registered_students": []
     },
     {
@@ -29,7 +27,6 @@
       "instructor_id": 23445,
       "capacity": 40,
       "open_for_registration": true,
-      "status": "Validated",
       "registered_students": []
     },
     {
@@ -40,7 +37,6 @@
       "instructor_id": 23447,
       "capacity": 40,
       "open_for_registration": true,
-      "status": "Validated",
       "registered_students": []
     },
     {
@@ -51,8 +47,7 @@
       "instructor_id": 23445,
       "capacity": 40,
       "open_for_registration": true,
-      "status": "In Progress",
-      "registered_students": [202205895, 202147583]
+      "registered_students": []
     },
     {
       "class_id": 6,
@@ -62,8 +57,7 @@
       "instructor_id": 23451,
       "capacity": 40,
       "open_for_registration": false,
-      "status": "In Progress",
-      "registered_students": [202147583]
+      "registered_students": []
     },
     {
       "class_id": 7,
@@ -73,7 +67,6 @@
       "instructor_id": 23449,
       "capacity": 40,
       "open_for_registration": true,
-      "status": "Pending",
       "registered_students": []
     },
     {
@@ -84,8 +77,7 @@
       "instructor_id": 23446,
       "capacity": 40,
       "open_for_registration": false,
-      "status": "In Progress",
-      "registered_students": [202345732]
+      "registered_students": []
     },
     {
       "class_id": 9,
@@ -95,7 +87,6 @@
       "instructor_id": 23448,
       "capacity": 40,
       "open_for_registration": false,
-      "status": "Validated",
       "registered_students": []
     },
     {
@@ -106,7 +97,6 @@
       "instructor_id": 23448,
       "capacity": 40,
       "open_for_registration": true,
-      "status": "Pending",
       "registered_students": []
     },
     {
@@ -117,8 +107,7 @@
       "instructor_id": 23448,
       "capacity": 40,
       "open_for_registration": false,
-      "status": "In Progress",
-      "registered_students": [202345732]
+      "registered_students": []
     },
     {
       "class_id": 12,
@@ -128,8 +117,7 @@
       "instructor_id": 23450,
       "capacity": 40,
       "open_for_registration": true,
-      "status": "Pending",
-      "registered_students": [202147583]
+      "registered_students": []
     },
     {
       "class_id": 13,
@@ -139,7 +127,6 @@
       "instructor_id": 23451,
       "capacity": 40,
       "open_for_registration": true,
-      "status": "Validated",
       "registered_students": []
     },
     {
@@ -150,7 +137,6 @@
       "instructor_id": 23452,
       "capacity": 40,
       "open_for_registration": true,
-      "status": "Pending",
       "registered_students": []
     },
     {
@@ -161,7 +147,6 @@
       "instructor_id": 23448,
       "capacity": 40,
       "open_for_registration": true,
-      "status": "Pending",
       "registered_students": []
     }
   ]

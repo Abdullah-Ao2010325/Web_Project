@@ -4,76 +4,87 @@
     "course_name": "Web Development",
     "course_number": "CMPS 350",
     "major": "CMPS",
-    "prerequisites": [2, 3]
+    "prerequisites": [2, 3],
+    "status": "Pending"
   },
   {
     "course_id": 2,
     "course_name": "OOP",
     "course_number": "CMPS 251",
     "major": ["CMPS", "CMPE"],
-    "prerequisites": [3]
+    "prerequisites": [3],
+    "status": "In Progress"
   },
   {
     "course_id": 3,
     "course_name": "Programming concepts",
     "course_number": "CMPS 151",
     "major": ["CMPS", "CMPE"],
-    "prerequisites": []
+    "prerequisites": [],
+    "status": "Validated"
   },
   {
     "course_id": 4,
     "course_name": "Data Structures",
     "course_number": "CMPS 303",
     "major": ["CMPS", "CMPE"],
-    "prerequisites": [2, 3]
+    "prerequisites": [2, 3],
+    "status": "In Progress"
   },
   {
     "course_id": 5,
     "course_name": "Fundamentals of Database",
     "course_number": "CMPS 351",
     "major": "CMPS",
-    "prerequisites": []
+    "prerequisites": [],
+    "status": "Validated"
   },
   {
     "course_id": 6,
     "course_name": "Linear Algebra",
     "course_number": "MATH 231",
     "major": "MATH",
-    "prerequisites": [8]
+    "prerequisites": [8],
+    "status": "Pending"
   },
   {
     "course_id": 7,
     "course_name": "Calculus 1",
     "course_number": "MATH 101",
     "major": "MATH",
-    "prerequisites": []
+    "prerequisites": [],
+    "status": "In Progress"
   },
   {
     "course_id": 8,
     "course_name": "Calculus 2",
     "course_number": "MATH 102",
     "major": "MATH",
-    "prerequisites": [7]
+    "prerequisites": [7],
+    "status": "Validated"
   },
   {
     "course_id": 9,
     "course_name": "Operating Systems",
     "course_number": "CMPS 405",
     "major": ["CMPS", "CMPE"],
-    "prerequisites": [4]
+    "prerequisites": [4],
+    "status": "Pending"
   },
   {
     "course_id": 10,
     "course_name": "Electronics",
     "course_number": "CMPE 330",
     "major": "CMPE",
-    "prerequisites": []
+    "prerequisites": [],
+    "status": "Validated"
   },
   {
     "course_id": 11,
     "course_name": "Computer Architecture 1",
     "course_number": "CMPE 278",
     "major": "CMPE",
-    "prerequisites": []
+    "prerequisites": [],
+    "status": "In Progress"
   }
 ]
