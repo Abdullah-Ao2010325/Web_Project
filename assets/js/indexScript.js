@@ -6,27 +6,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const hamburgerBtn = document.querySelector('.hamburger-btn');
     const navLinks = document.querySelector('.links');
     const closeNavBtn = navLinks.querySelector('.close-btn');
+    const contactForm = document.querySelector('.contact-form');
 
-    if (!loginForm) {
-        return;
-    }
+    if (!loginForm) return;
 
+    // Show login popup
     showPopupBtn.addEventListener('click', () => {
         document.body.classList.toggle('show-popup');
     });
 
+    // Hide login popup
     hidePopupBtn.addEventListener('click', () => {
         document.body.classList.remove('show-popup');
     });
 
+    // Toggle mobile menu
     hamburgerBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('show-menu'); 
+        navLinks.classList.toggle('show-menu');
     });
 
     closeNavBtn.addEventListener('click', () => {
-        navLinks.classList.remove('show-menu'); 
+        navLinks.classList.remove('show-menu');
     });
 
+    // Handle navigation link clicks (smooth scroll)
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href.substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                    navLinks.classList.remove('show-menu'); // Close mobile menu
+                }
+            }
+        });
+    });
+
+    // Login form submission
     loginForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
@@ -70,4 +89,21 @@ document.addEventListener('DOMContentLoaded', () => {
             loginForm.appendChild(errorMessage);
         }
     });
+
+    // Contact form submission (simple feedback)
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = contactForm.querySelector('input[type="text"]').value;
+            const email = contactForm.querySelector('input[type="email"]').value;
+            const message = contactForm.querySelector('textarea').value;
+
+            if (name && email && message) {
+                alert('Thank you for your message! We’ll get back to you soon.');
+                contactForm.reset();
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+    }
 });

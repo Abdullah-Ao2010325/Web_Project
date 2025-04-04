@@ -7,20 +7,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
-    let allData = { users: [], courses: [], classes: [], registrations: [], majors: [] };
+    let allData = { 
+        users: [], 
+        courses: [], 
+        classes: [], 
+        registrations: [], 
+        majors: [] 
+    };
     let studentData = null;
-
-    document.querySelector('.course-boxes').innerHTML = '<p>Loading courses...</p>';
-
-    try {
-        allData = await loadData();
-        console.log('Data loaded successfully:', allData);
-    } catch (error) {
-        console.error('Failed to load data:', error);
-        document.querySelector('.course-boxes').innerHTML = '<p>Error loading courses. Please try again later.</p>';
-        alert('Failed to load data. Please check the console for details and try again.');
-        return;
-    }
+    allData = await loadData();
+  
 
     let allUsers = allData.users;
     let allCourses = allData.courses;
@@ -39,16 +35,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     studentData = allUsers.find(user => user.role === 'Student' && user.username === loggedInUsername);
     if (!studentData) {
-        console.error('Student data not found for username:', loggedInUsername);
         alert('Student data not found. Redirecting to login.');
         window.location.href = '../index.html';
         return;
     }
 
-    document.getElementById('student-name').textContent = studentData.firstName || loggedInUsername;
-    document.getElementById('major').textContent = studentData.major || 'N/A';
-    document.getElementById('cgpa').textContent = studentData.cgpa || 'N/A';
-    document.getElementById('advisor').textContent = studentData.advisor || 'N/A';
+    document.getElementById('student-name').textContent = studentData.firstName;
+    document.getElementById('major').textContent = studentData.major;
+    document.getElementById('cgpa').textContent = studentData.cgpa;
+    document.getElementById('advisor').textContent = studentData.advisor;
 
     const completedCourses = studentData.completed_courses ? studentData.completed_courses.map(cc => {
         const classItem = allClasses.find(cls => cls.class_id === cc.class_id);
@@ -114,7 +109,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         const filteredCourses = availableCourses.filter(course => {
             const courseClasses = allClasses.filter(cls => cls.course_id === course.course_id);
             const matchesMajor = !selectedMajor || (Array.isArray(course.major) ? course.major.includes(selectedMajor) : course.major === selectedMajor);
-            const matchesTerm = !selectedTerm || courseClasses.some(cls => cls.term === selectedTerm);
+            let matchesTerm = !selectedTerm;
+            if (selectedTerm) {
+                for (let i = 0; i < courseClasses.length; i++) {
+                    if (courseClasses[i].term === selectedTerm) {
+                        matchesTerm = true;
+                        break;
+                    }
+                }
+            }
             const matchesSearch = !searchTerm || course.course_name.toLowerCase().includes(searchTerm);
             return matchesMajor && matchesTerm && matchesSearch;
         });
@@ -135,10 +138,22 @@ document.addEventListener('DOMContentLoaded', async () => {
             const courseClasses = allClasses.filter(cls => cls.course_id === course.course_id);
             if (courseClasses.length === 0) return;
 
-            const studentReg = studentRegistrations.find(reg => 
-                reg.student_id === studentData.student_id && 
-                courseClasses.some(cls => cls.class_id === reg.class_id)
-            );
+            let studentReg = null;
+            for (let i = 0; i < studentRegistrations.length; i++) {
+                const reg = studentRegistrations[i];
+                let hasMatchingClass = false;
+                for (let j = 0; j < courseClasses.length; j++) {
+                    if (courseClasses[j].class_id === reg.class_id) {
+                        hasMatchingClass = true;
+                        break;
+                    }
+                }
+                if (reg.student_id === studentData.student_id && hasMatchingClass) {
+                    studentReg = reg;
+                    break;
+                }
+            }
+
             const isRegistered = !!studentReg;
             const regStatus = studentReg ? studentReg.status : null;
             const registeredClass = studentReg ? allClasses.find(cls => cls.class_id === studentReg.class_id) : null;
@@ -152,15 +167,15 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <div class="course-details">
                     <div class="course-detail-item">
                         <span class="label"><span class="material-symbols-rounded">tag</span>Course Number:</span>
-                        <span class="value">${course.course_number || 'N/A'}</span>
+                        <span class="value">${course.course_number}</span>
                     </div>
                     <div class="course-detail-item">
                         <span class="label"><span class="material-symbols-rounded">school</span>Major:</span>
-                        <span class="value">${Array.isArray(course.major) ? course.major.join(', ') : course.major || 'N/A'}</span>
+                        <span class="value">${Array.isArray(course.major) ? course.major.join(', ') : course.major}</span>
                     </div>
                     <div class="course-detail-item">
                         <span class="label"><span class="material-symbols-rounded">class</span>${isRegistered ? 'Registered Section' : 'Sections Available'}:</span>
-                        <span class="value">${isRegistered ? (registeredClass ? registeredClass.section : 'N/A') : courseClasses.map(cls => cls.section).join(', ') || 'N/A'}</span>
+                        <span class="value">${isRegistered ? (registeredClass ? registeredClass.section : 'N/A') : courseClasses.map(cls => cls.section).join(', ')}</span>
                     </div>
                     ${isRegistered ? `
                         <div class="course-detail-item">
@@ -206,44 +221,68 @@ document.addEventListener('DOMContentLoaded', async () => {
     function handleRegistration(courseId) {
         const course = allCourses.find(c => c.course_id === courseId);
         const courseClasses = allClasses.filter(cls => cls.course_id === courseId);
-
-        const completedCourses = studentData.completed_courses.map(cc => {
-            const classItem = allClasses.find(cls => cls.class_id === cc.class_id);
-            return classItem ? classItem.course_id : null;
-        }).filter(id => id !== null);
-
-        const coursePrereqs = course.prerequisites.map(prereq => {
-            const prereqClasses = allClasses.filter(cls => cls.course_id === prereq);
-            return prereqClasses.map(cls => cls.class_id);
-        }).flat();
-
-        const prerequisitesMet = coursePrereqs.every(prereqClassId =>
-            completedCourses.includes(allClasses.find(cls => cls.class_id === prereqClassId)?.course_id) &&
-            studentData.completed_courses.find(cc => cc.class_id === prereqClassId && cc.grade !== 'F')
-        );
-
+    
+        const completedCourseIds = studentData.completed_courses
+            .map(cc => {
+                const classItem = allClasses.find(cls => cls.class_id === cc.class_id);
+                return classItem ? classItem.course_id : null;
+            })
+            .filter(id => id !== null);
+    
+        let prerequisitesMet = true;
+        for (let i = 0; i < course.prerequisites.length; i++) {
+            const prereqCourseId = course.prerequisites[i];
+            const hasCompletedCourse = completedCourseIds.includes(prereqCourseId);
+    
+            let hasPassingGrade = false;
+            for (let j = 0; j < studentData.completed_courses.length; j++) {
+                const cc = studentData.completed_courses[j];
+                const classItem = allClasses.find(cls => cls.class_id === cc.class_id);
+                if (classItem && classItem.course_id === prereqCourseId && cc.grade !== 'F') {
+                    hasPassingGrade = true;
+                    break; 
+                }
+            }
+    
+            if (!(hasCompletedCourse && hasPassingGrade)) {
+                prerequisitesMet = false;
+                break; 
+            }
+        }
+    
         if (!prerequisitesMet) {
-            const missingPrereqs = course.prerequisites.map(prereq => {
-                const prereqCourse = allCourses.find(c => c.course_id === prereq);
-                return prereqCourse ? prereqCourse.course_name : 'Unknown Course';
-            }).filter(prereq => !studentData.completed_courses.some(cc => {
-                const ccCourse = allClasses.find(cls => cls.class_id === cc.class_id);
-                return ccCourse && ccCourse.course_id === prereq && cc.grade !== 'F';
-            }));
-            showMessage('Prerequisites Not Met', `You cannot register for "${course.course_name}" because you haven't completed: ${missingPrereqs.join(', ')} with a passing grade.`);
+            const missingPrereqs = course.prerequisites
+                .filter(prereq => {
+                    const hasCompleted = completedCourseIds.includes(prereq);
+                    let hasPassingGrade = false;
+                    for (let j = 0; j < studentData.completed_courses.length; j++) {
+                        const cc = studentData.completed_courses[j];
+                        const classItem = allClasses.find(cls => cls.class_id === cc.class_id);
+                        if (classItem && classItem.course_id === prereq && cc.grade !== 'F') {
+                            hasPassingGrade = true;
+                            break;
+                        }
+                    }
+                    return !(hasCompleted && hasPassingGrade);
+                })
+                .map(prereq => {
+                    const prereqCourse = allCourses.find(c => c.course_id === prereq);
+                    return prereqCourse ? prereqCourse.course_name : 'Unknown Course';
+                });
+            showMessage('Prerequisites Not Met', `You cannot register for "${course.course_name}" because you haven't completed: ${missingPrereqs.join(', ')}.`);
             return;
         }
-
+    
         const availableClass = courseClasses.find(cls => 
             cls.open_for_registration === true &&
             (cls.capacity - cls.registered_students.length) > 0
         );
-
+    
         if (!availableClass) {
             showMessage('Registration Not Available', `No classes for "${course.course_name}" are currently open for registration or have available seats.`);
             return;
         }
-
+    
         showClassSelectionPopup(course, courseClasses);
     }
 
@@ -276,9 +315,15 @@ document.addEventListener('DOMContentLoaded', async () => {
                 return;
             }
 
-            const isRegistered = allRegistrations.some(reg =>
-                reg.student_id === studentData.student_id && reg.class_id === cls.class_id
-            );
+            // Replace some with a loop
+            let isRegistered = false;
+            for (let i = 0; i < allRegistrations.length; i++) {
+                const reg = allRegistrations[i];
+                if (reg.student_id === studentData.student_id && reg.class_id === cls.class_id) {
+                    isRegistered = true;
+                    break;
+                }
+            }
 
             optionsHtml += `
                 <div class="class-option">
@@ -339,7 +384,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         saveData(allData);
 
         updateProgressStats();
-        showMessage('Registration Submitted', `You have successfully ${existingRegistration ? 'changed your section for' : 'registered for'} "${course.course_name} (${classItem.section})". Awaiting administrator approval.`);
+        showMessage('Registration Submitted', `You have successfully ${existingRegistration ? 'changed your section for' : 'registered for'} "${course.course_name} (${classItem.section})". waiting for administrator approval.`);
         renderCourses(availableCourses, allRegistrations);
     }
 

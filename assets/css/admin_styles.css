@@ -707,4 +707,162 @@ main h1 {
   }
 }
 
+/* Student Requests Section */
+.student-requests {
+  grid-column: 1 / -1;
+  max-width: calc(100% - 260px);
+  height: auto;
+  text-align: center;
+  margin-top: 30px;
+  margin-left: 260px;
+  overflow: hidden;
+}
 
+.student-requests .requests-header {
+  margin-bottom: 20px;
+}
+
+.student-requests .requests-header h1 {
+  font-size: 2rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.student-requests .requests-container {
+  background-color: #F0F4FF;
+  min-height: 400px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 15px;
+  border-radius: 5px;
+  overflow-y: auto;
+}
+
+.student-requests .requests-container .request-item {
+  background: #fff;
+  border: 1.9px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  width: 600px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.student-requests .requests-container .request-item:hover {
+  transform: scale(1.02);
+}
+
+.student-requests .requests-container .request-item h5 {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.student-requests .requests-container .request-item h5 span.material-symbols-outlined {
+  color: #E32636;
+}
+
+.student-requests .requests-container .request-item .action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.student-requests .requests-container .request-item button {
+  width: 120px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  color: #fff;
+  transition: transform 0.2s ease;
+}
+
+.student-requests .requests-container .request-item .approve-btn {
+  background-color: #28a745; 
+}
+
+.student-requests .requests-container .request-item .approve-btn:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.student-requests .requests-container .request-item .reject-btn {
+  background-color: #E32636; 
+}
+
+.student-requests .requests-container .request-item .reject-btn:hover {
+  background-color: #c2182b;
+  transform: scale(1.05);
+}
+
+.student-requests .requests-container .request-item button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.student-requests .requests-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.student-requests .requests-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.student-requests .requests-container::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 637px) {
+  .student-requests {
+    max-width: 100%;
+    height: auto;
+    padding: 15px;
+    margin: 0 auto;
+    margin-right: 1200px;
+  }
+
+  .student-requests .requests-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .student-requests .requests-container .request-item {
+    width: 270px;
+    font-size: 13px;
+  }
+
+  .student-requests .requests-container .request-item button {
+    width: 100px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (min-width: 638px) and (max-width: 1345px) {
+  .student-requests {
+    max-width: 100%;
+    height: auto;
+    padding: 15px;
+    margin: 0 auto;
+    margin-right: 1200px;
+  }
+
+  .student-requests .requests-container .request-item {
+    width: 500px;
+  }
+}

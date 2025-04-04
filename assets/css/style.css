@@ -1,4 +1,3 @@
-/* Importing Google font - Open Sans */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
 
 * {
@@ -9,9 +8,9 @@
 }
 
 body {
-    height: 100vh;
     width: 100%;
     background: url("../images/QU.jpg") center/cover no-repeat;
+    background-attachment: fixed;
 }
 
 header {
@@ -21,6 +20,7 @@ header {
     left: 0;
     z-index: 10;
     padding: 0 10px;
+    background: #470c03;
 }
 
 .navbar {
@@ -83,7 +83,7 @@ header {
 }
 
 .navbar .links a:hover {
-    color: #6b1915;
+    color: #778c9e;
 }
 
 .navbar .login-btn {
@@ -107,7 +107,7 @@ header {
     position: fixed;
     top: 50%;
     left: 50%;
-    z-index: 10;
+    z-index: 15;
     width: 100%;
     opacity: 0;
     pointer-events: none;
@@ -186,7 +186,7 @@ form .input-field {
     margin-top: 20px;
 }
 
-.input-field input {
+.input-field input, .input-field textarea {
     height: 100%;
     width: 100%;
     background: none;
@@ -195,9 +195,15 @@ form .input-field {
     padding: 0 15px;
     border: 1px solid #717171;
     border-radius: 3px;
+    resize: none;
 }
 
-.input-field input:focus {
+.input-field textarea {
+    height: 100px;
+    padding: 10px 15px;
+}
+
+.input-field input:focus, .input-field textarea:focus {
     border: 1px solid #540303;
 }
 
@@ -211,11 +217,14 @@ form .input-field {
     transition: 0.2s ease;
 }
 
-.input-field input:is(:focus, :valid) {
+.input-field input:focus, .input-field input:valid {
     padding: 16px 15px 0;
 }
+.input-field textarea:focus, .input-field textarea:valid {
+    padding: 16px 15px;
+}
 
-.input-field input:is(:focus, :valid)~label {
+.input-field input:is(:focus, :valid)~label, .input-field textarea:is(:focus, :valid)~label {
     transform: translateY(-120%);
     color: #4e0904;
     font-size: 0.75rem;
@@ -230,7 +239,7 @@ form .input-field {
     text-decoration: underline;
 }
 
-form :where(.forgot-pass) {
+form .forgot-pass {
     display: inline-flex;
     margin-top: 13px;
     font-size: 0.95rem;
@@ -240,7 +249,6 @@ form button {
     width: 100%;
     color: #fff;
     border: none;
-    outline: none;
     padding: 14px 0;
     font-size: 1rem;
     font-weight: 500;
@@ -255,8 +263,119 @@ form button:hover {
     background: #66443a;
 }
 
-.form-container .bottom-link {
+.welcome-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.welcome-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.welcome-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+}
+
+.about-section {
+    padding: 80px 20px;
+    background: #fff;
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-container h2 {
+    font-size: 2.5rem;
+    color: #6d1204;
+    margin-bottom: 20px;
+}
+
+.section-container p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-details {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.detail-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.detail-card h3 {
+    font-size: 1.5rem;
+    color: #6d1204;
+    margin-bottom: 10px;
+}
+
+.detail-card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.contact-section {
+    padding: 80px 20px;
+    background: #f4f4f4;
+}
+
+.contact-content {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.contact-info {
+    max-width: 400px;
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    color: #6d1204;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.contact-form {
+    max-width: 400px;
+    width: 100%;
+}
+
+.contact-form button {
+    margin-top: 65px;
+}
+
+.contact-form .input-field {
+    margin-top: 20px;
 }
 
 @media (max-width: 950px) {
@@ -309,6 +428,23 @@ form button:hover {
         font-size: 0.9rem;
         padding: 7px 10px;
     }
+
+    .welcome-content h1 {
+        font-size: 2rem;
+    }
+
+    .welcome-content p {
+        font-size: 1rem;
+    }
+
+    .about-details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .detail-card {
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 760px) {
@@ -322,5 +458,30 @@ form button:hover {
 
     .login-form-box .form-container {
         padding: 30px 20px;
+    }
+
+    .welcome-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .welcome-content p {
+        font-size: 0.9rem;
+    }
+
+    .section-container h2 {
+        font-size: 2rem;
+    }
+
+    .section-container p {
+        font-size: 1rem;
+    }
+
+    .contact-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-info, .contact-form {
+        max-width: 100%;
     }
 }

@@ -627,13 +627,18 @@ body {
         margin: 0 auto;
     }
 
-    .welcome-logo {
+    /* .welcome-logo {
         width: 100px;
         height: 100px;
+    } */
+
+    .logo-welcome-section img{
+        display: none;
     }
 
     .welcome-message {
         max-width: 100%;
+        margin-top: 10px;
     }
 
     .welcome-message h1 {
@@ -757,10 +762,6 @@ body {
         gap: 10px;
     }
 
-    .logo img {
-        width: 40px;
-    }
-
     .university-name {
         font-size: 1rem;
     }
@@ -806,14 +807,19 @@ body {
         max-width: 100%;
     }
 
-    .welcome-logo {
+    /* .welcome-logo {
         width: 80px;
         height: 80px;
+    } */
+
+    .logo-welcome-section img{
+        display: none;
     }
 
     .welcome-message {
         max-width: 100%;
         padding: 0 10px;
+        margin-top: 10px;
     }
 
     .welcome-message h1 {
