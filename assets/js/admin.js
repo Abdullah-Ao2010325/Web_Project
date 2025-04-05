@@ -1,5 +1,3 @@
-
-
 function loadClasses() {
     const storedClasses = localStorage.getItem('classes');
 
@@ -85,6 +83,8 @@ function loadCourseOptions() {
 
 function displayClasses(classes) {
     const course_container = document.querySelector(".course-container");
+    course_container.innerHTML = ""; // ✅ added
+
     classes.forEach(c => {
         const course_div = document.createElement("div");
         course_div.classList.add("course-item");
@@ -133,6 +133,7 @@ function displayClasses(classes) {
 
 function displayCourses(c) {
     const container = document.querySelector(".class-container");
+    container.innerHTML = "";
     c.forEach(course => {
         const coursdiv = document.createElement("div");
         coursdiv.classList.add("class-item");
@@ -141,23 +142,23 @@ function displayCourses(c) {
 
         coursdiv.innerHTML = `
             <h5 class="Course-heading">
-                <span class="material-symbols-outlined">arrow_forward_ios</span>
+                <span class="material-symbols-outlined">assignment  </span>
                 Course ID: ${course.course_id}
             </h5>
             <h5 class="Course-heading">
-                <span class="material-symbols-outlined">arrow_forward_ios</span>
+                <span class="material-symbols-outlined">subject</span>
                 Course Name: ${course.course_name}
             </h5>
             <h5 class="Course-heading">
-                <span class="material-symbols-outlined">arrow_forward_ios</span>
+                <span class="material-symbols-outlined">tag</span>
                 Course Number: ${course.course_number}
             </h5>
             <h5 class="Course-heading">
-                <span class="material-symbols-outlined">arrow_forward_ios</span>
-                Major: ${Array.isArray(course.major) ? course.major.join(", ") : course.major}  // Check if major is a array
+                <span class="material-symbols-outlined">school</span>
+                Major: ${Array.isArray(course.major) ? course.major.join(", ") : course.major}  
             </h5>
             <h5 class="Course-heading">
-                <span class="material-symbols-outlined">arrow_forward_ios</span>
+                <span class="material-symbols-outlined">checklist</span>
                 Prerequisites: ${prerequisites}
             </h5>
         `;
@@ -165,10 +166,6 @@ function displayCourses(c) {
         container.appendChild(coursdiv);
     });
 }
-
-
-
-
 
 function handleClassSubmission(e) {
     e.preventDefault();
@@ -199,27 +196,29 @@ function handleClassSubmission(e) {
         term: term,
         section: section,
         instructor_id: instructor,
-        capacity: 40, 
+        capacity: 40,
         open_for_registration: newstatus,
         registered_students: []
     };
 
     classes.push(newClass);
     localStorage.setItem('classes', JSON.stringify(classes));
-    console.log(classes); 
-    loadClasses(); 
+    console.log(classes);
+    loadClasses();
     document.querySelector('.new-course').reset();
 }
+
+
 
 function handleCourseSubmission(e) {
     e.preventDefault();
     const courseName = document.querySelector('.course-name').value;
     const courseNumber = document.querySelector('.course-number').value;
 
-   
+
     const selected_majors = Array.from(document.querySelectorAll('.major-option:checked')).map(input => input.value);
 
-   //convert it to an array (didnt work without it(array.from)) DO NOT REMOVE IT
+    //convert it to an array (didnt work without it(array.from)) DO NOT REMOVE IT
     const prerequisites = Array.from(document.querySelectorAll('.pre-input')).map(i => i.value).filter(value => value.trim() !== "");
 
     let courses = JSON.parse(localStorage.getItem('courses')) || [];
@@ -237,45 +236,26 @@ function handleCourseSubmission(e) {
 
     courses.push(newCourse);
     localStorage.setItem('courses', JSON.stringify(courses));
-    console.log(courses); 
+    console.log(courses);
     document.querySelector('.new-class-form').reset();
 }
 
 
-/* <div class="pending_class_item">
-<h5 class="class_heading">Term: Spring</h5>
-<h5 class="class_heading">Class ID: 1</h5>
-<h5 class="class_heading">Course ID: 3</h5>
-<h5 class="class_heading">Section: L01</h5>
-<h5 class="class_heading">Capacity: 34</h5>
-<button id="validate_bt">Validate</button>
-<button id="reject_bt">reject</button>
-</div> */
 
-function displayPendingClasses() {
-    const classes = JSON.parse(localStorage.getItem('classes')) || [];
 
-    const filtered_classes = classes.filter(c => c.capacity > 15);
+function validateCourse(id) {
+    const courses = JSON.parse(localStorage.getItem('courses')) || [];
 
-    console.log(filtered_classes);
+    const desired_course = courses.find(c => c.course_id === id);
 
-    const pendingClassesContainer = document.querySelector(".pending_classes_container");
 
-    filtered_classes.forEach(c => {
-        const Pending_div = document.createElement("div");
-        Pending_div.classList.add("pending_class_item");
-
-        Pending_div.innerHTML = `
-            <h5 class="class_heading">Term: ${c.term}</h5>
-            <h5 class="class_heading">Class ID: ${c.class_id}</h5>
-            <h5 class="class_heading">Course ID: ${c.course_id}</h5>
-            <h5 class="class_heading">Section: ${c.section}</h5>
-            <h5 class="class_heading">Capacity: ${c.capacity}</h5>
-            <button id="validate_bt" onclick="validateClass(${c.class_id})">Validate</button>
-            <button id="reject_bt" onclick="rejectClass(${c.class_id})">Reject</button>
-        `;
-        pendingClassesContainer.appendChild(Pending_div);
-    });
+    if (desired_course) {
+        desired_course.status = "Validated";
+        localStorage.setItem('courses', JSON.stringify(courses));
+        console.log(`Course ${id} validated successfully.`);
+        console.log(courses);
+        loadCourses();
+    }
 }
 
 function validateClass(id) {
@@ -302,15 +282,116 @@ function rejectClass(id) {
         console.log(`Class ${id} rejected successfully.`);
         loadClasses();
     }
+
+
 }
 
+
+
+function displayPendingItems() {
+    const classes = JSON.parse(localStorage.getItem('classes')) || [];
+    const courses = JSON.parse(localStorage.getItem('courses')) || [];
+
+    const filtered_classes = classes.filter(c => c.capacity > 15);
+    const filtered_courses = courses.filter(c => c.status === "Pending");
+
+    console.log(filtered_classes);
+
+    const pendingClassesContainer = document.querySelector(".pending_classes_container");
+
+    filtered_classes.forEach(c => {
+        const Pending_div = document.createElement("div");
+        Pending_div.classList.add("pending_class_item");
+
+        Pending_div.innerHTML = `
+            <h5 class="class_heading">Term: ${c.term}</h5>
+            <h5 class="class_heading">Class ID: ${c.class_id}</h5>
+            <h5 class="class_heading">Course ID: ${c.course_id}</h5>
+            <h5 class="class_heading">Section: ${c.section}</h5>
+            <h5 class="class_heading">Capacity: ${c.capacity}</h5>
+            <button id="validate_bt" onclick="validateClass(${c.class_id})">Validate</button>
+            <button id="reject_bt" onclick="rejectClass(${c.class_id})">Reject</button>
+        `;
+        pendingClassesContainer.appendChild(Pending_div);
+    });
+
+
+    filtered_courses.forEach(c => {
+        const Pending_div = document.createElement("div");
+        Pending_div.classList.add("pending_class_item");
+
+        Pending_div.innerHTML = `
+            <h5 class="class_heading">Course ID: ${c.course_id}</h5>
+            <h5 class="class_heading">Course Name: ${c.course_name}</h5>
+            <h5 class="class_heading">Course Number: ${c.course_number}</h5>
+            <h5 class="class_heading">Major: ${Array.isArray(c.major) ? c.major.join(", ") : c.major}</h5>
+            <h5 class="class_heading">Prerequisites: ${c.prerequisites.length > 0 ? c.prerequisites.join(", ") : "none"}</h5>
+            <button onclick="validateCourse(${c.course_id})">Validate</button>   
+        `;
+        pendingClassesContainer.appendChild(Pending_div);
+    });
+}
+
+
+function filterItemsByCategory() {
+    const classes = JSON.parse(localStorage.getItem('classes')) || [];
+    const courses = JSON.parse(localStorage.getItem('courses')) || [];
+
+    const Pending_div = document.querySelector(".pending_classes_container");
+    const selected = document.querySelector("#pending_selector").value;
+    console.log(selected); //debuging
+
+    Pending_div.innerHTML = "";
+    if (selected === "classes") {
+        const filtered_classes = classes.filter(c => c.capacity > 15);
+        filtered_classes.forEach(c => {
+            const class_div = document.createElement("div");
+            class_div.classList.add("pending_class_item");
+
+            class_div.innerHTML = `
+                <h5 class="class_heading">Term: ${c.term}</h5>
+                <h5 class="class_heading">Class ID: ${c.class_id}</h5>
+                <h5 class="class_heading">Course ID: ${c.course_id}</h5>
+                <h5 class="class_heading">Section: ${c.section}</h5>
+                <h5 class="class_heading">Capacity: ${c.capacity}</h5>
+                <button id="validate_bt" onclick="validateClass(${c.class_id})">Validate</button>
+                <button id="reject_bt" onclick="rejectClass(${c.class_id})">Reject</button>
+            `;
+            Pending_div.appendChild(class_div);
+        });
+
+    }
+    else if (selected === "courses") {
+        const filtered_courses = courses.filter(c => c.status === "Pending");
+        filtered_courses.forEach(c => {
+            const course_div = document.createElement("div");
+            course_div.classList.add("pending_class_item");
+            course_div.innerHTML = `
+                <h5 class="class_heading">Course ID: ${c.course_id}</h5>
+                <h5 class="class_heading">Course Name: ${c.course_name}</h5>
+                <h5 class="class_heading">Course Number: ${c.course_number}</h5>
+                <h5 class="class_heading">Major: ${Array.isArray(c.major) ? c.major.join(", ") : c.major}</h5>
+                <h5 class="class_heading">Prerequisites: ${c.prerequisites.length > 0 ? c.prerequisites.join(", ") : "none"}</h5>
+                <button onclick="validateCourse(${c.course_id})">Validate</button>   
+            `;
+            Pending_div.appendChild(course_div);
+        });
+    }
+}
+
+function logout() {
+    localStorage.removeItem('admin_user');
+    window.location.href = "index.html";
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     loadClasses();
     loadCourses();
     loadCourseOptions();
-    displayPendingClasses()
+    displayPendingItems()
     document.querySelector("#add-pre-bt").addEventListener("click", addPrerequisiteInput);
+    document.querySelector("#pending_selector").addEventListener("change", filterItemsByCategory);
+
 
 });
 
@@ -321,5 +402,10 @@ document.querySelector('.new-class-form').addEventListener('submit', handleCours
 Pending_div.querySelector("#validate_bt").addEventListener("click", () => validateClass(c.class_id));
 
 Pending_div.querySelector("#reject_bt").addEventListener("click", () => rejectClass(c.class_id));
+
+
+// document.querySelector("#pending_selector").addEventListener("change", filterItemsByCategory);
+
+
 
 
