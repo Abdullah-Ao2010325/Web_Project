@@ -16,10 +16,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     };
     let studentData = null;
     allData = await loadData();
-  
 
-    let allUsers = allData.users;
-    let allCourses = allData.courses;
+    let allUsers = allData.users ;
+    let allCourses = allData.courses ;
     let allClasses = allData.classes;
     let allRegistrations = allData.registrations;
     let allMajors = allData.majors;
@@ -79,7 +78,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.querySelector('.progress-bar-remaining').style.width = `${remainingPercent}%`;
     }
 
-    const studentRegistrations = allRegistrations.filter(reg => reg.student_id === studentData.student_id);
+    let studentRegistrations = allRegistrations.filter(reg => reg.student_id === studentData.student_id);
     const registeredCourseIds = studentRegistrations.map(reg => {
         const classItem = allClasses.find(cls => cls.class_id === reg.class_id);
         return classItem ? classItem.course_id : null;
@@ -138,25 +137,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             const courseClasses = allClasses.filter(cls => cls.course_id === course.course_id);
             if (courseClasses.length === 0) return;
 
-            let studentReg = null;
-            for (let i = 0; i < studentRegistrations.length; i++) {
-                const reg = studentRegistrations[i];
-                let hasMatchingClass = false;
-                for (let j = 0; j < courseClasses.length; j++) {
-                    if (courseClasses[j].class_id === reg.class_id) {
-                        hasMatchingClass = true;
-                        break;
-                    }
-                }
-                if (reg.student_id === studentData.student_id && hasMatchingClass) {
-                    studentReg = reg;
-                    break;
-                }
-            }
+            let studentReg = studentRegistrations.find(reg => 
+                reg.student_id === studentData.student_id && 
+                courseClasses.some(cls => cls.class_id === reg.class_id)
+            );
 
-            const isRegistered = !!studentReg;
+            const isRegistered = !!studentReg && studentReg.status !== 'Rejected';
             const regStatus = studentReg ? studentReg.status : null;
-            const registeredClass = studentReg ? allClasses.find(cls => cls.class_id === studentReg.class_id) : null;
+            const registeredClass = studentReg && isRegistered ? allClasses.find(cls => cls.class_id === studentReg.class_id) : null;
 
             const courseBox = document.createElement('div');
             courseBox.classList.add('course-box');
@@ -296,35 +284,28 @@ document.addEventListener('DOMContentLoaded', async () => {
         const modal = document.createElement('div');
         modal.className = 'class-selection-modal';
         let optionsHtml = '';
-
+    
         const currentRegistration = allRegistrations.find(reg =>
             reg.student_id === studentData.student_id &&
-            courseClasses.some(cls => cls.class_id === reg.class_id)
+            courseClasses.some(cls => cls.class_id === reg.class_id) &&
+            reg.status !== 'Rejected'
         );
-
+    
         courseClasses.forEach(cls => {
             const instructor = allUsers.find(user => user.instructor_id === cls.instructor_id);
             const instructorName = instructor ? instructor.firstName : 'N/A';
-
+    
             if (!cls.open_for_registration) {
                 return;
             }
-
+    
             const availableSeats = cls.capacity - cls.registered_students.length;
             if (availableSeats <= 0) {
                 return;
             }
-
-            // Replace some with a loop
-            let isRegistered = false;
-            for (let i = 0; i < allRegistrations.length; i++) {
-                const reg = allRegistrations[i];
-                if (reg.student_id === studentData.student_id && reg.class_id === cls.class_id) {
-                    isRegistered = true;
-                    break;
-                }
-            }
-
+    
+            const isRegistered = currentRegistration && currentRegistration.class_id === cls.class_id && currentRegistration.status === 'Approved';
+    
             optionsHtml += `
                 <div class="class-option">
                     <span>${course.course_name} (${cls.section}) - ${instructorName} (${cls.term}) - Seats: ${availableSeats}</span>
@@ -334,12 +315,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                 </div>
             `;
         });
-
+    
         if (!optionsHtml) {
             showMessage('No Classes Available', `No classes for "${course.course_name}" are open for registration or have available seats.`);
             return;
         }
-
+    
         modal.innerHTML = `
             <h2>Select a Class</h2>
             <p>Please choose a class for "${course.course_name}":</p>
@@ -347,7 +328,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             <button class="close-btn">Cancel</button>
         `;
         document.body.appendChild(modal);
-
+    
         modal.querySelectorAll('.class-option button').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const classId = parseInt(e.target.getAttribute('data-class-id'));
@@ -355,7 +336,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 confirmRegistration(classId, currentRegistration);
             });
         });
-
+    
         modal.querySelector('.close-btn').addEventListener('click', () => {
             modal.remove();
         });
@@ -365,27 +346,55 @@ document.addEventListener('DOMContentLoaded', async () => {
         const classItem = allClasses.find(c => c.class_id === classId);
         const course = allCourses.find(c => c.course_id === classItem.course_id);
 
+        const existingCourseRegistration = allRegistrations.find(reg => 
+            reg.student_id === studentData.student_id &&
+            reg.class_id !== classId && // Exclude the new classId being registered
+            allClasses.find(cls => cls.class_id === reg.class_id)?.course_id === course.course_id &&
+            (reg.status === 'Approved' || reg.status === 'Pending')
+        );
+
+        if (existingCourseRegistration && !existingRegistration) {
+            const existingClass = allClasses.find(cls => cls.class_id === existingCourseRegistration.class_id);
+            showMessage(
+                'Already Registered', 
+                `You are already registered for "${course.course_name}" in section ${existingClass.section}. Please withdraw from that section first before registering for a different one.`
+            );
+            return;
+        }
+
+        if (existingRegistration && existingRegistration.status === 'Approved') {
+            const currentClass = allClasses.find(cls => cls.class_id === existingRegistration.class_id);
+            showMessage(
+                'Approved Registration', 
+                `Your registration for "${course.course_name}" in section ${currentClass.section} has been approved. You must withdraw from this section before registering for a different one.`
+            );
+            return;
+        }
+
         if (existingRegistration) {
             allRegistrations = allRegistrations.filter(reg => reg.registration_id !== existingRegistration.registration_id);
+            studentRegistrations = studentRegistrations.filter(reg => reg.registration_id !== existingRegistration.registration_id);
             if (existingRegistration.status === 'Approved') {
                 const oldClass = allClasses.find(cls => cls.class_id === existingRegistration.class_id);
                 oldClass.registered_students = oldClass.registered_students.filter(id => id !== studentData.student_id);
             }
         }
 
-        allRegistrations.push({
+        const newRegistration = {
             registration_id: allRegistrations.length + 1,
             student_id: studentData.student_id,
             class_id: classId,
             status: 'Pending'
-        });
+        };
+        allRegistrations.push(newRegistration);
+        studentRegistrations = allRegistrations.filter(reg => reg.student_id === studentData.student_id); // Sync studentRegistrations
 
         allData.registrations = allRegistrations;
         saveData(allData);
 
         updateProgressStats();
-        showMessage('Registration Submitted', `You have successfully ${existingRegistration ? 'changed your section for' : 'registered for'} "${course.course_name} (${classItem.section})". waiting for administrator approval.`);
-        renderCourses(availableCourses, allRegistrations);
+        showMessage('Registration Submitted', `You have successfully ${existingRegistration ? 'changed your section for' : 'registered for'} "${course.course_name} (${classItem.section})". Waiting for administrator approval.`);
+        renderCourses(availableCourses, studentRegistrations);
     }
 
     function handleWithdrawal(courseId) {
@@ -414,8 +423,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         `;
         document.body.appendChild(modal);
 
-        modal.querySelector('.confirm-btn').addEventListener('click', () => {
+        modal.querySelector('.confirm-btn').addEventListener('click', async () => {
             allRegistrations = allRegistrations.filter(reg => reg.registration_id !== registration.registration_id);
+            studentRegistrations = allRegistrations.filter(reg => reg.student_id === studentData.student_id); 
             if (registration.status === 'Approved') {
                 const classItem = allClasses.find(cls => cls.class_id === registration.class_id);
                 classItem.registered_students = classItem.registered_students.filter(id => id !== studentData.student_id);
@@ -425,7 +435,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             saveData(allData);
 
             showMessage('Withdrawal Successful', `You have successfully withdrawn from "${course.course_name}".`);
-            renderCourses(availableCourses, allRegistrations);
+            renderCourses(availableCourses, studentRegistrations);
             modal.remove();
         });
 

@@ -1,21 +1,55 @@
 import { loadData, saveData } from './dataManager.js';
 
-async function displayPendingRequests() {
-  try {
-    const data = await loadData();
-    const { users, classes, courses, registrations } = data;
+let globalData = null;
 
-    const pendingRegistrations = registrations.filter(reg => reg.status === "Pending");
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    globalData = await loadData();
+
+    await displayPendingRequests();
+
+    const majorFilter = document.getElementById("major-filter");
+    majorFilter.addEventListener("change", () => {
+      const selectedMajor = majorFilter.value;
+      displayPendingRequests(selectedMajor);
+    });
+  } catch (error) {
     const requestsContainer = document.querySelector(".requests-container");
-    requestsContainer.innerHTML = ""; 
+    if (requestsContainer) {
+      requestsContainer.innerHTML = '<p class="error">Error loading requests. Please try again later.</p>';
+    }
+  }
+});
+
+
+async function displayPendingRequests(selectedMajor = '') {
+  try {
+    const { users, classes, courses, registrations } = globalData;
+
+    let pendingRegistrations = registrations.filter(reg => reg.status === "Pending");
+
+    if (selectedMajor) {
+      pendingRegistrations = pendingRegistrations.filter(reg => {
+        const student = users.find(user => user.student_id === reg.student_id && user.role === "Student");
+        return student && student.major === selectedMajor;
+      });
+    }
+
+    const requestsContainer = document.querySelector(".requests-container");
+
+    if (!requestsContainer) {
+      return;
+    }
+
+    requestsContainer.innerHTML = "";
 
     if (pendingRegistrations.length === 0) {
-      requestsContainer.innerHTML = "<p>No pending registration requests.</p>";
+      requestsContainer.innerHTML = '<p class="no-requests">No pending registration requests at this time.</p>';
       return;
     }
 
     pendingRegistrations.forEach(reg => {
-      const student = users.find(user => user.username === reg.student_id);
+      const student = users.find(user => user.student_id === reg.student_id && user.role === "Student");
       const classInfo = classes.find(cls => cls.class_id === reg.class_id);
       const course = courses.find(crs => crs.course_id === classInfo?.course_id);
 
@@ -23,85 +57,98 @@ async function displayPendingRequests() {
         const requestDiv = document.createElement("div");
         requestDiv.classList.add("request-item");
 
+        const studentName = `${student.firstName} ${student.lastName}`;
+
         requestDiv.innerHTML = `
-          <h5><span class="material-symbols-outlined">person</span>Student: ${student.name}</h5>
-          <h5><span class="material-symbols-outlined">class</span>Class ID: ${classInfo.class_id} (Section: ${classInfo.section})</h5>
-          <h5><span class="material-symbols-outlined">book</span>Course: ${course.course_name}</h5>
+          <div class="request-details">
+            <p><span class="material-symbols-rounded">person</span> <strong>Student:</strong> ${studentName}</p>
+            <p><span class="material-symbols-rounded">class</span> <strong>Class:</strong> ID ${classInfo.class_id} (Section: ${classInfo.section})</p>
+            <p><span class="material-symbols-rounded">book</span> <strong>Course:</strong> ${course.course_name} (${course.course_number})</p>
+          </div>
           <div class="action-buttons">
-            <button class="approve-btn" data-student-id="${reg.student_id}" data-class-id="${reg.class_id}">Approve</button>
-            <button class="reject-btn" data-student-id="${reg.student_id}" data-class-id="${reg.class_id}">Reject</button>
+            <button class="approve-btn" data-reg-id="${reg.registration_id}">Approve</button>
+            <button class="reject-btn" data-reg-id="${reg.registration_id}">Reject</button>
           </div>
         `;
 
-        const approveBtn = requestDiv.querySelector(".approve-btn");
-        const rejectBtn = requestDiv.querySelector(".reject-btn");
-
-        approveBtn.addEventListener("click", () => {
-          const studentId = approveBtn.getAttribute("data-student-id");
-          const classId = parseInt(approveBtn.getAttribute("data-class-id"));
-          approveRequest(studentId, classId);
-        });
-
-        rejectBtn.addEventListener("click", () => {
-          const studentId = rejectBtn.getAttribute("data-student-id");
-          const classId = parseInt(rejectBtn.getAttribute("data-class-id"));
-          rejectRequest(studentId, classId);
-        });
+        requestDiv.querySelector(".approve-btn").addEventListener("click", () => handleApproval(reg.registration_id));
+        requestDiv.querySelector(".reject-btn").addEventListener("click", () => handleRejection(reg.registration_id));
 
         requestsContainer.appendChild(requestDiv);
       }
     });
   } catch (error) {
-    console.error("Error displaying pending requests:", error);
+    document.querySelector(".requests-container").innerHTML = '<p class="error">Error loading requests. Please try again later.</p>';
   }
 }
 
-async function approveRequest(studentId, classId) {
+async function handleApproval(registrationId) {
   try {
-    const data = await loadData();
-    const { registrations, classes } = data;
+    const registration = globalData.registrations.find(reg => reg.registration_id === registrationId);
+    const classInfo = globalData.classes.find(cls => cls.class_id === registration.class_id);
 
-    const registration = registrations.find(reg => reg.student_id === studentId && reg.class_id === classId);
-    const classInfo = classes.find(cls => cls.class_id === classId);
-
-    if (registration && classInfo) {
-      registration.status = "Approved";
-
-      if (!classInfo.registered_students.includes(studentId)) {
-        classInfo.registered_students.push(studentId);
-        classInfo.capacity -= 1; 
-      }
-
-      saveData(data);
-      console.log(`Registration for student ${studentId} in class ${classId} approved.`);
-
-      await displayPendingRequests();
+    if (!registration || !classInfo) {
+      showMessage("Error", "Registration or associated class not found.");
+      return;
     }
+
+    if (classInfo.capacity <= classInfo.registered_students.length) {
+      showMessage("Capacity Full", "This class has reached its maximum capacity.");
+      return;
+    }
+
+    registration.status = "Approved";
+    if (!classInfo.registered_students.includes(registration.student_id)) {
+      classInfo.registered_students.push(registration.student_id);
+    }
+
+    saveData(globalData);
+    const selectedMajor = document.getElementById("major-filter").value;
+    await displayPendingRequests(selectedMajor);
+    showMessage("Success", "Registration approved successfully!");
   } catch (error) {
-    console.error("Error approving request:", error);
+    showMessage("Error", "Failed to approve registration. Please try again.");
   }
 }
 
-async function rejectRequest(studentId, classId) {
+async function handleRejection(registrationId) {
   try {
-    const data = await loadData();
-    const { registrations } = data;
+    const registration = globalData.registrations.find(reg => reg.registration_id === registrationId);
 
-    const registration = registrations.find(reg => reg.student_id === studentId && reg.class_id === classId);
-
-    if (registration) {
-      registration.status = "Rejected";
-
-      saveData(data);
-      console.log(`Registration for student ${studentId} in class ${classId} rejected.`);
-
-      await displayPendingRequests();
+    if (!registration) {
+      showMessage("Error", "Registration not found.");
+      return;
     }
+
+    registration.status = "Rejected";
+    saveData(globalData);
+    const selectedMajor = document.getElementById("major-filter").value;
+    await displayPendingRequests(selectedMajor);
+    showMessage("Success", "Registration rejected successfully!");
   } catch (error) {
-    console.error("Error rejecting request:", error);
+    showMessage("Error", "Failed to reject registration. Please try again.");
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  displayPendingRequests();
-});
+function showMessage(title, message) {
+  let popup = document.querySelector(".popup-container");
+  if (!popup) {
+    popup = document.createElement("div");
+    popup.classList.add("popup-container");
+    document.body.appendChild(popup);
+  }
+
+  popup.innerHTML = `
+    <div class="popup-content">
+      <h2>${title}</h2>
+      <p>${message}</p>
+      <button class="close-popup">OK</button>
+    </div>
+  `;
+  popup.style.display = "flex";
+
+  popup.querySelector(".close-popup").addEventListener("click", () => {
+    popup.style.display = "none";
+  });
+}
+

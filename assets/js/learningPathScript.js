@@ -101,6 +101,10 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (status === 'All' || status === 'In Progress' || status === 'Pending') {
             const studentRegistrations = allRegistrations.filter(reg => reg.student_id === studentData.student_id);
             studentRegistrations.forEach(reg => {
+                if (reg.status === 'Rejected') {
+                    return; 
+                }
+
                 const classData = allClasses.find(cls => cls.class_id === reg.class_id);
                 if (classData) {
                     const courseData = allCourses.find(c => c.course_id === classData.course_id);
@@ -108,11 +112,13 @@ document.addEventListener('DOMContentLoaded', async function() {
                         const instructor = allUsers.find(user => user.instructor_id === classData.instructor_id) || { firstName: 'N/A' };
                         let courseStatus;
                         if (reg.status === 'Approved') {
-                            courseStatus = 'In Progress'; 
+                            courseStatus = 'In Progress';
                         } else if (reg.status === 'Pending') {
                             courseStatus = 'Pending';
                         } else if (reg.status === 'Approved' && classData.status === 'Validated') {
-                            courseStatus = 'Pending'; 
+                            courseStatus = 'Pending';
+                        } else {
+                            courseStatus = 'Unknown';
                         }
 
                         if (status === 'All' || (status === 'In Progress' && courseStatus === 'In Progress') || (status === 'Pending' && courseStatus === 'Pending')) {

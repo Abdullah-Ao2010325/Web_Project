@@ -11,7 +11,8 @@
     "cgpa": "3.5",
     "completed_courses": [
       {"class_id": 3, "grade": "A"},
-      {"class_id": 5, "grade": "A"}
+      {"class_id": 5, "grade": "A"},
+      {"class_id": 2, "grade": "A"}
     ]
   },
   {
@@ -43,9 +44,7 @@
     "completed_courses": [
       {"class_id": 10, "grade": "A"},
       {"class_id": 11, "grade": "B+"},
-      {"class_id": 4, "grade": "B"},
-      {"class_id": 6, "grade": "B"},
-      {"class_id": 7, "grade": "A"}
+      {"class_id": 4, "grade": "B"}
     ]
   },
   {
@@ -76,7 +75,8 @@
     "cgpa": "2.9",
     "completed_courses": [
       {"class_id": 10, "grade": "B"},
-      {"class_id": 11, "grade": "A-"}
+      {"class_id": 11, "grade": "A-"},
+      {"class_id": 8, "grade": "B"}
     ]
   },
   {
@@ -92,8 +92,7 @@
     "completed_courses": [
       {"class_id": 5, "grade": "A"},
       {"class_id": 4, "grade": "B+"},
-      {"class_id": 13, "grade": "A-"},
-      {"class_id": 14, "grade": "B"}
+      {"class_id": 13, "grade": "A-"}
     ]
   },
   {
@@ -108,7 +107,8 @@
     "cgpa": "3.4",
     "completed_courses": [
       {"class_id": 5, "grade": "B"},
-      {"class_id": 8, "grade": "A"}
+      {"class_id": 8, "grade": "A"},
+      {"class_id": 7, "grade": "A"}
     ]
   },
   {
@@ -156,8 +156,7 @@
     "completed_courses": [
       {"class_id": 5, "grade": "A"},
       {"class_id": 3, "grade": "A-"},
-      {"class_id": 8, "grade": "B+"},
-      {"class_id": 7, "grade": "A"}
+      {"class_id": 8, "grade": "B+"}
     ]
   },
   {
@@ -249,8 +248,7 @@
     "completed_courses": [
       {"class_id": 5, "grade": "A"},
       {"class_id": 3, "grade": "A-"},
-      {"class_id": 7, "grade": "B+"},
-      {"class_id": 8, "grade": "A"}
+      {"class_id": 7, "grade": "B+"}
     ]
   },
   {
@@ -344,8 +342,7 @@
     "completed_courses": [
       {"class_id": 5, "grade": "A"},
       {"class_id": 3, "grade": "B+"},
-      {"class_id": 7, "grade": "A-"},
-      {"class_id": 8, "grade": "A"}
+      {"class_id": 7, "grade": "A-"}
     ]
   },
   {
@@ -438,8 +435,7 @@
     "completed_courses": [
       {"class_id": 5, "grade": "A"},
       {"class_id": 3, "grade": "A-"},
-      {"class_id": 8, "grade": "B+"},
-      {"class_id": 7, "grade": "A"}
+      {"class_id": 8, "grade": "B+"}
     ]
   },
   {
@@ -531,8 +527,7 @@
     "completed_courses": [
       {"class_id": 5, "grade": "A"},
       {"class_id": 3, "grade": "A-"},
-      {"class_id": 7, "grade": "B+"},
-      {"class_id": 8, "grade": "A"}
+      {"class_id": 7, "grade": "B+"}
     ]
   },
   {
@@ -626,8 +621,7 @@
     "completed_courses": [
       {"class_id": 5, "grade": "A"},
       {"class_id": 3, "grade": "B+"},
-      {"class_id": 7, "grade": "A-"},
-      {"class_id": 8, "grade": "A"}
+      {"class_id": 7, "grade": "A-"}
     ]
   },
   {
@@ -720,8 +714,7 @@
     "completed_courses": [
       {"class_id": 5, "grade": "A"},
       {"class_id": 3, "grade": "A-"},
-      {"class_id": 8, "grade": "B+"},
-      {"class_id": 7, "grade": "A"}
+      {"class_id": 8, "grade": "B+"}
     ]
   },
   {
@@ -813,8 +806,7 @@
     "completed_courses": [
       {"class_id": 5, "grade": "A"},
       {"class_id": 3, "grade": "A-"},
-      {"class_id": 7, "grade": "B+"},
-      {"class_id": 8, "grade": "A"}
+      {"class_id": 7, "grade": "B+"}
     ]
   },
   {
@@ -908,8 +900,7 @@
     "completed_courses": [
       {"class_id": 5, "grade": "A"},
       {"class_id": 3, "grade": "B+"},
-      {"class_id": 7, "grade": "A-"},
-      {"class_id": 8, "grade": "A"}
+      {"class_id": 7, "grade": "A-"}
     ]
   },
   {
@@ -1002,8 +993,7 @@
     "completed_courses": [
       {"class_id": 5, "grade": "A"},
       {"class_id": 3, "grade": "A-"},
-      {"class_id": 8, "grade": "B+"},
-      {"class_id": 7, "grade": "A"}
+      {"class_id": 8, "grade": "B+"}
     ]
   },
   {
@@ -1095,8 +1085,7 @@
     "completed_courses": [
       {"class_id": 5, "grade": "A"},
       {"class_id": 3, "grade": "A-"},
-      {"class_id": 7, "grade": "B+"},
-      {"class_id": 8, "grade": "A"}
+      {"class_id": 7, "grade": "B+"}
     ]
   },
   {
@@ -1190,8 +1179,7 @@
     "completed_courses": [
       {"class_id": 5, "grade": "A"},
       {"class_id": 3, "grade": "B+"},
-      {"class_id": 7, "grade": "A-"},
-      {"class_id": 8, "grade": "A"}
+      {"class_id": 7, "grade": "A-"}
     ]
   },
   {
@@ -1284,8 +1272,7 @@
     "completed_courses": [
       {"class_id": 5, "grade": "A"},
       {"class_id": 3, "grade": "A-"},
-      {"class_id": 8, "grade": "B+"},
-      {"class_id": 7, "grade": "A"}
+      {"class_id": 8, "grade": "B+"}
     ]
   },
   {
@@ -1377,8 +1364,7 @@
     "completed_courses": [
       {"class_id": 5, "grade": "A"},
       {"class_id": 3, "grade": "A-"},
-      {"class_id": 7, "grade": "B+"},
-      {"class_id": 8, "grade": "A"}
+      {"class_id": 7, "grade": "B+"}
     ]
   },
   {
@@ -1472,8 +1458,7 @@
     "completed_courses": [
       {"class_id": 5, "grade": "A"},
       {"class_id": 3, "grade": "B+"},
-      {"class_id": 7, "grade": "A-"},
-      {"class_id": 8, "grade": "A"}
+      {"class_id": 7, "grade": "A-"}
     ]
   },
   {
@@ -1566,8 +1551,7 @@
     "completed_courses": [
       {"class_id": 5, "grade": "A"},
       {"class_id": 3, "grade": "A-"},
-      {"class_id": 8, "grade": "B+"},
-      {"class_id": 7, "grade": "A"}
+      {"class_id": 8, "grade": "B+"}
     ]
   },
   {
@@ -1615,7 +1599,6 @@
       {"class_id": 8, "grade": "A"}
     ]
   },
-  
   {
     "username": "instructor1",
     "password": "password123",
