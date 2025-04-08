@@ -169,7 +169,7 @@ function displayCourses(c) {
 
 function handleClassSubmission(e) {
     e.preventDefault();
-
+//open-for-registration
     const term = document.querySelector('#term-selector').value;
     const courseId = document.querySelector('#course-no-input').value;
     const section = document.querySelector('#section-input').value;
@@ -179,10 +179,10 @@ function handleClassSubmission(e) {
     let newstatus = false;
 
     if (status === "open") {
-        newstatus = true;
+        newstatus = "open-for-registration";
     }
     else {
-        newstatus = false;
+        newstatus = "closed-for-registration";
     }
 
     let classes = JSON.parse(localStorage.getItem('classes')) || [];
@@ -197,7 +197,7 @@ function handleClassSubmission(e) {
         section: section,
         instructor_id: instructor,
         capacity: 40,
-        open_for_registration: newstatus,
+        status: newstatus,
         registered_students: []
     };
 
@@ -231,7 +231,7 @@ function handleCourseSubmission(e) {
         course_number: courseNumber,
         major: selected_majors,
         prerequisites: prerequisites,
-        status: "Pending"
+        status: "open-for-registration"
     };
 
     courses.push(newCourse);
@@ -282,8 +282,6 @@ function rejectClass(id) {
         console.log(`Class ${id} rejected successfully.`);
         loadClasses();
     }
-
-
 }
 
 
