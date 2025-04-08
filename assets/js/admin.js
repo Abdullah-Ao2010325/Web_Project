@@ -1,3 +1,6 @@
+
+
+
 function loadClasses() {
     const storedClasses = localStorage.getItem('classes');
 
@@ -83,7 +86,7 @@ function loadCourseOptions() {
 
 function displayClasses(classes) {
     const course_container = document.querySelector(".course-container");
-    course_container.innerHTML = ""; // ✅ added
+    course_container.innerHTML = ""; 
 
     classes.forEach(c => {
         const course_div = document.createElement("div");
@@ -169,7 +172,7 @@ function displayCourses(c) {
 
 function handleClassSubmission(e) {
     e.preventDefault();
-//open-for-registration
+
     const term = document.querySelector('#term-selector').value;
     const courseId = document.querySelector('#course-no-input').value;
     const section = document.querySelector('#section-input').value;
@@ -179,10 +182,10 @@ function handleClassSubmission(e) {
     let newstatus = false;
 
     if (status === "open") {
-        newstatus = "open-for-registration";
+        newstatus = true;
     }
     else {
-        newstatus = "closed-for-registration";
+        newstatus = false;
     }
 
     let classes = JSON.parse(localStorage.getItem('classes')) || [];
@@ -197,7 +200,7 @@ function handleClassSubmission(e) {
         section: section,
         instructor_id: instructor,
         capacity: 40,
-        status: newstatus,
+        open_for_registration: newstatus,
         registered_students: []
     };
 
@@ -209,8 +212,21 @@ function handleClassSubmission(e) {
 }
 
 
+{
+    /* <div id="popup">
+<div class="popup-content">
+  <h2>Are you sure?</h2>
+  <p>Do you want to proceed with this action?</p>
+  <button id="confirm-popup">Confirm</button>
+  <button id="cancel-popup">Cancel</button>
+</div>
+</div> */}
+
+
 
 function handleCourseSubmission(e) {
+
+    
     e.preventDefault();
     const courseName = document.querySelector('.course-name').value;
     const courseNumber = document.querySelector('.course-number').value;
@@ -244,17 +260,18 @@ function handleCourseSubmission(e) {
 
 
 function validateCourse(id) {
+    
     const courses = JSON.parse(localStorage.getItem('courses')) || [];
 
     const desired_course = courses.find(c => c.course_id === id);
 
 
     if (desired_course) {
-        desired_course.status = "Validated";
+        desired_course.status = "open-for-registration";
         localStorage.setItem('courses', JSON.stringify(courses));
         console.log(`Course ${id} validated successfully.`);
         console.log(courses);
-
+        loadCourses();
     }
 }
 
@@ -264,7 +281,7 @@ function validateClass(id) {
     const desired_class = classes.find(c => c.class_id === id);
 
     if (desired_class) {
-        desired_class.open_for_registration = true;
+        desired_class.status = "open-for-registration";
         localStorage.setItem('classes', JSON.stringify(classes));
         console.log(`Class ${id} validated successfully.`);
         loadClasses();
@@ -277,11 +294,13 @@ function rejectClass(id) {
     const desired_class = classes.find(c => c.class_id === id);
 
     if (desired_class) {
-        desired_class.open_for_registration = false;
+        desired_class.status = "closed-for-registration";
         localStorage.setItem('classes', JSON.stringify(classes));
         console.log(`Class ${id} rejected successfully.`);
         loadClasses();
     }
+
+
 }
 
 
@@ -291,9 +310,10 @@ function displayPendingItems() {
     const courses = JSON.parse(localStorage.getItem('courses')) || [];
 
     const filtered_classes = classes.filter(c => c.capacity > 15);
-    const filtered_courses = courses.filter(c => c.status === "Pending");
+    const filtered_courses = courses.filter(c => c.status === "open-for-registration");
 
     console.log(filtered_classes);
+    console.log(filtered_courses);
 
     const pendingClassesContainer = document.querySelector(".pending_classes_container");
 
@@ -360,7 +380,7 @@ function filterItemsByCategory() {
 
     }
     else if (selected === "courses") {
-        const filtered_courses = courses.filter(c => c.status === "Pending");
+        const filtered_courses = courses.filter(c => c.status === "open-for-registration");
         filtered_courses.forEach(c => {
             const course_div = document.createElement("div");
             course_div.classList.add("pending_class_item");
@@ -402,7 +422,7 @@ Pending_div.querySelector("#validate_bt").addEventListener("click", () => valida
 Pending_div.querySelector("#reject_bt").addEventListener("click", () => rejectClass(c.class_id));
 
 
-// document.querySelector("#pending_selector").addEventListener("change", filterItemsByCategory);
+
 
 
 
