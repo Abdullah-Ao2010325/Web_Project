@@ -254,7 +254,7 @@ function validateCourse(id) {
         localStorage.setItem('courses', JSON.stringify(courses));
         console.log(`Course ${id} validated successfully.`);
         console.log(courses);
-        loadCourses();
+
     }
 }
 
