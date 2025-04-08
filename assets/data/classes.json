@@ -6,7 +6,7 @@
     "section": "L01",
     "instructor_id": 23445,
     "capacity": 40,
-    "open_for_registration": true,
+    "status": "open-for-registration",
     "registered_students": []
   },
   {
@@ -16,7 +16,7 @@
     "section": "L02",
     "instructor_id": 23446,
     "capacity": 40,
-    "open_for_registration": true,
+    "status": "open-for-registration",
     "registered_students": []
   },
   {
@@ -26,7 +26,7 @@
     "section": "L01",
     "instructor_id": 23445,
     "capacity": 40,
-    "open_for_registration": true,
+    "status": "open-for-registration",
     "registered_students": []
   },
   {
@@ -36,7 +36,7 @@
     "section": "L02",
     "instructor_id": 23447,
     "capacity": 40,
-    "open_for_registration": true,
+    "status": "open-for-registration",
     "registered_students": []
   },
   {
@@ -46,7 +46,7 @@
     "section": "L01",
     "instructor_id": 23445,
     "capacity": 40,
-    "open_for_registration": true,
+    "status": "open-for-registration",
     "registered_students": [202300021, 202300039, 202300075, 202300093]
   },
   {
@@ -56,7 +56,7 @@
     "section": "L02",
     "instructor_id": 23451,
     "capacity": 40,
-    "open_for_registration": false,
+    "status": "open-for-registration",
     "registered_students": []
   },
   {
@@ -66,7 +66,7 @@
     "section": "L01",
     "instructor_id": 23449,
     "capacity": 40,
-    "open_for_registration": true,
+    "status": "open-for-registration",
     "registered_students": [202205895, 202300004, 202300010, 202300028, 202300046, 202300082, 202300100]
   },
   {
@@ -76,7 +76,7 @@
     "section": "L01",
     "instructor_id": 23446,
     "capacity": 40,
-    "open_for_registration": false,
+    "status": "open-for-registration",
     "registered_students": []
   },
   {
@@ -86,7 +86,7 @@
     "section": "L01",
     "instructor_id": 23448,
     "capacity": 40,
-    "open_for_registration": false,
+    "status": "open-for-registration",
     "registered_students": []
   },
   {
@@ -96,7 +96,7 @@
     "section": "L01",
     "instructor_id": 23448,
     "capacity": 40,
-    "open_for_registration": true,
+    "status": "open-for-registration",
     "registered_students": [202300014, 202300032, 202300068, 202300086]
   },
   {
@@ -106,7 +106,7 @@
     "section": "L01",
     "instructor_id": 23448,
     "capacity": 40,
-    "open_for_registration": false,
+    "status": "open-for-registration",
     "registered_students": [202300011, 202300020, 202300038, 202300074, 202300092]
   },
   {
@@ -116,7 +116,7 @@
     "section": "L01",
     "instructor_id": 23450,
     "capacity": 40,
-    "open_for_registration": true,
+    "status": "open-for-registration",
     "registered_students": []
   },
   {
@@ -126,7 +126,7 @@
     "section": "L01",
     "instructor_id": 23451,
     "capacity": 40,
-    "open_for_registration": true,
+    "status": "open-for-registration",
     "registered_students": [202147583]
   },
   {
@@ -136,7 +136,7 @@
     "section": "L01",
     "instructor_id": 23452,
     "capacity": 40,
-    "open_for_registration": true,
+    "status": "open-for-registration",
     "registered_students": [202147583]
   },
   {
@@ -146,7 +146,7 @@
     "section": "L02",
     "instructor_id": 23448,
     "capacity": 40,
-    "open_for_registration": true,
+    "status": "open-for-registration",
     "registered_students": []
   }
 ]

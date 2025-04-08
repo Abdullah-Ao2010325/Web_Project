@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     let instructorData = null;
     let assignedClasses = [];
     let courses = [];
-    let registrations = [];
     let users = [];
+    let classes = [];
     let currentClassId = null;
 
     const container = document.getElementById('Classes_Cards');
@@ -50,11 +50,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        const classes = await fetchJSON('classes.json', ['../../assets/data/classes.json']);
+        classes = await fetchJSON('classes.json', ['../../assets/data/classes.json']);
         assignedClasses = classes.filter(c => c.instructor_id === instructorData.instructor_id);
 
         courses = await fetchJSON('courses.json', ['../../assets/data/courses.json']);
-        registrations = await fetchJSON('registrations.json', ['../../assets/data/registrations.json']);
 
         const classMap = {};
         assignedClasses.forEach(cls => {
@@ -120,13 +119,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         const table = document.querySelector('.Students_List table');
         tableBody.innerHTML = '';
 
-        const registeredStudents = registrations.filter(reg => reg.class_id === classId);
-        const studentList = users.filter(user => registeredStudents.some(reg => reg.student_id === user.student_id));
-
-        const savedGrades = JSON.parse(localStorage.getItem(`grades_${classId}`)) || [];
-
         const currentClass = assignedClasses.find(cls => cls.class_id === classId);
         const course = courses.find(c => c.course_id === currentClass.course_id);
+
+        const studentList = users.filter(user => currentClass.registered_students.includes(user.student_id));
+        const savedGrades = JSON.parse(localStorage.getItem(`grades_${classId}`)) || [];
 
         let header = document.querySelector('.class-info-header');
         if (!header) {
@@ -137,6 +134,16 @@ document.addEventListener('DOMContentLoaded', async () => {
             table.parentElement.insertBefore(header, table);
         }
         header.textContent = `${course.course_name} - ${currentClass.section}`;
+
+        if (studentList.length === 0) {
+            const row = document.createElement('tr');
+            const cell = document.createElement('td');
+            cell.colSpan = 3;
+            cell.textContent = 'No students registered in this class.';
+            row.appendChild(cell);
+            tableBody.appendChild(row);
+            return;
+        }
 
         studentList.forEach(student => {
             const row = document.createElement('tr');

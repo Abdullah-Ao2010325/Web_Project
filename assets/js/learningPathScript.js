@@ -61,10 +61,10 @@ document.addEventListener('DOMContentLoaded', async function() {
         studentRegistrations.forEach(reg => {
             const classData = allClasses.find(cls => cls.class_id === reg.class_id);
             if (classData) {
-                if (reg.status === 'Approved') {
-                    inProgressCount++; 
-                } else if (reg.status === 'Pending') {
-                    pendingCount++; 
+                if (reg.status === 'Approved' && classData.status === 'in-progress') {
+                    inProgressCount++;
+                } else if (reg.status === 'Pending' || (reg.status === 'Approved' && classData.status === 'open-for-registration')) {
+                    pendingCount++;
                 }
             }
         });
@@ -80,6 +80,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
         let coursesToDisplay = [];
 
+        // Handle Completed Courses
         if (status === 'All' || status === 'Completed') {
             if (Array.isArray(studentData.completed_courses)) {
                 studentData.completed_courses.forEach(course => {
@@ -98,11 +99,12 @@ document.addEventListener('DOMContentLoaded', async function() {
             }
         }
 
+        // Handle In Progress and Pending Courses
         if (status === 'All' || status === 'In Progress' || status === 'Pending') {
             const studentRegistrations = allRegistrations.filter(reg => reg.student_id === studentData.student_id);
             studentRegistrations.forEach(reg => {
                 if (reg.status === 'Rejected') {
-                    return; 
+                    return; // Skip rejected registrations
                 }
 
                 const classData = allClasses.find(cls => cls.class_id === reg.class_id);
@@ -111,23 +113,26 @@ document.addEventListener('DOMContentLoaded', async function() {
                     if (courseData) {
                         const instructor = allUsers.find(user => user.instructor_id === classData.instructor_id) || { firstName: 'N/A' };
                         let courseStatus;
-                        if (reg.status === 'Approved') {
+                        let registrationStatus = reg.status; // Store the registration status for display
+
+                        // Determine the course status based on registration and class status
+                        if (reg.status === 'Approved' && classData.status === 'in-progress') {
                             courseStatus = 'In Progress';
-                        } else if (reg.status === 'Pending') {
-                            courseStatus = 'Pending';
-                        } else if (reg.status === 'Approved' && classData.status === 'Validated') {
+                        } else if (reg.status === 'Pending' || (reg.status === 'Approved' && classData.status === 'open-for-registration')) {
                             courseStatus = 'Pending';
                         } else {
-                            courseStatus = 'Unknown';
+                            return; // Skip courses that don't match the expected statuses (e.g., class is "closed")
                         }
 
+                        // Add the course if it matches the selected filter
                         if (status === 'All' || (status === 'In Progress' && courseStatus === 'In Progress') || (status === 'Pending' && courseStatus === 'Pending')) {
                             coursesToDisplay.push({
                                 course_name: courseData.course_name,
                                 term: classData.term,
                                 section: classData.section,
                                 instructor: instructor.firstName,
-                                status: courseStatus
+                                status: courseStatus,
+                                registrationStatus: registrationStatus // Add registration status for display
                             });
                         }
                     }
@@ -159,6 +164,10 @@ document.addEventListener('DOMContentLoaded', async function() {
             }
             if (course.instructor) {
                 detailsHtml += `<span class="course-detail"><strong>Instructor:</strong> ${course.instructor}</span>`;
+            }
+            // Add registration status for Pending courses
+            if (course.status === 'Pending' && course.registrationStatus) {
+                detailsHtml += `<span class="course-detail"><strong>Registration Status:</strong> ${course.registrationStatus === 'Pending' ? 'Awaiting Approval' : 'Approved (Awaiting Class Validation)'}</span>`;
             }
 
             li.innerHTML = `

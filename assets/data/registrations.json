@@ -2,373 +2,311 @@
   {
     "registration_id": 1,
     "student_id": 202205895,
-    "class_id": 7,
-    "status": "Approved"
+    "class_id": 7
   },
   {
     "registration_id": 2,
     "student_id": 202147583,
-    "class_id": 14,
-    "status": "Approved"
+    "class_id": 14
   },
   {
     "registration_id": 3,
     "student_id": 202147583,
-    "class_id": 13,
-    "status": "Approved"
+    "class_id": 13
   },
   {
     "registration_id": 4,
     "student_id": 202300004,
-    "class_id": 3,
-    "status": "Pending"
+    "class_id": 3
   },
   {
     "registration_id": 5,
     "student_id": 202300004,
-    "class_id": 7,
-    "status": "Approved"
+    "class_id": 7
   },
   {
     "registration_id": 6,
     "student_id": 202300005,
-    "class_id": 10,
-    "status": "Pending"
+    "class_id": 10
   },
   {
     "registration_id": 7,
     "student_id": 202300006,
-    "class_id": 3,
-    "status": "Pending"
+    "class_id": 3
   },
   {
     "registration_id": 8,
     "student_id": 202300008,
-    "class_id": 11,
-    "status": "Pending"
+    "class_id": 11
   },
   {
     "registration_id": 9,
     "student_id": 202300009,
-    "class_id": 5,
-    "status": "Pending"
+    "class_id": 5
   },
   {
     "registration_id": 10,
     "student_id": 202300010,
-    "class_id": 7,
-    "status": "Approved"
+    "class_id": 7
   },
   {
     "registration_id": 11,
     "student_id": 202300011,
-    "class_id": 11,
-    "status": "Approved"
+    "class_id": 11
   },
   {
     "registration_id": 12,
     "student_id": 202300014,
-    "class_id": 10,
-    "status": "Approved"
+    "class_id": 10
   },
   {
     "registration_id": 13,
     "student_id": 202300015,
-    "class_id": 5,
-    "status": "Pending"
+    "class_id": 5
   },
   {
     "registration_id": 14,
     "student_id": 202300016,
-    "class_id": 7,
-    "status": "Pending"
+    "class_id": 7
   },
   {
     "registration_id": 15,
     "student_id": 202300017,
-    "class_id": 11,
-    "status": "Pending"
+    "class_id": 11
   },
   {
     "registration_id": 16,
     "student_id": 202300020,
-    "class_id": 11,
-    "status": "Approved"
-  },
+    "class_id": 11
+},
   {
     "registration_id": 17,
     "student_id": 202300021,
-    "class_id": 5,
-    "status": "Approved"
+    "class_id": 5
   },
   {
     "registration_id": 18,
     "student_id": 202300022,
-    "class_id": 7,
-    "status": "Pending"
+    "class_id": 7
   },
   {
     "registration_id": 19,
     "student_id": 202300023,
-    "class_id": 10,
-    "status": "Pending"
+    "class_id": 10
   },
   {
     "registration_id": 20,
     "student_id": 202300027,
-    "class_id": 5,
-    "status": "Pending"
+    "class_id": 5
   },
   {
     "registration_id": 21,
     "student_id": 202300028,
-    "class_id": 7,
-    "status": "Approved"
+    "class_id": 7
   },
   {
     "registration_id": 22,
     "student_id": 202300032,
-    "class_id": 10,
-    "status": "Approved"
+    "class_id": 10
   },
   {
     "registration_id": 23,
     "student_id": 202300033,
-    "class_id": 5,
-    "status": "Pending"
+    "class_id": 5
   },
   {
     "registration_id": 24,
     "student_id": 202300035,
-    "class_id": 11,
-    "status": "Pending"
+    "class_id": 11
   },
   {
     "registration_id": 25,
     "student_id": 202300038,
-    "class_id": 11,
-    "status": "Approved"
+    "class_id": 11
   },
   {
     "registration_id": 26,
     "student_id": 202300039,
-    "class_id": 5,
-    "status": "Approved"
+    "class_id": 5
   },
   {
     "registration_id": 27,
     "student_id": 202300040,
-    "class_id": 7,
-    "status": "Pending"
+    "class_id": 7
   },
   {
     "registration_id": 28,
     "student_id": 202300041,
-    "class_id": 10,
-    "status": "Pending"
+    "class_id": 10
   },
   {
     "registration_id": 29,
     "student_id": 202300044,
-    "class_id": 11,
-    "status": "Pending"
+    "class_id": 11
   },
   {
     "registration_id": 30,
     "student_id": 202300046,
-    "class_id": 7,
-    "status": "Approved"
+    "class_id": 7
   },
   {
     "registration_id": 31,
     "student_id": 202300051,
-    "class_id": 5,
-    "status": "Pending"
+    "class_id": 5
   },
   {
     "registration_id": 32,
     "student_id": 202300052,
-    "class_id": 7,
-    "status": "Pending"
+    "class_id": 7
   },
   {
     "registration_id": 33,
     "student_id": 202300053,
-    "class_id": 11,
-    "status": "Pending"
+    "class_id": 11
   },
   {
     "registration_id": 34,
     "student_id": 202300056,
-    "class_id": 11,
-    "status": "Approved"
+    "class_id": 11
   },
   {
     "registration_id": 35,
     "student_id": 202300057,
-    "class_id": 5,
-    "status": "Approved"
+    "class_id": 5
   },
   {
     "registration_id": 36,
     "student_id": 202300058,
-    "class_id": 7,
-    "status": "Pending"
+    "class_id": 7
   },
   {
     "registration_id": 37,
     "student_id": 202300059,
-    "class_id": 10,
-    "status": "Pending"
+    "class_id": 10
   },
   {
     "registration_id": 38,
     "student_id": 202300065,
-    "class_id": 11,
-    "status": "Approved"
+    "class_id": 11
   },
   {
     "registration_id": 39,
     "student_id": 202300068,
-    "class_id": 10,
-    "status": "Approved"
+    "class_id": 10
   },
   {
     "registration_id": 40,
     "student_id": 202300069,
-    "class_id": 5,
-    "status": "Pending"
+    "class_id": 5
   },
   {
     "registration_id": 41,
     "student_id": 202300070,
-    "class_id": 7,
-    "status": "Pending"
+    "class_id": 7
   },
   {
     "registration_id": 42,
     "student_id": 202300071,
-    "class_id": 11,
-    "status": "Pending"
+    "class_id": 11
   },
   {
     "registration_id": 43,
     "student_id": 202300074,
-    "class_id": 11,
-    "status": "Approved"
+    "class_id": 11
   },
   {
     "registration_id": 44,
     "student_id": 202300075,
-    "class_id": 5,
-    "status": "Approved"
+    "class_id": 5
   },
   {
     "registration_id": 45,
     "student_id": 202300076,
-    "class_id": 7,
-    "status": "Pending"
+    "class_id": 7
   },
   {
     "registration_id": 46,
     "student_id": 202300077,
-    "class_id": 10,
-    "status": "Pending"
+    "class_id": 10
   },
   {
     "registration_id": 47,
     "student_id": 202300080,
-    "class_id": 11,
-    "status": "Pending"
+    "class_id": 11
   },
   {
     "registration_id": 48,
     "student_id": 202300081,
-    "class_id": 5,
-    "status": "Pending"
+    "class_id": 5
   },
   {
     "registration_id": 49,
     "student_id": 202300082,
-    "class_id": 7,
-    "status": "Approved"
+    "class_id": 7
   },
   {
     "registration_id": 50,
     "student_id": 202300086,
-    "class_id": 10,
-    "status": "Approved"
+    "class_id": 10
   },
   {
     "registration_id": 51,
     "student_id": 202300087,
-    "class_id": 5,
-    "status": "Pending"
+    "class_id": 5
   },
   {
     "registration_id": 52,
     "student_id": 202300088,
-    "class_id": 7,
-    "status": "Pending"
+    "class_id": 7
   },
   {
     "registration_id": 53,
     "student_id": 202300089,
-    "class_id": 11,
-    "status": "Pending"
+    "class_id": 11
   },
   {
     "registration_id": 54,
     "student_id": 202300092,
-    "class_id": 11,
-    "status": "Approved"
+    "class_id": 11
   },
   {
     "registration_id": 55,
     "student_id": 202300093,
-    "class_id": 5,
-    "status": "Approved"
+    "class_id": 5
   },
   {
     "registration_id": 56,
     "student_id": 202300094,
-    "class_id": 7,
-    "status": "Pending"
+    "class_id": 7
   },
   {
     "registration_id": 57,
     "student_id": 202300095,
-    "class_id": 10,
-    "status": "Pending"
+    "class_id": 10
   },
   {
     "registration_id": 58,
     "student_id": 202300098,
-    "class_id": 11,
-    "status": "Pending"
+    "class_id": 11
   },
   {
     "registration_id": 59,
     "student_id": 202300099,
-    "class_id": 5,
-    "status": "Pending"
+    "class_id": 5
   },
   {
     "registration_id": 60,
     "student_id": 202300100,
-    "class_id": 7,
-    "status": "Approved"
+    "class_id": 7
   },
   {
     "registration_id": 61,
     "student_id": 202345732,
-    "class_id": 12,
-    "status": "Pending"
+    "class_id": 12
   },
   {
     "registration_id": 62,
     "student_id": 202300002,
-    "class_id": 6,
-    "status": "Approved"
+    "class_id": 6
   }
 ]
