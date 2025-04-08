@@ -17,12 +17,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     let studentData = null;
     allData = await loadData();
 
-    let allUsers = allData.users ;
-    let allCourses = allData.courses ;
+    let allUsers = allData.users;
+    let allCourses = allData.courses;
     let allClasses = allData.classes;
     let allRegistrations = allData.registrations;
     let allMajors = allData.majors;
 
+    // Update registered_students in classes based on approved registrations
     allRegistrations.forEach(reg => {
         if (reg.status === 'Approved') {
             const classItem = allClasses.find(cls => cls.class_id === reg.class_id);
@@ -39,18 +40,21 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
+    // Update student information
     document.getElementById('student-name').textContent = studentData.firstName;
     document.getElementById('major').textContent = studentData.major;
     document.getElementById('cgpa').textContent = studentData.cgpa;
     document.getElementById('advisor').textContent = studentData.advisor;
 
+    // Get completed course IDs
     const completedCourses = studentData.completed_courses ? studentData.completed_courses.map(cc => {
         const classItem = allClasses.find(cls => cls.class_id === cc.class_id);
         return classItem ? classItem.course_id : null;
     }).filter(id => id !== null) : [];
 
+    // Get registered course IDs (approved or pending)
     const registeredCourses = allRegistrations
-        .filter(reg => reg.student_id === studentData.student_id && reg.status === 'Approved')
+        .filter(reg => reg.student_id === studentData.student_id && (reg.status === 'Approved' || reg.status === 'Pending'))
         .map(reg => {
             const classItem = allClasses.find(cls => cls.class_id === reg.class_id);
             return classItem ? classItem.course_id : null;
@@ -67,11 +71,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('registered').textContent = registered;
     document.getElementById('remaining').textContent = remaining >= 0 ? remaining : 0;
 
-    const totalProgress = totalCourses || taken + registered + remaining;
-    if (totalProgress > 0) {
-        const takenPercent = (taken / totalProgress) * 100;
-        const registeredPercent = (registered / totalProgress) * 100;
-        const remainingPercent = (remaining / totalProgress) * 100;
+    // Update progress bar
+    if (totalCourses > 0) {
+        const takenPercent = (taken / totalCourses) * 100;
+        const registeredPercent = (registered / totalCourses) * 100;
+        const remainingPercent = (remaining / totalCourses) * 100;
 
         document.querySelector('.progress-bar-taken').style.width = `${takenPercent}%`;
         document.querySelector('.progress-bar-registered').style.width = `${registeredPercent}%`;
@@ -79,15 +83,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     let studentRegistrations = allRegistrations.filter(reg => reg.student_id === studentData.student_id);
-    const registeredCourseIds = studentRegistrations.map(reg => {
-        const classItem = allClasses.find(cls => cls.class_id === reg.class_id);
-        return classItem ? classItem.course_id : null;
-    }).filter(id => id !== null);
 
+    // Filter available courses: not completed, and either the student is registered or there is at least one open class with available seats
     const availableCourses = allCourses.filter(course => {
         const isNotTaken = !completedCourses.includes(course.course_id);
-        const validStatus = course.status === 'Validated' || course.status === 'In Progress';
-        return isNotTaken && validStatus;
+        if (!isNotTaken) return false;
+
+        const isRegistered = registeredCourses.includes(course.course_id);
+        const courseClasses = allClasses.filter(cls => cls.course_id === course.course_id);
+        const hasOpenClass = courseClasses.some(cls => {
+            const pendingAndApprovedRegistrations = allRegistrations.filter(reg => 
+                reg.class_id === cls.class_id && (reg.status === 'Approved' || reg.status === 'Pending')
+            ).length;
+            const availableSeats = cls.capacity - pendingAndApprovedRegistrations;
+            return cls.status === 'open-for-registration' && availableSeats > 0;
+        });
+
+        return isRegistered || hasOpenClass;
     });
 
     renderCourses(availableCourses, studentRegistrations);
@@ -108,15 +120,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const filteredCourses = availableCourses.filter(course => {
             const courseClasses = allClasses.filter(cls => cls.course_id === course.course_id);
             const matchesMajor = !selectedMajor || (Array.isArray(course.major) ? course.major.includes(selectedMajor) : course.major === selectedMajor);
-            let matchesTerm = !selectedTerm;
-            if (selectedTerm) {
-                for (let i = 0; i < courseClasses.length; i++) {
-                    if (courseClasses[i].term === selectedTerm) {
-                        matchesTerm = true;
-                        break;
-                    }
-                }
-            }
+            const matchesTerm = !selectedTerm || courseClasses.some(cls => cls.term === selectedTerm);
             const matchesSearch = !searchTerm || course.course_name.toLowerCase().includes(searchTerm);
             return matchesMajor && matchesTerm && matchesSearch;
         });
@@ -129,7 +133,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         courseBoxesContainer.innerHTML = '';
 
         if (courses.length === 0) {
-            courseBoxesContainer.innerHTML = '<p>No courses available.</p>';
+            courseBoxesContainer.innerHTML = '<p>No courses available for registration at this time.</p>';
             return;
         }
 
@@ -137,14 +141,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             const courseClasses = allClasses.filter(cls => cls.course_id === course.course_id);
             if (courseClasses.length === 0) return;
 
-            let studentReg = studentRegistrations.find(reg => 
+            const studentReg = studentRegistrations.find(reg => 
                 reg.student_id === studentData.student_id && 
                 courseClasses.some(cls => cls.class_id === reg.class_id)
             );
 
             const isRegistered = !!studentReg && studentReg.status !== 'Rejected';
-            const regStatus = studentReg ? studentReg.status : null;
-            const registeredClass = studentReg && isRegistered ? allClasses.find(cls => cls.class_id === studentReg.class_id) : null;
+            const registeredClass = isRegistered ? allClasses.find(cls => cls.class_id === studentReg.class_id) : null;
 
             const courseBox = document.createElement('div');
             courseBox.classList.add('course-box');
@@ -163,14 +166,21 @@ document.addEventListener('DOMContentLoaded', async () => {
                     </div>
                     <div class="course-detail-item">
                         <span class="label"><span class="material-symbols-rounded">class</span>${isRegistered ? 'Registered Section' : 'Sections Available'}:</span>
-                        <span class="value">${isRegistered ? (registeredClass ? registeredClass.section : 'N/A') : courseClasses.map(cls => cls.section).join(', ')}</span>
+                        <span class="value">${
+                            isRegistered 
+                                ? (registeredClass ? registeredClass.section : 'N/A') 
+                                : courseClasses
+                                    .filter(cls => {
+                                        const pendingAndApprovedRegistrations = allRegistrations.filter(reg => 
+                                            reg.class_id === cls.class_id && (reg.status === 'Approved' || reg.status === 'Pending')
+                                        ).length;
+                                        const availableSeats = cls.capacity - pendingAndApprovedRegistrations;
+                                        return cls.status === 'open-for-registration' && availableSeats > 0;
+                                    })
+                                    .map(cls => cls.section)
+                                    .join(', ')
+                        }</span>
                     </div>
-                    ${isRegistered ? `
-                        <div class="course-detail-item">
-                            <span class="label"><span class="material-symbols-rounded">pending</span>Status:</span>
-                            <span class="value">${regStatus}</span>
-                        </div>
-                    ` : ''}
                     <div class="course-actions">
                         ${isRegistered ? `
                             <button class="change-section-btn" data-course-id="${course.course_id}" style="width: 100px;">Change Section</button>
@@ -209,48 +219,31 @@ document.addEventListener('DOMContentLoaded', async () => {
     function handleRegistration(courseId) {
         const course = allCourses.find(c => c.course_id === courseId);
         const courseClasses = allClasses.filter(cls => cls.course_id === courseId);
-    
+
         const completedCourseIds = studentData.completed_courses
             .map(cc => {
                 const classItem = allClasses.find(cls => cls.class_id === cc.class_id);
                 return classItem ? classItem.course_id : null;
             })
             .filter(id => id !== null);
-    
-        let prerequisitesMet = true;
-        for (let i = 0; i < course.prerequisites.length; i++) {
-            const prereqCourseId = course.prerequisites[i];
+
+        const prerequisitesMet = course.prerequisites.every(prereqCourseId => {
             const hasCompletedCourse = completedCourseIds.includes(prereqCourseId);
-    
-            let hasPassingGrade = false;
-            for (let j = 0; j < studentData.completed_courses.length; j++) {
-                const cc = studentData.completed_courses[j];
+            const hasPassingGrade = studentData.completed_courses.some(cc => {
                 const classItem = allClasses.find(cls => cls.class_id === cc.class_id);
-                if (classItem && classItem.course_id === prereqCourseId && cc.grade !== 'F') {
-                    hasPassingGrade = true;
-                    break; 
-                }
-            }
-    
-            if (!(hasCompletedCourse && hasPassingGrade)) {
-                prerequisitesMet = false;
-                break; 
-            }
-        }
-    
+                return classItem && classItem.course_id === prereqCourseId && cc.grade !== 'F';
+            });
+            return hasCompletedCourse && hasPassingGrade;
+        });
+
         if (!prerequisitesMet) {
             const missingPrereqs = course.prerequisites
                 .filter(prereq => {
                     const hasCompleted = completedCourseIds.includes(prereq);
-                    let hasPassingGrade = false;
-                    for (let j = 0; j < studentData.completed_courses.length; j++) {
-                        const cc = studentData.completed_courses[j];
+                    const hasPassingGrade = studentData.completed_courses.some(cc => {
                         const classItem = allClasses.find(cls => cls.class_id === cc.class_id);
-                        if (classItem && classItem.course_id === prereq && cc.grade !== 'F') {
-                            hasPassingGrade = true;
-                            break;
-                        }
-                    }
+                        return classItem && classItem.course_id === prereq && cc.grade !== 'F';
+                    });
                     return !(hasCompleted && hasPassingGrade);
                 })
                 .map(prereq => {
@@ -260,17 +253,20 @@ document.addEventListener('DOMContentLoaded', async () => {
             showMessage('Prerequisites Not Met', `You cannot register for "${course.course_name}" because you haven't completed: ${missingPrereqs.join(', ')}.`);
             return;
         }
-    
-        const availableClass = courseClasses.find(cls => 
-            cls.open_for_registration === true &&
-            (cls.capacity - cls.registered_students.length) > 0
-        );
-    
+
+        const availableClass = courseClasses.find(cls => {
+            const pendingAndApprovedRegistrations = allRegistrations.filter(reg => 
+                reg.class_id === cls.class_id && (reg.status === 'Approved' || reg.status === 'Pending')
+            ).length;
+            const availableSeats = cls.capacity - pendingAndApprovedRegistrations;
+            return cls.status === 'open-for-registration' && availableSeats > 0;
+        });
+
         if (!availableClass) {
             showMessage('Registration Not Available', `No classes for "${course.course_name}" are currently open for registration or have available seats.`);
             return;
         }
-    
+
         showClassSelectionPopup(course, courseClasses);
     }
 
@@ -284,28 +280,31 @@ document.addEventListener('DOMContentLoaded', async () => {
         const modal = document.createElement('div');
         modal.className = 'class-selection-modal';
         let optionsHtml = '';
-    
+
         const currentRegistration = allRegistrations.find(reg =>
             reg.student_id === studentData.student_id &&
             courseClasses.some(cls => cls.class_id === reg.class_id) &&
             reg.status !== 'Rejected'
         );
-    
+
         courseClasses.forEach(cls => {
             const instructor = allUsers.find(user => user.instructor_id === cls.instructor_id);
             const instructorName = instructor ? instructor.firstName : 'N/A';
-    
-            if (!cls.open_for_registration) {
+
+            if (cls.status !== 'open-for-registration') {
                 return;
             }
-    
-            const availableSeats = cls.capacity - cls.registered_students.length;
+
+            const pendingAndApprovedRegistrations = allRegistrations.filter(reg => 
+                reg.class_id === cls.class_id && (reg.status === 'Approved' || reg.status === 'Pending')
+            ).length;
+            const availableSeats = cls.capacity - pendingAndApprovedRegistrations;
             if (availableSeats <= 0) {
                 return;
             }
-    
-            const isRegistered = currentRegistration && currentRegistration.class_id === cls.class_id && currentRegistration.status === 'Approved';
-    
+
+            const isRegistered = currentRegistration && currentRegistration.class_id === cls.class_id;
+
             optionsHtml += `
                 <div class="class-option">
                     <span>${course.course_name} (${cls.section}) - ${instructorName} (${cls.term}) - Seats: ${availableSeats}</span>
@@ -315,12 +314,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                 </div>
             `;
         });
-    
+
         if (!optionsHtml) {
             showMessage('No Classes Available', `No classes for "${course.course_name}" are open for registration or have available seats.`);
             return;
         }
-    
+
         modal.innerHTML = `
             <h2>Select a Class</h2>
             <p>Please choose a class for "${course.course_name}":</p>
@@ -328,7 +327,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             <button class="close-btn">Cancel</button>
         `;
         document.body.appendChild(modal);
-    
+
         modal.querySelectorAll('.class-option button').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const classId = parseInt(e.target.getAttribute('data-class-id'));
@@ -336,7 +335,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 confirmRegistration(classId, currentRegistration);
             });
         });
-    
+
         modal.querySelector('.close-btn').addEventListener('click', () => {
             modal.remove();
         });
@@ -345,22 +344,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     function confirmRegistration(classId, existingRegistration) {
         const classItem = allClasses.find(c => c.class_id === classId);
         const course = allCourses.find(c => c.course_id === classItem.course_id);
-
-        const existingCourseRegistration = allRegistrations.find(reg => 
-            reg.student_id === studentData.student_id &&
-            reg.class_id !== classId && // Exclude the new classId being registered
-            allClasses.find(cls => cls.class_id === reg.class_id)?.course_id === course.course_id &&
-            (reg.status === 'Approved' || reg.status === 'Pending')
-        );
-
-        if (existingCourseRegistration && !existingRegistration) {
-            const existingClass = allClasses.find(cls => cls.class_id === existingCourseRegistration.class_id);
-            showMessage(
-                'Already Registered', 
-                `You are already registered for "${course.course_name}" in section ${existingClass.section}. Please withdraw from that section first before registering for a different one.`
-            );
-            return;
-        }
 
         if (existingRegistration && existingRegistration.status === 'Approved') {
             const currentClass = allClasses.find(cls => cls.class_id === existingRegistration.class_id);
@@ -387,7 +370,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             status: 'Pending'
         };
         allRegistrations.push(newRegistration);
-        studentRegistrations = allRegistrations.filter(reg => reg.student_id === studentData.student_id); // Sync studentRegistrations
+        studentRegistrations = allRegistrations.filter(reg => reg.student_id === studentData.student_id);
 
         allData.registrations = allRegistrations;
         saveData(allData);
@@ -468,11 +451,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('registered').textContent = registered;
         document.getElementById('remaining').textContent = remaining >= 0 ? remaining : 0;
 
-        const totalProgress = totalCourses || taken + registered + remaining;
-        if (totalProgress > 0) {
-            const takenPercent = (taken / totalProgress) * 100;
-            const registeredPercent = (registered / totalProgress) * 100;
-            const remainingPercent = (remaining / totalProgress) * 100;
+        if (totalCourses > 0) {
+            const takenPercent = (taken / totalCourses) * 100;
+            const registeredPercent = (registered / totalCourses) * 100;
+            const remainingPercent = (remaining / totalCourses) * 100;
 
             document.querySelector('.progress-bar-taken').style.width = `${takenPercent}%`;
             document.querySelector('.progress-bar-registered').style.width = `${registeredPercent}%`;

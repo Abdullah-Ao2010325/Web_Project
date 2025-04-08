@@ -5,7 +5,7 @@
     "course_number": "CMPS 350",
     "major": "CMPS",
     "prerequisites": [2, 3],
-    "status": "Pending"
+    "status": "open-for-registration"
   },
   {
     "course_id": 2,
@@ -13,7 +13,7 @@
     "course_number": "CMPS 251",
     "major": ["CMPS", "CMPE"],
     "prerequisites": [3],
-    "status": "In Progress"
+    "status": "open-for-registration"
   },
   {
     "course_id": 3,
@@ -21,7 +21,7 @@
     "course_number": "CMPS 151",
     "major": ["CMPS", "CMPE"],
     "prerequisites": [],
-    "status": "Validated"
+    "status": "in-progress"
   },
   {
     "course_id": 4,
@@ -29,7 +29,7 @@
     "course_number": "CMPS 303",
     "major": ["CMPS", "CMPE"],
     "prerequisites": [2, 3],
-    "status": "In Progress"
+    "status": "open-for-registration"
   },
   {
     "course_id": 5,
@@ -37,7 +37,7 @@
     "course_number": "CMPS 351",
     "major": "CMPS",
     "prerequisites": [],
-    "status": "Validated"
+    "status": "in-progress"
   },
   {
     "course_id": 6,
@@ -45,7 +45,7 @@
     "course_number": "MATH 231",
     "major": "MATH",
     "prerequisites": [8],
-    "status": "Pending"
+    "status": "open-for-registration"
   },
   {
     "course_id": 7,
@@ -53,7 +53,7 @@
     "course_number": "MATH 101",
     "major": "MATH",
     "prerequisites": [],
-    "status": "In Progress"
+    "status": "open-for-registration"
   },
   {
     "course_id": 8,
@@ -61,7 +61,7 @@
     "course_number": "MATH 102",
     "major": "MATH",
     "prerequisites": [7],
-    "status": "Validated"
+    "status": "in-progress"
   },
   {
     "course_id": 9,
@@ -69,7 +69,7 @@
     "course_number": "CMPS 405",
     "major": ["CMPS", "CMPE"],
     "prerequisites": [4],
-    "status": "In Progress"
+    "status": "in-progress"
   },
   {
     "course_id": 10,
@@ -77,7 +77,7 @@
     "course_number": "CMPE 330",
     "major": "CMPE",
     "prerequisites": [],
-    "status": "Validated"
+    "status": "in-progress"
   },
   {
     "course_id": 11,
@@ -85,6 +85,6 @@
     "course_number": "CMPE 278",
     "major": "CMPE",
     "prerequisites": [],
-    "status": "In Progress"
+    "status": "in-progress"
   }
 ]

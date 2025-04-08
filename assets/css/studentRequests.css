@@ -88,13 +88,12 @@ main h1 {
     margin-bottom: 10px;
 }
 
-/* Filter Container */
 .filter-container {
     width: 100%;
-    max-width: 1200px; /* Match the requests container width */
+    max-width: 1200px; 
     margin-bottom: 20px;
     display: flex;
-    justify-content: center; /* Center the dropdown */
+    justify-content: center; 
     align-items: center;
     gap: 10px;
 }
@@ -121,7 +120,6 @@ main h1 {
     outline: none;
 }
 
-/* Requests Container */
 .student-requests {
     width: 100%;
 }
@@ -151,7 +149,7 @@ main h1 {
 }
 
 .request-details {
-    flex-grow: 1; /* Allow the details to take up available space */
+    flex-grow: 1; 
 }
 
 .request-details p {
@@ -161,20 +159,19 @@ main h1 {
 }
 
 .request-details p strong {
-    color: #E32636; /* QU red */
+    color: #E32636; 
 }
 
 .request-details .material-symbols-rounded {
     font-size: 18px;
     vertical-align: middle;
     margin-right: 5px;
-    color: #E32636; /* QU red */
+    color: #E32636; 
 }
 
-/* Action Buttons */
 .action-buttons {
     display: flex;
-    justify-content: center; /* Center the buttons */
+    justify-content: center; 
     gap: 10px;
     margin-top: 10px;
 }
@@ -189,7 +186,7 @@ main h1 {
 }
 
 .approve-btn {
-    background-color: #4CAF50; /* Green for approve */
+    background-color: #4CAF50; 
     color: #fff;
 }
 
@@ -199,7 +196,7 @@ main h1 {
 }
 
 .reject-btn {
-    background-color: #E32636; /* QU red for reject */
+    background-color: #E32636; 
     color: #fff;
 }
 
@@ -208,25 +205,22 @@ main h1 {
     transform: scale(1.05);
 }
 
-/* No Requests Message */
 .no-requests {
-    grid-column: 1 / -1; /* Span across all columns */
+    grid-column: 1 / -1; 
     text-align: center;
     color: #666;
     font-size: 1.1rem;
     padding: 20px;
 }
 
-/* Error Message */
 .error {
-    grid-column: 1 / -1; /* Span across all columns */
+    grid-column: 1 / -1; 
     text-align: center;
-    color: #E32636; /* QU red */
+    color: #E32636; 
     font-size: 1.1rem;
     padding: 20px;
 }
 
-/* Popup Styling */
 .popup-container {
     position: fixed;
     top: 0;
@@ -275,7 +269,6 @@ main h1 {
     background-color: #c2182b;
 }
 
-/* Responsive Design */
 @media screen and (max-width: 637px) {
     .sidebar {
         width: 80px;
