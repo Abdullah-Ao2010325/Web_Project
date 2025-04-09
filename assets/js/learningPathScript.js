@@ -1,5 +1,3 @@
-import { loadData } from '../js/dataManager.js';
-
 document.addEventListener('DOMContentLoaded', async function() {
     const loggedInUsername = localStorage.getItem('loggedInUsername');
     if (!loggedInUsername) {
@@ -8,62 +6,47 @@ document.addEventListener('DOMContentLoaded', async function() {
         return;
     }
 
-    let studentData = null;
-    let allCourses = [];
-    let allUsers = [];
-    let allClasses = [];
-    let allRegistrations = [];
+    // Load data directly from localStorage
+    const users = JSON.parse(localStorage.users);
+    const courses = JSON.parse(localStorage.courses);
+    const classes = JSON.parse(localStorage.classes);
+    const registrations = JSON.parse(localStorage.registrations);
 
-    try {
-        const data = await loadData();
-        allUsers = data.users;
-        allCourses = data.courses;
-        allClasses = data.classes;
-        allRegistrations = data.registrations;
-
-        studentData = allUsers.find(user => user.role === 'Student' && user.username === loggedInUsername);
-
-        if (!studentData) {
-            alert('Student data not found. Please log in again.');
-            window.location.href = '../index.html';
-            return;
-        }
-
-        console.log('Logged-in student data:', studentData);
-
-        renderCourses('All');
-        updateProgressSummary();
-
-        const statusFilter = document.getElementById('courseStatus');
-        statusFilter.addEventListener('change', function() {
-            renderCourses(statusFilter.value);
-        });
-
-        const clearFilterBtn = document.getElementById('clear-filter');
-        clearFilterBtn.addEventListener('click', function() {
-            statusFilter.value = 'All';
-            renderCourses('All');
-        });
-    } catch (error) {
-        console.error('Detailed error in loading data:', error);
-        alert(`Failed to load data: ${error.message}. Please check the console for more details and try again.`);
+    const studentData = users.find(user => user.role === 'Student' && user.username === loggedInUsername);
+    if (!studentData) {
+        alert('Student data not found. Please log in again.');
         window.location.href = '../index.html';
+        return;
     }
+
+    console.log('Logged-in student data:', studentData);
+
+    renderCourses('All');
+    updateProgressSummary();
+
+    const statusFilter = document.getElementById('courseStatus');
+    statusFilter.addEventListener('change', function() {
+        renderCourses(statusFilter.value);
+    });
+
+    const clearFilterBtn = document.getElementById('clear-filter');
+    clearFilterBtn.addEventListener('click', function() {
+        statusFilter.value = 'All';
+        renderCourses('All');
+    });
 
     function updateProgressSummary() {
         const completedCount = studentData.completed_courses ? studentData.completed_courses.length : 0;
-
         let inProgressCount = 0;
         let pendingCount = 0;
 
-        const studentRegistrations = allRegistrations.filter(reg => reg.student_id === studentData.student_id);
-
+        const studentRegistrations = registrations.filter(reg => reg.student_id === studentData.student_id);
         studentRegistrations.forEach(reg => {
-            const classData = allClasses.find(cls => cls.class_id === reg.class_id);
+            const classData = classes.find(cls => cls.class_id === reg.class_id);
             if (classData) {
-                if (reg.status === 'Approved' && classData.status === 'in-progress') {
+                if (classData.status === 'in-progress') {
                     inProgressCount++;
-                } else if (reg.status === 'Pending' || (reg.status === 'Approved' && classData.status === 'open-for-registration')) {
+                } else if (classData.status === 'open-for-registration') {
                     pendingCount++;
                 }
             }
@@ -84,8 +67,8 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (status === 'All' || status === 'Completed') {
             if (Array.isArray(studentData.completed_courses)) {
                 studentData.completed_courses.forEach(course => {
-                    const classData = allClasses.find(cls => cls.class_id === course.class_id);
-                    const courseData = classData ? allCourses.find(c => c.course_id === classData.course_id) : null;
+                    const classData = classes.find(cls => cls.class_id === course.class_id);
+                    const courseData = classData ? courses.find(c => c.course_id === classData.course_id) : null;
                     if (courseData) {
                         coursesToDisplay.push({
                             course_name: courseData.course_name,
@@ -101,38 +84,30 @@ document.addEventListener('DOMContentLoaded', async function() {
 
         // Handle In Progress and Pending Courses
         if (status === 'All' || status === 'In Progress' || status === 'Pending') {
-            const studentRegistrations = allRegistrations.filter(reg => reg.student_id === studentData.student_id);
+            const studentRegistrations = registrations.filter(reg => reg.student_id === studentData.student_id);
             studentRegistrations.forEach(reg => {
-                if (reg.status === 'Rejected') {
-                    return; // Skip rejected registrations
-                }
-
-                const classData = allClasses.find(cls => cls.class_id === reg.class_id);
-                if (classData) {
-                    const courseData = allCourses.find(c => c.course_id === classData.course_id);
+                const classData = classes.find(cls => cls.class_id === reg.class_id);
+                if (classData && classData.status !== 'closed-for-registration') { // Exclude closed classes
+                    const courseData = courses.find(c => c.course_id === classData.course_id);
                     if (courseData) {
-                        const instructor = allUsers.find(user => user.instructor_id === classData.instructor_id) || { firstName: 'N/A' };
+                        const instructor = users.find(user => user.instructor_id === classData.instructor_id) || { firstName: 'N/A' };
                         let courseStatus;
-                        let registrationStatus = reg.status; // Store the registration status for display
 
-                        // Determine the course status based on registration and class status
-                        if (reg.status === 'Approved' && classData.status === 'in-progress') {
+                        if (classData.status === 'in-progress') {
                             courseStatus = 'In Progress';
-                        } else if (reg.status === 'Pending' || (reg.status === 'Approved' && classData.status === 'open-for-registration')) {
+                        } else if (classData.status === 'open-for-registration') {
                             courseStatus = 'Pending';
                         } else {
-                            return; // Skip courses that don't match the expected statuses (e.g., class is "closed")
+                            return; // Skip if class is closed
                         }
 
-                        // Add the course if it matches the selected filter
                         if (status === 'All' || (status === 'In Progress' && courseStatus === 'In Progress') || (status === 'Pending' && courseStatus === 'Pending')) {
                             coursesToDisplay.push({
                                 course_name: courseData.course_name,
                                 term: classData.term,
                                 section: classData.section,
                                 instructor: instructor.firstName,
-                                status: courseStatus,
-                                registrationStatus: registrationStatus // Add registration status for display
+                                status: courseStatus
                             });
                         }
                     }
@@ -164,10 +139,6 @@ document.addEventListener('DOMContentLoaded', async function() {
             }
             if (course.instructor) {
                 detailsHtml += `<span class="course-detail"><strong>Instructor:</strong> ${course.instructor}</span>`;
-            }
-            // Add registration status for Pending courses
-            if (course.status === 'Pending' && course.registrationStatus) {
-                detailsHtml += `<span class="course-detail"><strong>Registration Status:</strong> ${course.registrationStatus === 'Pending' ? 'Awaiting Approval' : 'Approved (Awaiting Class Validation)'}</span>`;
             }
 
             li.innerHTML = `

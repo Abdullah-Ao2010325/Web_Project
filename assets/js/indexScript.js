@@ -1,4 +1,45 @@
-document.addEventListener('DOMContentLoaded', () => {
+// Function to fetch JSON data and return it as a string
+async function retrieveJSONData(url) {
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error(`Failed to fetch ${url}: ${response.statusText}`);
+    }
+    const jsonData = await response.json();
+    return JSON.stringify(jsonData);
+}
+
+// Function to initialize localStorage with JSON data if not already present
+async function loadLocalStorages() {
+    try {
+        // Uncomment below lines briefly to reset localStorage if JSON files change, then re-comment
+        // delete localStorage.users;
+        // delete localStorage.courses;
+        // delete localStorage.classes;
+        // delete localStorage.majors;
+        // delete localStorage.registrations;
+
+        if (!localStorage.users) {
+            localStorage.users = await retrieveJSONData('../assets/data/users.json');
+        }
+        if (!localStorage.courses) {
+            localStorage.courses = await retrieveJSONData('../assets/data/courses.json');
+        }
+        if (!localStorage.classes) {
+            localStorage.classes = await retrieveJSONData('../assets/data/classes.json');
+        }
+        if (!localStorage.majors) {
+            localStorage.majors = await retrieveJSONData('../assets/data/majors.json');
+        }
+        if (!localStorage.registrations) {
+            localStorage.registrations = await retrieveJSONData('../assets/data/registrations.json');
+        }
+    } catch (error) {
+        console.error('Error initializing localStorage:', error);
+        throw error; // Let the caller handle the error
+    }
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
     const loginForm = document.querySelector('.form-container form');
     const showPopupBtn = document.querySelector('.login-btn');
     const formPopup = document.querySelector('.form-interface');
@@ -45,8 +86,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Initialize localStorage with data
+    try {
+        await loadLocalStorages();
+    } catch (error) {
+        console.error('Failed to load data:', error);
+        const errorMessage = document.createElement('div');
+        errorMessage.className = 'error-message';
+        errorMessage.style.color = 'red';
+        errorMessage.style.marginTop = '10px';
+        errorMessage.style.fontSize = '0.9rem';
+        errorMessage.textContent = 'Error loading data. Please try again later.';
+        loginForm.appendChild(errorMessage);
+        return;
+    }
+
     // Login form submission
-    loginForm.addEventListener('submit', async (event) => {
+    loginForm.addEventListener('submit', (event) => {
         event.preventDefault();
 
         const username = document.querySelector('.form-container input[type="text"]').value;
@@ -62,16 +118,17 @@ document.addEventListener('DOMContentLoaded', () => {
         errorMessage.style.fontSize = '0.9rem';
 
         try {
-            const response = await fetch('../assets/data/users.json');
-            const users = await response.json();
+            // Access data directly from localStorage
+            const users = JSON.parse(localStorage.users);
 
             const user = users.find(
                 user => user.username === username && user.password === password
             );
 
             if (user) {
-                localStorage.setItem('loggedInUsername', username);
-                localStorage.setItem('loggedInPassword', password);
+                localStorage.setItem('loggedInUser', JSON.stringify(user));
+                // Store username separately for consistency with other scripts
+                localStorage.setItem('loggedInUsername', user.username);
 
                 if (user.role === 'Student') {
                     window.location.href = 'side_student/studentDashboard.html';
@@ -87,6 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             errorMessage.textContent = 'Error logging in. Please try again.';
             loginForm.appendChild(errorMessage);
+            console.error('Login error:', error);
         }
     });
 

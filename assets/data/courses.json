@@ -5,7 +5,7 @@
     "course_number": "CMPS 350",
     "major": "CMPS",
     "prerequisites": [2, 3],
-    "status": "open-for-registration"
+    "status": "in-progress"
   },
   {
     "course_id": 2,

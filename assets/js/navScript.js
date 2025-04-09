@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         confirmBtn.addEventListener('click', () => {
             localStorage.removeItem('loggedInUsername');
-            localStorage.removeItem('loggedInPassword');
+            localStorage.removeItem('loggedInUser'); // Consistent with indexScript.js
             window.location.href = '../index.html';
         });
 
