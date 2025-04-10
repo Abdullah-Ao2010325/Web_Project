@@ -1,99 +1,75 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Ensure data exists in localStorage
     if (!localStorage.classes) localStorage.classes = JSON.stringify([]);
     if (!localStorage.courses) localStorage.courses = JSON.stringify([]);
     if (!localStorage.users) localStorage.users = JSON.stringify([]);
     if (!localStorage.registrations) localStorage.registrations = JSON.stringify([]);
 
     loadClasses();
-    loadCourses();
+    displayCourses(JSON.parse(localStorage.courses));
     loadCourseOptions();
     displayPendingItems();
 
-    // Event listeners
     document.querySelector("#add-pre-bt").addEventListener("click", addPrerequisiteInput);
     document.querySelector("#pending_selector").addEventListener("change", filterItemsByCategory);
     document.querySelector('.new-course').addEventListener('submit', handleClassSubmission);
     document.querySelector('.new-class-form').addEventListener('submit', handleCourseSubmission);
     document.querySelector('#class-status-filter').addEventListener('change', filterClasses);
     document.querySelector('#course-status-filter').addEventListener('change', filterCourses);
+
+    document.querySelector('.class-container').addEventListener('click', (e) => {
+        const classItem = e.target.closest('.class-item');
+        if (classItem) {
+            const details = classItem.querySelector('.course-details');
+            const chevron = classItem.querySelector('.material-symbols-outlined');
+            details.classList.toggle('show');
+            chevron.classList.toggle('expand');
+        }
+    });
 });
 
 function loadClasses() {
     const classes = JSON.parse(localStorage.classes);
-    checkClassCapacity(); // Update class capacity and status
+    checkClassCapacity(); 
     displayClasses(classes);
-}
-
-function loadCourses() {
-    const courses = JSON.parse(localStorage.courses);
-    displayCourses(courses);
-}
-
-function loadCourseOptions() {
-    const courses = JSON.parse(localStorage.courses);
-    const dataList = document.querySelector("#courses");
-    dataList.innerHTML = ""; // Clear previous options
-    courses.forEach(course => {
-        const option = document.createElement("option");
-        option.value = `${course.course_number} (${course.course_id})`;
-        dataList.appendChild(option);
-    });
 }
 
 function displayClasses(classes) {
     const course_container = document.querySelector(".course-container");
-    course_container.innerHTML = ""; 
+    course_container.innerHTML = "";
     const filter = document.querySelector('#class-status-filter').value.toLowerCase().replace(/\s+/g, '-');
 
-    const filteredClasses = filter === "all" 
-        ? classes 
-        : classes.filter(c => c.status.toLowerCase().replace(/\s+/g, '-') === filter);
+    const filterValue = filter === "in-progress" ? "validated" : filter;
+
+    const filteredClasses = filterValue === "all"
+        ? classes
+        : classes.filter(c => c.status.toLowerCase().replace(/\s+/g, '-') === filterValue);
 
     filteredClasses.forEach(c => {
         const registeredCount = JSON.parse(localStorage.registrations).filter(r => r.class_id === c.class_id).length;
         const course_div = document.createElement("div");
         course_div.classList.add("course-item");
 
-        let registration_color = c.status === "open-for-registration" ? "orange" 
-            : c.status === "validated" ? "green" 
-            : c.status === "closed" ? "blue" 
+        const displayStatus = c.status === "validated" ? "in-progress" : c.status;
+
+        let registration_color = c.status === "open-for-registration" ? "orange"
+            : c.status === "validated" ? "green"
+            : c.status === "closed" ? "blue"
             : "red";
 
         course_div.innerHTML = `
-            <h5 class="Course-heading">
-                <span class="material-symbols-outlined">arrow_forward_ios</span>
-                Term: ${c.term}
-            </h5>
-            <h5 class="Course-heading">
-                <span class="material-symbols-outlined">arrow_forward_ios</span>
-                Class ID: ${c.class_id}
-            </h5>
-            <h5 class="Course-heading">
-                <span class="material-symbols-outlined">arrow_forward_ios</span>
-                Course ID: ${c.course_id}
-            </h5>
-            <h5 class="Course-heading">
-                <span class="material-symbols-outlined">arrow_forward_ios</span>
-                Instructor ID: ${c.instructor_id}
-            </h5>
-            <h5 class="Course-heading">
-                <span class="material-symbols-outlined">arrow_forward_ios</span>
-                Section: ${c.section}
-            </h5>
-            <div class="course-footer">
-                <h5 class="Course-heading">
-                    <span class="material-symbols-outlined">person</span>
-                    Available Seats: ${c.capacity}
-                </h5>
-                <h5 class="Course-heading">
-                    <span class="material-symbols-outlined">person</span>
-                    Registrations: ${registeredCount}
-                </h5>
-                <h5 class="Course-heading">
-                    <span class="material-symbols-outlined">arrow_upload_progress</span>
-                    Status: <span style="color: ${registration_color};">${c.status}</span>
-                </h5>
+            <div class="course-details">
+                <div class="details-left">
+                    <p><span class="material-symbols-outlined">calendar_today</span> <span>Term:</span> ${c.term}</p>
+                    <p><span class="material-symbols-outlined">assignment</span> <span>Class ID:</span> ${c.class_id}</p>
+                    <p><span class="material-symbols-outlined">school</span> <span>Course ID:</span> ${c.course_id}</p>
+                    <p><span class="material-symbols-outlined">person</span> <span>Instructor ID:</span> ${c.instructor_id}</p>
+                </div>
+                <div class="details-right">
+                    <p><span class="material-symbols-outlined">segment</span> <span>Section:</span> ${c.section}</p>
+                    <p><span class="material-symbols-outlined">event_seat</span> <span>Available Seats:</span> ${c.capacity}</p>
+                    <p><span class="material-symbols-outlined">group</span> <span>Registrations:</span> ${registeredCount}</p>
+                    <p><span class="material-symbols-outlined">arrow_upload_progress</span> <span>Status:</span> <span style="color: ${registration_color};">${displayStatus}</span></p>
+                </div>
             </div>
         `;
 
@@ -106,41 +82,36 @@ function displayCourses(courses) {
     container.innerHTML = "";
     const filter = document.querySelector('#course-status-filter').value.toLowerCase().replace(/\s+/g, '-');
 
-    const filteredCourses = filter === "all" 
-        ? courses 
+    const filteredCourses = filter === "all"
+        ? courses
         : courses.filter(c => c.status.toLowerCase().replace(/\s+/g, '-') === filter);
 
     filteredCourses.forEach(course => {
         const coursdiv = document.createElement("div");
         coursdiv.classList.add("class-item");
 
-        const prerequisites = course.prerequisites.length > 0 ? course.prerequisites.join(", ") : "noone";
+        const prerequisites = course.prerequisites.length > 0 ? course.prerequisites.join(", ") : "none";
+
+        // Color coding for course status
+        let statusColor = course.status === "open-for-registration" ? "orange"
+            : course.status === "in-progress" ? "green"
+            : course.status === "closed" ? "blue"
+            : "red";
 
         coursdiv.innerHTML = `
-            <h5 class="Course-heading">
-                <span class="material-symbols-outlined">assignment</span>
-                Course ID: ${course.course_id}
-            </h5>
-            <h5 class="Course-heading">
-                <span class="material-symbols-outlined">subject</span>
-                Course Name: ${course.course_name}
-            </h5>
-            <h5 class="Course-heading">
-                <span class="material-symbols-outlined">tag</span>
-                Course Number: ${course.course_number}
-            </h5>
-            <h5 class="Course-heading">
-                <span class="material-symbols-outlined">school</span>
-                Major: ${Array.isArray(course.major) ? course.major.join(", ") : course.major}  
-            </h5>
-            <h5 class="Course-heading">
-                <span class="material-symbols-outlined">checklist</span>
-                Prerequisites: ${prerequisites}
-            </h5>
-            <h5 class="Course-heading">
-                <span class="material-symbols-outlined">arrow_upload_progress</span>
-                Status: ${course.status}
-            </h5>
+            <div class="course-header">
+                <div class="course-title">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                    Course Name: ${course.course_name}
+                </div>
+            </div>
+            <div class="course-details">
+                <p><span class="material-symbols-outlined">assignment</span> <span>Course ID:</span> ${course.course_id}</p>
+                <p><span class="material-symbols-outlined">tag</span> <span>Course Number:</span> ${course.course_number}</p>
+                <p><span class="material-symbols-outlined">school</span> <span>Major:</span> ${Array.isArray(course.major) ? course.major.join(", ") : course.major}</p>
+                <p><span class="material-symbols-outlined">checklist</span> <span>Prerequisites:</span> ${prerequisites}</p>
+                <p><span class="material-symbols-outlined">arrow_upload_progress</span> <span>Status:</span> <span style="color: ${statusColor};">${course.status}</span></p>
+            </div>
         `;
 
         container.appendChild(coursdiv);
@@ -148,13 +119,22 @@ function displayCourses(courses) {
 }
 
 function filterClasses() {
-    const classes = JSON.parse(localStorage.classes);
-    displayClasses(classes);
+    loadClasses();
 }
 
 function filterCourses() {
+    displayCourses(JSON.parse(localStorage.courses));
+}
+
+function loadCourseOptions() {
     const courses = JSON.parse(localStorage.courses);
-    displayCourses(courses);
+    const dataList = document.querySelector("#courses");
+    dataList.innerHTML = ""; 
+    courses.forEach(course => {
+        const option = document.createElement("option");
+        option.value = `${course.course_number} (${course.course_id})`;
+        dataList.appendChild(option);
+    });
 }
 
 function addPrerequisiteInput(e) {
@@ -163,7 +143,7 @@ function addPrerequisiteInput(e) {
     const preDiv = document.querySelector(".per-select-container");
     for (let i of preInputs) {
         if (i.value.trim() === "") {
-            alert("Please fill in all prerequisite fields before adding another.");
+            showMessage("Please fill in all prerequisite fields before adding another.");
             return;
         }
     }
@@ -184,19 +164,19 @@ function handleClassSubmission(e) {
     const status = document.querySelector('#status-selector').value;
 
     if (!term || !courseId || !section || !instructor || !status) {
-        alert("All fields are required.");
+        showMessage("All fields are required.");
         return;
     }
 
     const courses = JSON.parse(localStorage.courses);
     if (!courses.some(c => c.course_id === courseId)) {
-        alert("Invalid Course ID.");
+        showMessage("Invalid Course ID.");
         return;
     }
 
     const users = JSON.parse(localStorage.users);
     if (!users.some(u => u.instructor_id === instructor && u.role === "Instructor")) {
-        alert("Invalid Instructor ID.");
+        showMessage("Invalid Instructor ID.");
         return;
     }
 
@@ -210,14 +190,14 @@ function handleClassSubmission(e) {
         term: term,
         section: section,
         instructor_id: instructor,
-        capacity: 40, // Initial capacity (available seats)
+        capacity: 40, 
         status: "open-for-registration"
     };
 
     classes.push(newClass);
     localStorage.setItem('classes', JSON.stringify(classes));
     document.querySelector('.new-course').reset();
-    alert(`Class ${newClassId} added as open-for-registration.`);
+    showMessage(`Class ${newClassId} added as open-for-registration.`);
     loadClasses();
     displayPendingItems();
 }
@@ -235,13 +215,13 @@ function handleCourseSubmission(e) {
         .filter(value => value !== null && JSON.parse(localStorage.courses).some(c => c.course_id === value));
 
     if (!courseName || !courseNumber || selected_majors.length === 0) {
-        alert("Course name, number, and at least one major are required.");
+        showMessage("Course name, number, and at least one major are required.");
         return;
     }
 
     let courses = JSON.parse(localStorage.courses);
     if (courses.some(c => c.course_number === courseNumber)) {
-        alert("Course number already exists.");
+        showMessage("Course number already exists.");
         return;
     }
 
@@ -260,8 +240,8 @@ function handleCourseSubmission(e) {
     courses.push(newCourse);
     localStorage.setItem('courses', JSON.stringify(courses));
     document.querySelector('.new-class-form').reset();
-    alert(`Course ${newCourseId} added as open-for-registration.`);
-    loadCourses();
+    showMessage(`Course ${newCourseId} added as open-for-registration.`);
+    displayCourses(courses);
     loadCourseOptions();
     displayPendingItems();
 }
@@ -271,18 +251,13 @@ function validateClass(id) {
     const desired_class = classes.find(c => c.class_id === id);
 
     if (desired_class && desired_class.status === "open-for-registration") {
-        const registeredCount = JSON.parse(localStorage.registrations).filter(r => r.class_id === id).length;
-        if (registeredCount < 5) {
-            alert(`Class ${id} has only ${registeredCount} registrations. Consider canceling if insufficient.`);
-            return;
-        }
-        desired_class.status = "validated"; // Set status to "validated"
+        desired_class.status = "validated"; 
         localStorage.setItem('classes', JSON.stringify(classes));
-        alert(`Class ${id} validated successfully.`);
+        showMessage(`Class ${id} validated successfully.`);
         loadClasses();
-        displayPendingItems(); // Will exclude validated classes
+        displayPendingItems(); 
     } else {
-        alert(`Class ${id} cannot be validated (not open-for-registration).`);
+        showMessage(`Class ${id} cannot be validated (not open-for-registration).`);
     }
 }
 
@@ -292,16 +267,15 @@ function rejectClass(id) {
     const desired_class = classes.find(c => c.class_id === id);
 
     if (desired_class) {
-        desired_class.status = "closed"; // Set status to "closed"
-        // Remove all registration requests for this class
+        desired_class.status = "closed"; 
         registrations = registrations.filter(r => r.class_id !== id);
         localStorage.setItem('registrations', JSON.stringify(registrations));
         localStorage.setItem('classes', JSON.stringify(classes));
-        alert(`Class ${id} rejected and closed. All registration requests removed.`);
+        showMessage(`Class ${id} rejected and closed. All registration requests removed.`);
         loadClasses();
-        displayPendingItems(); // Will exclude closed classes
+        displayPendingItems(); 
     } else {
-        alert(`Class ${id} not found.`);
+        showMessage(`Class ${id} not found.`);
     }
 }
 
@@ -310,13 +284,13 @@ function validateCourse(id) {
     const course = courses.find(c => c.course_id === id);
 
     if (course && course.status === "open-for-registration") {
-        course.status = "in-progress"; // Set status to "in-progress"
+        course.status = "in-progress"; 
         localStorage.setItem('courses', JSON.stringify(courses));
-        alert(`Course ${id} validated successfully. Now in-progress.`);
-        loadCourses();
-        displayPendingItems(); // Will exclude in-progress courses
+        showMessage(`Course ${id} validated successfully. Now in-progress.`);
+        displayCourses(courses);
+        displayPendingItems(); 
     } else {
-        alert(`Course ${id} cannot be validated (not open-for-registration).`);
+        showMessage(`Course ${id} cannot be validated (not open-for-registration).`);
     }
 }
 
@@ -327,8 +301,7 @@ function rejectCourse(id) {
     const course = courses.find(c => c.course_id === id);
 
     if (course) {
-        course.status = "closed"; // Set course status to "closed"
-        // Update all associated classes to "closed" and remove their registrations
+        course.status = "closed"; 
         const relatedClasses = classes.filter(c => c.course_id === id);
         relatedClasses.forEach(cls => {
             cls.status = "closed";
@@ -339,12 +312,12 @@ function rejectCourse(id) {
         localStorage.setItem('courses', JSON.stringify(courses));
         localStorage.setItem('classes', JSON.stringify(classes));
         localStorage.setItem('registrations', JSON.stringify(registrations));
-        alert(`Course ${id} rejected and closed along with its classes. All registration requests removed.`);
-        loadCourses();
+        showMessage(`Course ${id} rejected and closed along with its classes. All registration requests removed.`);
+        displayCourses(courses);
         loadClasses();
-        displayPendingItems(); // Will exclude closed courses and classes
+        displayPendingItems();
     } else {
-        alert(`Course ${id} not found.`);
+        showMessage(`Course ${id} not found.`);
     }
 }
 
@@ -354,7 +327,7 @@ function checkClassCapacity() {
 
     classes.forEach(c => {
         const registeredCount = registrations.filter(r => r.class_id === c.class_id).length;
-        c.capacity = 40 - registeredCount; // Assuming original capacity is 40
+        c.capacity = 40 - registeredCount; 
         if (c.capacity < 0) c.capacity = 0;
         if (c.status === "open-for-registration" && c.capacity === 0) {
             c.status = "closed";
@@ -419,7 +392,58 @@ function filterItemsByCategory() {
     displayPendingItems();
 }
 
+function confirmLogout(event) {
+    event.preventDefault();
+    showConfirmation("Are you sure you want to logout?", logout);
+    
+}
+
 function logout() {
     localStorage.removeItem('admin_user');
     window.location.href = "../index.html";
+}
+
+function showMessage(message) {
+    const popup = document.querySelector("#message-popup");
+    const popupMessage = document.querySelector("#popup-message");
+    const closeButton = document.querySelector("#close-popup");
+    const yesButton = document.querySelector("#confirm-yes");
+    const noButton = document.querySelector("#confirm-no");
+
+    popupMessage.textContent = message;
+
+    closeButton.style.display = "block";
+    yesButton.style.display = "none";
+    noButton.style.display = "none";
+
+    popup.style.display = "flex";
+
+    closeButton.onclick = () => {
+        popup.style.display = "none";
+    };
+}
+
+function showConfirmation(message, onConfirm) {
+    const popup = document.querySelector("#message-popup");
+    const popupMessage = document.querySelector("#popup-message");
+    const closeButton = document.querySelector("#close-popup");
+    const yesButton = document.querySelector("#confirm-yes");
+    const noButton = document.querySelector("#confirm-no");
+
+    popupMessage.textContent = message;
+
+    closeButton.style.display = "none";
+    yesButton.style.display = "block";
+    noButton.style.display = "block";
+
+    popup.style.display = "flex";
+
+    yesButton.onclick = () => {
+        onConfirm();
+        popup.style.display = "none";
+    };
+
+    noButton.onclick = () => {
+        popup.style.display = "none";
+    };
 }

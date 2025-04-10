@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
-    // Load initial data directly from localStorage
     let users = JSON.parse(localStorage.users);
     let courses = JSON.parse(localStorage.courses);
     let classes = JSON.parse(localStorage.classes);
@@ -72,7 +71,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             return cls.status === 'open-for-registration' && availableSeats > 0;
         });
 
-        return hasOpenClass; // Only show courses with open-for-registration classes
+        return hasOpenClass; 
     });
 
     renderCourses(availableCourses, studentRegistrations);

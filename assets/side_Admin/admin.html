@@ -24,7 +24,7 @@
         <a href="#pending_classes"><span class="material-symbols-outlined"> pending_actions  </span>Pending Items</a>
       </li>
       <li>
-        <a href="../index.html" onclick="logout()"><span class="material-symbols-outlined"> logout </span>Logout</a>
+        <a href="#" onclick="confirmLogout(event)"><span class="material-symbols-outlined"> logout </span>Logout</a>
       </li>
     </ul>
   </aside>
@@ -37,17 +37,21 @@
           <option value="all">All</option>
           <option value="open-for-registration">Open for Registration</option>
           <option value="in-progress">In Progress</option>
+          <option value="closed">Closed</option>
         </select>
       </div>
       <div class="course-container"></div>
     </div>
-    <section class="available-classes">
-      <h2>Available Courses</h2>
-      <select id="course-status-filter">
-        <option value="all">All</option>
-        <option value="open-for-registration">Open for Registration</option>
-        <option value="in-progress">In Progress</option>
-      </select>
+    <section class="available-courses">
+      <div class="class-header">
+          <h2>Available Courses</h2>
+          <select id="course-status-filter">
+              <option value="all">All</option>
+              <option value="open-for-registration">Open for Registration</option>
+              <option value="in-progress">In Progress</option>
+              <option value="closed">Closed</option>
+          </select>
+      </div>
       <div class="class-container"></div>
     </section>
     <section class="course-form-section" id="course-form-section">
@@ -115,6 +119,16 @@
       </div>
     </section>
   </main>
+  <div class="popup-container" id="message-popup">
+      <div class="popup-content">
+          <h2 id="popup-message">Message</h2>
+          <div class="popup-buttons">
+              <button id="confirm-yes" style="display: none;">Yes</button>
+              <button id="confirm-no" style="display: none;">No</button>
+              <button id="close-popup">Close</button>
+          </div>
+      </div>
+  </div>
   <script src="../js/admin.js"></script>
 </body>
 </html>
