@@ -5,15 +5,31 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
-    let users = JSON.parse(localStorage.users);
-    let courses = JSON.parse(localStorage.courses);
-    let classes = JSON.parse(localStorage.classes);
-    let registrations = JSON.parse(localStorage.registrations);
-    const majors = JSON.parse(localStorage.majors);
+    // Check if required localStorage keys exist
+    if (!localStorage.users || !localStorage.courses || !localStorage.classes || !localStorage.registrations || !localStorage.majors) {
+        console.error('Required data not found in localStorage. Redirecting to index.');
+        window.location.href = '../index.html';
+        return;
+    }
+
+    // Retrieve data from localStorage
+    let users, courses, classes, registrations, majors;
+    try {
+        users = JSON.parse(localStorage.users);
+        courses = JSON.parse(localStorage.courses);
+        classes = JSON.parse(localStorage.classes);
+        registrations = JSON.parse(localStorage.registrations);
+        majors = JSON.parse(localStorage.majors);
+    } catch (error) {
+        console.error('Error parsing localStorage data:', error);
+        showMessage('Error', 'Failed to load data from localStorage.');
+        window.location.href = '../index.html';
+        return;
+    }
 
     let studentData = users.find(user => user.role === 'Student' && user.username === loggedInUsername);
     if (!studentData) {
-        alert('Student data not found. Redirecting to login.');
+        showMessage('Error', 'Student data not found. Redirecting to login.');
         window.location.href = '../index.html';
         return;
     }
@@ -58,7 +74,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     const availableCourses = courses.filter(course => {
-        // Only include courses with status "open-for-registration"
         if (course.status !== 'open-for-registration') return false;
 
         const isNotTaken = !completedCourses.includes(course.course_id);

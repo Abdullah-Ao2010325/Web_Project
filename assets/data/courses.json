@@ -37,7 +37,7 @@
     "course_number": "CMPS 351",
     "major": "CMPS",
     "prerequisites": [],
-    "status": "in-progress"
+    "status": "open-for-registration"
   },
   {
     "course_id": 6,
@@ -69,7 +69,7 @@
     "course_number": "CMPS 405",
     "major": ["CMPS", "CMPE"],
     "prerequisites": [4],
-    "status": "in-progress"
+    "status": "open-for-registration"
   },
   {
     "course_id": 10,
@@ -77,7 +77,7 @@
     "course_number": "CMPE 330",
     "major": "CMPE",
     "prerequisites": [],
-    "status": "in-progress"
+    "status": "open-for-registration"
   },
   {
     "course_id": 11,

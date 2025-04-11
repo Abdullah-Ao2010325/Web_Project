@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-    if (!localStorage.classes) localStorage.classes = JSON.stringify([]);
-    if (!localStorage.courses) localStorage.courses = JSON.stringify([]);
-    if (!localStorage.users) localStorage.users = JSON.stringify([]);
-    if (!localStorage.registrations) localStorage.registrations = JSON.stringify([]);
+    // Check if required localStorage keys exist
+    if (!localStorage.classes || !localStorage.courses || !localStorage.users || !localStorage.registrations) {
+        console.error('Required data not found in localStorage. Redirecting to index.');
+        window.location.href = '../index.html';
+        return;
+    }
 
     loadClasses();
     displayCourses(JSON.parse(localStorage.courses));
@@ -92,7 +94,6 @@ function displayCourses(courses) {
 
         const prerequisites = course.prerequisites.length > 0 ? course.prerequisites.join(", ") : "none";
 
-        // Color coding for course status
         let statusColor = course.status === "open-for-registration" ? "orange"
             : course.status === "in-progress" ? "green"
             : course.status === "closed" ? "blue"
@@ -161,9 +162,8 @@ function handleClassSubmission(e) {
     const courseId = parseInt(document.querySelector('#course-no-input').value);
     const section = document.querySelector('#section-input').value;
     const instructor = parseInt(document.querySelector('#instructor-input').value);
-    const status = document.querySelector('#status-selector').value;
 
-    if (!term || !courseId || !section || !instructor || !status) {
+    if (!term || !courseId || !section || !instructor) {
         showMessage("All fields are required.");
         return;
     }
@@ -191,7 +191,7 @@ function handleClassSubmission(e) {
         section: section,
         instructor_id: instructor,
         capacity: 40, 
-        status: "open-for-registration"
+        status: "open-for-registration" // Set default status
     };
 
     classes.push(newClass);
@@ -234,7 +234,7 @@ function handleCourseSubmission(e) {
         course_number: courseNumber,
         major: selected_majors,
         prerequisites: prerequisites,
-        status: "open-for-registration"
+        status: "open-for-registration" // Set default status
     };
 
     courses.push(newCourse);
@@ -395,7 +395,6 @@ function filterItemsByCategory() {
 function confirmLogout(event) {
     event.preventDefault();
     showConfirmation("Are you sure you want to logout?", logout);
-    
 }
 
 function logout() {

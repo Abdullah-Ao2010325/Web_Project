@@ -1,4 +1,3 @@
-// Function to fetch JSON data and return it as a string
 async function retrieveJSONData(url) {
     const response = await fetch(url);
     if (!response.ok) {
@@ -8,15 +7,8 @@ async function retrieveJSONData(url) {
     return JSON.stringify(jsonData);
 }
 
-// Function to initialize localStorage with JSON data if not already present
 async function loadLocalStorages() {
     try {
-        // Uncomment below lines briefly to reset localStorage if JSON files change, then re-comment
-        // delete localStorage.users;
-        // delete localStorage.courses;
-        // delete localStorage.classes;
-        // delete localStorage.majors;
-        // delete localStorage.registrations;
 
         if (!localStorage.users) {
             localStorage.users = await retrieveJSONData('../assets/data/users.json');
@@ -35,7 +27,7 @@ async function loadLocalStorages() {
         }
     } catch (error) {
         console.error('Error initializing localStorage:', error);
-        throw error; // Let the caller handle the error
+        throw error;
     }
 }
 

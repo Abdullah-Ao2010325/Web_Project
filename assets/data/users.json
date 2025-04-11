@@ -107,8 +107,7 @@
     "cgpa": "3.4",
     "completed_courses": [
       {"class_id": 5, "grade": "B"},
-      {"class_id": 8, "grade": "A"},
-      {"class_id": 7, "grade": "A"}
+      {"class_id": 8, "grade": "A"}
     ]
   },
   {

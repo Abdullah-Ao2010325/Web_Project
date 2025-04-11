@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insturctor</title>
+    <title>Instructor Dashboard</title>
     <link rel="stylesheet" href="../css/instructor_styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -12,85 +14,53 @@
             <div class="logo">
                 <img src="../images/QU-logo.png" alt="Qatar University Logo">
             </div>
-
             <ul class="nav-links">
-                <li><a href="#">Assigned Courses</a></li>
-                <li><a href="#"><span class="logout-btn material-symbols-rounded">Logout</span></a></li>
+                <li><a href="#"><span class="material-icons">book</span>Assigned Courses</a></li>
+                <li><a href="#" class="logout-btn"><span class="material-icons">logout</span>Logout</a></li>
             </ul>
         </nav>
-        
     </header>
 
     <main>
-        <section id="Classes_Cards">
-
-            <!-- <section id="CCard">
-                <h3>Sub1</h3>
-                <div id="Sections">
-                    <a href="" id="Section">L01</a>
-                    <a href="" id="Section">L03</a>
-                    <a href="" id="Section">L06</a>
-                    <a href="" id="Section">L09</a>
-                    <a href="" id="Section">L011</a>
-
+        <section class="dashboard-header">
+            <h1>Welcome, <span class="instructor-name"></span>!</h1>
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <span class="material-icons">class</span>
+                    <h3>Total Classes</h3>
+                    <p class="total-classes">0</p>
                 </div>
-                
-            </section> -->
-
-            <!-- <section id="CCard">
-                <h3>Sub1</h3>
-                <div id="Sections">
-                    <a href="" id="Section">L01</a>
-                    <a href="" id="Section">L03</a>
-                    <a href="" id="Section">L06</a>
-                    <a href="" id="Section">L09</a>
-                    <a href="" id="Section">L011</a>
-
+                <div class="stat-card">
+                    <span class="material-icons">people</span>
+                    <h3>Total Students</h3>
+                    <p class="total-students">0</p>
                 </div>
-                
-            </section>
+            </div>
+        </section>
 
-            <section id="CCard">
-                <h3>Sub1</h3>
-                <div id="Sections">
-                    <a href="" id="Section">L01</a>
-                    <a href="" id="Section">L03</a>
-                    <a href="" id="Section">L06</a>
-                    <a href="" id="Section">L09</a>
-                    <a href="" id="Section">L011</a>
-
-                </div>
-                
-            </section> -->
-            
+        <section class="Classes_Cards">
+            <!-- Class cards will be dynamically added here -->
         </section>
 
         <section class="Students_List" style="display: none;">
-          <table border="1" cellspacing="0" cellpadding="10" style="border-collapse: collapse; width: 100%; text-align: center;">
-              <thead>
-                  <tr>
-                      <th>Student name</th>
-                      <th>Student ID</th>
-                      <th>Grade</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  
-              </tbody>
-              <tfoot>
-                  <tr>
-                      <td colspan="3">
-                          <button id="saveGradesBtn" style="padding: 10px 20px; font-size: 1rem;">Save Grades</button>
-                      </td>
-                  </tr>
-              </tfoot>
-          </table>
-      </section>
-      
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Student ID</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div class="submit-grades-container">
+                <button class="saveGradesBtn">Submit Grades</button>
+            </div>
+        </section>
     </main>
 
     <footer>
-
+        <p>© 2025 Qatar University. All rights reserved.</p>
     </footer>
     <script src="../js/Instructor.js"></script>
 </body>

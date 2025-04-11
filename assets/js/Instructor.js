@@ -4,101 +4,140 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.location.href = '../index.html';
         return;
     }
-
-    async function fetchJSON(fileName, paths) {
-        for (const path of paths) {
-            try {
-                const response = await fetch(path);
-                const data = await response.json();
-                return data;
-            } catch (e) {
-                console.warn(`Attempt failed for ${path}: ${e.message}`);
-            }
-        }
-        throw new Error(`All paths failed for ${fileName}`);
-    }
+ 
+    users = JSON.parse(localStorage.users);
+    courses = JSON.parse(localStorage.courses);
+    classes = JSON.parse(localStorage.classes);
+    registrations = JSON.parse(localStorage.registrations);
+   
 
     let instructorData = null;
     let assignedClasses = [];
-    let courses = [];
-    let users = [];
-    let classes = [];
     let currentClassId = null;
 
-    const container = document.getElementById('Classes_Cards');
+    const header = document.querySelector('header');
+    const dashboardHeader = document.querySelector('.dashboard-header');
+    const container = document.querySelector('.Classes_Cards');
     const studentSection = document.querySelector('.Students_List');
+    const footer = document.querySelector('footer');
+
+    const filterSelect = document.createElement('select');
+    filterSelect.className = 'class-status-filter';
+    filterSelect.innerHTML = `
+        <option value="all">All</option>
+        <option value="completed">Completed</option>
+        <option value="in-progress">In Progress</option>
+    `;
+
+    const filterContainer = document.createElement('div');
+    filterContainer.className = 'filter-bar';
+    filterContainer.appendChild(filterSelect);
+    container.parentElement.insertBefore(filterContainer, container);
 
     document.querySelector('.nav-links li:nth-child(1) a').addEventListener('click', (e) => {
         e.preventDefault();
-        container.style.display = 'block';
+        header.style.display = 'block';
+        dashboardHeader.style.display = 'block';
+        filterContainer.style.display = 'flex';
+        container.style.display = 'grid';
         studentSection.style.display = 'none';
+        footer.style.display = 'block';
+        currentClassId = null;
+        renderClasses();
+    });
+
+    filterSelect.addEventListener('change', () => {
+        renderClasses();
     });
 
     document.querySelector('.logout-btn').addEventListener('click', (e) => {
         e.preventDefault();
-        localStorage.removeItem('loggedInUsername');
-        window.location.href = '../index.html';
+        showConfirmationModal();
     });
 
     try {
-        users = await fetchJSON('users.json', ['../../assets/data/users.json']);
         instructorData = users.find(user => user.role === 'Instructor' && user.username === loggedInUsername);
 
         if (!instructorData) {
-            alert('Instructor data not found.');
+            showMessage('Error', 'Instructor data not found.');
             window.location.href = '../index.html';
             return;
         }
 
-        classes = await fetchJSON('classes.json', ['../../assets/data/classes.json']);
         assignedClasses = classes.filter(c => c.instructor_id === instructorData.instructor_id);
 
-        courses = await fetchJSON('courses.json', ['../../assets/data/courses.json']);
+        let totalStudents = 0;
+        assignedClasses.forEach(cls => {
+            const classRegistrations = registrations.filter(reg => reg.class_id === cls.class_id);
+            totalStudents += classRegistrations.length;
+        });
+
+        document.querySelector('.total-classes').textContent = assignedClasses.length;
+        document.querySelector('.total-students').textContent = totalStudents;
+        document.querySelector('.instructor-name').textContent = instructorData.firstName;
+
+        studentSection.style.display = 'none';
+        container.style.display = 'grid';
+        filterContainer.style.display = 'flex';
+        renderClasses();
+    } catch (error) {
+        console.error('Error loading data:', error);
+        showMessage('Error', 'Failed to load data from localStorage.');
+        window.location.href = '../index.html';
+    }
+
+    function renderClasses() {
+        const filterValue = filterSelect.value;
+        let filteredClasses = assignedClasses;
+
+        if (filterValue === 'all') {
+            filteredClasses = assignedClasses.filter(cls => cls.status === 'validated' || cls.status === 'completed');
+        } else if (filterValue === 'completed') {
+            filteredClasses = assignedClasses.filter(cls => cls.status === 'completed');
+        } else if (filterValue === 'in-progress') {
+            filteredClasses = assignedClasses.filter(cls => cls.status === 'validated');
+        }
 
         const classMap = {};
-        assignedClasses.forEach(cls => {
+        filteredClasses.forEach(cls => {
             const course = courses.find(course => course.course_id === cls.course_id);
             const courseName = course ? course.course_name : 'Unknown Course';
             if (!classMap[courseName]) {
                 classMap[courseName] = [];
             }
-            classMap[courseName].push(cls.section);
+            classMap[courseName].push(cls);
         });
 
         container.innerHTML = '';
-        studentSection.style.display = 'none';
-
         for (const courseName in classMap) {
             const card = document.createElement('section');
-            card.id = 'CCard';
+            card.className = 'class-card';
 
             const title = document.createElement('h3');
             title.textContent = courseName;
             card.appendChild(title);
 
             const sectionDiv = document.createElement('div');
-            sectionDiv.id = 'Sections';
+            sectionDiv.className = 'sections';
 
-            classMap[courseName].forEach(sectionName => {
+            classMap[courseName].forEach(cls => {
                 const sectionLink = document.createElement('a');
-                sectionLink.id = 'Section';
+                sectionLink.className = 'section-link';
                 sectionLink.href = '#';
-                sectionLink.textContent = sectionName;
+                sectionLink.textContent = cls.section;
 
-                const matchedClass = assignedClasses.find(cls => {
-                    const course = courses.find(course => course.course_id === cls.course_id);
-                    return course && course.course_name === courseName && cls.section === sectionName;
+                sectionLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    console.log('Hiding class cards and showing student list...');
+                    header.style.display = 'block';
+                    dashboardHeader.style.display = 'none';
+                    filterContainer.style.display = 'none';
+                    container.style.display = 'none'; 
+                    studentSection.style.display = 'block';
+                    footer.style.display = 'block';
+                    currentClassId = cls.class_id;
+                    renderStudentsForClass(currentClassId);
                 });
-
-                if (matchedClass) {
-                    sectionLink.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        container.style.display = 'none';
-                        studentSection.style.display = 'block';
-                        currentClassId = matchedClass.class_id;
-                        renderStudentsForClass(currentClassId);
-                    });
-                }
 
                 sectionDiv.appendChild(sectionLink);
             });
@@ -106,12 +145,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             card.appendChild(sectionDiv);
             container.appendChild(card);
         }
-
-        window.assignedClasses = assignedClasses;
-    } catch (error) {
-        console.error('Error loading data:', error);
-        alert('Failed to load data.');
-        window.location.href = '../index.html';
     }
 
     function renderStudentsForClass(classId) {
@@ -122,8 +155,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         const currentClass = assignedClasses.find(cls => cls.class_id === classId);
         const course = courses.find(c => c.course_id === currentClass.course_id);
 
-        const studentList = users.filter(user => currentClass.registered_students.includes(user.student_id));
+        const classRegistrations = registrations.filter(reg => reg.class_id === classId);
+        const studentList = users.filter(user => classRegistrations.some(reg => reg.student_id === user.student_id));
+
         const savedGrades = JSON.parse(localStorage.getItem(`grades_${classId}`)) || [];
+        const gradesSubmitted = localStorage.getItem(`gradesSubmitted_${classId}`) === 'true';
 
         let header = document.querySelector('.class-info-header');
         if (!header) {
@@ -134,6 +170,13 @@ document.addEventListener('DOMContentLoaded', async () => {
             table.parentElement.insertBefore(header, table);
         }
         header.textContent = `${course.course_name} - ${currentClass.section}`;
+
+        const saveGradesBtn = document.querySelector('.saveGradesBtn');
+        if (gradesSubmitted) {
+            saveGradesBtn.style.display = 'none';
+        } else {
+            saveGradesBtn.style.display = 'block';
+        }
 
         if (studentList.length === 0) {
             const row = document.createElement('tr');
@@ -157,49 +200,52 @@ document.addEventListener('DOMContentLoaded', async () => {
             row.appendChild(idCell);
 
             const gradeCell = document.createElement('td');
-            const input = document.createElement('input');
-            input.type = 'number';
-            input.min = 0;
-            input.max = 100;
-            input.style.width = '60px';
-            input.dataset.studentId = student.student_id;
+            if (gradesSubmitted) {
+                const existingGrade = savedGrades.find(g => g.student_id === student.student_id);
+                gradeCell.textContent = existingGrade ? existingGrade.grade : 'Not Graded';
+            } else {
+                const select = document.createElement('select');
+                select.dataset.studentId = student.student_id;
+                const grades = ['A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F'];
+                select.innerHTML = `<option value="">Select Grade</option>` + 
+                    grades.map(grade => `<option value="${grade}">${grade}</option>`).join('');
 
-            const existingGrade = savedGrades.find(g => g.student_id === student.student_id);
-            if (existingGrade) {
-                input.value = existingGrade.grade;
+                const existingGrade = savedGrades.find(g => g.student_id === student.student_id);
+                if (existingGrade) {
+                    select.value = existingGrade.grade;
+                }
+
+                gradeCell.appendChild(select);
             }
-
-            gradeCell.appendChild(input);
             row.appendChild(gradeCell);
 
             tableBody.appendChild(row);
         });
     }
 
-    document.getElementById('saveGradesBtn').addEventListener('click', () => {
-        const inputs = document.querySelectorAll('.Students_List input[type="number"]');
+    document.querySelector('.saveGradesBtn').addEventListener('click', () => {
+        const gradesSubmitted = localStorage.getItem(`gradesSubmitted_${currentClassId}`) === 'true';
+        if (gradesSubmitted) {
+            showMessage('Submission Error', 'Grades have already been submitted and cannot be modified.');
+            return;
+        }
+
+        const selects = document.querySelectorAll('.Students_List select');
         const currentClass = assignedClasses.find(cls => cls.class_id === currentClassId);
         const courseId = currentClass ? currentClass.course_id : null;
 
         const savedGrades = [];
         let valid = true;
 
-        inputs.forEach(input => {
-            const studentId = parseInt(input.dataset.studentId);
-            const gradeValue = input.value.trim();
+        selects.forEach(select => {
+            const studentId = parseInt(select.dataset.studentId);
+            const grade = select.value;
 
-            if (gradeValue === '') {
-                input.style.border = '';
-                return;
-            }
-
-            const grade = parseInt(gradeValue);
-
-            if (isNaN(grade) || grade < 0 || grade > 100) {
+            if (grade === '') {
                 valid = false;
-                input.style.border = '2px solid red';
+                select.style.border = '2px solid red';
             } else {
-                input.style.border = '';
+                select.style.border = '';
                 savedGrades.push({
                     student_id: studentId,
                     class_id: currentClassId,
@@ -210,11 +256,136 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
 
         if (!valid) {
-            alert('Please enter valid grades between 0 and 100. Empty fields are allowed.');
+            showMessage('Validation Error', 'Please select a grade for all students.');
             return;
         }
 
-        localStorage.setItem(`grades_${currentClassId}`, JSON.stringify(savedGrades));
-        alert('Grades saved to localStorage!');
+        showGradeSubmissionModal();
     });
+
+    function showMessage(title, message) {
+        const existingModal = document.querySelector('.confirmation-modal');
+        if (existingModal) existingModal.remove();
+
+        const modal = document.createElement('div');
+        modal.className = 'confirmation-modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <h2>${title}</h2>
+                <p>${message}</p>
+                <button class="modal-ok">OK</button>
+            </div>
+        `;
+        document.body.appendChild(modal);
+
+        document.querySelector('.modal-ok').addEventListener('click', () => {
+            modal.remove();
+        });
+    }
+
+    function showConfirmationModal() {
+        const existingModal = document.querySelector('.confirmation-modal');
+        if (existingModal) existingModal.remove();
+
+        const modal = document.createElement('div');
+        modal.className = 'confirmation-modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <h2>Confirm Logout</h2>
+                <p>Are you sure you want to logout?</p>
+                <button class="confirm-submit">Yes</button>
+                <button class="cancel-submit">Cancel</button>
+            </div>
+        `;
+        document.body.appendChild(modal);
+
+        document.querySelector('.confirm-submit').addEventListener('click', () => {
+            modal.remove();
+            localStorage.removeItem('loggedInUsername');
+            window.location.href = '../index.html';
+        });
+
+        document.querySelector('.cancel-submit').addEventListener('click', () => {
+            modal.remove();
+        });
+    }
+
+    function showGradeSubmissionModal() {
+        const existingModal = document.querySelector('.confirmation-modal');
+        if (existingModal) existingModal.remove();
+
+        const modal = document.createElement('div');
+        modal.className = 'confirmation-modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <h2>Confirm Grade Submission</h2>
+                <p>Are you sure you want to submit these grades? This action cannot be undone.</p>
+                <button class="confirm-submit">Yes</button>
+                <button class="cancel-submit">Cancel</button>
+            </div>
+        `;
+        document.body.appendChild(modal);
+
+        document.querySelector('.confirm-submit').addEventListener('click', async () => {
+            const selects = document.querySelectorAll('.Students_List select');
+            const currentClass = assignedClasses.find(cls => cls.class_id === currentClassId);
+            const courseId = currentClass ? currentClass.course_id : null;
+
+            const savedGrades = [];
+            selects.forEach(select => {
+                const studentId = parseInt(select.dataset.studentId);
+                const grade = select.value;
+                savedGrades.push({
+                    student_id: studentId,
+                    class_id: currentClassId,
+                    course_id: courseId,
+                    grade: grade
+                });
+            });
+
+            const updatedUsers = Array.from(users);
+            savedGrades.forEach(grade => {
+                const student = updatedUsers.find(u => u.student_id === grade.student_id);
+                if (student) {
+                    if (!student.completed_courses) {
+                        student.completed_courses = [];
+                    }
+                    student.completed_courses.push({
+                        class_id: grade.class_id,
+                        grade: grade.grade
+                    });
+                }
+            });
+
+            const updatedClasses = Array.from(classes);
+            const classIndex = updatedClasses.findIndex(cls => cls.class_id === currentClassId);
+            if (classIndex !== -1) {
+                updatedClasses[classIndex].status = 'completed';
+            }
+
+            try {
+                localStorage.setItem('users', JSON.stringify(updatedUsers));
+                localStorage.setItem('classes', JSON.stringify(updatedClasses));
+
+                localStorage.setItem(`grades_${currentClassId}`, JSON.stringify(savedGrades));
+                localStorage.setItem(`gradesSubmitted_${currentClassId}`, 'true');
+
+                users = updatedUsers;
+                classes = updatedClasses;
+                assignedClasses = classes.filter(c => c.instructor_id === instructorData.instructor_id);
+
+                showMessage('Success', 'Grades submitted successfully!');
+                renderStudentsForClass(currentClassId);
+            } catch (error) {
+                console.error('Error updating data:', error);
+                showMessage('Error', 'Failed to submit grades. Please try again.');
+            }
+
+            modal.remove();
+        });
+
+        document.querySelector('.cancel-submit').addEventListener('click', () => {
+            modal.remove();
+        });
+    }
 });

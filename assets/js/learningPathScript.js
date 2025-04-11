@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         studentRegistrations.forEach(reg => {
             const classData = classes.find(cls => cls.class_id === reg.class_id);
             if (classData) {
-                if (classData.status === 'in-progress') {
+                if (classData.status === 'validated') { // Map "validated" to "In Progress"
                     inProgressCount++;
                 } else if (classData.status === 'open-for-registration') {
                     pendingCount++;
@@ -87,18 +87,19 @@ document.addEventListener('DOMContentLoaded', async function() {
             const studentRegistrations = registrations.filter(reg => reg.student_id === studentData.student_id);
             studentRegistrations.forEach(reg => {
                 const classData = classes.find(cls => cls.class_id === reg.class_id);
-                if (classData && classData.status !== 'closed-for-registration') { // Exclude closed classes
+                if (classData && classData.status !== 'closed') { // Exclude closed classes
                     const courseData = courses.find(c => c.course_id === classData.course_id);
                     if (courseData) {
                         const instructor = users.find(user => user.instructor_id === classData.instructor_id) || { firstName: 'N/A' };
                         let courseStatus;
 
-                        if (classData.status === 'in-progress') {
+                        // Map class status to student-facing status
+                        if (classData.status === 'validated') { // Admin has validated the class
                             courseStatus = 'In Progress';
                         } else if (classData.status === 'open-for-registration') {
                             courseStatus = 'Pending';
                         } else {
-                            return; // Skip if class is closed
+                            return; // Skip if class is closed or in an unexpected state
                         }
 
                         if (status === 'All' || (status === 'In Progress' && courseStatus === 'In Progress') || (status === 'Pending' && courseStatus === 'Pending')) {
