@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
+    // logout popup message in the student dashbord page
     function showLogoutConfirmation() {
         let logoutBox = document.querySelector('.logout-confirmation');
         if (logoutBox) {
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         confirmBtn.addEventListener('click', () => {
             localStorage.removeItem('loggedInUsername');
-            localStorage.removeItem('loggedInUser'); // Consistent with indexScript.js
+            localStorage.removeItem('loggedInUser'); 
             window.location.href = '../index.html';
         });
 

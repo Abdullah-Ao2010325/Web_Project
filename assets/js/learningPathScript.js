@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         return;
     }
 
-    // Load data directly from localStorage
     const users = JSON.parse(localStorage.users);
     const courses = JSON.parse(localStorage.courses);
     const classes = JSON.parse(localStorage.classes);
@@ -35,16 +34,20 @@ document.addEventListener('DOMContentLoaded', async function() {
         renderCourses('All');
     });
 
+    // function to update the progress summary 
     function updateProgressSummary() {
-        const completedCount = studentData.completed_courses ? studentData.completed_courses.length : 0;
+        const completedCount = studentData.completed_courses
+            ? studentData.completed_courses.filter(cc => cc.grade !== 'F').length
+            : 0;
         let inProgressCount = 0;
         let pendingCount = 0;
 
         const studentRegistrations = registrations.filter(reg => reg.student_id === studentData.student_id);
         studentRegistrations.forEach(reg => {
             const classData = classes.find(cls => cls.class_id === reg.class_id);
-            if (classData) {
-                if (classData.status === 'validated') { // Map "validated" to "In Progress"
+            const courseData = classData ? courses.find(c => c.course_id === classData.course_id) : null;
+            if (classData && courseData) {
+                if (classData.status === 'validated' || courseData.status === 'in-progress') {
                     inProgressCount++;
                 } else if (classData.status === 'open-for-registration') {
                     pendingCount++;
@@ -57,16 +60,18 @@ document.addEventListener('DOMContentLoaded', async function() {
         document.getElementById('pending-count').textContent = pendingCount;
     }
 
+    // function to render courses based on the selected status
     function renderCourses(status) {
         const courseListContainer = document.querySelector('.course-list');
         courseListContainer.innerHTML = '';
-
+    
         let coursesToDisplay = [];
-
-        // Handle Completed Courses
+    
         if (status === 'All' || status === 'Completed') {
             if (Array.isArray(studentData.completed_courses)) {
                 studentData.completed_courses.forEach(course => {
+                    if (course.grade === 'F') return; // Skip courses with grade 'F'
+    
                     const classData = classes.find(cls => cls.class_id === course.class_id);
                     const courseData = classData ? courses.find(c => c.course_id === classData.course_id) : null;
                     if (courseData) {
@@ -81,8 +86,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 console.warn('studentData.completed_courses is not an array:', studentData.completed_courses);
             }
         }
-
-        // Handle In Progress and Pending Courses
+    
         if (status === 'All' || status === 'In Progress' || status === 'Pending') {
             const studentRegistrations = registrations.filter(reg => reg.student_id === studentData.student_id);
             studentRegistrations.forEach(reg => {
@@ -90,18 +94,27 @@ document.addEventListener('DOMContentLoaded', async function() {
                 if (classData && classData.status !== 'closed') { // Exclude closed classes
                     const courseData = courses.find(c => c.course_id === classData.course_id);
                     if (courseData) {
+                        // Check if the student has previously failed this course
+                        const hasFailed = studentData.completed_courses?.some(
+                            cc => parseInt(cc.class_id) === parseInt(reg.class_id) && cc.grade === 'F'
+                        );
+    
+                        // If the student has failed this course previously, skip displaying it
+                        if (hasFailed) {
+                            return;
+                        }
+    
                         const instructor = users.find(user => user.instructor_id === classData.instructor_id) || { firstName: 'N/A' };
                         let courseStatus;
-
-                        // Map class status to student-facing status
-                        if (classData.status === 'validated') { // Admin has validated the class
+    
+                        if (classData.status === 'validated' || courseData.status === 'in-progress') {
                             courseStatus = 'In Progress';
                         } else if (classData.status === 'open-for-registration') {
                             courseStatus = 'Pending';
                         } else {
-                            return; // Skip if class is closed or in an unexpected state
+                            return;
                         }
-
+    
                         if (status === 'All' || (status === 'In Progress' && courseStatus === 'In Progress') || (status === 'Pending' && courseStatus === 'Pending')) {
                             coursesToDisplay.push({
                                 course_name: courseData.course_name,
@@ -115,7 +128,7 @@ document.addEventListener('DOMContentLoaded', async function() {
                 }
             });
         }
-
+    
         if (coursesToDisplay.length === 0) {
             const li = document.createElement('li');
             li.classList.add('no-courses');
@@ -123,11 +136,11 @@ document.addEventListener('DOMContentLoaded', async function() {
             courseListContainer.appendChild(li);
             return;
         }
-
+    
         coursesToDisplay.forEach(course => {
             const li = document.createElement('li');
             li.classList.add('course-item');
-
+    
             let detailsHtml = '';
             if (course.grade) {
                 detailsHtml += `<span class="course-detail"><strong>Grade:</strong> ${course.grade}</span>`;
@@ -141,7 +154,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             if (course.instructor) {
                 detailsHtml += `<span class="course-detail"><strong>Instructor:</strong> ${course.instructor}</span>`;
             }
-
+    
             li.innerHTML = `
                 <div class="course-item-content">
                     <span class="course-name">${course.course_name}</span>
@@ -159,14 +172,14 @@ document.addEventListener('DOMContentLoaded', async function() {
                     ${detailsHtml}
                 </div>
             `;
-
+    
             const toggleButton = li.querySelector('.toggle-details');
             const details = li.querySelector('.course-details');
             toggleButton.addEventListener('click', () => {
                 details.classList.toggle('show');
                 toggleButton.textContent = details.classList.contains('show') ? 'expand_less' : 'expand_more';
             });
-
+    
             courseListContainer.appendChild(li);
         });
     }

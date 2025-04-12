@@ -1,12 +1,10 @@
+// function to retrieve JSON data from a URL
 async function retrieveJSONData(url) {
     const response = await fetch(url);
-    if (!response.ok) {
-        throw new Error(`Failed to fetch ${url}: ${response.statusText}`);
-    }
     const jsonData = await response.json();
     return JSON.stringify(jsonData);
 }
-
+// function to store JSON data in localStorage
 async function loadLocalStorages() {
     try {
 
@@ -31,6 +29,7 @@ async function loadLocalStorages() {
     }
 }
 
+// Event listener to handle login form submission
 document.addEventListener('DOMContentLoaded', async () => {
     const loginForm = document.querySelector('.form-container form');
     const showPopupBtn = document.querySelector('.login-btn');
@@ -43,17 +42,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (!loginForm) return;
 
-    // Show login popup
     showPopupBtn.addEventListener('click', () => {
         document.body.classList.toggle('show-popup');
     });
 
-    // Hide login popup
     hidePopupBtn.addEventListener('click', () => {
         document.body.classList.remove('show-popup');
     });
 
-    // Toggle mobile menu
     hamburgerBtn.addEventListener('click', () => {
         navLinks.classList.toggle('show-menu');
     });
@@ -72,13 +68,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const targetSection = document.getElementById(targetId);
                 if (targetSection) {
                     targetSection.scrollIntoView({ behavior: 'smooth' });
-                    navLinks.classList.remove('show-menu'); // Close mobile menu
+                    navLinks.classList.remove('show-menu'); 
                 }
             }
         });
     });
 
-    // Initialize localStorage with data
     try {
         await loadLocalStorages();
     } catch (error) {
@@ -110,16 +105,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         errorMessage.style.fontSize = '0.9rem';
 
         try {
-            // Access data directly from localStorage
             const users = JSON.parse(localStorage.users);
-
             const user = users.find(
                 user => user.username === username && user.password === password
             );
 
             if (user) {
                 localStorage.setItem('loggedInUser', JSON.stringify(user));
-                // Store username separately for consistency with other scripts
                 localStorage.setItem('loggedInUsername', user.username);
 
                 if (user.role === 'Student') {
@@ -140,7 +132,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    // Contact form submission (simple feedback)
+    // Contact form submission
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();

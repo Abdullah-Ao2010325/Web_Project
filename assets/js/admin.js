@@ -1,11 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Check if required localStorage keys exist
-    if (!localStorage.classes || !localStorage.courses || !localStorage.users || !localStorage.registrations) {
-        console.error('Required data not found in localStorage. Redirecting to index.');
-        window.location.href = '../index.html';
-        return;
-    }
-
+    
+     
     loadClasses();
     displayCourses(JSON.parse(localStorage.courses));
     loadCourseOptions();
@@ -18,47 +13,68 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('#class-status-filter').addEventListener('change', filterClasses);
     document.querySelector('#course-status-filter').addEventListener('change', filterCourses);
 
-    document.querySelector('.class-container').addEventListener('click', (e) => {
-        const classItem = e.target.closest('.class-item');
+    document.querySelector('.course-container').addEventListener('click', (e) => {
+        const classItem = e.target.closest('.course-item');
         if (classItem) {
             const details = classItem.querySelector('.course-details');
             const chevron = classItem.querySelector('.material-symbols-outlined');
-            details.classList.toggle('show');
-            chevron.classList.toggle('expand');
+            if (details && chevron) {
+                details.classList.toggle('show');
+                chevron.classList.toggle('expand');
+            }
+        }
+    });
+
+    document.querySelector('.class-container').addEventListener('click', (e) => {
+        const courseItem = e.target.closest('.class-item');
+        if (courseItem) {
+            const details = courseItem.querySelector('.course-details');
+            const chevron = courseItem.querySelector('.material-symbols-outlined');
+            if (details && chevron) {
+                details.classList.toggle('show');
+                chevron.classList.toggle('expand');
+            }
         }
     });
 });
 
+// Function to load classes from localStorage and display them
 function loadClasses() {
     const classes = JSON.parse(localStorage.classes);
-    checkClassCapacity(); 
+    checkClassCapacity();
     displayClasses(classes);
 }
 
+// Function to display classes based on the selected filter
 function displayClasses(classes) {
-    const course_container = document.querySelector(".course-container");
-    course_container.innerHTML = "";
-    const filter = document.querySelector('#class-status-filter').value.toLowerCase().replace(/\s+/g, '-');
+    const courseContainer = document.querySelector(".course-container");
+    courseContainer.innerHTML = "";
+    const filter = document.querySelector('#class-status-filter').value;
 
-    const filterValue = filter === "in-progress" ? "validated" : filter;
+    const statusMap = {
+        "all": null,
+        "in-progress": "validated",
+        "open-for-registration": "open-for-registration",
+        "closed": "closed"
+    };
 
-    const filteredClasses = filterValue === "all"
-        ? classes
-        : classes.filter(c => c.status.toLowerCase().replace(/\s+/g, '-') === filterValue);
+    const displayMap = {
+        "open-for-registration": { display: "open-for-registration", color: "orange" },
+        "validated": { display: "in-progress", color: "green" },
+        "closed": { display: "closed", color: "blue" }
+    };
+
+    const filterStatus = statusMap[filter];
+    const filteredClasses = filterStatus ? classes.filter(c => c.status === filterStatus) : classes;
 
     filteredClasses.forEach(c => {
         const registeredCount = JSON.parse(localStorage.registrations).filter(r => r.class_id === c.class_id).length;
-        const course_div = document.createElement("div");
-        course_div.classList.add("course-item");
+        const courseDiv = document.createElement("div");
+        courseDiv.classList.add("course-item");
 
-        const displayStatus = c.status === "validated" ? "in-progress" : c.status;
+        const { display: displayStatus, color: registrationColor } = displayMap[c.status] || { display: c.status, color: "black" };
 
-        let registration_color = c.status === "open-for-registration" ? "orange"
-            : c.status === "validated" ? "green"
-            : c.status === "closed" ? "blue"
-            : "red";
-
-        course_div.innerHTML = `
+        courseDiv.innerHTML = `
             <div class="course-details">
                 <div class="details-left">
                     <p><span class="material-symbols-outlined">calendar_today</span> <span>Term:</span> ${c.term}</p>
@@ -70,23 +86,30 @@ function displayClasses(classes) {
                     <p><span class="material-symbols-outlined">segment</span> <span>Section:</span> ${c.section}</p>
                     <p><span class="material-symbols-outlined">event_seat</span> <span>Available Seats:</span> ${c.capacity}</p>
                     <p><span class="material-symbols-outlined">group</span> <span>Registrations:</span> ${registeredCount}</p>
-                    <p><span class="material-symbols-outlined">arrow_upload_progress</span> <span>Status:</span> <span style="color: ${registration_color};">${displayStatus}</span></p>
+                    <p><span class="material-symbols-outlined">arrow_upload_progress</span> <span>Status:</span> <span style="color: ${registrationColor};">${displayStatus}</span></p>
                 </div>
             </div>
         `;
 
-        course_container.appendChild(course_div);
+        courseContainer.appendChild(courseDiv);
     });
 }
 
+// Function to display courses based on the selected filter
 function displayCourses(courses) {
     const container = document.querySelector(".class-container");
     container.innerHTML = "";
-    const filter = document.querySelector('#course-status-filter').value.toLowerCase().replace(/\s+/g, '-');
+    const filter = document.querySelector('#course-status-filter').value;
 
-    const filteredCourses = filter === "all"
-        ? courses
-        : courses.filter(c => c.status.toLowerCase().replace(/\s+/g, '-') === filter);
+    const statusMap = {
+        "all": null,
+        "open-for-registration": "open-for-registration",
+        "in-progress": "in-progress",
+        "closed": "closed"
+    };
+
+    const filterStatus = statusMap[filter];
+    const filteredCourses = filterStatus ? courses.filter(c => c.status === filterStatus) : courses;
 
     filteredCourses.forEach(course => {
         const coursdiv = document.createElement("div");
@@ -127,10 +150,11 @@ function filterCourses() {
     displayCourses(JSON.parse(localStorage.courses));
 }
 
+// Function to load course options for the prerequisite input fields
 function loadCourseOptions() {
     const courses = JSON.parse(localStorage.courses);
     const dataList = document.querySelector("#courses");
-    dataList.innerHTML = ""; 
+    dataList.innerHTML = "";
     courses.forEach(course => {
         const option = document.createElement("option");
         option.value = `${course.course_number} (${course.course_id})`;
@@ -138,6 +162,7 @@ function loadCourseOptions() {
     });
 }
 
+// Function to add a prerequisite input field 
 function addPrerequisiteInput(e) {
     e.preventDefault();
     const preInputs = document.querySelectorAll(".pre-input");
@@ -156,6 +181,7 @@ function addPrerequisiteInput(e) {
     preDiv.appendChild(input);
 }
 
+// Function to handle class submission
 function handleClassSubmission(e) {
     e.preventDefault();
     const term = document.querySelector('#term-selector').value;
@@ -190,8 +216,8 @@ function handleClassSubmission(e) {
         term: term,
         section: section,
         instructor_id: instructor,
-        capacity: 40, 
-        status: "open-for-registration" // Set default status
+        capacity: 40,
+        status: "open-for-registration"
     };
 
     classes.push(newClass);
@@ -202,6 +228,7 @@ function handleClassSubmission(e) {
     displayPendingItems();
 }
 
+// Function to handle course submission
 function handleCourseSubmission(e) {
     e.preventDefault();
     const courseName = document.querySelector('.course-name').value;
@@ -234,7 +261,7 @@ function handleCourseSubmission(e) {
         course_number: courseNumber,
         major: selected_majors,
         prerequisites: prerequisites,
-        status: "open-for-registration" // Set default status
+        status: "open-for-registration"
     };
 
     courses.push(newCourse);
@@ -246,54 +273,75 @@ function handleCourseSubmission(e) {
     displayPendingItems();
 }
 
+// Function to validate a class and update its status
 function validateClass(id) {
     let classes = JSON.parse(localStorage.classes);
     const desired_class = classes.find(c => c.class_id === id);
 
     if (desired_class && desired_class.status === "open-for-registration") {
-        desired_class.status = "validated"; 
+        desired_class.status = "validated";
         localStorage.setItem('classes', JSON.stringify(classes));
         showMessage(`Class ${id} validated successfully.`);
         loadClasses();
-        displayPendingItems(); 
+        displayPendingItems();
     } else {
         showMessage(`Class ${id} cannot be validated (not open-for-registration).`);
     }
 }
 
+// Function to reject a class and remove registrations
 function rejectClass(id) {
     let classes = JSON.parse(localStorage.classes);
     let registrations = JSON.parse(localStorage.registrations);
     const desired_class = classes.find(c => c.class_id === id);
 
     if (desired_class) {
-        desired_class.status = "closed"; 
+        desired_class.status = "closed";
         registrations = registrations.filter(r => r.class_id !== id);
         localStorage.setItem('registrations', JSON.stringify(registrations));
         localStorage.setItem('classes', JSON.stringify(classes));
         showMessage(`Class ${id} rejected and closed. All registration requests removed.`);
         loadClasses();
-        displayPendingItems(); 
+        displayPendingItems();
     } else {
         showMessage(`Class ${id} not found.`);
     }
 }
 
+// Function to validate a course and its associated classes
 function validateCourse(id) {
     let courses = JSON.parse(localStorage.courses);
+    let classes = JSON.parse(localStorage.classes);
     const course = courses.find(c => c.course_id === id);
 
+    console.log('Course to validate:', course);
+    console.log('Classes before validation:', classes);
+
     if (course && course.status === "open-for-registration") {
-        course.status = "in-progress"; 
+        course.status = "in-progress";
+        classes = classes.map(cls => {
+            if (parseInt(cls.course_id) === parseInt(id) && cls.status === "open-for-registration") {
+                console.log(`Validating class ${cls.class_id} for course ${id}`);
+                return { ...cls, status: "validated" };
+            }
+            return cls;
+        });
+
+        console.log('Classes after validation:', classes);
+
         localStorage.setItem('courses', JSON.stringify(courses));
-        showMessage(`Course ${id} validated successfully. Now in-progress.`);
+        localStorage.setItem('classes', JSON.stringify(classes));
+
+        showMessage(`Course ${id} validated successfully. Now in-progress. Associated classes have been validated.`);
         displayCourses(courses);
-        displayPendingItems(); 
+        loadClasses();
+        displayPendingItems();
     } else {
         showMessage(`Course ${id} cannot be validated (not open-for-registration).`);
     }
 }
 
+// Function to reject a course and its associated classes
 function rejectCourse(id) {
     let courses = JSON.parse(localStorage.courses);
     let classes = JSON.parse(localStorage.classes);
@@ -301,7 +349,7 @@ function rejectCourse(id) {
     const course = courses.find(c => c.course_id === id);
 
     if (course) {
-        course.status = "closed"; 
+        course.status = "closed";
         const relatedClasses = classes.filter(c => c.course_id === id);
         relatedClasses.forEach(cls => {
             cls.status = "closed";
@@ -321,13 +369,14 @@ function rejectCourse(id) {
     }
 }
 
+// Function to check class capacity and update status
 function checkClassCapacity() {
     let classes = JSON.parse(localStorage.classes);
     const registrations = JSON.parse(localStorage.registrations);
 
     classes.forEach(c => {
         const registeredCount = registrations.filter(r => r.class_id === c.class_id).length;
-        c.capacity = 40 - registeredCount; 
+        c.capacity = 40 - registeredCount;
         if (c.capacity < 0) c.capacity = 0;
         if (c.status === "open-for-registration" && c.capacity === 0) {
             c.status = "closed";
@@ -337,6 +386,7 @@ function checkClassCapacity() {
     localStorage.setItem('classes', JSON.stringify(classes));
 }
 
+// Function to display pending items based on the selected category
 function displayPendingItems() {
     const classes = JSON.parse(localStorage.classes);
     const courses = JSON.parse(localStorage.courses);
@@ -360,7 +410,7 @@ function displayPendingItems() {
                 <h5 class="class_heading">Course ID: ${c.course_id}</h5>
                 <h5 class="class_heading">Section: ${c.section}</h5>
                 <h5 class="class_heading">Available Seats: ${c.capacity}</h5>
-                <h5 class="class_heading">Registrations: ${registeredCount}</h5>
+                <h5 class="class_heading">Registrations: ${c.status === "open-for-registration" ? registeredCount : 0}</h5>
                 <button id="validate_bt" onclick="validateClass(${c.class_id})">Validate</button>
                 <button id="reject_bt" onclick="rejectClass(${c.class_id})">Reject</button>
             `;
@@ -388,6 +438,7 @@ function displayPendingItems() {
     }
 }
 
+
 function filterItemsByCategory() {
     displayPendingItems();
 }
@@ -402,6 +453,7 @@ function logout() {
     window.location.href = "../index.html";
 }
 
+// Function to show a message popup
 function showMessage(message) {
     const popup = document.querySelector("#message-popup");
     const popupMessage = document.querySelector("#popup-message");
@@ -422,6 +474,7 @@ function showMessage(message) {
     };
 }
 
+// Function to show a confirmation popup message
 function showConfirmation(message, onConfirm) {
     const popup = document.querySelector("#message-popup");
     const popupMessage = document.querySelector("#popup-message");

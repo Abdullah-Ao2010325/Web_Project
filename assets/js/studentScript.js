@@ -4,28 +4,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.location.href = '../index.html';
         return;
     }
-
-    // Check if required localStorage keys exist
-    if (!localStorage.users || !localStorage.courses || !localStorage.classes || !localStorage.registrations || !localStorage.majors) {
-        console.error('Required data not found in localStorage. Redirecting to index.');
-        window.location.href = '../index.html';
-        return;
-    }
-
-    // Retrieve data from localStorage
+    
+    // to get data from local storage
     let users, courses, classes, registrations, majors;
-    try {
-        users = JSON.parse(localStorage.users);
-        courses = JSON.parse(localStorage.courses);
-        classes = JSON.parse(localStorage.classes);
-        registrations = JSON.parse(localStorage.registrations);
-        majors = JSON.parse(localStorage.majors);
-    } catch (error) {
-        console.error('Error parsing localStorage data:', error);
-        showMessage('Error', 'Failed to load data from localStorage.');
-        window.location.href = '../index.html';
-        return;
-    }
+    users = JSON.parse(localStorage.users);
+    courses = JSON.parse(localStorage.courses);
+    classes = JSON.parse(localStorage.classes);
+    registrations = JSON.parse(localStorage.registrations);
+    majors = JSON.parse(localStorage.majors);
+   
+    
 
     let studentData = users.find(user => user.role === 'Student' && user.username === loggedInUsername);
     if (!studentData) {
@@ -39,16 +27,30 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('cgpa').textContent = studentData.cgpa;
     document.getElementById('advisor').textContent = studentData.advisor;
 
-    const completedCourses = studentData.completed_courses ? studentData.completed_courses.map(cc => {
-        const classItem = classes.find(cls => cls.class_id === cc.class_id);
-        return classItem ? classItem.course_id : null;
-    }).filter(id => id !== null) : [];
+    const completedCourses = studentData.completed_courses
+        ? studentData.completed_courses
+            .filter(cc => cc.grade !== 'F')
+            .map(cc => {
+                const classItem = classes.find(cls => cls.class_id === cc.class_id);
+                return classItem ? classItem.course_id : null;
+            })
+            .filter(id => id !== null)
+        : [];
 
+    const failedClasses = studentData.completed_courses
+        ? studentData.completed_courses
+            .filter(cc => cc.grade === 'F')
+            .map(cc => cc.class_id)
+        : [];
+    
     let studentRegistrations = registrations.filter(reg => reg.student_id === studentData.student_id);
     const registeredCourses = studentRegistrations
         .map(reg => {
             const classItem = classes.find(cls => cls.class_id === reg.class_id);
-            return classItem ? classItem.course_id : null;
+            if (classItem && classItem.status !== 'completed') {
+                return classItem.course_id;
+            }
+            return null;
         })
         .filter(id => id !== null);
 
@@ -62,7 +64,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('registered').textContent = registered;
     document.getElementById('remaining').textContent = remaining >= 0 ? remaining : 0;
 
-    // Update progress bar
     if (totalCourses > 0) {
         const takenPercent = (taken / totalCourses) * 100;
         const registeredPercent = (registered / totalCourses) * 100;
@@ -81,6 +82,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const courseClasses = classes.filter(cls => cls.course_id === course.course_id);
         const hasOpenClass = courseClasses.some(cls => {
+            if (failedClasses.includes(cls.class_id)) return false;
+
             const registeredStudents = registrations.filter(reg => reg.class_id === cls.class_id).length;
             const availableSeats = cls.capacity - registeredStudents;
             return cls.status === 'open-for-registration' && availableSeats > 0;
@@ -99,6 +102,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     termFilter.addEventListener('change', filterCourses);
     searchInput.addEventListener('input', filterCourses);
 
+    // function to filter courses
     function filterCourses() {
         const selectedMajor = majorFilter.value;
         const selectedTerm = termFilter.value;
@@ -115,27 +119,39 @@ document.addEventListener('DOMContentLoaded', async () => {
         renderCourses(filteredCourses, studentRegistrations);
     }
 
+    // function to display available courses
     function renderCourses(coursesToRender, studentRegistrations) {
         const courseBoxesContainer = document.querySelector('.course-boxes');
         courseBoxesContainer.innerHTML = '';
-
+    
         if (coursesToRender.length === 0) {
             courseBoxesContainer.innerHTML = '<p>No courses available for registration at this time.</p>';
             return;
         }
-
+    
         coursesToRender.forEach(course => {
             const courseClasses = classes.filter(cls => cls.course_id === course.course_id);
             if (courseClasses.length === 0) return;
-
+    
+            const hasFailedClass = failedClasses.some(classId => {
+                const failedClass = classes.find(cls => cls.class_id === classId);
+                return failedClass && failedClass.course_id === course.course_id;
+            });
+    
             const studentReg = studentRegistrations.find(reg => 
                 reg.student_id === studentData.student_id && 
                 courseClasses.some(cls => cls.class_id === reg.class_id)
             );
-
-            const isRegistered = !!studentReg;
+            const isRegistered = !!studentReg && !hasFailedClass; 
+            const showRegisterButton = hasFailedClass || !isRegistered;
             const registeredClass = isRegistered ? classes.find(cls => cls.class_id === studentReg.class_id) : null;
-
+            const availableSections = courseClasses
+                .filter(cls => cls.status === 'open-for-registration' && !failedClasses.includes(cls.class_id))
+                .map(cls => cls.section)
+                .join(', ');
+    
+            if (!availableSections) return;
+    
             const courseBox = document.createElement('div');
             courseBox.classList.add('course-box');
             courseBox.innerHTML = `
@@ -156,39 +172,36 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <span class="value">${
                             isRegistered 
                                 ? (registeredClass ? registeredClass.section : 'N/A') 
-                                : courseClasses
-                                    .filter(cls => cls.status === 'open-for-registration')
-                                    .map(cls => cls.section)
-                                    .join(', ')
+                                : availableSections
                         }</span>
                     </div>
                     <div class="course-actions">
-                        ${isRegistered ? `
+                        ${showRegisterButton ? `
+                            <button class="register-btn" data-course-id="${course.course_id}" style="width: 100px;">Register</button>
+                        ` : `
                             <button class="change-section-btn" data-course-id="${course.course_id}" style="width: 100px;">Change Section</button>
                             <button class="withdraw-btn" data-course-id="${course.course_id}" style="width: 100px;">Withdraw</button>
-                        ` : `
-                            <button class="register-btn" data-course-id="${course.course_id}" style="width: 100px;">Register</button>
                         `}
                     </div>
                 </div>
             `;
             courseBoxesContainer.appendChild(courseBox);
         });
-
+    
         document.querySelectorAll('.register-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const courseId = parseInt(e.target.getAttribute('data-course-id'));
                 handleRegistration(courseId);
             });
         });
-
+    
         document.querySelectorAll('.change-section-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const courseId = parseInt(e.target.getAttribute('data-course-id'));
                 handleChangeSection(courseId);
             });
         });
-
+    
         document.querySelectorAll('.withdraw-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const courseId = parseInt(e.target.getAttribute('data-course-id'));
@@ -197,11 +210,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
+    // function to handle registration
     function handleRegistration(courseId) {
         const course = courses.find(c => c.course_id === courseId);
-        const courseClasses = classes.filter(cls => cls.course_id === courseId);
+        const courseClasses = classes.filter(cls => cls.course_id === courseId && !failedClasses.includes(cls.class_id));
 
         const completedCourseIds = studentData.completed_courses
+            .filter(cc => cc.grade !== 'F')
             .map(cc => {
                 const classItem = classes.find(cls => cls.class_id === cc.class_id);
                 return classItem ? classItem.course_id : null;
@@ -238,18 +253,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         showClassSelectionPopup(course, courseClasses);
     }
 
+    // function to handle change section
     function handleChangeSection(courseId) {
         const course = courses.find(c => c.course_id === courseId);
-        const courseClasses = JSON.parse(localStorage.classes).filter(cls => cls.course_id === courseId); // Reload latest classes
+        const courseClasses = JSON.parse(localStorage.classes).filter(cls => cls.course_id === courseId && !failedClasses.includes(cls.class_id));
         showClassSelectionPopup(course, courseClasses);
     }
 
+    // function to show class selection popup
     function showClassSelectionPopup(course, courseClasses) {
         const modal = document.createElement('div');
         modal.className = 'class-selection-modal';
         let optionsHtml = '';
 
-        // Reload latest data
         registrations = JSON.parse(localStorage.registrations);
         classes = JSON.parse(localStorage.classes);
         const currentRegistrations = registrations.filter(reg => reg.student_id === studentData.student_id);
@@ -323,24 +339,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
+    // function to confirm registration
     async function confirmRegistration(classId, existingRegistration) {
         let allRegistrations = JSON.parse(localStorage.registrations);
         let allClasses = JSON.parse(localStorage.classes);
         const classItem = allClasses.find(c => c.class_id === classId);
         const course = courses.find(c => c.course_id === classItem.course_id);
 
-        // Check for duplicate registration
         if (!existingRegistration && allRegistrations.some(reg => reg.student_id === studentData.student_id && reg.class_id === classId)) {
             showMessage('Error', `You are already registered for "${course.course_name}" in this class.`);
             return Promise.resolve();
         }
 
-        // If changing section, remove the old registration
         if (existingRegistration) {
             allRegistrations = allRegistrations.filter(reg => reg.registration_id !== existingRegistration.registration_id);
         }
 
-        // Add new registration
         const newRegistration = { 
             registration_id: allRegistrations.length ? Math.max(...allRegistrations.map(r => r.registration_id)) + 1 : 1, 
             student_id: studentData.student_id, 
@@ -348,7 +362,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         };
         allRegistrations.push(newRegistration);
 
-        // Update localStorage
         localStorage.setItem('registrations', JSON.stringify(allRegistrations));
         localStorage.setItem('classes', JSON.stringify(allClasses));
 
@@ -357,6 +370,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return Promise.resolve();
     }
 
+    // function to handle withdrawal from a course
     async function handleWithdrawal(courseId) {
         const course = courses.find(c => c.course_id === courseId);
         const courseClasses = classes.filter(cls => cls.course_id === courseId);
@@ -389,7 +403,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         modal.querySelector('.confirm-btn').addEventListener('click', async () => {
             allRegistrations = allRegistrations.filter(reg => reg.registration_id !== registration.registration_id);
 
-            // Update localStorage
             localStorage.setItem('registrations', JSON.stringify(allRegistrations));
             localStorage.setItem('classes', JSON.stringify(allClasses));
 
@@ -406,42 +419,51 @@ document.addEventListener('DOMContentLoaded', async () => {
             modal.remove();
         });
     }
-
+    // Function to update progress stats
     function updateProgressStats() {
-        const completedCourses = studentData.completed_courses ? studentData.completed_courses.map(cc => {
-            const classItem = classes.find(cls => cls.class_id === cc.class_id);
-            return classItem ? classItem.course_id : null;
-        }).filter(id => id !== null) : [];
-
+        const completedCourses = studentData.completed_courses
+            ? studentData.completed_courses
+                .filter(cc => cc.grade !== 'F')
+                .map(cc => {
+                    const classItem = classes.find(cls => cls.class_id === cc.class_id);
+                    return classItem ? classItem.course_id : null;
+                })
+                .filter(id => id !== null)
+            : [];
+    
         const registeredCourses = registrations
             .filter(reg => reg.student_id === studentData.student_id)
             .map(reg => {
                 const classItem = classes.find(cls => cls.class_id === reg.class_id);
-                return classItem ? classItem.course_id : null;
+                // Exclude registrations for completed classes
+                if (classItem && classItem.status !== 'completed') {
+                    return classItem.course_id;
+                }
+                return null;
             })
             .filter(id => id !== null);
-
+    
         const taken = completedCourses.length;
         const registered = registeredCourses.length;
         const majorData = majors.find(m => m.major === studentData.major);
         const totalCourses = majorData ? parseInt(majorData.totalNumberofCourses) || 0 : 0;
         const remaining = totalCourses - taken - registered;
-
+    
         document.getElementById('taken').textContent = taken;
         document.getElementById('registered').textContent = registered;
         document.getElementById('remaining').textContent = remaining >= 0 ? remaining : 0;
-
+    
         if (totalCourses > 0) {
             const takenPercent = (taken / totalCourses) * 100;
             const registeredPercent = (registered / totalCourses) * 100;
             const remainingPercent = (remaining / totalCourses) * 100;
-
+    
             document.querySelector('.progress-bar-taken').style.width = `${takenPercent}%`;
             document.querySelector('.progress-bar-registered').style.width = `${registeredPercent}%`;
             document.querySelector('.progress-bar-remaining').style.width = `${remainingPercent}%`;
         }
     }
-
+    // function to show popup messages
     function showMessage(title, message) {
         const existingModal = document.querySelector('.registration-modal');
         if (existingModal) existingModal.remove();

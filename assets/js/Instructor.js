@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
-    // Retrieve data from localStorage
     let users, courses, classes, registrations;
     try {
         users = JSON.parse(localStorage.users);
@@ -19,6 +18,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
+    console.log('Loaded users:', users);
+    console.log('Loaded courses:', courses);
+    console.log('Loaded classes:', classes);
+    console.log('Loaded registrations:', registrations);
+
     let instructorData = null;
     let assignedClasses = [];
     let currentClassId = null;
@@ -29,7 +33,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const studentSection = document.querySelector('.Students_List');
     const footer = document.querySelector('footer');
 
-    // Add filter bar dynamically
     const filterSelect = document.createElement('select');
     filterSelect.className = 'class-status-filter';
     filterSelect.innerHTML = `
@@ -43,22 +46,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     filterContainer.appendChild(filterSelect);
     container.parentElement.insertBefore(filterContainer, container);
 
-    // Event listener for "Assigned Courses" nav link
     document.querySelector('.nav-links li:nth-child(1) a').addEventListener('click', (e) => {
         e.preventDefault();
         header.style.display = 'block';
         dashboardHeader.style.display = 'block';
         filterContainer.style.display = 'flex';
         container.style.display = 'grid';
-        studentSection.style.display = 'none'; // Hide the student table when returning to class view
+        studentSection.style.display = 'none';
         footer.style.display = 'block';
         currentClassId = null;
         renderClasses();
     });
 
-    // Event listener for filter
     filterSelect.addEventListener('change', () => {
         renderClasses();
+        studentSection.style.display = 'none';
+        currentClassId = null;
     });
 
     document.querySelector('.logout-btn').addEventListener('click', (e) => {
@@ -67,7 +70,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     try {
-        // Find instructor data
         instructorData = users.find(user => user.role === 'Instructor' && user.username === loggedInUsername);
 
         if (!instructorData) {
@@ -76,27 +78,42 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        // Filter assigned classes for the instructor
-        assignedClasses = classes.filter(c => c.instructor_id === instructorData.instructor_id);
+        console.log('Instructor Data:', instructorData);
 
-        // Filter for validated or completed classes for statistics
+        assignedClasses = classes.filter(c => parseInt(c.instructor_id) === parseInt(instructorData.instructor_id));
+
+        console.log('Assigned classes for instructor (initial load):', assignedClasses);
+
         const validatedOrCompletedClasses = assignedClasses.filter(
             cls => cls.status === 'validated' || cls.status === 'completed'
         );
 
-        // Calculate total students for the dashboard based on validated/completed classes
+        console.log('Validated or completed classes:', validatedOrCompletedClasses);
+
         let totalStudents = 0;
         validatedOrCompletedClasses.forEach(cls => {
-            const classRegistrations = registrations.filter(reg => reg.class_id === cls.class_id);
-            totalStudents += classRegistrations.length;
+            const classId = parseInt(cls.class_id);
+            if (cls.status === 'completed') {
+                const classRegistrations = registrations.filter(reg => parseInt(reg.class_id) === classId);
+                const studentList = users.filter(user =>
+                    user.role === 'Student' &&
+                    classRegistrations.some(reg => parseInt(reg.student_id) === parseInt(user.student_id))
+                );
+                totalStudents += studentList.length;
+                console.log(`Class ID ${classId} (completed) has ${studentList.length} students from registrations:`, studentList);
+            } else if (cls.status === 'validated') {
+                const classRegistrations = registrations.filter(reg => parseInt(reg.class_id) === classId);
+                totalStudents += classRegistrations.length;
+                console.log(`Class ID ${classId} (validated) has ${classRegistrations.length} registrations:`, classRegistrations);
+            }
         });
 
-        // Update the dashboard summary with validated/completed classes only
+        console.log('Total students calculated:', totalStudents);
+
         document.querySelector('.total-classes').textContent = validatedOrCompletedClasses.length;
         document.querySelector('.total-students').textContent = totalStudents;
         document.querySelector('.instructor-name').textContent = instructorData.firstName;
 
-        // Initially hide the student section
         studentSection.style.display = 'none';
         container.style.display = 'grid';
         filterContainer.style.display = 'flex';
@@ -108,10 +125,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function renderClasses() {
+        try {
+            classes = JSON.parse(localStorage.classes);
+            assignedClasses = classes.filter(c => parseInt(c.instructor_id) === parseInt(instructorData.instructor_id));
+            console.log('Updated assigned classes:', assignedClasses);
+            const displayClasses = assignedClasses.filter(cls => cls.status === 'validated' || cls.status === 'completed');
+            console.log('Classes to display (validated or completed):', displayClasses);
+        } catch (error) {
+            console.error('Error reloading classes from localStorage:', error);
+            showMessage('Error', 'Failed to reload class data.');
+            return;
+        }
+
         const filterValue = filterSelect.value;
         let filteredClasses = assignedClasses;
 
-        // Apply filter for class cards
         if (filterValue === 'all') {
             filteredClasses = assignedClasses.filter(cls => cls.status === 'validated' || cls.status === 'completed');
         } else if (filterValue === 'completed') {
@@ -120,9 +148,11 @@ document.addEventListener('DOMContentLoaded', async () => {
             filteredClasses = assignedClasses.filter(cls => cls.status === 'validated');
         }
 
+        console.log('Filtered classes to render:', filteredClasses);
+
         const classMap = {};
         filteredClasses.forEach(cls => {
-            const course = courses.find(course => course.course_id === cls.course_id);
+            const course = courses.find(course => parseInt(course.course_id) === parseInt(cls.course_id));
             const courseName = course ? course.course_name : 'Unknown Course';
             if (!classMap[courseName]) {
                 classMap[courseName] = [];
@@ -131,6 +161,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
 
         container.innerHTML = '';
+        if (Object.keys(classMap).length === 0) {
+            container.innerHTML = '<p>No classes available to display.</p>';
+        }
         for (const courseName in classMap) {
             const card = document.createElement('section');
             card.className = 'class-card';
@@ -150,11 +183,22 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 sectionLink.addEventListener('click', (e) => {
                     e.preventDefault();
-                    // Do not hide anything, just show the student table
+                    const currentFilter = filterSelect.value;
+                    if (currentFilter === 'in-progress' && cls.status === 'completed') {
+                        showMessage('Not Available', 'This class is completed and cannot be viewed under the "In Progress" filter.');
+                        studentSection.style.display = 'none';
+                        currentClassId = null;
+                        return;
+                    }
+                    if (currentFilter === 'completed' && cls.status === 'validated') {
+                        showMessage('Not Available', 'This class is in progress and cannot be viewed under the "Completed" filter.');
+                        studentSection.style.display = 'none';
+                        currentClassId = null;
+                        return;
+                    }
                     studentSection.style.display = 'block';
                     currentClassId = cls.class_id;
                     renderStudentsForClass(currentClassId);
-                    // Scroll to the student section for better UX
                     studentSection.scrollIntoView({ behavior: 'smooth' });
                 });
 
@@ -172,13 +216,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         tableBody.innerHTML = '';
 
         const currentClass = assignedClasses.find(cls => cls.class_id === classId);
-        const course = courses.find(c => c.course_id === currentClass.course_id);
+        const course = courses.find(c => parseInt(c.course_id) === parseInt(currentClass.course_id));
 
-        const classRegistrations = registrations.filter(reg => reg.class_id === classId);
-        const studentList = users.filter(user => classRegistrations.some(reg => reg.student_id === user.student_id));
+        const gradesSubmitted = currentClass.status === 'completed';
 
-        const savedGrades = JSON.parse(localStorage.getItem(`grades_${classId}`)) || [];
-        const gradesSubmitted = localStorage.getItem(`gradesSubmitted_${classId}`) === 'true';
+        // Always use registrations to determine the student list
+        const classRegistrations = registrations.filter(
+            reg => parseInt(reg.class_id) === parseInt(classId)
+        );
+        let studentList = users.filter(user =>
+            user.role === 'Student' &&
+            classRegistrations.some(reg => parseInt(reg.student_id) === parseInt(user.student_id))
+        );
 
         let header = document.querySelector('.class-info-header');
         if (!header) {
@@ -220,16 +269,20 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             const gradeCell = document.createElement('td');
             if (gradesSubmitted) {
-                const existingGrade = savedGrades.find(g => g.student_id === student.student_id);
-                gradeCell.textContent = existingGrade ? existingGrade.grade : 'Not Graded';
+                const completedCourse = student.completed_courses?.find(
+                    cc => parseInt(cc.class_id) === parseInt(classId)
+                );
+                gradeCell.textContent = completedCourse ? completedCourse.grade : 'Not Graded';
             } else {
                 const select = document.createElement('select');
                 select.dataset.studentId = student.student_id;
                 const grades = ['A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F'];
-                select.innerHTML = `<option value="">Select Grade</option>` + 
+                select.innerHTML = `<option value="">Select Grade</option>` +
                     grades.map(grade => `<option value="${grade}">${grade}</option>`).join('');
 
-                const existingGrade = savedGrades.find(g => g.student_id === student.student_id);
+                const existingGrade = student.completed_courses?.find(
+                    cc => parseInt(cc.class_id) === parseInt(classId)
+                );
                 if (existingGrade) {
                     select.value = existingGrade.grade;
                 }
@@ -243,14 +296,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     document.querySelector('.saveGradesBtn').addEventListener('click', () => {
-        const gradesSubmitted = localStorage.getItem(`gradesSubmitted_${currentClassId}`) === 'true';
+        const currentClass = assignedClasses.find(cls => cls.class_id === currentClassId);
+        const gradesSubmitted = currentClass.status === 'completed';
         if (gradesSubmitted) {
             showMessage('Submission Error', 'Grades have already been submitted and cannot be modified.');
             return;
         }
 
         const selects = document.querySelectorAll('.Students_List select');
-        const currentClass = assignedClasses.find(cls => cls.class_id === currentClassId);
         const courseId = currentClass ? currentClass.course_id : null;
 
         const savedGrades = [];
@@ -362,16 +415,32 @@ document.addEventListener('DOMContentLoaded', async () => {
                 });
             });
 
-            const updatedUsers = Array.from(users);
+            let updatedUsers = Array.from(users);
+            let updatedRegistrations = Array.from(registrations);
+
             savedGrades.forEach(grade => {
                 const student = updatedUsers.find(u => u.student_id === grade.student_id);
                 if (student) {
                     if (!student.completed_courses) {
                         student.completed_courses = [];
                     }
+                    student.completed_courses = student.completed_courses.filter(
+                        cc => {
+                            const classItem = classes.find(cls => cls.class_id === cc.class_id);
+                            const isSameCourse = classItem && classItem.course_id === grade.course_id;
+                            return !(isSameCourse && cc.grade === 'F');
+                        }
+                    );
                     student.completed_courses.push({
                         class_id: grade.class_id,
                         grade: grade.grade
+                    });
+
+                    updatedRegistrations = updatedRegistrations.map(reg => {
+                        if (reg.student_id === grade.student_id && reg.class_id === currentClassId) {
+                            return { ...reg, status: 'completed' };
+                        }
+                        return reg;
                     });
                 }
             });
@@ -385,13 +454,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             try {
                 localStorage.setItem('users', JSON.stringify(updatedUsers));
                 localStorage.setItem('classes', JSON.stringify(updatedClasses));
-
-                localStorage.setItem(`grades_${currentClassId}`, JSON.stringify(savedGrades));
-                localStorage.setItem(`gradesSubmitted_${currentClassId}`, 'true');
+                localStorage.setItem('registrations', JSON.stringify(updatedRegistrations));
 
                 users = updatedUsers;
                 classes = updatedClasses;
-                assignedClasses = classes.filter(c => c.instructor_id === instructorData.instructor_id);
+                registrations = updatedRegistrations;
+                assignedClasses = classes.filter(c => parseInt(c.instructor_id) === parseInt(instructorData.instructor_id));
 
                 showMessage('Success', 'Grades submitted successfully!');
                 renderStudentsForClass(currentClassId);
