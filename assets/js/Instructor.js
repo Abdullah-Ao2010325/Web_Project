@@ -4,12 +4,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.location.href = '../index.html';
         return;
     }
- 
-    users = JSON.parse(localStorage.users);
-    courses = JSON.parse(localStorage.courses);
-    classes = JSON.parse(localStorage.classes);
-    registrations = JSON.parse(localStorage.registrations);
-   
+
+    // Retrieve data from localStorage
+    let users, courses, classes, registrations;
+    try {
+        users = JSON.parse(localStorage.users);
+        courses = JSON.parse(localStorage.courses);
+        classes = JSON.parse(localStorage.classes);
+        registrations = JSON.parse(localStorage.registrations);
+    } catch (error) {
+        console.error('Error parsing localStorage data:', error);
+        showMessage('Error', 'Failed to load data from localStorage.');
+        window.location.href = '../index.html';
+        return;
+    }
 
     let instructorData = null;
     let assignedClasses = [];
@@ -21,6 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const studentSection = document.querySelector('.Students_List');
     const footer = document.querySelector('footer');
 
+    // Add filter bar dynamically
     const filterSelect = document.createElement('select');
     filterSelect.className = 'class-status-filter';
     filterSelect.innerHTML = `
@@ -34,18 +43,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     filterContainer.appendChild(filterSelect);
     container.parentElement.insertBefore(filterContainer, container);
 
+    // Event listener for "Assigned Courses" nav link
     document.querySelector('.nav-links li:nth-child(1) a').addEventListener('click', (e) => {
         e.preventDefault();
         header.style.display = 'block';
         dashboardHeader.style.display = 'block';
         filterContainer.style.display = 'flex';
         container.style.display = 'grid';
-        studentSection.style.display = 'none';
+        studentSection.style.display = 'none'; // Hide the student table when returning to class view
         footer.style.display = 'block';
         currentClassId = null;
         renderClasses();
     });
 
+    // Event listener for filter
     filterSelect.addEventListener('change', () => {
         renderClasses();
     });
@@ -56,6 +67,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     try {
+        // Find instructor data
         instructorData = users.find(user => user.role === 'Instructor' && user.username === loggedInUsername);
 
         if (!instructorData) {
@@ -64,18 +76,27 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
+        // Filter assigned classes for the instructor
         assignedClasses = classes.filter(c => c.instructor_id === instructorData.instructor_id);
 
+        // Filter for validated or completed classes for statistics
+        const validatedOrCompletedClasses = assignedClasses.filter(
+            cls => cls.status === 'validated' || cls.status === 'completed'
+        );
+
+        // Calculate total students for the dashboard based on validated/completed classes
         let totalStudents = 0;
-        assignedClasses.forEach(cls => {
+        validatedOrCompletedClasses.forEach(cls => {
             const classRegistrations = registrations.filter(reg => reg.class_id === cls.class_id);
             totalStudents += classRegistrations.length;
         });
 
-        document.querySelector('.total-classes').textContent = assignedClasses.length;
+        // Update the dashboard summary with validated/completed classes only
+        document.querySelector('.total-classes').textContent = validatedOrCompletedClasses.length;
         document.querySelector('.total-students').textContent = totalStudents;
         document.querySelector('.instructor-name').textContent = instructorData.firstName;
 
+        // Initially hide the student section
         studentSection.style.display = 'none';
         container.style.display = 'grid';
         filterContainer.style.display = 'flex';
@@ -90,6 +111,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const filterValue = filterSelect.value;
         let filteredClasses = assignedClasses;
 
+        // Apply filter for class cards
         if (filterValue === 'all') {
             filteredClasses = assignedClasses.filter(cls => cls.status === 'validated' || cls.status === 'completed');
         } else if (filterValue === 'completed') {
@@ -128,15 +150,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 sectionLink.addEventListener('click', (e) => {
                     e.preventDefault();
-                    console.log('Hiding class cards and showing student list...');
-                    header.style.display = 'block';
-                    dashboardHeader.style.display = 'none';
-                    filterContainer.style.display = 'none';
-                    container.style.display = 'none'; 
+                    // Do not hide anything, just show the student table
                     studentSection.style.display = 'block';
-                    footer.style.display = 'block';
                     currentClassId = cls.class_id;
                     renderStudentsForClass(currentClassId);
+                    // Scroll to the student section for better UX
+                    studentSection.scrollIntoView({ behavior: 'smooth' });
                 });
 
                 sectionDiv.appendChild(sectionLink);

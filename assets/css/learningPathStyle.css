@@ -347,6 +347,16 @@ body {
     background-color: #e6b800;
 }
 
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #6d1204;
+    color: #ffffff;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: block;
+}
+
 @media (min-width: 724px) and (max-width: 1023px) {
     .container {
         padding: 20px;
