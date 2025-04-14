@@ -5,23 +5,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
-    let users, courses, classes, registrations;
-    try {
-        users = JSON.parse(localStorage.users);
-        courses = JSON.parse(localStorage.courses);
-        classes = JSON.parse(localStorage.classes);
-        registrations = JSON.parse(localStorage.registrations);
-    } catch (error) {
-        console.error('Error parsing localStorage data:', error);
-        showMessage('Error', 'Failed to load data from localStorage.');
-        window.location.href = '../index.html';
-        return;
-    }
-
-    console.log('Loaded users:', users);
-    console.log('Loaded courses:', courses);
-    console.log('Loaded classes:', classes);
-    console.log('Loaded registrations:', registrations);
+    users = JSON.parse(localStorage.users);
+    courses = JSON.parse(localStorage.courses);
+    classes = JSON.parse(localStorage.classes);
+    registrations = JSON.parse(localStorage.registrations);
 
     let instructorData = null;
     let assignedClasses = [];
@@ -78,17 +65,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        console.log('Instructor Data:', instructorData);
 
         assignedClasses = classes.filter(c => parseInt(c.instructor_id) === parseInt(instructorData.instructor_id));
 
-        console.log('Assigned classes for instructor (initial load):', assignedClasses);
 
         const validatedOrCompletedClasses = assignedClasses.filter(
             cls => cls.status === 'validated' || cls.status === 'completed'
         );
 
-        console.log('Validated or completed classes:', validatedOrCompletedClasses);
 
         let totalStudents = 0;
         validatedOrCompletedClasses.forEach(cls => {
@@ -100,15 +84,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                     classRegistrations.some(reg => parseInt(reg.student_id) === parseInt(user.student_id))
                 );
                 totalStudents += studentList.length;
-                console.log(`Class ID ${classId} (completed) has ${studentList.length} students from registrations:`, studentList);
             } else if (cls.status === 'validated') {
                 const classRegistrations = registrations.filter(reg => parseInt(reg.class_id) === classId);
                 totalStudents += classRegistrations.length;
-                console.log(`Class ID ${classId} (validated) has ${classRegistrations.length} registrations:`, classRegistrations);
             }
         });
 
-        console.log('Total students calculated:', totalStudents);
 
         document.querySelector('.total-classes').textContent = validatedOrCompletedClasses.length;
         document.querySelector('.total-students').textContent = totalStudents;
@@ -119,20 +100,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         filterContainer.style.display = 'flex';
         renderClasses();
     } catch (error) {
-        console.error('Error loading data:', error);
         showMessage('Error', 'Failed to load data from localStorage.');
         window.location.href = '../index.html';
     }
 
+    // Function to render classes assigned to the instructor.
     function renderClasses() {
         try {
             classes = JSON.parse(localStorage.classes);
             assignedClasses = classes.filter(c => parseInt(c.instructor_id) === parseInt(instructorData.instructor_id));
-            console.log('Updated assigned classes:', assignedClasses);
             const displayClasses = assignedClasses.filter(cls => cls.status === 'validated' || cls.status === 'completed');
-            console.log('Classes to display (validated or completed):', displayClasses);
         } catch (error) {
-            console.error('Error reloading classes from localStorage:', error);
             showMessage('Error', 'Failed to reload class data.');
             return;
         }
@@ -148,7 +126,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             filteredClasses = assignedClasses.filter(cls => cls.status === 'validated');
         }
 
-        console.log('Filtered classes to render:', filteredClasses);
 
         const classMap = {};
         filteredClasses.forEach(cls => {
@@ -210,6 +187,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
+    // Function to render students for a specific class.
+    // This function is called when a class is clicked in the class card.
+    // It retrieves the students registered for that class and displays them in a table.
     function renderStudentsForClass(classId) {
         const tableBody = document.querySelector('.Students_List tbody');
         const table = document.querySelector('.Students_List table');
@@ -220,7 +200,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const gradesSubmitted = currentClass.status === 'completed';
 
-        // Always use registrations to determine the student list
         const classRegistrations = registrations.filter(
             reg => parseInt(reg.class_id) === parseInt(classId)
         );
@@ -355,6 +334,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
+    // Function to show the logout confirmation modal.
     function showConfirmationModal() {
         const existingModal = document.querySelector('.confirmation-modal');
         if (existingModal) existingModal.remove();
@@ -381,7 +361,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             modal.remove();
         });
     }
-
+    // Function to show the grade submission confirmation modal.
     function showGradeSubmissionModal() {
         const existingModal = document.querySelector('.confirmation-modal');
         if (existingModal) existingModal.remove();
@@ -414,7 +394,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     grade: grade
                 });
             });
-
+            
             let updatedUsers = Array.from(users);
             let updatedRegistrations = Array.from(registrations);
 
@@ -464,7 +444,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 showMessage('Success', 'Grades submitted successfully!');
                 renderStudentsForClass(currentClassId);
             } catch (error) {
-                console.error('Error updating data:', error);
                 showMessage('Error', 'Failed to submit grades. Please try again.');
             }
 
