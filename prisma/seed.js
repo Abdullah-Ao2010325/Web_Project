@@ -8,6 +8,7 @@ const majorsPath = path.join('assets/data/majors.json');
 const coursesPath = path.join('assets/data/courses.json');
 const classesPath = path.join('assets/data/classes.json');
 const users_path = path.join('assets/data/users.json');
+const registrationsPath = path.join('assets/data/registrations.json');
 
 async function seed() {
     try {
@@ -15,6 +16,7 @@ async function seed() {
         const courses = await fs.readJson(coursesPath);
         const classes = await fs.readJson(classesPath);
         const users = await fs.readJson(users_path);
+        const registrations = await fs.readJson(registrationsPath);
 
         for (const major of majors) {
             await prisma.major.create({
@@ -28,7 +30,7 @@ async function seed() {
         }
 
         for (const c of courses) {
-            const majors = Array.isArray(c.major) ? c.major.join(',') : c.major; //check if its an array
+            const majors = Array.isArray(c.major) ? c.major.join(',') : c.major;
             await prisma.course.create({
                 data: {
                     courseName: c.course_name,
@@ -49,11 +51,10 @@ async function seed() {
                     instructorId: c.instructor_id,
                     capacity: c.capacity,
                     status: c.status,
-                    registeredStudents: c.registered_students.join(",") //storing array as csv value
+                    registeredStudents: c.registered_students.join(",")
                 }
             });
         }
-
 
         for (const user of users) {
             switch (user.role) {
@@ -101,9 +102,18 @@ async function seed() {
             }
         }
 
+        for (const r of registrations) {
+            await prisma.registration.create({
+                data: {
+                    studentId: r.student_id,
+                    classId: r.class_id,
+                }
+            });
+        }
+
         console.log('Seeded done.');
     } catch (error) {
-        console.error('Error  seeding :' + error);
+        console.error('Error seeding: ' + error);
     } finally {
         await prisma.$disconnect();
     }
