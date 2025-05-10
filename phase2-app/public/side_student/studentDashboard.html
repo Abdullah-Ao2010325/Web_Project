@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+    <link rel="stylesheet" href="../css/studentStyle.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../images/QU-logo.png" alt="Qatar University Logo">
+                <span class="university-name">Qatar University</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="studentDashboard"><span class="material-symbols-rounded">home</span>Dashboard</a></li>
+                <li><a href="LearningPath"><span class="material-symbols-rounded">school</span>Learning Path</a></li>
+                <li><a href="#"><span class="logout-btn material-symbols-rounded">logout</span>Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Main Content - track progress -->
+        <article class="container">
+            <section class="track-progress">
+                <h2>Track Progress</h2>
+                <div class="progress-box">
+                    <div class="progress-details">
+                        <div class="progress-item">
+                            <span>Major:</span>
+                            <span id="major">Value</span>
+                        </div>
+                        <div class="progress-item">
+                            <span>CGPA:</span>
+                            <span id="cgpa">Value</span>
+                        </div>
+                        <div class="progress-item">
+                            <span>Advisor:</span>
+                            <span id="advisor">Value</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar-section">
+                        <span>All Courses:</span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-taken"></div> 
+                            <div class="progress-bar-registered"></div>
+                            <div class="progress-bar-remaining"></div>
+                        </div>
+                        <div class="course-stats">
+                            <div class="stat-box taken">
+                                <span id="taken">0</span>
+                                <span>TAKEN</span>
+                            </div>
+                            <div class="stat-box registered">
+                                <span id="registered">0</span>
+                                <span>REGISTERED</span>
+                            </div>
+                            <div class="stat-box remaining">
+                                <span id="remaining">0</span>
+                                <span>REMAINING</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Welcome Section -->
+            <section class="logo-welcome-section">
+                <img src="../images/QU-logo.png" alt="Qatar University Logo" class="welcome-logo">
+                <div class="welcome-message">
+                    <h1>Welcome, <span id="student-name">John Doe</span>!</h1>
+                    <p>We are glad to have you here at Qatar University. Your journey to success starts now!</p>
+                </div>
+            </section>
+
+            <!-- Courses Section -->
+            <section class="course-section">
+                <h2>Courses</h2>
+                <div class="search-bars">
+                    <div class="search-bar">
+                        <span class="material-symbols-rounded">search</span>
+                        <input type="text" id="courseSearch" placeholder="Search your courses">
+                    </div>
+                    <div class="search-bar">
+                        <label for="Major">Major:</label>
+                        <select id="Major">
+                            <option value="">All</option>
+                            <option value="CMPS">CMPS</option>
+                            <option value="CMPE">CMPE</option>
+                            <option value="MATH">MATH</option>
+                        </select>
+                    </div>
+                    <div class="search-bar">
+                        <label for="Terms">Term:</label>
+                        <select id="Terms">
+                            <option value="">All</option>
+                            <option value="Spring">Spring</option>
+                            <option value="Fall">Fall</option>
+                            <option value="Summer">Summer</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="course-boxes">
+
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>© 2025 Qatar University. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/navScript.js"></script>
+    <script src="../js/studentScript.js"></script>
+</body>
+</html>

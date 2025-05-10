@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qatar University Website</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <span class="hamburger-btn material-symbols-rounded">menu</span>
+            <a href="index.html" class="logo">
+                <img src="images/QU-logo.png" alt="Qatar University Logo">
+                <h2>Qatar University</h2>
+            </a>
+            <ul class="links">
+                <span class="close-btn material-symbols-rounded">close</span>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about-us">About Us</a></li>
+                <li><a href="#contact-us">Contact Us</a></li>
+            </ul>
+            <button class="login-btn">LOG IN</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Login Form -->
+        <div class="blur-bg-overlay"></div>
+        <div class="form-interface">
+            <span class="close-btn material-symbols-rounded">close</span>
+            <div class="login-form-box">
+                <div class="form-info">
+                    <h2>Welcome Back</h2>
+                    <p>Please log in using your personal information to stay connected with us.</p>
+                </div>
+                <div class="form-container">
+                    <h2>LOGIN</h2>
+                    <form action="#">
+                        <div class="input-field">
+                            <input type="text" required>
+                            <label>Email</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" required>
+                            <label>Password</label>
+                        </div>
+                        <a href="#" class="forgot-pass">Forgot password?</a>
+                        <button type="submit">Log In</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Welcome Section -->
+        <section id="home" class="welcome-section">
+            <div class="welcome-content">
+                <h1>Welcome to Qatar University</h1>
+                <p>Empowering minds, shaping futures, and fostering innovation in the heart of Qatar.</p>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about-us" class="about-section">
+            <div class="section-container">
+                <h2>About Us</h2>
+                <p>Qatar University (QU) is the nation’s first higher education institution, established in 1973. Located in Doha, QU is committed to academic excellence, research innovation, and community engagement. With over 20,000 students and a wide range of undergraduate and graduate programs across ten colleges, we strive to prepare leaders who contribute to Qatar’s National Vision 2030.</p>
+                <div class="about-details">
+                    <div class="detail-card">
+                        <h3>Mission</h3>
+                        <p>To provide high-quality education, advance knowledge through research, and serve the community.</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3>Vision</h3>
+                        <p>To be a model university in the region, recognized for innovation and global impact.</p>
+                    </div>
+                    <div class="detail-card">
+                        <h3>Values</h3>
+                        <p>Integrity, excellence, diversity, and sustainability guide our every endeavor.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contact-us" class="contact-section">
+            <div class="section-container">
+                <h2>Contact Us</h2>
+                <p>We’d love to hear from you! Reach out to us for inquiries, support, or feedback.</p>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <p><strong>Address:</strong> Qatar University, Al Jamiaa St, Doha, Qatar</p>
+                        <p><strong>Phone:</strong> +974 4403 3333</p>
+                        <p><strong>Email:</strong> info@qu.edu.qa</p>
+                        <p><strong>Office Hours:</strong> Sunday - Thursday, 8:00 AM - 3:00 PM</p>
+                    </div>
+                    <form class="contact-form">
+                        <div class="input-field">
+                            <input type="text" required>
+                            <label>Name</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="email" required>
+                            <label>Email</label>
+                        </div>
+                        <div class="input-field">
+                            <textarea required></textarea>
+                            <label>Message</label>
+                        </div>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/indexScript.js"></script>
+</body>
+</html>

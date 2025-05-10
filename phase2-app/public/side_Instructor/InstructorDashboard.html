@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructor Dashboard</title>
+    <link rel="stylesheet" href="../css/instructor_styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../images/QU-logo.png" alt="Qatar University Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#"><span class="material-icons">book</span>Assigned Courses</a></li>
+                <li><a href="#" class="logout-btn"><span class="material-icons">logout</span>Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- instructor stats -->
+        <section class="dashboard-header">
+            <h1>Welcome, <span class="instructor-name"></span>!</h1>
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <span class="material-icons">class</span>
+                    <h3>Total Classes</h3>
+                    <p class="total-classes">0</p>
+                </div>
+                <div class="stat-card">
+                    <span class="material-icons">people</span>
+                    <h3>Total Students</h3>
+                    <p class="total-students">0</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- class cards -->
+        <section class="Classes_Cards">
+
+        </section>
+
+        <!-- student list -->
+        <section class="Students_List">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Student ID</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div class="submit-grades-container">
+                <button class="saveGradesBtn">Submit Grades</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Qatar University. All rights reserved.</p>
+    </footer>
+    <script src="../js/Instructor.js"></script>
+</body>
+</html>

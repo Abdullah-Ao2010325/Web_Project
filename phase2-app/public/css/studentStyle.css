@@ -1,0 +1,985 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
+    background-color: #ecebeb;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6d1204;
+    padding: 12px 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.university-name {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-left: 10px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 5px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 8px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a:hover {
+    background-color: #ffcc00;
+    color: #6d1204;
+}
+
+.nav-links .material-symbols-rounded {
+    vertical-align: middle;
+    margin-right: 5px;
+    font-size: 1rem;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 30px;
+}
+
+.track-progress {
+    grid-column: 1;
+}
+
+.track-progress h2 {
+    margin-bottom: 20px;
+}
+
+.progress-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.progress-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.progress-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.progress-bar-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 8px;
+    margin-top: 10px;
+    background-color: #d3d3d3;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar-taken {
+    height: 100%;
+    background-color: #28a745;
+}
+
+.progress-bar-registered {
+    height: 100%;
+    background-color: #ff8c00;
+}
+
+.progress-bar-remaining {
+    height: 100%;
+    background-color: #d3d3d3;
+}
+
+.course-stats {
+    display: flex;
+    justify-content: flex-start;
+    text-align: center;
+    margin-top: 15px;
+    gap: 15px;
+}
+
+.stat-box {
+    padding: 5px 10px;
+    border-radius: 15px;
+    color: #000;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.stat-box.taken {
+    background-color: #e6f4ea;
+}
+
+.stat-box.registered {
+    background-color: #fff3e0;
+}
+
+.stat-box.remaining {
+    background-color: #e9ecef;
+}
+
+.logo-welcome-section {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+    gap: 20px;
+}
+
+.welcome-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.welcome-message {
+    text-align: center;
+}
+
+.welcome-message h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.welcome-message p {
+    margin: 10px 0 0;
+    color: #555;
+}
+
+.course-section {
+    grid-column: 1 / -1;
+}
+
+.course-section h2 {
+    margin-bottom: 20px;
+}
+
+.search-bars {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    max-width: 750px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #fff;
+    padding: 8px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex: 0 0 auto;
+    width: 240px;
+}
+
+.search-bar .material-symbols-rounded {
+    color: #6d1204;
+}
+
+.search-bar input,
+.search-bar select {
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+.search-bar input:hover,
+.search-bar select:hover {
+    border-color: #6d1204;
+}
+
+.search-bar label {
+    font-weight: 500;
+    color: #555;
+}
+
+.course-boxes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.course-box {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.course-header {
+    background-color: #6d1204;
+    padding: 15px 20px;
+    border-bottom: 2px solid #ffcc00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.course-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.course-details {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.course-detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    line-height: 1.5;
+}
+
+.course-detail-item .label {
+    font-weight: 500;
+    color: #333;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.course-detail-item .label .material-symbols-rounded {
+    font-size: 1rem;
+    color: #6d1204;
+}
+
+.course-detail-item .value {
+    color: #6d1204;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.course-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.register-btn {
+    background-color: #ffcc00;
+    color: #6d1204;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 120px;
+}
+
+.register-btn:hover {
+    background-color: #e6b800;
+}
+
+.withdraw-btn {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 120px;
+}
+
+.withdraw-btn:hover {
+    background-color: #c82333;
+}
+
+.change-section-btn {
+    background-color: #ffcc00;
+    color: #6d1204;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 120px;
+}
+
+.change-section-btn:hover {
+    background-color: #e6b800;
+}
+
+.register-btn:disabled,
+.withdraw-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.registration-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 2px solid #6d1204;
+    width: 350px;
+    max-width: 90%;
+    z-index: 1000;
+    text-align: center;
+}
+
+.registration-modal h2 {
+    margin: 0 0 15px;
+    color: #6d1204;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.registration-modal p {
+    margin: 0 0 20px;
+    color: #333;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.registration-modal button {
+    display: block;
+    margin: 0 auto;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: #6d1204;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.registration-modal button:hover {
+    background-color: #4a0d03;
+}
+
+.logout-confirmation {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 2px solid #6d1204;
+    width: 350px;
+    max-width: 90%;
+    z-index: 1000;
+}
+
+.logout-confirmation h2 {
+    margin: 0 0 10px;
+    color: #6d1204;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.logout-confirmation p {
+    margin: 0 0 15px;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.logout-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.logout-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 48%;
+}
+
+.logout-btn.confirm-btn {
+    background-color: #6d1204;
+    color: #fff;
+}
+
+.logout-btn.confirm-btn:hover {
+    background-color: #4a0d03;
+}
+
+.logout-btn.cancel-btn {
+    background-color: #ffcc00;
+    color: #6d1204;
+}
+
+.logout-btn.cancel-btn:hover {
+    background-color: #e6b800;
+}
+
+.class-selection-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 2px solid #6d1204;
+    width: 400px;
+    max-width: 90%;
+    z-index: 1000;
+    text-align: center;
+}
+
+.class-selection-modal h2 {
+    margin: 0 0 15px;
+    color: #6d1204;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.class-selection-modal p {
+    margin: 0 0 20px;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.class-selection-modal .class-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+.class-selection-modal .class-option:hover {
+    background-color: #f0f0f0;
+}
+
+.class-selection-modal .class-option span {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.class-selection-modal .class-option button {
+    background-color: #ffcc00;
+    color: #6d1204;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.class-selection-modal .class-option button:hover {
+    background-color: #e6b800;
+}
+
+.class-selection-modal .class-option button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.class-selection-modal .close-btn {
+    background-color: #6d1204;
+    color: #ffffff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.class-selection-modal .close-btn:hover {
+    background-color: #4a0d03;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #6d1204;
+    color: #ffffff;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    display: block;
+}
+
+@media (min-width: 724px) and (max-width: 1023px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 20px;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .track-progress {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-welcome-section {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    /* .welcome-logo {
+        width: 100px;
+        height: 100px;
+    } */
+
+    .logo-welcome-section img{
+        display: none;
+    }
+
+    .welcome-message {
+        max-width: 100%;
+        margin-top: 10px;
+    }
+
+    .welcome-message h1 {
+        font-size: 1.5rem;
+    }
+
+    .welcome-message p {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+
+    .progress-box {
+        max-width: 600px;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .course-boxes {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 40px;
+        justify-content: center;
+    }
+
+    .search-bars {
+        flex-wrap: wrap;
+        gap: 10px;
+        max-width: 100%;
+        justify-content: center;
+    }
+
+    .search-bar {
+        width: 200px;
+    }
+
+    .search-bar input,
+    .search-bar select {
+        padding: 6px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        outline: none;
+        width: 100%;
+        transition: border-color 0.3s ease;
+    }
+
+    .search-bar input:hover,
+    .search-bar select:hover {
+        border-color: #6d1204;
+    }
+
+    .logout-confirmation {
+        top: 70px;
+        width: 300px;
+    }
+
+    .logout-confirmation h2 {
+        font-size: 1.2rem;
+    }
+
+    .logout-confirmation p {
+        font-size: 0.9rem;
+    }
+
+    .logout-btn {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
+    .class-selection-modal {
+        width: 350px;
+        padding: 15px;
+    }
+
+    .class-selection-modal h2 {
+        font-size: 1.2rem;
+    }
+
+    .class-selection-modal p {
+        font-size: 0.9rem;
+    }
+
+    .class-selection-modal .class-option {
+        padding: 8px;
+    }
+
+    .class-selection-modal .class-option span {
+        font-size: 0.85rem;
+    }
+
+    .class-selection-modal .class-option button {
+        padding: 4px 8px;
+        font-size: 0.8rem;
+    }
+
+    .class-selection-modal .close-btn {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
+    .course-actions {
+        flex-direction: row;
+        gap: 10px;
+        align-items: space-between;
+        width: 100%;
+    }
+
+    .register-btn,
+    .withdraw-btn,
+    .change-section-btn {
+        width: 50%;
+        padding: 8px;
+        font-size: 0.9rem;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 723px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px 15px;
+        gap: 10px;
+    }
+
+    .university-name {
+        font-size: 1rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3px;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+
+    .nav-links .material-symbols-rounded {
+        font-size: 0.9rem;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 15px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .track-progress {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-welcome-section {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        margin-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+    }
+
+    /* .welcome-logo {
+        width: 80px;
+        height: 80px;
+    } */
+
+    .logo-welcome-section img{
+        display: none;
+    }
+
+    .welcome-message {
+        max-width: 100%;
+        padding: 0 10px;
+        margin-top: 10px;
+    }
+
+    .welcome-message h1 {
+        font-size: 1.3rem;
+    }
+
+    .welcome-message p {
+        font-size: 0.85rem;
+    }
+
+    .progress-box {
+        max-width: 100%;
+        width: 90%;
+        padding: 10px;
+    }
+
+    .progress-item {
+        font-size: 0.9rem;
+    }
+
+    .stat-box {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+    }
+
+    .course-section h2 {
+        font-size: 1.2rem;
+    }
+
+    .search-bars {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+        max-width: 100%;
+    }
+
+    .search-bar {
+        width: 100%;
+        padding: 6px;
+    }
+
+    .search-bar input,
+    .search-bar select {
+        font-size: 0.85rem;
+    }
+
+    .course-boxes {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        justify-content: center;
+    }
+
+    .course-header h3 {
+        font-size: 0.9rem;
+    }
+
+    .course-details {
+        padding: 15px;
+    }
+
+    .course-detail-item .label,
+    .course-detail-item .value {
+        font-size: 0.85rem;
+    }
+
+    .logout-confirmation {
+        top: 100px;
+        width: 280px;
+        padding: 15px;
+    }
+
+    .logout-confirmation h2 {
+        font-size: 1.1rem;
+    }
+
+    .logout-confirmation p {
+        font-size: 0.85rem;
+    }
+
+    .logout-btn {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+
+    .register-btn,
+    .withdraw-btn,
+    .change-section-btn {
+        padding: 8px;
+        font-size: 0.85rem;
+        width: 50%;
+        box-sizing: border-box;
+    }
+
+    .course-actions {
+        flex-direction: row;
+        gap: 10px;
+        align-items: space-between; 
+        width: 100%;
+    }
+
+    .registration-modal {
+        width: 280px;
+        padding: 15px;
+    }
+
+    .registration-modal h2 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .registration-modal p {
+        font-size: 0.85rem;
+        text-align: center;
+    }
+
+    .registration-modal button {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .class-selection-modal {
+        width: 280px;
+        padding: 15px;
+    }
+
+    .class-selection-modal h2 {
+        font-size: 1.2rem;
+    }
+
+    .class-selection-modal p {
+        font-size: 0.85rem;
+    }
+
+    .class-selection-modal .class-option {
+        padding: 8px;
+    }
+
+    .class-selection-modal .class-option span {
+        font-size: 0.85rem;
+    }
+
+    .class-selection-modal .class-option button {
+        padding: 4px 8px;
+        font-size: 0.8rem;
+    }
+
+    .class-selection-modal .close-btn {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+}

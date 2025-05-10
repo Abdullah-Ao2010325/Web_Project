@@ -1,0 +1,1859 @@
+[
+  {
+      "username": "ba2205895",
+      "password": "password123",
+      "firstName": "Basheer",
+      "lastName": "Ahmed",
+      "role": "Student",
+      "student_id": 202205895,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.5",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A"
+          }
+      ]
+  },
+  {
+      "username": "aa2147583",
+      "password": "password123",
+      "firstName": "Ali",
+      "lastName": "Ahmed",
+      "role": "Student",
+      "student_id": 202147583,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "3.2",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "B+"
+          }
+      ]
+  },
+  {
+      "username": "ka2345732",
+      "password": "password123",
+      "firstName": "Khaled",
+      "lastName": "Ahmed",
+      "role": "Student",
+      "student_id": 202345732,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.8",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300001",
+      "password": "password123",
+      "firstName": "Sara",
+      "lastName": "Mohammed",
+      "role": "Student",
+      "student_id": 202300001,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.7",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A"
+          },
+          {
+              "class_id": 3,
+              "grade": "B+"
+          },
+          {
+              "class_id": 8,
+              "grade": "A-"
+          }
+      ]
+  },
+  {
+      "username": "st2300002",
+      "password": "password123",
+      "firstName": "Ahmed",
+      "lastName": "Khalid",
+      "role": "Student",
+      "student_id": 202300002,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "2.9",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300003",
+      "password": "password123",
+      "firstName": "Fatima",
+      "lastName": "Ali",
+      "role": "Student",
+      "student_id": 202300003,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "3.2",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A"
+          },
+          {
+              "class_id": 4,
+              "grade": "B+"
+          }
+      ]
+  },
+  {
+      "username": "st2300004",
+      "password": "password123",
+      "firstName": "Omar",
+      "lastName": "Hassan",
+      "role": "Student",
+      "student_id": 202300004,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.4",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "B"
+          }
+      ]
+  },
+  {
+      "username": "st2300005",
+      "password": "password123",
+      "firstName": "Laila",
+      "lastName": "Youssef",
+      "role": "Student",
+      "student_id": 202300005,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.1",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300006",
+      "password": "password123",
+      "firstName": "Youssef",
+      "lastName": "Nasser",
+      "role": "Student",
+      "student_id": 202300006,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "2.8",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "B+"
+          }
+      ]
+  },
+  {
+      "username": "st2300007",
+      "password": "password123",
+      "firstName": "Amina",
+      "lastName": "Khalil",
+      "role": "Student",
+      "student_id": 202300007,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.9",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A"
+          },
+          {
+              "class_id": 3,
+              "grade": "A-"
+          },
+          {
+              "class_id": 8,
+              "grade": "B+"
+          }
+      ]
+  },
+  {
+      "username": "st2300008",
+      "password": "password123",
+      "firstName": "Hassan",
+      "lastName": "Mahmoud",
+      "role": "Student",
+      "student_id": 202300008,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.0",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300009",
+      "password": "password123",
+      "firstName": "Nour",
+      "lastName": "Ibrahim",
+      "role": "Student",
+      "student_id": 202300009,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "3.5",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300010",
+      "password": "password123",
+      "firstName": "Khalid",
+      "lastName": "Saeed",
+      "role": "Student",
+      "student_id": 202300010,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.3",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A-"
+          },
+          {
+              "class_id": 3,
+              "grade": "B"
+          },
+          {
+              "class_id": 8,
+              "grade": "A"
+          }
+      ]
+  },
+  {
+      "username": "st2300011",
+      "password": "password123",
+      "firstName": "Mariam",
+      "lastName": "Fahad",
+      "role": "Student",
+      "student_id": 202300011,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.6",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300012",
+      "password": "password123",
+      "firstName": "Ibrahim",
+      "lastName": "Salem",
+      "role": "Student",
+      "student_id": 202300012,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "2.7",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "B"
+          }
+      ]
+  },
+  {
+      "username": "st2300013",
+      "password": "password123",
+      "firstName": "Zainab",
+      "lastName": "Hamed",
+      "role": "Student",
+      "student_id": 202300013,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.8",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A"
+          },
+          {
+              "class_id": 3,
+              "grade": "A-"
+          },
+          {
+              "class_id": 7,
+              "grade": "B+"
+          }
+      ]
+  },
+  {
+      "username": "st2300014",
+      "password": "password123",
+      "firstName": "Tarek",
+      "lastName": "Adel",
+      "role": "Student",
+      "student_id": 202300014,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.2",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300015",
+      "password": "password123",
+      "firstName": "Rania",
+      "lastName": "Sami",
+      "role": "Student",
+      "student_id": 202300015,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "3.4",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300016",
+      "password": "password123",
+      "firstName": "Hadi",
+      "lastName": "Faisal",
+      "role": "Student",
+      "student_id": 202300016,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.1",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "B+"
+          },
+          {
+              "class_id": 3,
+              "grade": "A"
+          },
+          {
+              "class_id": 8,
+              "grade": "B"
+          }
+      ]
+  },
+  {
+      "username": "st2300017",
+      "password": "password123",
+      "firstName": "Aya",
+      "lastName": "Nabil",
+      "role": "Student",
+      "student_id": 202300017,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.5",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300018",
+      "password": "password123",
+      "firstName": "Sami",
+      "lastName": "Karim",
+      "role": "Student",
+      "student_id": 202300018,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "2.9",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "B"
+          }
+      ]
+  },
+  {
+      "username": "st2300019",
+      "password": "password123",
+      "firstName": "Leila",
+      "lastName": "Omar",
+      "role": "Student",
+      "student_id": 202300019,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.6",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A"
+          },
+          {
+              "class_id": 3,
+              "grade": "B+"
+          },
+          {
+              "class_id": 7,
+              "grade": "A-"
+          }
+      ]
+  },
+  {
+      "username": "st2300020",
+      "password": "password123",
+      "firstName": "Nasser",
+      "lastName": "Hadi",
+      "role": "Student",
+      "student_id": 202300020,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.0",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300021",
+      "password": "password123",
+      "firstName": "Amal",
+      "lastName": "Yassin",
+      "role": "Student",
+      "student_id": 202300021,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "3.3",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300022",
+      "password": "password123",
+      "firstName": "Faisal",
+      "lastName": "Rami",
+      "role": "Student",
+      "student_id": 202300022,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.2",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A-"
+          },
+          {
+              "class_id": 3,
+              "grade": "B"
+          },
+          {
+              "class_id": 8,
+              "grade": "A"
+          }
+      ]
+  },
+  {
+      "username": "st2300023",
+      "password": "password123",
+      "firstName": "Hana",
+      "lastName": "Tarek",
+      "role": "Student",
+      "student_id": 202300023,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.7",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300024",
+      "password": "password123",
+      "firstName": "Karim",
+      "lastName": "Nour",
+      "role": "Student",
+      "student_id": 202300024,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "2.8",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "B+"
+          }
+      ]
+  },
+  {
+      "username": "st2300025",
+      "password": "password123",
+      "firstName": "Rima",
+      "lastName": "Salim",
+      "role": "Student",
+      "student_id": 202300025,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.9",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A"
+          },
+          {
+              "class_id": 3,
+              "grade": "A-"
+          },
+          {
+              "class_id": 8,
+              "grade": "B+"
+          }
+      ]
+  },
+  {
+      "username": "st2300026",
+      "password": "password123",
+      "firstName": "Adel",
+      "lastName": "Fahmi",
+      "role": "Student",
+      "student_id": 202300026,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.0",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300027",
+      "password": "password123",
+      "firstName": "Sana",
+      "lastName": "Kamal",
+      "role": "Student",
+      "student_id": 202300027,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "3.5",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300028",
+      "password": "password123",
+      "firstName": "Bilal",
+      "lastName": "Hussein",
+      "role": "Student",
+      "student_id": 202300028,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.3",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A-"
+          },
+          {
+              "class_id": 3,
+              "grade": "B"
+          },
+          {
+              "class_id": 8,
+              "grade": "A"
+          }
+      ]
+  },
+  {
+      "username": "st2300029",
+      "password": "password123",
+      "firstName": "Dina",
+      "lastName": "Majid",
+      "role": "Student",
+      "student_id": 202300029,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.6",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300030",
+      "password": "password123",
+      "firstName": "Majid",
+      "lastName": "Rashed",
+      "role": "Student",
+      "student_id": 202300030,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "2.7",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "B"
+          }
+      ]
+  },
+  {
+      "username": "st2300031",
+      "password": "password123",
+      "firstName": "Huda",
+      "lastName": "Jamal",
+      "role": "Student",
+      "student_id": 202300031,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.8",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A"
+          },
+          {
+              "class_id": 3,
+              "grade": "A-"
+          },
+          {
+              "class_id": 7,
+              "grade": "B+"
+          }
+      ]
+  },
+  {
+      "username": "st2300032",
+      "password": "password123",
+      "firstName": "Rami",
+      "lastName": "Taha",
+      "role": "Student",
+      "student_id": 202300032,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.2",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300033",
+      "password": "password123",
+      "firstName": "Nadia",
+      "lastName": "Fadi",
+      "role": "Student",
+      "student_id": 202300033,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "3.4",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300034",
+      "password": "password123",
+      "firstName": "Waleed",
+      "lastName": "Saif",
+      "role": "Student",
+      "student_id": 202300034,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.1",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "B+"
+          },
+          {
+              "class_id": 3,
+              "grade": "A"
+          },
+          {
+              "class_id": 8,
+              "grade": "B"
+          }
+      ]
+  },
+  {
+      "username": "st2300035",
+      "password": "password123",
+      "firstName": "Mona",
+      "lastName": "Ayman",
+      "role": "Student",
+      "student_id": 202300035,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.5",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300036",
+      "password": "password123",
+      "firstName": "Saif",
+      "lastName": "Waleed",
+      "role": "Student",
+      "student_id": 202300036,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "2.9",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "B"
+          }
+      ]
+  },
+  {
+      "username": "st2300037",
+      "password": "password123",
+      "firstName": "Aseel",
+      "lastName": "Karim",
+      "role": "Student",
+      "student_id": 202300037,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.6",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A"
+          },
+          {
+              "class_id": 3,
+              "grade": "B+"
+          },
+          {
+              "class_id": 7,
+              "grade": "A-"
+          }
+      ]
+  },
+  {
+      "username": "st2300038",
+      "password": "password123",
+      "firstName": "Yasin",
+      "lastName": "Nasser",
+      "role": "Student",
+      "student_id": 202300038,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.0",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300039",
+      "password": "password123",
+      "firstName": "Lina",
+      "lastName": "Hadi",
+      "role": "Student",
+      "student_id": 202300039,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "3.3",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300040",
+      "password": "password123",
+      "firstName": "Tamer",
+      "lastName": "Faisal",
+      "role": "Student",
+      "student_id": 202300040,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.2",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A-"
+          },
+          {
+              "class_id": 3,
+              "grade": "B"
+          },
+          {
+              "class_id": 8,
+              "grade": "A"
+          }
+      ]
+  },
+  {
+      "username": "st2300041",
+      "password": "password123",
+      "firstName": "Reem",
+      "lastName": "Sami",
+      "role": "Student",
+      "student_id": 202300041,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.7",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300042",
+      "password": "password123",
+      "firstName": "Fadi",
+      "lastName": "Nour",
+      "role": "Student",
+      "student_id": 202300042,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "2.8",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "B+"
+          }
+      ]
+  },
+  {
+      "username": "st2300043",
+      "password": "password123",
+      "firstName": "Salma",
+      "lastName": "Adel",
+      "role": "Student",
+      "student_id": 202300043,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.9",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A"
+          },
+          {
+              "class_id": 3,
+              "grade": "A-"
+          },
+          {
+              "class_id": 8,
+              "grade": "B+"
+          }
+      ]
+  },
+  {
+      "username": "st2300044",
+      "password": "password123",
+      "firstName": "Kamal",
+      "lastName": "Tarek",
+      "role": "Student",
+      "student_id": 202300044,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.0",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300045",
+      "password": "password123",
+      "firstName": "Alya",
+      "lastName": "Rami",
+      "role": "Student",
+      "student_id": 202300045,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "3.5",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300046",
+      "password": "password123",
+      "firstName": "Hamed",
+      "lastName": "Yasin",
+      "role": "Student",
+      "student_id": 202300046,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.3",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A-"
+          },
+          {
+              "class_id": 3,
+              "grade": "B"
+          },
+          {
+              "class_id": 8,
+              "grade": "A"
+          }
+      ]
+  },
+  {
+      "username": "st2300047",
+      "password": "password123",
+      "firstName": "Noor",
+      "lastName": "Hassan",
+      "role": "Student",
+      "student_id": 202300047,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.6",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300048",
+      "password": "password123",
+      "firstName": "Rashed",
+      "lastName": "Majid",
+      "role": "Student",
+      "student_id": 202300048,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "2.7",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "B"
+          }
+      ]
+  },
+  {
+      "username": "st2300049",
+      "password": "password123",
+      "firstName": "Jana",
+      "lastName": "Fahad",
+      "role": "Student",
+      "student_id": 202300049,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.8",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A"
+          },
+          {
+              "class_id": 3,
+              "grade": "A-"
+          },
+          {
+              "class_id": 7,
+              "grade": "B+"
+          }
+      ]
+  },
+  {
+      "username": "st2300050",
+      "password": "password123",
+      "firstName": "Taha",
+      "lastName": "Nasser",
+      "role": "Student",
+      "student_id": 202300050,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.2",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300051",
+      "password": "password123",
+      "firstName": "Mira",
+      "lastName": "Karim",
+      "role": "Student",
+      "student_id": 202300051,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "3.4",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300052",
+      "password": "password123",
+      "firstName": "Yazan",
+      "lastName": "Sami",
+      "role": "Student",
+      "student_id": 202300052,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.1",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "B+"
+          },
+          {
+              "class_id": 3,
+              "grade": "A"
+          },
+          {
+              "class_id": 8,
+              "grade": "B"
+          }
+      ]
+  },
+  {
+      "username": "st2300053",
+      "password": "password123",
+      "firstName": "Layan",
+      "lastName": "Adel",
+      "role": "Student",
+      "student_id": 202300053,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.5",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300054",
+      "password": "password123",
+      "firstName": "Nabil",
+      "lastName": "Fadi",
+      "role": "Student",
+      "student_id": 202300054,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "2.9",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "B"
+          }
+      ]
+  },
+  {
+      "username": "st2300055",
+      "password": "password123",
+      "firstName": "Rana",
+      "lastName": "Tarek",
+      "role": "Student",
+      "student_id": 202300055,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.6",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A"
+          },
+          {
+              "class_id": 3,
+              "grade": "B+"
+          },
+          {
+              "class_id": 7,
+              "grade": "A-"
+          }
+      ]
+  },
+  {
+      "username": "st2300056",
+      "password": "password123",
+      "firstName": "Samer",
+      "lastName": "Hadi",
+      "role": "Student",
+      "student_id": 202300056,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.0",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300057",
+      "password": "password123",
+      "firstName": "Hala",
+      "lastName": "Nour",
+      "role": "Student",
+      "student_id": 202300057,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "3.3",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300058",
+      "password": "password123",
+      "firstName": "Anas",
+      "lastName": "Faisal",
+      "role": "Student",
+      "student_id": 202300058,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.2",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A-"
+          },
+          {
+              "class_id": 3,
+              "grade": "B"
+          },
+          {
+              "class_id": 8,
+              "grade": "A"
+          }
+      ]
+  },
+  {
+      "username": "st2300059",
+      "password": "password123",
+      "firstName": "Dalia",
+      "lastName": "Sami",
+      "role": "Student",
+      "student_id": 202300059,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.7",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300060",
+      "password": "password123",
+      "firstName": "Ziad",
+      "lastName": "Karim",
+      "role": "Student",
+      "student_id": 202300060,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "2.8",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "B+"
+          }
+      ]
+  },
+  {
+      "username": "st2300061",
+      "password": "password123",
+      "firstName": "Shaima",
+      "lastName": "Adel",
+      "role": "Student",
+      "student_id": 202300061,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.9",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A"
+          },
+          {
+              "class_id": 3,
+              "grade": "A-"
+          },
+          {
+              "class_id": 8,
+              "grade": "B+"
+          }
+      ]
+  },
+  {
+      "username": "st2300062",
+      "password": "password123",
+      "firstName": "Fahad",
+      "lastName": "Tarek",
+      "role": "Student",
+      "student_id": 202300062,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.0",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300063",
+      "password": "password123",
+      "firstName": "Abeer",
+      "lastName": "Rami",
+      "role": "Student",
+      "student_id": 202300063,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "3.5",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300064",
+      "password": "password123",
+      "firstName": "Hamza",
+      "lastName": "Yasin",
+      "role": "Student",
+      "student_id": 202300064,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.3",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A-"
+          },
+          {
+              "class_id": 3,
+              "grade": "B"
+          },
+          {
+              "class_id": 8,
+              "grade": "A"
+          }
+      ]
+  },
+  {
+      "username": "st2300065",
+      "password": "password123",
+      "firstName": "Safa",
+      "lastName": "Hassan",
+      "role": "Student",
+      "student_id": 202300065,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.6",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300066",
+      "password": "password123",
+      "firstName": "Omar",
+      "lastName": "Majid",
+      "role": "Student",
+      "student_id": 202300066,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "2.7",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "B"
+          }
+      ]
+  },
+  {
+      "username": "st2300067",
+      "password": "password123",
+      "firstName": "Nada",
+      "lastName": "Fahad",
+      "role": "Student",
+      "student_id": 202300067,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.8",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A"
+          },
+          {
+              "class_id": 3,
+              "grade": "A-"
+          },
+          {
+              "class_id": 7,
+              "grade": "B+"
+          }
+      ]
+  },
+  {
+      "username": "st2300068",
+      "password": "password123",
+      "firstName": "Tamer",
+      "lastName": "Nasser",
+      "role": "Student",
+      "student_id": 202300068,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.2",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300069",
+      "password": "password123",
+      "firstName": "Lama",
+      "lastName": "Karim",
+      "role": "Student",
+      "student_id": 202300069,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "3.4",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300070",
+      "password": "password123",
+      "firstName": "Yasser",
+      "lastName": "Sami",
+      "role": "Student",
+      "student_id": 202300070,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.1",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "B+"
+          },
+          {
+              "class_id": 3,
+              "grade": "A"
+          },
+          {
+              "class_id": 8,
+              "grade": "B"
+          }
+      ]
+  },
+  {
+      "username": "st2300071",
+      "password": "password123",
+      "firstName": "Hiba",
+      "lastName": "Adel",
+      "role": "Student",
+      "student_id": 202300071,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.5",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300072",
+      "password": "password123",
+      "firstName": "Kareem",
+      "lastName": "Fadi",
+      "role": "Student",
+      "student_id": 202300072,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "2.9",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "B"
+          }
+      ]
+  },
+  {
+      "username": "st2300073",
+      "password": "password123",
+      "firstName": "Afnan",
+      "lastName": "Tarek",
+      "role": "Student",
+      "student_id": 202300073,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.6",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A"
+          },
+          {
+              "class_id": 3,
+              "grade": "B+"
+          },
+          {
+              "class_id": 7,
+              "grade": "A-"
+          }
+      ]
+  },
+  {
+      "username": "st2300074",
+      "password": "password123",
+      "firstName": "Nasser",
+      "lastName": "Hadi",
+      "role": "Student",
+      "student_id": 202300074,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.0",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300075",
+      "password": "password123",
+      "firstName": "Rima",
+      "lastName": "Nour",
+      "role": "Student",
+      "student_id": 202300075,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "3.3",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300076",
+      "password": "password123",
+      "firstName": "Faisal",
+      "lastName": "Faisal",
+      "role": "Student",
+      "student_id": 202300076,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.2",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A-"
+          },
+          {
+              "class_id": 3,
+              "grade": "B"
+          },
+          {
+              "class_id": 8,
+              "grade": "A"
+          }
+      ]
+  },
+  {
+      "username": "st2300077",
+      "password": "password123",
+      "firstName": "Hana",
+      "lastName": "Sami",
+      "role": "Student",
+      "student_id": 202300077,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.7",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300078",
+      "password": "password123",
+      "firstName": "Karim",
+      "lastName": "Karim",
+      "role": "Student",
+      "student_id": 202300078,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "2.8",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "B+"
+          }
+      ]
+  },
+  {
+      "username": "st2300079",
+      "password": "password123",
+      "firstName": "Salma",
+      "lastName": "Adel",
+      "role": "Student",
+      "student_id": 202300079,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.9",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A"
+          },
+          {
+              "class_id": 3,
+              "grade": "A-"
+          },
+          {
+              "class_id": 8,
+              "grade": "B+"
+          }
+      ]
+  },
+  {
+      "username": "st2300080",
+      "password": "password123",
+      "firstName": "Kamal",
+      "lastName": "Tarek",
+      "role": "Student",
+      "student_id": 202300080,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.0",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300081",
+      "password": "password123",
+      "firstName": "Alya",
+      "lastName": "Rami",
+      "role": "Student",
+      "student_id": 202300081,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "3.5",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300082",
+      "password": "password123",
+      "firstName": "Hamed",
+      "lastName": "Yasin",
+      "role": "Student",
+      "student_id": 202300082,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.3",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A-"
+          },
+          {
+              "class_id": 3,
+              "grade": "B"
+          },
+          {
+              "class_id": 8,
+              "grade": "A"
+          }
+      ]
+  },
+  {
+      "username": "st2300083",
+      "password": "password123",
+      "firstName": "Noor",
+      "lastName": "Hassan",
+      "role": "Student",
+      "student_id": 202300083,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.6",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300084",
+      "password": "password123",
+      "firstName": "Rashed",
+      "lastName": "Majid",
+      "role": "Student",
+      "student_id": 202300084,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "2.7",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "B"
+          }
+      ]
+  },
+  {
+      "username": "st2300085",
+      "password": "password123",
+      "firstName": "Jana",
+      "lastName": "Fahad",
+      "role": "Student",
+      "student_id": 202300085,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.8",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A"
+          },
+          {
+              "class_id": 3,
+              "grade": "A-"
+          },
+          {
+              "class_id": 7,
+              "grade": "B+"
+          }
+      ]
+  },
+  {
+      "username": "st2300086",
+      "password": "password123",
+      "firstName": "Taha",
+      "lastName": "Nasser",
+      "role": "Student",
+      "student_id": 202300086,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.2",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300087",
+      "password": "password123",
+      "firstName": "Mira",
+      "lastName": "Karim",
+      "role": "Student",
+      "student_id": 202300087,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "3.4",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300088",
+      "password": "password123",
+      "firstName": "Yazan",
+      "lastName": "Sami",
+      "role": "Student",
+      "student_id": 202300088,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.1",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "B+"
+          },
+          {
+              "class_id": 3,
+              "grade": "A"
+          },
+          {
+              "class_id": 8,
+              "grade": "B"
+          }
+      ]
+  },
+  {
+      "username": "st2300089",
+      "password": "password123",
+      "firstName": "Layan",
+      "lastName": "Adel",
+      "role": "Student",
+      "student_id": 202300089,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.5",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300090",
+      "password": "password123",
+      "firstName": "Nabil",
+      "lastName": "Fadi",
+      "role": "Student",
+      "student_id": 202300090,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "2.9",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "B"
+          }
+      ]
+  },
+  {
+      "username": "st2300091",
+      "password": "password123",
+      "firstName": "Rana",
+      "lastName": "Tarek",
+      "role": "Student",
+      "student_id": 202300091,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.6",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A"
+          },
+          {
+              "class_id": 3,
+              "grade": "B+"
+          },
+          {
+              "class_id": 7,
+              "grade": "A-"
+          }
+      ]
+  },
+  {
+      "username": "st2300092",
+      "password": "password123",
+      "firstName": "Samer",
+      "lastName": "Hadi",
+      "role": "Student",
+      "student_id": 202300092,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.0",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300093",
+      "password": "password123",
+      "firstName": "Hala",
+      "lastName": "Nour",
+      "role": "Student",
+      "student_id": 202300093,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "3.3",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300094",
+      "password": "password123",
+      "firstName": "Anas",
+      "lastName": "Faisal",
+      "role": "Student",
+      "student_id": 202300094,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.2",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A-"
+          },
+          {
+              "class_id": 3,
+              "grade": "B"
+          },
+          {
+              "class_id": 8,
+              "grade": "A"
+          }
+      ]
+  },
+  {
+      "username": "st2300095",
+      "password": "password123",
+      "firstName": "Dalia",
+      "lastName": "Sami",
+      "role": "Student",
+      "student_id": 202300095,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.7",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300096",
+      "password": "password123",
+      "firstName": "Ziad",
+      "lastName": "Karim",
+      "role": "Student",
+      "student_id": 202300096,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "2.8",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "B+"
+          }
+      ]
+  },
+  {
+      "username": "st2300097",
+      "password": "password123",
+      "firstName": "Shaima",
+      "lastName": "Adel",
+      "role": "Student",
+      "student_id": 202300097,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.9",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A"
+          },
+          {
+              "class_id": 3,
+              "grade": "A-"
+          },
+          {
+              "class_id": 8,
+              "grade": "B+"
+          }
+      ]
+  },
+  {
+      "username": "st2300098",
+      "password": "password123",
+      "firstName": "Fahad",
+      "lastName": "Tarek",
+      "role": "Student",
+      "student_id": 202300098,
+      "major": "MATH",
+      "advisor": "Rana Jamal",
+      "cgpa": "3.0",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300099",
+      "password": "password123",
+      "firstName": "Abeer",
+      "lastName": "Rami",
+      "role": "Student",
+      "student_id": 202300099,
+      "major": "CMPE",
+      "advisor": "Abeer Ahmed",
+      "cgpa": "3.5",
+      "completed_courses": []
+  },
+  {
+      "username": "st2300100",
+      "password": "password123",
+      "firstName": "Hamza",
+      "lastName": "Yasin",
+      "role": "Student",
+      "student_id": 202300100,
+      "major": "CMPS",
+      "advisor": "Salwa Askri",
+      "cgpa": "3.3",
+      "completed_courses": [
+          {
+              "class_id": 5,
+              "grade": "A-"
+          },
+          {
+              "class_id": 3,
+              "grade": "B"
+          },
+          {
+              "class_id": 8,
+              "grade": "A"
+          }
+      ]
+  },
+  {
+      "username": "instructor1",
+      "password": "password123",
+      "firstName": "Mahmood",
+      "lastName": "Barhamgi",
+      "role": "Instructor",
+      "instructor_id": 23445,
+      "expertise": "CMPS"
+  },
+  {
+      "username": "instructor2",
+      "password": "password123",
+      "firstName": "Rehab",
+      "lastName": "Ali",
+      "role": "Instructor",
+      "instructor_id": 23446,
+      "expertise": "CMPS"
+  },
+  {
+      "username": "instructor3",
+      "password": "password123",
+      "firstName": "Zeyad",
+      "lastName": "Ali",
+      "role": "Instructor",
+      "instructor_id": 23447,
+      "expertise": "CMPS"
+  },
+  {
+      "username": "instructor4",
+      "password": "password123",
+      "firstName": "Yousuf",
+      "lastName": "Omer",
+      "role": "Instructor",
+      "instructor_id": 23448,
+      "expertise": "MATH"
+  },
+  {
+      "username": "instructor5",
+      "password": "password123",
+      "firstName": "Ayman",
+      "lastName": "Zeyan",
+      "role": "Instructor",
+      "instructor_id": 23449,
+      "expertise": "CMPS"
+  },
+  {
+      "username": "instructor6",
+      "password": "password123",
+      "firstName": "Moataz",
+      "lastName": "Saleh",
+      "role": "Instructor",
+      "instructor_id": 23450,
+      "expertise": "CMPS"
+  },
+  {
+      "username": "instructor7",
+      "password": "password123",
+      "firstName": "Mohammed",
+      "lastName": "Mohammed",
+      "role": "Instructor",
+      "instructor_id": 23451,
+      "expertise": "CMPE"
+  },
+  {
+      "username": "instructor8",
+      "password": "password123",
+      "firstName": "Amel",
+      "lastName": "Bedir",
+      "role": "Instructor",
+      "instructor_id": 23452,
+      "expertise": "CMPE"
+  },
+  {
+      "username": "admin1",
+      "password": "password123",
+      "firstName": "Basheer",
+      "lastName": "Alabbasi",
+      "role": "Admin",
+      "admin_id": 12345
+  },
+  {
+      "username": "admin2",
+      "password": "password123",
+      "firstName": "Hamed",
+      "lastName": "AbuMatar",
+      "role": "Admin",
+      "admin_id": 12346
+  }
+]

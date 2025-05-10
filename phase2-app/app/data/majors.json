@@ -1,0 +1,54 @@
+[
+  {
+    "major": "CMPS",
+    "totalCreditHours": 120,
+    "totalNumberofCourses": 75,
+    "courses": [
+      "OOP",
+      "Web Development",
+      "Programming Concepts",
+      "Data Structures",
+      "Operating Systems",
+      "Fundamentals of Database",
+      "Artificial Intelligence",
+      "Software Engineering",
+      "Computer Networks",
+      "Cybersecurity",
+      "Algorithms",
+      "Data Science"
+    ]
+  },
+  {
+    "major": "CMPE",
+    "totalCreditHours": 128,
+    "totalNumberofCourses": 80,
+    "courses": [
+      "Computer Architecture 1",
+      "Data Structures",
+      "Electronics",
+      "Operating Systems",
+      "Programming Concepts",
+      "Digital Logic Design",
+      "Microprocessors",
+      "Embedded Systems",
+      "Core Curriculum",
+      "Algorithms",
+      "Computer Architecture 2"
+    ]
+  },
+  {
+    "major": "MATH",
+    "totalCreditHours": 130,
+    "totalNumberofCourses": 65,
+    "courses": [
+      "Linear Algebra",
+      "Calculus 1",
+      "Calculus 2",
+      "Discrete Mathematics",
+      "Probability and Statistics",
+      "Numerical Methods",
+      "Abstract Algebra",
+      "Core Curriculum"
+    ]
+  }
+]
