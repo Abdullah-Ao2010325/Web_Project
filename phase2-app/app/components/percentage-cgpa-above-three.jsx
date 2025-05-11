@@ -1,5 +1,4 @@
-import { getPercentageCGPAAboveThree } from '../../serverActions/statistics-actions';
-
+import { getPercentageCGPAAboveThree } from '@/app/server-actions/actions';
 export default async function PercentageCGPAAboveThree() {
   const result = await getPercentageCGPAAboveThree();
   return (

@@ -1,6 +1,8 @@
 'use server';
 
-import statisticsRepo from '../repo/stats-repo';
+import statisticsRepo from '@/app/repo/stats-repo';
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
 
 export async function getTotalStudents() {
   return  await statisticsRepo.getTotalStudents();
@@ -26,8 +28,8 @@ export async function getTopRegisteredCourses() {
   return await statisticsRepo.getTopRegisteredCourses() ;
 }
 
-export async function getFailureRatePerCourse() {
-  return await statisticsRepo.getFailureRatePerCourse() ;
+export async function getLowCGPARatePerCourse() {
+  return await statisticsRepo.getLowCGPARatePerCourse();
 }
 
 export async function getTotalCreditHoursCompleted() {
@@ -45,3 +47,9 @@ export async function getAverageCoursesPerStudent() {
 export async function getPercentageCGPAAboveThree() {
   return await statisticsRepo.getPercentageCGPAAboveThree() ;
 }
+
+export async function getDynamicAverageGPA() {
+  return await statisticsRepo.getDynamicAverageGPA(); // ✅ Just return directly
+}
+
+

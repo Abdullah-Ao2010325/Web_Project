@@ -1,5 +1,4 @@
-import { getTotalCreditHoursCompleted } from '../../serverActions/statistics-actions';
-
+import { getTotalCreditHoursCompleted } from '@/app/server-actions/actions';
 export default async function TotalCreditHoursCompleted() {
   const result = await getTotalCreditHoursCompleted();
   return (

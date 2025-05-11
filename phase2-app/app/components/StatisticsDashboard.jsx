@@ -5,15 +5,15 @@ import {
   getTotalStudents,
   getTotalCourses,
   getRegisteredStudentsPerTerm,
-  getAverageCGPA,
+  getDynamicAverageGPA,
   getStudentsPerMajor,
   getTopRegisteredCourses,
-  getFailureRatePerCourse,
+  getLowCGPARatePerCourse,
   getTotalCreditHoursCompleted,
   getStudentsPerAdvisor,
   getAverageCoursesPerStudent,
   getPercentageCGPAAboveThree,
-} from 'app/server-actions/stats-repo';
+} from '@/serverActions/actions';
 
 export default function StatisticsDashboard() {
   const [stats, setStats] = useState({
@@ -48,10 +48,10 @@ export default function StatisticsDashboard() {
         getTotalStudents(),
         getTotalCourses(),
         getRegisteredStudentsPerTerm(),
-        getAverageCGPA(),
+        getDynamicAverageGPA(),
         getStudentsPerMajor(),
         getTopRegisteredCourses(),
-        getFailureRatePerCourse(),
+        getLowCGPARatePerCourse(),
         getTotalCreditHoursCompleted(),
         getStudentsPerAdvisor(),
         getAverageCoursesPerStudent(),
@@ -84,33 +84,33 @@ export default function StatisticsDashboard() {
           <li className="progress-item">Total Courses: {stats.totalCourses}</li>
           <li className="progress-item">
             Registered Students per Term: {stats.registeredPerTerm.map((item, index) => (
-              <span key={index}>{item.term}: {item.count} {index < stats.registeredPerTerm.length - 1 ? ', ' : ''}</span>
+              <span key={index}>{item.term}: {item.count}{index < stats.registeredPerTerm.length - 1 ? ', ' : ''}</span>
             ))}
           </li>
           <li className="progress-item">Average CGPA: {stats.averageCGPA.toFixed(2)}</li>
           <li className="progress-item">
             Students per Major: {stats.studentsPerMajor.map((item, index) => (
-              <span key={index}>{item.majorName}: {item.count} {index < stats.studentsPerMajor.length - 1 ? ', ' : ''}</span>
+              <span key={index}>{item.majorName}: {item.count}{index < stats.studentsPerMajor.length - 1 ? ', ' : ''}</span>
             ))}
           </li>
           <li className="progress-item">
             Top 3 Courses: {stats.topCourses.map((item, index) => (
-              <span key={index}>{item.courseName}: {item.registrations} {index < stats.topCourses.length - 1 ? ', ' : ''}</span>
+              <span key={index}>{item.courseName}: {item.registrations}{index < stats.topCourses.length - 1 ? ', ' : ''}</span>
             ))}
           </li>
           <li className="progress-item">
-            Failure Rate per Course: {stats.failureRates.map((item, index) => (
-              <span key={index}>{item.courseName}: {item.failureRate.toFixed(2)}% {index < stats.failureRates.length - 1 ? ', ' : ''}</span>
+            Low CGPA Rate per Course: {stats.failureRates.map((item, index) => (
+              <span key={index}>{item.courseName}: {item.failureRate.toFixed(2)}%{index < stats.failureRates.length - 1 ? ', ' : ''}</span>
             ))}
           </li>
           <li className="progress-item">Total Credit Hours Completed: {stats.totalCreditHours.toFixed(2)}</li>
           <li className="progress-item">
             Students per Advisor: {stats.studentsPerAdvisor.map((item, index) => (
-              <span key={index}>{item.advisorId}: {item.count} {index < stats.studentsPerAdvisor.length - 1 ? ', ' : ''}</span>
+              <span key={index}>{item.advisor}: {item.count}{index < stats.studentsPerAdvisor.length - 1 ? ', ' : ''}</span>
             ))}
           </li>
           <li className="progress-item">Average Courses per Student: {stats.averageCoursesPerStudent.toFixed(2)}</li>
-          <li className="progress-item">Percentage CGPA {'>'} 3.0: {stats.percentageAboveThree.toFixed(2)}%</li>
+          <li className="progress-item">Percentage CGPA &gt; 3.0: {stats.percentageAboveThree.toFixed(2)}%</li>
         </ul>
       </div>
     </div>

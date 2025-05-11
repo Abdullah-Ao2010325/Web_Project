@@ -1,1972 +1,4362 @@
 [
   {
-      "registration_id": 1,
-      "student_id": 202205895,
-      "class_id": 48
+    "registration_id": 1,
+    "student_id": 202300100,
+    "class_id": 18
   },
   {
-      "registration_id": 2,
-      "student_id": 202205895,
-      "class_id": 9
+    "registration_id": 2,
+    "student_id": 202300100,
+    "class_id": 1
   },
   {
-      "registration_id": 3,
-      "student_id": 202205895,
-      "class_id": 49
+    "registration_id": 3,
+    "student_id": 202300101,
+    "class_id": 23
   },
   {
-      "registration_id": 5,
-      "student_id": 202147583,
-      "class_id": 56
+    "registration_id": 4,
+    "student_id": 202300101,
+    "class_id": 8
   },
   {
-      "registration_id": 6,
-      "student_id": 202147583,
-      "class_id": 22
+    "registration_id": 5,
+    "student_id": 202300101,
+    "class_id": 2
   },
   {
-      "registration_id": 7,
-      "student_id": 202147583,
-      "class_id": 4
+    "registration_id": 6,
+    "student_id": 202300101,
+    "class_id": 4
   },
   {
-      "registration_id": 8,
-      "student_id": 202147583,
-      "class_id": 47
+    "registration_id": 7,
+    "student_id": 202300102,
+    "class_id": 17
   },
   {
-      "registration_id": 9,
-      "student_id": 202345732,
-      "class_id": 50
+    "registration_id": 8,
+    "student_id": 202300102,
+    "class_id": 10
   },
   {
-      "registration_id": 10,
-      "student_id": 202345732,
-      "class_id": 39
+    "registration_id": 9,
+    "student_id": 202300102,
+    "class_id": 14
   },
   {
-      "registration_id": 11,
-      "student_id": 202345732,
-      "class_id": 31
+    "registration_id": 10,
+    "student_id": 202300103,
+    "class_id": 13
   },
   {
-      "registration_id": 12,
-      "student_id": 202345732,
-      "class_id": 48
+    "registration_id": 11,
+    "student_id": 202300103,
+    "class_id": 10
   },
   {
-      "registration_id": 13,
-      "student_id": 202345732,
-      "class_id": 34
+    "registration_id": 12,
+    "student_id": 202300103,
+    "class_id": 22
   },
   {
-      "registration_id": 14,
-      "student_id": 202300001,
-      "class_id": 46
+    "registration_id": 13,
+    "student_id": 202300104,
+    "class_id": 6
   },
   {
-      "registration_id": 15,
-      "student_id": 202300001,
-      "class_id": 2
+    "registration_id": 14,
+    "student_id": 202300104,
+    "class_id": 13
   },
   {
-      "registration_id": 16,
-      "student_id": 202300001,
-      "class_id": 13
+    "registration_id": 15,
+    "student_id": 202300104,
+    "class_id": 17
   },
   {
-      "registration_id": 17,
-      "student_id": 202300002,
-      "class_id": 32
+    "registration_id": 16,
+    "student_id": 202300105,
+    "class_id": 13
   },
   {
-      "registration_id": 18,
-      "student_id": 202300002,
-      "class_id": 31
+    "registration_id": 17,
+    "student_id": 202300105,
+    "class_id": 6
   },
   {
-      "registration_id": 19,
-      "student_id": 202300002,
-      "class_id": 37
+    "registration_id": 18,
+    "student_id": 202300106,
+    "class_id": 23
   },
   {
-      "registration_id": 20,
-      "student_id": 202300003,
-      "class_id": 6
+    "registration_id": 19,
+    "student_id": 202300106,
+    "class_id": 14
   },
   {
-      "registration_id": 21,
-      "student_id": 202300003,
-      "class_id": 25
+    "registration_id": 20,
+    "student_id": 202300107,
+    "class_id": 4
   },
   {
-      "registration_id": 22,
-      "student_id": 202300003,
-      "class_id": 50
+    "registration_id": 21,
+    "student_id": 202300107,
+    "class_id": 18
   },
   {
-      "registration_id": 24,
-      "student_id": 202300004,
-      "class_id": 46
+    "registration_id": 22,
+    "student_id": 202300108,
+    "class_id": 22
   },
   {
-      "registration_id": 25,
-      "student_id": 202300004,
-      "class_id": 47
+    "registration_id": 23,
+    "student_id": 202300108,
+    "class_id": 1
   },
   {
-      "registration_id": 26,
-      "student_id": 202300004,
-      "class_id": 10
+    "registration_id": 24,
+    "student_id": 202300108,
+    "class_id": 12
   },
   {
-      "registration_id": 27,
-      "student_id": 202300005,
-      "class_id": 48
+    "registration_id": 25,
+    "student_id": 202300109,
+    "class_id": 9
   },
   {
-      "registration_id": 28,
-      "student_id": 202300005,
-      "class_id": 32
+    "registration_id": 26,
+    "student_id": 202300109,
+    "class_id": 4
   },
   {
-      "registration_id": 29,
-      "student_id": 202300005,
-      "class_id": 50
+    "registration_id": 27,
+    "student_id": 202300110,
+    "class_id": 15
   },
   {
-      "registration_id": 30,
-      "student_id": 202300005,
-      "class_id": 46
+    "registration_id": 28,
+    "student_id": 202300110,
+    "class_id": 18
   },
   {
-      "registration_id": 31,
-      "student_id": 202300006,
-      "class_id": 55
+    "registration_id": 29,
+    "student_id": 202300110,
+    "class_id": 4
   },
   {
-      "registration_id": 32,
-      "student_id": 202300006,
-      "class_id": 3
+    "registration_id": 30,
+    "student_id": 202300110,
+    "class_id": 11
   },
   {
-      "registration_id": 33,
-      "student_id": 202300006,
-      "class_id": 6
+    "registration_id": 31,
+    "student_id": 202300111,
+    "class_id": 5
   },
   {
-      "registration_id": 34,
-      "student_id": 202300006,
-      "class_id": 23
+    "registration_id": 32,
+    "student_id": 202300111,
+    "class_id": 12
   },
   {
-      "registration_id": 35,
-      "student_id": 202300006,
-      "class_id": 50
+    "registration_id": 33,
+    "student_id": 202300112,
+    "class_id": 21
   },
   {
-      "registration_id": 36,
-      "student_id": 202300007,
-      "class_id": 49
+    "registration_id": 34,
+    "student_id": 202300112,
+    "class_id": 3
   },
   {
-      "registration_id": 37,
-      "student_id": 202300007,
-      "class_id": 11
+    "registration_id": 35,
+    "student_id": 202300113,
+    "class_id": 18
   },
   {
-      "registration_id": 38,
-      "student_id": 202300007,
-      "class_id": 1
+    "registration_id": 36,
+    "student_id": 202300113,
+    "class_id": 17
   },
   {
-      "registration_id": 39,
-      "student_id": 202300007,
-      "class_id": 19
+    "registration_id": 37,
+    "student_id": 202300113,
+    "class_id": 20
   },
   {
-      "registration_id": 40,
-      "student_id": 202300007,
-      "class_id": 14
+    "registration_id": 38,
+    "student_id": 202300114,
+    "class_id": 14
   },
   {
-      "registration_id": 41,
-      "student_id": 202300008,
-      "class_id": 55
+    "registration_id": 39,
+    "student_id": 202300114,
+    "class_id": 16
   },
   {
-      "registration_id": 42,
-      "student_id": 202300008,
-      "class_id": 40
+    "registration_id": 40,
+    "student_id": 202300114,
+    "class_id": 17
   },
   {
-      "registration_id": 43,
-      "student_id": 202300008,
-      "class_id": 56
+    "registration_id": 41,
+    "student_id": 202300114,
+    "class_id": 6
   },
   {
-      "registration_id": 44,
-      "student_id": 202300009,
-      "class_id": 21
+    "registration_id": 42,
+    "student_id": 202300115,
+    "class_id": 18
   },
   {
-      "registration_id": 45,
-      "student_id": 202300009,
-      "class_id": 46
+    "registration_id": 43,
+    "student_id": 202300115,
+    "class_id": 12
   },
   {
-      "registration_id": 46,
-      "student_id": 202300009,
-      "class_id": 55
+    "registration_id": 44,
+    "student_id": 202300116,
+    "class_id": 13
   },
   {
-      "registration_id": 47,
-      "student_id": 202300009,
-      "class_id": 49
+    "registration_id": 45,
+    "student_id": 202300116,
+    "class_id": 1
   },
   {
-      "registration_id": 48,
-      "student_id": 202300009,
-      "class_id": 6
+    "registration_id": 46,
+    "student_id": 202300116,
+    "class_id": 22
   },
   {
-      "registration_id": 49,
-      "student_id": 202300010,
-      "class_id": 48
+    "registration_id": 47,
+    "student_id": 202300116,
+    "class_id": 21
   },
   {
-      "registration_id": 50,
-      "student_id": 202300010,
-      "class_id": 6
+    "registration_id": 48,
+    "student_id": 202300117,
+    "class_id": 7
   },
   {
-      "registration_id": 51,
-      "student_id": 202300010,
-      "class_id": 17
+    "registration_id": 49,
+    "student_id": 202300117,
+    "class_id": 3
   },
   {
-      "registration_id": 52,
-      "student_id": 202300010,
-      "class_id": 46
+    "registration_id": 50,
+    "student_id": 202300117,
+    "class_id": 11
   },
   {
-      "registration_id": 53,
-      "student_id": 202300010,
-      "class_id": 49
+    "registration_id": 51,
+    "student_id": 202300118,
+    "class_id": 22
   },
   {
-      "registration_id": 54,
-      "student_id": 202300011,
-      "class_id": 39
+    "registration_id": 52,
+    "student_id": 202300118,
+    "class_id": 15
   },
   {
-      "registration_id": 55,
-      "student_id": 202300011,
-      "class_id": 33
+    "registration_id": 53,
+    "student_id": 202300119,
+    "class_id": 3
   },
   {
-      "registration_id": 56,
-      "student_id": 202300011,
-      "class_id": 55
+    "registration_id": 54,
+    "student_id": 202300119,
+    "class_id": 19
   },
   {
-      "registration_id": 57,
-      "student_id": 202300011,
-      "class_id": 38
+    "registration_id": 55,
+    "student_id": 202300119,
+    "class_id": 20
   },
   {
-      "registration_id": 58,
-      "student_id": 202300012,
-      "class_id": 3
+    "registration_id": 56,
+    "student_id": 202300120,
+    "class_id": 4
   },
   {
-      "registration_id": 59,
-      "student_id": 202300012,
-      "class_id": 55
+    "registration_id": 57,
+    "student_id": 202300120,
+    "class_id": 21
   },
   {
-      "registration_id": 60,
-      "student_id": 202300012,
-      "class_id": 50
+    "registration_id": 58,
+    "student_id": 202300121,
+    "class_id": 19
   },
   {
-      "registration_id": 61,
-      "student_id": 202300012,
-      "class_id": 49
+    "registration_id": 59,
+    "student_id": 202300121,
+    "class_id": 11
   },
   {
-      "registration_id": 62,
-      "student_id": 202300013,
-      "class_id": 10
+    "registration_id": 60,
+    "student_id": 202300121,
+    "class_id": 18
   },
   {
-      "registration_id": 63,
-      "student_id": 202300013,
-      "class_id": 11
+    "registration_id": 61,
+    "student_id": 202300121,
+    "class_id": 20
   },
   {
-      "registration_id": 64,
-      "student_id": 202300013,
-      "class_id": 18
+    "registration_id": 62,
+    "student_id": 202300122,
+    "class_id": 8
   },
   {
-      "registration_id": 65,
-      "student_id": 202300013,
-      "class_id": 14
+    "registration_id": 63,
+    "student_id": 202300122,
+    "class_id": 9
   },
   {
-      "registration_id": 66,
-      "student_id": 202300014,
-      "class_id": 34
+    "registration_id": 64,
+    "student_id": 202300122,
+    "class_id": 24
   },
   {
-      "registration_id": 67,
-      "student_id": 202300014,
-      "class_id": 31
+    "registration_id": 65,
+    "student_id": 202300123,
+    "class_id": 6
   },
   {
-      "registration_id": 68,
-      "student_id": 202300014,
-      "class_id": 37
+    "registration_id": 66,
+    "student_id": 202300123,
+    "class_id": 20
   },
   {
-      "registration_id": 69,
-      "student_id": 202300015,
-      "class_id": 56
+    "registration_id": 67,
+    "student_id": 202300123,
+    "class_id": 10
   },
   {
-      "registration_id": 70,
-      "student_id": 202300015,
-      "class_id": 55
+    "registration_id": 68,
+    "student_id": 202300124,
+    "class_id": 4
   },
   {
-      "registration_id": 71,
-      "student_id": 202300015,
-      "class_id": 23
+    "registration_id": 69,
+    "student_id": 202300124,
+    "class_id": 21
   },
   {
-      "registration_id": 72,
-      "student_id": 202300016,
-      "class_id": 10
+    "registration_id": 70,
+    "student_id": 202300125,
+    "class_id": 4
   },
   {
-      "registration_id": 73,
-      "student_id": 202300016,
-      "class_id": 1
+    "registration_id": 71,
+    "student_id": 202300125,
+    "class_id": 21
   },
   {
-      "registration_id": 74,
-      "student_id": 202300016,
-      "class_id": 49
+    "registration_id": 72,
+    "student_id": 202300126,
+    "class_id": 13
   },
   {
-      "registration_id": 75,
-      "student_id": 202300016,
-      "class_id": 13
+    "registration_id": 73,
+    "student_id": 202300126,
+    "class_id": 1
   },
   {
-      "registration_id": 76,
-      "student_id": 202300016,
-      "class_id": 47
+    "registration_id": 74,
+    "student_id": 202300126,
+    "class_id": 9
   },
   {
-      "registration_id": 77,
-      "student_id": 202300017,
-      "class_id": 56
+    "registration_id": 75,
+    "student_id": 202300126,
+    "class_id": 11
   },
   {
-      "registration_id": 78,
-      "student_id": 202300017,
-      "class_id": 39
+    "registration_id": 76,
+    "student_id": 202300127,
+    "class_id": 22
   },
   {
-      "registration_id": 79,
-      "student_id": 202300017,
-      "class_id": 40
+    "registration_id": 77,
+    "student_id": 202300127,
+    "class_id": 10
   },
   {
-      "registration_id": 80,
-      "student_id": 202300018,
-      "class_id": 26
+    "registration_id": 78,
+    "student_id": 202300128,
+    "class_id": 19
   },
   {
-      "registration_id": 81,
-      "student_id": 202300018,
-      "class_id": 6
+    "registration_id": 79,
+    "student_id": 202300128,
+    "class_id": 13
   },
   {
-      "registration_id": 82,
-      "student_id": 202300018,
-      "class_id": 25
+    "registration_id": 80,
+    "student_id": 202300128,
+    "class_id": 12
   },
   {
-      "registration_id": 83,
-      "student_id": 202300019,
-      "class_id": 45
+    "registration_id": 81,
+    "student_id": 202300129,
+    "class_id": 17
   },
   {
-      "registration_id": 84,
-      "student_id": 202300019,
-      "class_id": 19
+    "registration_id": 82,
+    "student_id": 202300129,
+    "class_id": 22
   },
   {
-      "registration_id": 85,
-      "student_id": 202300019,
-      "class_id": 12
+    "registration_id": 83,
+    "student_id": 202300129,
+    "class_id": 7
   },
   {
-      "registration_id": 86,
-      "student_id": 202300019,
-      "class_id": 15
+    "registration_id": 84,
+    "student_id": 202300130,
+    "class_id": 8
   },
   {
-      "registration_id": 87,
-      "student_id": 202300020,
-      "class_id": 39
+    "registration_id": 85,
+    "student_id": 202300130,
+    "class_id": 4
   },
   {
-      "registration_id": 88,
-      "student_id": 202300020,
-      "class_id": 46
+    "registration_id": 86,
+    "student_id": 202300130,
+    "class_id": 12
   },
   {
-      "registration_id": 89,
-      "student_id": 202300020,
-      "class_id": 31
+    "registration_id": 87,
+    "student_id": 202300130,
+    "class_id": 15
   },
   {
-      "registration_id": 90,
-      "student_id": 202300020,
-      "class_id": 50
+    "registration_id": 88,
+    "student_id": 202300131,
+    "class_id": 16
   },
   {
-      "registration_id": 91,
-      "student_id": 202300021,
-      "class_id": 22
+    "registration_id": 89,
+    "student_id": 202300131,
+    "class_id": 20
   },
   {
-      "registration_id": 92,
-      "student_id": 202300021,
-      "class_id": 6
+    "registration_id": 90,
+    "student_id": 202300131,
+    "class_id": 21
   },
   {
-      "registration_id": 93,
-      "student_id": 202300021,
-      "class_id": 50
+    "registration_id": 91,
+    "student_id": 202300131,
+    "class_id": 15
   },
   {
-      "registration_id": 94,
-      "student_id": 202300022,
-      "class_id": 1
+    "registration_id": 92,
+    "student_id": 202300132,
+    "class_id": 14
   },
   {
-      "registration_id": 95,
-      "student_id": 202300022,
-      "class_id": 6
+    "registration_id": 93,
+    "student_id": 202300132,
+    "class_id": 11
   },
   {
-      "registration_id": 96,
-      "student_id": 202300022,
-      "class_id": 56
+    "registration_id": 94,
+    "student_id": 202300133,
+    "class_id": 1
   },
   {
-      "registration_id": 97,
-      "student_id": 202300023,
-      "class_id": 49
+    "registration_id": 95,
+    "student_id": 202300133,
+    "class_id": 22
   },
   {
-      "registration_id": 98,
-      "student_id": 202300023,
-      "class_id": 32
+    "registration_id": 96,
+    "student_id": 202300133,
+    "class_id": 18
   },
   {
-      "registration_id": 99,
-      "student_id": 202300023,
-      "class_id": 37
+    "registration_id": 97,
+    "student_id": 202300133,
+    "class_id": 24
   },
   {
-      "registration_id": 100,
-      "student_id": 202300023,
-      "class_id": 55
+    "registration_id": 98,
+    "student_id": 202300134,
+    "class_id": 20
   },
   {
-      "registration_id": 101,
-      "student_id": 202300024,
-      "class_id": 48
+    "registration_id": 99,
+    "student_id": 202300134,
+    "class_id": 23
   },
   {
-      "registration_id": 102,
-      "student_id": 202300024,
-      "class_id": 47
+    "registration_id": 100,
+    "student_id": 202300134,
+    "class_id": 5
   },
   {
-      "registration_id": 103,
-      "student_id": 202300024,
-      "class_id": 56
+    "registration_id": 101,
+    "student_id": 202300134,
+    "class_id": 18
   },
   {
-      "registration_id": 104,
-      "student_id": 202300025,
-      "class_id": 48
+    "registration_id": 102,
+    "student_id": 202300135,
+    "class_id": 3
   },
   {
-      "registration_id": 105,
-      "student_id": 202300025,
-      "class_id": 50
+    "registration_id": 103,
+    "student_id": 202300135,
+    "class_id": 8
   },
   {
-      "registration_id": 106,
-      "student_id": 202300025,
-      "class_id": 20
+    "registration_id": 104,
+    "student_id": 202300136,
+    "class_id": 21
   },
   {
-      "registration_id": 107,
-      "student_id": 202300025,
-      "class_id": 46
+    "registration_id": 105,
+    "student_id": 202300136,
+    "class_id": 16
   },
   {
-      "registration_id": 108,
-      "student_id": 202300026,
-      "class_id": 50
+    "registration_id": 106,
+    "student_id": 202300136,
+    "class_id": 20
   },
   {
-      "registration_id": 109,
-      "student_id": 202300026,
-      "class_id": 49
+    "registration_id": 107,
+    "student_id": 202300137,
+    "class_id": 17
   },
   {
-      "registration_id": 110,
-      "student_id": 202300026,
-      "class_id": 40
+    "registration_id": 108,
+    "student_id": 202300137,
+    "class_id": 16
   },
   {
-      "registration_id": 111,
-      "student_id": 202300026,
-      "class_id": 32
+    "registration_id": 109,
+    "student_id": 202300138,
+    "class_id": 19
   },
   {
-      "registration_id": 112,
-      "student_id": 202300027,
-      "class_id": 23
+    "registration_id": 110,
+    "student_id": 202300138,
+    "class_id": 14
   },
   {
-      "registration_id": 113,
-      "student_id": 202300027,
-      "class_id": 24
+    "registration_id": 111,
+    "student_id": 202300138,
+    "class_id": 4
   },
   {
-      "registration_id": 114,
-      "student_id": 202300027,
-      "class_id": 49
+    "registration_id": 112,
+    "student_id": 202300139,
+    "class_id": 9
   },
   {
-      "registration_id": 115,
-      "student_id": 202300027,
-      "class_id": 26
+    "registration_id": 113,
+    "student_id": 202300139,
+    "class_id": 17
   },
   {
-      "registration_id": 116,
-      "student_id": 202300028,
-      "class_id": 49
+    "registration_id": 114,
+    "student_id": 202300139,
+    "class_id": 19
   },
   {
-      "registration_id": 117,
-      "student_id": 202300028,
-      "class_id": 15
+    "registration_id": 115,
+    "student_id": 202300140,
+    "class_id": 5
   },
   {
-      "registration_id": 118,
-      "student_id": 202300028,
-      "class_id": 9
+    "registration_id": 116,
+    "student_id": 202300140,
+    "class_id": 23
   },
   {
-      "registration_id": 119,
-      "student_id": 202300029,
-      "class_id": 38
+    "registration_id": 117,
+    "student_id": 202300140,
+    "class_id": 20
   },
   {
-      "registration_id": 120,
-      "student_id": 202300029,
-      "class_id": 39
+    "registration_id": 118,
+    "student_id": 202300141,
+    "class_id": 15
   },
   {
-      "registration_id": 121,
-      "student_id": 202300029,
-      "class_id": 49
+    "registration_id": 119,
+    "student_id": 202300141,
+    "class_id": 17
   },
   {
-      "registration_id": 122,
-      "student_id": 202300029,
-      "class_id": 47
+    "registration_id": 120,
+    "student_id": 202300142,
+    "class_id": 10
   },
   {
-      "registration_id": 123,
-      "student_id": 202300029,
-      "class_id": 45
+    "registration_id": 121,
+    "student_id": 202300142,
+    "class_id": 13
   },
   {
-      "registration_id": 124,
-      "student_id": 202300030,
-      "class_id": 56
+    "registration_id": 122,
+    "student_id": 202300142,
+    "class_id": 24
   },
   {
-      "registration_id": 125,
-      "student_id": 202300030,
-      "class_id": 26
+    "registration_id": 123,
+    "student_id": 202300143,
+    "class_id": 23
   },
   {
-      "registration_id": 126,
-      "student_id": 202300030,
-      "class_id": 45
+    "registration_id": 124,
+    "student_id": 202300143,
+    "class_id": 22
   },
   {
-      "registration_id": 127,
-      "student_id": 202300030,
-      "class_id": 55
+    "registration_id": 125,
+    "student_id": 202300143,
+    "class_id": 13
   },
   {
-      "registration_id": 128,
-      "student_id": 202300031,
-      "class_id": 46
+    "registration_id": 126,
+    "student_id": 202300144,
+    "class_id": 16
   },
   {
-      "registration_id": 129,
-      "student_id": 202300031,
-      "class_id": 20
+    "registration_id": 127,
+    "student_id": 202300144,
+    "class_id": 15
   },
   {
-      "registration_id": 130,
-      "student_id": 202300031,
-      "class_id": 14
+    "registration_id": 128,
+    "student_id": 202300145,
+    "class_id": 8
   },
   {
-      "registration_id": 131,
-      "student_id": 202300032,
-      "class_id": 40
+    "registration_id": 129,
+    "student_id": 202300145,
+    "class_id": 22
   },
   {
-      "registration_id": 132,
-      "student_id": 202300032,
-      "class_id": 55
+    "registration_id": 130,
+    "student_id": 202300145,
+    "class_id": 23
   },
   {
-      "registration_id": 133,
-      "student_id": 202300032,
-      "class_id": 47
+    "registration_id": 131,
+    "student_id": 202300145,
+    "class_id": 10
   },
   {
-      "registration_id": 134,
-      "student_id": 202300033,
-      "class_id": 21
+    "registration_id": 132,
+    "student_id": 202300146,
+    "class_id": 14
   },
   {
-      "registration_id": 135,
-      "student_id": 202300033,
-      "class_id": 6
+    "registration_id": 133,
+    "student_id": 202300146,
+    "class_id": 15
   },
   {
-      "registration_id": 136,
-      "student_id": 202300033,
-      "class_id": 23
+    "registration_id": 134,
+    "student_id": 202300147,
+    "class_id": 19
   },
   {
-      "registration_id": 137,
-      "student_id": 202300033,
-      "class_id": 55
+    "registration_id": 135,
+    "student_id": 202300147,
+    "class_id": 13
   },
   {
-      "registration_id": 138,
-      "student_id": 202300033,
-      "class_id": 46
+    "registration_id": 136,
+    "student_id": 202300148,
+    "class_id": 14
   },
   {
-      "registration_id": 139,
-      "student_id": 202300034,
-      "class_id": 1
+    "registration_id": 137,
+    "student_id": 202300148,
+    "class_id": 21
   },
   {
-      "registration_id": 140,
-      "student_id": 202300034,
-      "class_id": 49
+    "registration_id": 138,
+    "student_id": 202300148,
+    "class_id": 17
   },
   {
-      "registration_id": 141,
-      "student_id": 202300034,
-      "class_id": 10
+    "registration_id": 139,
+    "student_id": 202300149,
+    "class_id": 3
   },
   {
-      "registration_id": 142,
-      "student_id": 202300034,
-      "class_id": 9
+    "registration_id": 140,
+    "student_id": 202300149,
+    "class_id": 9
   },
   {
-      "registration_id": 143,
-      "student_id": 202300035,
-      "class_id": 37
+    "registration_id": 141,
+    "student_id": 202300149,
+    "class_id": 2
   },
   {
-      "registration_id": 144,
-      "student_id": 202300035,
-      "class_id": 34
+    "registration_id": 142,
+    "student_id": 202300149,
+    "class_id": 23
   },
   {
-      "registration_id": 145,
-      "student_id": 202300035,
-      "class_id": 39
+    "registration_id": 143,
+    "student_id": 202300150,
+    "class_id": 13
   },
   {
-      "registration_id": 146,
-      "student_id": 202300035,
-      "class_id": 32
+    "registration_id": 144,
+    "student_id": 202300150,
+    "class_id": 14
   },
   {
-      "registration_id": 147,
-      "student_id": 202300036,
-      "class_id": 48
+    "registration_id": 145,
+    "student_id": 202300150,
+    "class_id": 18
   },
   {
-      "registration_id": 148,
-      "student_id": 202300036,
-      "class_id": 26
+    "registration_id": 146,
+    "student_id": 202300150,
+    "class_id": 4
   },
   {
-      "registration_id": 149,
-      "student_id": 202300036,
-      "class_id": 56
+    "registration_id": 147,
+    "student_id": 202300151,
+    "class_id": 14
   },
   {
-      "registration_id": 150,
-      "student_id": 202300036,
-      "class_id": 23
+    "registration_id": 148,
+    "student_id": 202300151,
+    "class_id": 2
   },
   {
-      "registration_id": 151,
-      "student_id": 202300037,
-      "class_id": 47
+    "registration_id": 149,
+    "student_id": 202300152,
+    "class_id": 9
   },
   {
-      "registration_id": 152,
-      "student_id": 202300037,
-      "class_id": 17
+    "registration_id": 150,
+    "student_id": 202300152,
+    "class_id": 24
   },
   {
-      "registration_id": 153,
-      "student_id": 202300037,
-      "class_id": 15
+    "registration_id": 151,
+    "student_id": 202300152,
+    "class_id": 13
   },
   {
-      "registration_id": 154,
-      "student_id": 202300037,
-      "class_id": 46
+    "registration_id": 152,
+    "student_id": 202300152,
+    "class_id": 10
   },
   {
-      "registration_id": 155,
-      "student_id": 202300038,
-      "class_id": 34
+    "registration_id": 153,
+    "student_id": 202300153,
+    "class_id": 1
   },
   {
-      "registration_id": 156,
-      "student_id": 202300038,
-      "class_id": 45
+    "registration_id": 154,
+    "student_id": 202300153,
+    "class_id": 2
   },
   {
-      "registration_id": 157,
-      "student_id": 202300038,
-      "class_id": 37
+    "registration_id": 155,
+    "student_id": 202300153,
+    "class_id": 15
   },
   {
-      "registration_id": 158,
-      "student_id": 202300039,
-      "class_id": 5
+    "registration_id": 156,
+    "student_id": 202300154,
+    "class_id": 15
   },
   {
-      "registration_id": 159,
-      "student_id": 202300039,
-      "class_id": 47
+    "registration_id": 157,
+    "student_id": 202300154,
+    "class_id": 4
   },
   {
-      "registration_id": 160,
-      "student_id": 202300039,
-      "class_id": 21
+    "registration_id": 158,
+    "student_id": 202300155,
+    "class_id": 8
   },
   {
-      "registration_id": 161,
-      "student_id": 202300039,
-      "class_id": 22
+    "registration_id": 159,
+    "student_id": 202300155,
+    "class_id": 22
   },
   {
-      "registration_id": 162,
-      "student_id": 202300040,
-      "class_id": 2
+    "registration_id": 160,
+    "student_id": 202300156,
+    "class_id": 24
   },
   {
-      "registration_id": 163,
-      "student_id": 202300040,
-      "class_id": 12
+    "registration_id": 161,
+    "student_id": 202300156,
+    "class_id": 20
   },
   {
-      "registration_id": 164,
-      "student_id": 202300040,
-      "class_id": 15
+    "registration_id": 162,
+    "student_id": 202300157,
+    "class_id": 24
   },
   {
-      "registration_id": 165,
-      "student_id": 202300040,
-      "class_id": 16
+    "registration_id": 163,
+    "student_id": 202300157,
+    "class_id": 1
   },
   {
-      "registration_id": 166,
-      "student_id": 202300041,
-      "class_id": 48
+    "registration_id": 164,
+    "student_id": 202300158,
+    "class_id": 23
   },
   {
-      "registration_id": 167,
-      "student_id": 202300041,
-      "class_id": 39
+    "registration_id": 165,
+    "student_id": 202300158,
+    "class_id": 11
   },
   {
-      "registration_id": 168,
-      "student_id": 202300041,
-      "class_id": 47
+    "registration_id": 166,
+    "student_id": 202300158,
+    "class_id": 13
   },
   {
-      "registration_id": 169,
-      "student_id": 202300041,
-      "class_id": 56
+    "registration_id": 167,
+    "student_id": 202300159,
+    "class_id": 18
   },
   {
-      "registration_id": 170,
-      "student_id": 202300042,
-      "class_id": 55
+    "registration_id": 168,
+    "student_id": 202300159,
+    "class_id": 14
   },
   {
-      "registration_id": 171,
-      "student_id": 202300042,
-      "class_id": 50
+    "registration_id": 169,
+    "student_id": 202300159,
+    "class_id": 24
   },
   {
-      "registration_id": 172,
-      "student_id": 202300042,
-      "class_id": 48
+    "registration_id": 170,
+    "student_id": 202300160,
+    "class_id": 23
   },
   {
-      "registration_id": 173,
-      "student_id": 202300042,
-      "class_id": 47
+    "registration_id": 171,
+    "student_id": 202300160,
+    "class_id": 22
   },
   {
-      "registration_id": 174,
-      "student_id": 202300042,
-      "class_id": 49
+    "registration_id": 172,
+    "student_id": 202300161,
+    "class_id": 16
   },
   {
-      "registration_id": 175,
-      "student_id": 202300043,
-      "class_id": 16
+    "registration_id": 173,
+    "student_id": 202300161,
+    "class_id": 11
   },
   {
-      "registration_id": 176,
-      "student_id": 202300043,
-      "class_id": 56
+    "registration_id": 174,
+    "student_id": 202300161,
+    "class_id": 14
   },
   {
-      "registration_id": 177,
-      "student_id": 202300043,
-      "class_id": 10
+    "registration_id": 175,
+    "student_id": 202300161,
+    "class_id": 24
   },
   {
-      "registration_id": 178,
-      "student_id": 202300043,
-      "class_id": 13
+    "registration_id": 176,
+    "student_id": 202300162,
+    "class_id": 23
   },
   {
-      "registration_id": 179,
-      "student_id": 202300043,
-      "class_id": 11
+    "registration_id": 177,
+    "student_id": 202300162,
+    "class_id": 14
   },
   {
-      "registration_id": 180,
-      "student_id": 202300044,
-      "class_id": 55
+    "registration_id": 178,
+    "student_id": 202300163,
+    "class_id": 16
   },
   {
-      "registration_id": 181,
-      "student_id": 202300044,
-      "class_id": 56
+    "registration_id": 179,
+    "student_id": 202300163,
+    "class_id": 24
   },
   {
-      "registration_id": 182,
-      "student_id": 202300044,
-      "class_id": 40
+    "registration_id": 180,
+    "student_id": 202300164,
+    "class_id": 22
   },
   {
-      "registration_id": 183,
-      "student_id": 202300045,
-      "class_id": 56
+    "registration_id": 181,
+    "student_id": 202300164,
+    "class_id": 13
   },
   {
-      "registration_id": 184,
-      "student_id": 202300045,
-      "class_id": 55
+    "registration_id": 182,
+    "student_id": 202300164,
+    "class_id": 6
   },
   {
-      "registration_id": 185,
-      "student_id": 202300045,
-      "class_id": 49
+    "registration_id": 183,
+    "student_id": 202300165,
+    "class_id": 8
   },
   {
-      "registration_id": 186,
-      "student_id": 202300045,
-      "class_id": 45
+    "registration_id": 184,
+    "student_id": 202300165,
+    "class_id": 14
   },
   {
-      "registration_id": 187,
-      "student_id": 202300045,
-      "class_id": 5
+    "registration_id": 185,
+    "student_id": 202300165,
+    "class_id": 5
   },
   {
-      "registration_id": 188,
-      "student_id": 202300046,
-      "class_id": 12
+    "registration_id": 186,
+    "student_id": 202300166,
+    "class_id": 8
   },
   {
-      "registration_id": 189,
-      "student_id": 202300046,
-      "class_id": 49
+    "registration_id": 187,
+    "student_id": 202300166,
+    "class_id": 13
   },
   {
-      "registration_id": 190,
-      "student_id": 202300046,
-      "class_id": 6
+    "registration_id": 188,
+    "student_id": 202300166,
+    "class_id": 14
   },
   {
-      "registration_id": 191,
-      "student_id": 202300046,
-      "class_id": 19
+    "registration_id": 189,
+    "student_id": 202300167,
+    "class_id": 23
   },
   {
-      "registration_id": 192,
-      "student_id": 202300046,
-      "class_id": 47
+    "registration_id": 190,
+    "student_id": 202300167,
+    "class_id": 8
   },
   {
-      "registration_id": 193,
-      "student_id": 202300047,
-      "class_id": 40
+    "registration_id": 191,
+    "student_id": 202300168,
+    "class_id": 17
   },
   {
-      "registration_id": 194,
-      "student_id": 202300047,
-      "class_id": 55
+    "registration_id": 192,
+    "student_id": 202300168,
+    "class_id": 22
   },
   {
-      "registration_id": 195,
-      "student_id": 202300047,
-      "class_id": 31
+    "registration_id": 193,
+    "student_id": 202300168,
+    "class_id": 6
   },
   {
-      "registration_id": 196,
-      "student_id": 202300048,
-      "class_id": 21
+    "registration_id": 194,
+    "student_id": 202300168,
+    "class_id": 8
   },
   {
-      "registration_id": 197,
-      "student_id": 202300048,
-      "class_id": 6
+    "registration_id": 195,
+    "student_id": 202300169,
+    "class_id": 4
   },
   {
-      "registration_id": 198,
-      "student_id": 202300048,
-      "class_id": 23
+    "registration_id": 196,
+    "student_id": 202300169,
+    "class_id": 16
   },
   {
-      "registration_id": 199,
-      "student_id": 202300049,
-      "class_id": 50
+    "registration_id": 197,
+    "student_id": 202300169,
+    "class_id": 23
   },
   {
-      "registration_id": 200,
-      "student_id": 202300049,
-      "class_id": 55
+    "registration_id": 198,
+    "student_id": 202300169,
+    "class_id": 14
   },
   {
-      "registration_id": 201,
-      "student_id": 202300049,
-      "class_id": 49
+    "registration_id": 199,
+    "student_id": 202300170,
+    "class_id": 3
   },
   {
-      "registration_id": 202,
-      "student_id": 202300050,
-      "class_id": 40
+    "registration_id": 200,
+    "student_id": 202300170,
+    "class_id": 15
   },
   {
-      "registration_id": 203,
-      "student_id": 202300050,
-      "class_id": 46
+    "registration_id": 201,
+    "student_id": 202300170,
+    "class_id": 18
   },
   {
-      "registration_id": 204,
-      "student_id": 202300050,
-      "class_id": 31
+    "registration_id": 202,
+    "student_id": 202300171,
+    "class_id": 19
   },
   {
-      "registration_id": 205,
-      "student_id": 202300050,
-      "class_id": 48
+    "registration_id": 203,
+    "student_id": 202300171,
+    "class_id": 9
   },
   {
-      "registration_id": 206,
-      "student_id": 202300051,
-      "class_id": 45
+    "registration_id": 204,
+    "student_id": 202300171,
+    "class_id": 13
   },
   {
-      "registration_id": 207,
-      "student_id": 202300051,
-      "class_id": 50
+    "registration_id": 205,
+    "student_id": 202300172,
+    "class_id": 17
   },
   {
-      "registration_id": 208,
-      "student_id": 202300051,
-      "class_id": 48
+    "registration_id": 206,
+    "student_id": 202300172,
+    "class_id": 8
   },
   {
-      "registration_id": 209,
-      "student_id": 202300052,
-      "class_id": 49
+    "registration_id": 207,
+    "student_id": 202300173,
+    "class_id": 13
   },
   {
-      "registration_id": 210,
-      "student_id": 202300052,
-      "class_id": 10
+    "registration_id": 208,
+    "student_id": 202300173,
+    "class_id": 6
   },
   {
-      "registration_id": 211,
-      "student_id": 202300052,
-      "class_id": 46
+    "registration_id": 209,
+    "student_id": 202300174,
+    "class_id": 4
   },
   {
-      "registration_id": 212,
-      "student_id": 202300053,
-      "class_id": 37
+    "registration_id": 210,
+    "student_id": 202300174,
+    "class_id": 18
   },
   {
-      "registration_id": 213,
-      "student_id": 202300053,
-      "class_id": 45
+    "registration_id": 211,
+    "student_id": 202300174,
+    "class_id": 6
   },
   {
-      "registration_id": 214,
-      "student_id": 202300053,
-      "class_id": 50
+    "registration_id": 212,
+    "student_id": 202300175,
+    "class_id": 11
   },
   {
-      "registration_id": 215,
-      "student_id": 202300053,
-      "class_id": 56
+    "registration_id": 213,
+    "student_id": 202300175,
+    "class_id": 17
   },
   {
-      "registration_id": 216,
-      "student_id": 202300053,
-      "class_id": 33
+    "registration_id": 214,
+    "student_id": 202300175,
+    "class_id": 16
   },
   {
-      "registration_id": 217,
-      "student_id": 202300054,
-      "class_id": 45
+    "registration_id": 215,
+    "student_id": 202300175,
+    "class_id": 8
   },
   {
-      "registration_id": 218,
-      "student_id": 202300054,
-      "class_id": 21
+    "registration_id": 216,
+    "student_id": 202300176,
+    "class_id": 20
   },
   {
-      "registration_id": 219,
-      "student_id": 202300054,
-      "class_id": 25
+    "registration_id": 217,
+    "student_id": 202300176,
+    "class_id": 22
   },
   {
-      "registration_id": 220,
-      "student_id": 202300054,
-      "class_id": 56
+    "registration_id": 218,
+    "student_id": 202300176,
+    "class_id": 10
   },
   {
-      "registration_id": 221,
-      "student_id": 202300055,
-      "class_id": 1
+    "registration_id": 219,
+    "student_id": 202300176,
+    "class_id": 9
   },
   {
-      "registration_id": 222,
-      "student_id": 202300055,
-      "class_id": 19
+    "registration_id": 220,
+    "student_id": 202300177,
+    "class_id": 22
   },
   {
-      "registration_id": 223,
-      "student_id": 202300055,
-      "class_id": 17
+    "registration_id": 221,
+    "student_id": 202300177,
+    "class_id": 12
   },
   {
-      "registration_id": 224,
-      "student_id": 202300055,
-      "class_id": 14
+    "registration_id": 222,
+    "student_id": 202300177,
+    "class_id": 14
   },
   {
-      "registration_id": 225,
-      "student_id": 202300055,
-      "class_id": 2
+    "registration_id": 223,
+    "student_id": 202300178,
+    "class_id": 2
   },
   {
-      "registration_id": 226,
-      "student_id": 202300056,
-      "class_id": 31
+    "registration_id": 224,
+    "student_id": 202300178,
+    "class_id": 9
   },
   {
-      "registration_id": 227,
-      "student_id": 202300056,
-      "class_id": 34
+    "registration_id": 225,
+    "student_id": 202300178,
+    "class_id": 7
   },
   {
-      "registration_id": 228,
-      "student_id": 202300056,
-      "class_id": 45
+    "registration_id": 226,
+    "student_id": 202300178,
+    "class_id": 23
   },
   {
-      "registration_id": 229,
-      "student_id": 202300057,
-      "class_id": 26
+    "registration_id": 227,
+    "student_id": 202300179,
+    "class_id": 11
   },
   {
-      "registration_id": 230,
-      "student_id": 202300057,
-      "class_id": 22
+    "registration_id": 228,
+    "student_id": 202300179,
+    "class_id": 18
   },
   {
-      "registration_id": 231,
-      "student_id": 202300057,
-      "class_id": 24
+    "registration_id": 229,
+    "student_id": 202300179,
+    "class_id": 1
   },
   {
-      "registration_id": 232,
-      "student_id": 202300058,
-      "class_id": 20
+    "registration_id": 230,
+    "student_id": 202300179,
+    "class_id": 2
   },
   {
-      "registration_id": 233,
-      "student_id": 202300058,
-      "class_id": 56
+    "registration_id": 231,
+    "student_id": 202300180,
+    "class_id": 21
   },
   {
-      "registration_id": 234,
-      "student_id": 202300058,
-      "class_id": 17
+    "registration_id": 232,
+    "student_id": 202300180,
+    "class_id": 24
   },
   {
-      "registration_id": 235,
-      "student_id": 202300058,
-      "class_id": 12
+    "registration_id": 233,
+    "student_id": 202300180,
+    "class_id": 6
   },
   {
-      "registration_id": 236,
-      "student_id": 202300059,
-      "class_id": 34
+    "registration_id": 234,
+    "student_id": 202300181,
+    "class_id": 9
   },
   {
-      "registration_id": 237,
-      "student_id": 202300059,
-      "class_id": 47
+    "registration_id": 235,
+    "student_id": 202300181,
+    "class_id": 8
   },
   {
-      "registration_id": 238,
-      "student_id": 202300059,
-      "class_id": 38
+    "registration_id": 236,
+    "student_id": 202300181,
+    "class_id": 21
   },
   {
-      "registration_id": 239,
-      "student_id": 202300059,
-      "class_id": 33
+    "registration_id": 237,
+    "student_id": 202300181,
+    "class_id": 24
   },
   {
-      "registration_id": 240,
-      "student_id": 202300060,
-      "class_id": 45
+    "registration_id": 238,
+    "student_id": 202300182,
+    "class_id": 16
   },
   {
-      "registration_id": 241,
-      "student_id": 202300060,
-      "class_id": 47
+    "registration_id": 239,
+    "student_id": 202300182,
+    "class_id": 7
   },
   {
-      "registration_id": 242,
-      "student_id": 202300060,
-      "class_id": 21
+    "registration_id": 240,
+    "student_id": 202300182,
+    "class_id": 1
   },
   {
-      "registration_id": 243,
-      "student_id": 202300060,
-      "class_id": 24
+    "registration_id": 241,
+    "student_id": 202300182,
+    "class_id": 14
   },
   {
-      "registration_id": 244,
-      "student_id": 202300061,
-      "class_id": 50
+    "registration_id": 242,
+    "student_id": 202300183,
+    "class_id": 7
   },
   {
-      "registration_id": 245,
-      "student_id": 202300061,
-      "class_id": 20
+    "registration_id": 243,
+    "student_id": 202300183,
+    "class_id": 3
   },
   {
-      "registration_id": 246,
-      "student_id": 202300061,
-      "class_id": 18
+    "registration_id": 244,
+    "student_id": 202300183,
+    "class_id": 16
   },
   {
-      "registration_id": 247,
-      "student_id": 202300061,
-      "class_id": 2
+    "registration_id": 245,
+    "student_id": 202300184,
+    "class_id": 24
   },
   {
-      "registration_id": 248,
-      "student_id": 202300061,
-      "class_id": 17
+    "registration_id": 246,
+    "student_id": 202300184,
+    "class_id": 13
   },
   {
-      "registration_id": 249,
-      "student_id": 202300062,
-      "class_id": 32
+    "registration_id": 247,
+    "student_id": 202300185,
+    "class_id": 22
   },
   {
-      "registration_id": 250,
-      "student_id": 202300062,
-      "class_id": 50
+    "registration_id": 248,
+    "student_id": 202300185,
+    "class_id": 19
   },
   {
-      "registration_id": 251,
-      "student_id": 202300062,
-      "class_id": 49
+    "registration_id": 249,
+    "student_id": 202300185,
+    "class_id": 13
   },
   {
-      "registration_id": 252,
-      "student_id": 202300062,
-      "class_id": 33
+    "registration_id": 250,
+    "student_id": 202300186,
+    "class_id": 2
   },
   {
-      "registration_id": 253,
-      "student_id": 202300062,
-      "class_id": 34
+    "registration_id": 251,
+    "student_id": 202300186,
+    "class_id": 3
   },
   {
-      "registration_id": 254,
-      "student_id": 202300063,
-      "class_id": 47
+    "registration_id": 252,
+    "student_id": 202300187,
+    "class_id": 10
   },
   {
-      "registration_id": 255,
-      "student_id": 202300063,
-      "class_id": 5
+    "registration_id": 253,
+    "student_id": 202300187,
+    "class_id": 6
   },
   {
-      "registration_id": 256,
-      "student_id": 202300063,
-      "class_id": 49
+    "registration_id": 254,
+    "student_id": 202300187,
+    "class_id": 16
   },
   {
-      "registration_id": 257,
-      "student_id": 202300063,
-      "class_id": 26
+    "registration_id": 255,
+    "student_id": 202300187,
+    "class_id": 4
   },
   {
-      "registration_id": 258,
-      "student_id": 202300064,
-      "class_id": 6
+    "registration_id": 256,
+    "student_id": 202300188,
+    "class_id": 8
   },
   {
-      "registration_id": 259,
-      "student_id": 202300064,
-      "class_id": 46
+    "registration_id": 257,
+    "student_id": 202300188,
+    "class_id": 21
   },
   {
-      "registration_id": 260,
-      "student_id": 202300064,
-      "class_id": 13
+    "registration_id": 258,
+    "student_id": 202300188,
+    "class_id": 10
   },
   {
-      "registration_id": 261,
-      "student_id": 202300064,
-      "class_id": 15
+    "registration_id": 259,
+    "student_id": 202300189,
+    "class_id": 21
   },
   {
-      "registration_id": 262,
-      "student_id": 202300064,
-      "class_id": 10
+    "registration_id": 260,
+    "student_id": 202300189,
+    "class_id": 20
   },
   {
-      "registration_id": 263,
-      "student_id": 202300065,
-      "class_id": 56
+    "registration_id": 261,
+    "student_id": 202300189,
+    "class_id": 2
   },
   {
-      "registration_id": 264,
-      "student_id": 202300065,
-      "class_id": 48
+    "registration_id": 262,
+    "student_id": 202300189,
+    "class_id": 15
   },
   {
-      "registration_id": 265,
-      "student_id": 202300065,
-      "class_id": 38
+    "registration_id": 263,
+    "student_id": 202300190,
+    "class_id": 2
   },
   {
-      "registration_id": 266,
-      "student_id": 202300065,
-      "class_id": 40
+    "registration_id": 264,
+    "student_id": 202300190,
+    "class_id": 3
   },
   {
-      "registration_id": 267,
-      "student_id": 202300065,
-      "class_id": 49
+    "registration_id": 265,
+    "student_id": 202300191,
+    "class_id": 4
   },
   {
-      "registration_id": 268,
-      "student_id": 202300066,
-      "class_id": 46
+    "registration_id": 266,
+    "student_id": 202300191,
+    "class_id": 17
   },
   {
-      "registration_id": 269,
-      "student_id": 202300066,
-      "class_id": 25
+    "registration_id": 267,
+    "student_id": 202300191,
+    "class_id": 24
   },
   {
-      "registration_id": 270,
-      "student_id": 202300066,
-      "class_id": 26
+    "registration_id": 268,
+    "student_id": 202300192,
+    "class_id": 10
   },
   {
-      "registration_id": 271,
-      "student_id": 202300066,
-      "class_id": 45
+    "registration_id": 269,
+    "student_id": 202300192,
+    "class_id": 2
   },
   {
-      "registration_id": 272,
-      "student_id": 202300066,
-      "class_id": 24
+    "registration_id": 270,
+    "student_id": 202300192,
+    "class_id": 3
   },
   {
-      "registration_id": 273,
-      "student_id": 202300067,
-      "class_id": 55
+    "registration_id": 271,
+    "student_id": 202300192,
+    "class_id": 15
   },
   {
-      "registration_id": 274,
-      "student_id": 202300067,
-      "class_id": 6
+    "registration_id": 272,
+    "student_id": 202300193,
+    "class_id": 21
   },
   {
-      "registration_id": 275,
-      "student_id": 202300067,
-      "class_id": 8
+    "registration_id": 273,
+    "student_id": 202300193,
+    "class_id": 8
   },
   {
-      "registration_id": 276,
-      "student_id": 202300068,
-      "class_id": 32
+    "registration_id": 274,
+    "student_id": 202300193,
+    "class_id": 14
   },
   {
-      "registration_id": 277,
-      "student_id": 202300068,
-      "class_id": 50
+    "registration_id": 275,
+    "student_id": 202300194,
+    "class_id": 5
   },
   {
-      "registration_id": 278,
-      "student_id": 202300068,
-      "class_id": 48
+    "registration_id": 276,
+    "student_id": 202300194,
+    "class_id": 1
   },
   {
-      "registration_id": 279,
-      "student_id": 202300069,
-      "class_id": 23
+    "registration_id": 277,
+    "student_id": 202300195,
+    "class_id": 5
   },
   {
-      "registration_id": 280,
-      "student_id": 202300069,
-      "class_id": 21
+    "registration_id": 278,
+    "student_id": 202300195,
+    "class_id": 13
   },
   {
-      "registration_id": 281,
-      "student_id": 202300069,
-      "class_id": 49
+    "registration_id": 279,
+    "student_id": 202300196,
+    "class_id": 15
   },
   {
-      "registration_id": 282,
-      "student_id": 202300070,
-      "class_id": 7
+    "registration_id": 280,
+    "student_id": 202300196,
+    "class_id": 2
   },
   {
-      "registration_id": 283,
-      "student_id": 202300070,
-      "class_id": 45
+    "registration_id": 281,
+    "student_id": 202300197,
+    "class_id": 8
   },
   {
-      "registration_id": 284,
-      "student_id": 202300070,
-      "class_id": 12
+    "registration_id": 282,
+    "student_id": 202300197,
+    "class_id": 20
   },
   {
-      "registration_id": 285,
-      "student_id": 202300071,
-      "class_id": 46
+    "registration_id": 283,
+    "student_id": 202300197,
+    "class_id": 12
   },
   {
-      "registration_id": 286,
-      "student_id": 202300071,
-      "class_id": 56
+    "registration_id": 284,
+    "student_id": 202300197,
+    "class_id": 10
   },
   {
-      "registration_id": 287,
-      "student_id": 202300071,
-      "class_id": 38
+    "registration_id": 285,
+    "student_id": 202300198,
+    "class_id": 3
   },
   {
-      "registration_id": 288,
-      "student_id": 202300071,
-      "class_id": 50
+    "registration_id": 286,
+    "student_id": 202300198,
+    "class_id": 22
   },
   {
-      "registration_id": 289,
-      "student_id": 202300072,
-      "class_id": 3
+    "registration_id": 287,
+    "student_id": 202300198,
+    "class_id": 16
   },
   {
-      "registration_id": 290,
-      "student_id": 202300072,
-      "class_id": 56
+    "registration_id": 288,
+    "student_id": 202300198,
+    "class_id": 8
   },
   {
-      "registration_id": 291,
-      "student_id": 202300072,
-      "class_id": 47
+    "registration_id": 289,
+    "student_id": 202300199,
+    "class_id": 9
   },
   {
-      "registration_id": 292,
-      "student_id": 202300072,
-      "class_id": 45
+    "registration_id": 290,
+    "student_id": 202300199,
+    "class_id": 18
   },
   {
-      "registration_id": 293,
-      "student_id": 202300073,
-      "class_id": 55
+    "registration_id": 291,
+    "student_id": 202300199,
+    "class_id": 21
   },
   {
-      "registration_id": 294,
-      "student_id": 202300073,
-      "class_id": 11
+    "registration_id": 292,
+    "student_id": 202300199,
+    "class_id": 10
   },
   {
-      "registration_id": 295,
-      "student_id": 202300073,
-      "class_id": 13
+    "registration_id": 293,
+    "student_id": 202300200,
+    "class_id": 13
   },
   {
-      "registration_id": 296,
-      "student_id": 202300073,
-      "class_id": 14
+    "registration_id": 294,
+    "student_id": 202300200,
+    "class_id": 16
   },
   {
-      "registration_id": 297,
-      "student_id": 202300074,
-      "class_id": 49
+    "registration_id": 295,
+    "student_id": 202300200,
+    "class_id": 6
   },
   {
-      "registration_id": 298,
-      "student_id": 202300074,
-      "class_id": 34
+    "registration_id": 296,
+    "student_id": 202300201,
+    "class_id": 15
   },
   {
-      "registration_id": 299,
-      "student_id": 202300074,
-      "class_id": 56
+    "registration_id": 297,
+    "student_id": 202300201,
+    "class_id": 10
   },
   {
-      "registration_id": 300,
-      "student_id": 202300074,
-      "class_id": 55
+    "registration_id": 298,
+    "student_id": 202300201,
+    "class_id": 2
   },
   {
-      "registration_id": 301,
-      "student_id": 202300075,
-      "class_id": 22
+    "registration_id": 299,
+    "student_id": 202300202,
+    "class_id": 8
   },
   {
-      "registration_id": 302,
-      "student_id": 202300075,
-      "class_id": 6
+    "registration_id": 300,
+    "student_id": 202300202,
+    "class_id": 10
   },
   {
-      "registration_id": 303,
-      "student_id": 202300075,
-      "class_id": 47
+    "registration_id": 301,
+    "student_id": 202300203,
+    "class_id": 14
   },
   {
-      "registration_id": 304,
-      "student_id": 202300076,
-      "class_id": 1
+    "registration_id": 302,
+    "student_id": 202300203,
+    "class_id": 7
   },
   {
-      "registration_id": 305,
-      "student_id": 202300076,
-      "class_id": 15
+    "registration_id": 303,
+    "student_id": 202300204,
+    "class_id": 14
   },
   {
-      "registration_id": 306,
-      "student_id": 202300076,
-      "class_id": 46
+    "registration_id": 304,
+    "student_id": 202300204,
+    "class_id": 20
   },
   {
-      "registration_id": 307,
-      "student_id": 202300076,
-      "class_id": 56
+    "registration_id": 305,
+    "student_id": 202300205,
+    "class_id": 10
   },
   {
-      "registration_id": 308,
-      "student_id": 202300076,
-      "class_id": 11
+    "registration_id": 306,
+    "student_id": 202300205,
+    "class_id": 6
   },
   {
-      "registration_id": 309,
-      "student_id": 202300077,
-      "class_id": 46
+    "registration_id": 307,
+    "student_id": 202300206,
+    "class_id": 19
   },
   {
-      "registration_id": 310,
-      "student_id": 202300077,
-      "class_id": 40
+    "registration_id": 308,
+    "student_id": 202300206,
+    "class_id": 12
   },
   {
-      "registration_id": 311,
-      "student_id": 202300077,
-      "class_id": 47
+    "registration_id": 309,
+    "student_id": 202300206,
+    "class_id": 11
   },
   {
-      "registration_id": 312,
-      "student_id": 202300078,
-      "class_id": 24
+    "registration_id": 310,
+    "student_id": 202300207,
+    "class_id": 7
   },
   {
-      "registration_id": 313,
-      "student_id": 202300078,
-      "class_id": 48
+    "registration_id": 311,
+    "student_id": 202300207,
+    "class_id": 17
   },
   {
-      "registration_id": 314,
-      "student_id": 202300078,
-      "class_id": 4
+    "registration_id": 312,
+    "student_id": 202300208,
+    "class_id": 4
   },
   {
-      "registration_id": 315,
-      "student_id": 202300079,
-      "class_id": 12
+    "registration_id": 313,
+    "student_id": 202300208,
+    "class_id": 15
   },
   {
-      "registration_id": 316,
-      "student_id": 202300079,
-      "class_id": 15
+    "registration_id": 314,
+    "student_id": 202300208,
+    "class_id": 18
   },
   {
-      "registration_id": 317,
-      "student_id": 202300079,
-      "class_id": 19
+    "registration_id": 315,
+    "student_id": 202300208,
+    "class_id": 22
   },
   {
-      "registration_id": 318,
-      "student_id": 202300080,
-      "class_id": 32
+    "registration_id": 316,
+    "student_id": 202300209,
+    "class_id": 17
   },
   {
-      "registration_id": 319,
-      "student_id": 202300080,
-      "class_id": 39
+    "registration_id": 317,
+    "student_id": 202300209,
+    "class_id": 19
   },
   {
-      "registration_id": 320,
-      "student_id": 202300080,
-      "class_id": 31
+    "registration_id": 318,
+    "student_id": 202300209,
+    "class_id": 13
   },
   {
-      "registration_id": 321,
-      "student_id": 202300080,
-      "class_id": 48
+    "registration_id": 319,
+    "student_id": 202300210,
+    "class_id": 8
   },
   {
-      "registration_id": 322,
-      "student_id": 202300081,
-      "class_id": 45
+    "registration_id": 320,
+    "student_id": 202300210,
+    "class_id": 13
   },
   {
-      "registration_id": 323,
-      "student_id": 202300081,
-      "class_id": 46
+    "registration_id": 321,
+    "student_id": 202300210,
+    "class_id": 22
   },
   {
-      "registration_id": 324,
-      "student_id": 202300081,
-      "class_id": 25
+    "registration_id": 322,
+    "student_id": 202300211,
+    "class_id": 7
   },
   {
-      "registration_id": 325,
-      "student_id": 202300082,
-      "class_id": 6
+    "registration_id": 323,
+    "student_id": 202300211,
+    "class_id": 13
   },
   {
-      "registration_id": 326,
-      "student_id": 202300082,
-      "class_id": 14
+    "registration_id": 324,
+    "student_id": 202300211,
+    "class_id": 16
   },
   {
-      "registration_id": 327,
-      "student_id": 202300082,
-      "class_id": 10
+    "registration_id": 325,
+    "student_id": 202300211,
+    "class_id": 2
   },
   {
-      "registration_id": 328,
-      "student_id": 202300083,
-      "class_id": 31
+    "registration_id": 326,
+    "student_id": 202300212,
+    "class_id": 17
   },
   {
-      "registration_id": 329,
-      "student_id": 202300083,
-      "class_id": 47
+    "registration_id": 327,
+    "student_id": 202300212,
+    "class_id": 16
   },
   {
-      "registration_id": 330,
-      "student_id": 202300083,
-      "class_id": 33
+    "registration_id": 328,
+    "student_id": 202300213,
+    "class_id": 12
   },
   {
-      "registration_id": 331,
-      "student_id": 202300083,
-      "class_id": 56
+    "registration_id": 329,
+    "student_id": 202300213,
+    "class_id": 13
   },
   {
-      "registration_id": 332,
-      "student_id": 202300084,
-      "class_id": 48
+    "registration_id": 330,
+    "student_id": 202300213,
+    "class_id": 6
   },
   {
-      "registration_id": 333,
-      "student_id": 202300084,
-      "class_id": 23
+    "registration_id": 331,
+    "student_id": 202300214,
+    "class_id": 10
   },
   {
-      "registration_id": 334,
-      "student_id": 202300084,
-      "class_id": 45
+    "registration_id": 332,
+    "student_id": 202300214,
+    "class_id": 6
   },
   {
-      "registration_id": 335,
-      "student_id": 202300084,
-      "class_id": 50
+    "registration_id": 333,
+    "student_id": 202300214,
+    "class_id": 2
   },
   {
-      "registration_id": 336,
-      "student_id": 202300085,
-      "class_id": 8
+    "registration_id": 334,
+    "student_id": 202300215,
+    "class_id": 8
   },
   {
-      "registration_id": 337,
-      "student_id": 202300085,
-      "class_id": 16
+    "registration_id": 335,
+    "student_id": 202300215,
+    "class_id": 15
   },
   {
-      "registration_id": 338,
-      "student_id": 202300085,
-      "class_id": 17
+    "registration_id": 336,
+    "student_id": 202300215,
+    "class_id": 7
   },
   {
-      "registration_id": 339,
-      "student_id": 202300086,
-      "class_id": 38
+    "registration_id": 337,
+    "student_id": 202300215,
+    "class_id": 17
   },
   {
-      "registration_id": 340,
-      "student_id": 202300086,
-      "class_id": 34
+    "registration_id": 338,
+    "student_id": 202300216,
+    "class_id": 23
   },
   {
-      "registration_id": 341,
-      "student_id": 202300086,
-      "class_id": 39
+    "registration_id": 339,
+    "student_id": 202300216,
+    "class_id": 6
   },
   {
-      "registration_id": 342,
-      "student_id": 202300086,
-      "class_id": 37
+    "registration_id": 340,
+    "student_id": 202300216,
+    "class_id": 24
   },
   {
-      "registration_id": 343,
-      "student_id": 202300087,
-      "class_id": 23
+    "registration_id": 341,
+    "student_id": 202300217,
+    "class_id": 10
   },
   {
-      "registration_id": 344,
-      "student_id": 202300087,
-      "class_id": 55
+    "registration_id": 342,
+    "student_id": 202300217,
+    "class_id": 19
   },
   {
-      "registration_id": 345,
-      "student_id": 202300087,
-      "class_id": 47
+    "registration_id": 343,
+    "student_id": 202300218,
+    "class_id": 10
   },
   {
-      "registration_id": 346,
-      "student_id": 202300087,
-      "class_id": 48
+    "registration_id": 344,
+    "student_id": 202300218,
+    "class_id": 23
   },
   {
-      "registration_id": 347,
-      "student_id": 202300087,
-      "class_id": 25
+    "registration_id": 345,
+    "student_id": 202300218,
+    "class_id": 17
   },
   {
-      "registration_id": 348,
-      "student_id": 202300088,
-      "class_id": 45
+    "registration_id": 346,
+    "student_id": 202300218,
+    "class_id": 7
   },
   {
-      "registration_id": 349,
-      "student_id": 202300088,
-      "class_id": 18
+    "registration_id": 347,
+    "student_id": 202300219,
+    "class_id": 22
   },
   {
-      "registration_id": 350,
-      "student_id": 202300088,
-      "class_id": 6
+    "registration_id": 348,
+    "student_id": 202300219,
+    "class_id": 19
   },
   {
-      "registration_id": 351,
-      "student_id": 202300089,
-      "class_id": 45
+    "registration_id": 349,
+    "student_id": 202300219,
+    "class_id": 5
   },
   {
-      "registration_id": 352,
-      "student_id": 202300089,
-      "class_id": 50
+    "registration_id": 350,
+    "student_id": 202300220,
+    "class_id": 5
   },
   {
-      "registration_id": 353,
-      "student_id": 202300089,
-      "class_id": 47
+    "registration_id": 351,
+    "student_id": 202300220,
+    "class_id": 18
   },
   {
-      "registration_id": 354,
-      "student_id": 202300090,
-      "class_id": 50
+    "registration_id": 352,
+    "student_id": 202300220,
+    "class_id": 7
   },
   {
-      "registration_id": 355,
-      "student_id": 202300090,
-      "class_id": 45
+    "registration_id": 353,
+    "student_id": 202300221,
+    "class_id": 9
   },
   {
-      "registration_id": 356,
-      "student_id": 202300090,
-      "class_id": 48
+    "registration_id": 354,
+    "student_id": 202300221,
+    "class_id": 12
   },
   {
-      "registration_id": 357,
-      "student_id": 202300091,
-      "class_id": 18
+    "registration_id": 355,
+    "student_id": 202300221,
+    "class_id": 2
   },
   {
-      "registration_id": 358,
-      "student_id": 202300091,
-      "class_id": 1
+    "registration_id": 356,
+    "student_id": 202300222,
+    "class_id": 19
   },
   {
-      "registration_id": 359,
-      "student_id": 202300091,
-      "class_id": 6
+    "registration_id": 357,
+    "student_id": 202300222,
+    "class_id": 24
   },
   {
-      "registration_id": 360,
-      "student_id": 202300092,
-      "class_id": 50
+    "registration_id": 358,
+    "student_id": 202300222,
+    "class_id": 7
   },
   {
-      "registration_id": 361,
-      "student_id": 202300092,
-      "class_id": 32
+    "registration_id": 359,
+    "student_id": 202300222,
+    "class_id": 3
   },
   {
-      "registration_id": 362,
-      "student_id": 202300092,
-      "class_id": 56
+    "registration_id": 360,
+    "student_id": 202300223,
+    "class_id": 22
   },
   {
-      "registration_id": 363,
-      "student_id": 202300092,
-      "class_id": 55
+    "registration_id": 361,
+    "student_id": 202300223,
+    "class_id": 21
   },
   {
-      "registration_id": 364,
-      "student_id": 202300093,
-      "class_id": 23
+    "registration_id": 362,
+    "student_id": 202300224,
+    "class_id": 2
   },
   {
-      "registration_id": 365,
-      "student_id": 202300093,
-      "class_id": 6
+    "registration_id": 363,
+    "student_id": 202300224,
+    "class_id": 6
   },
   {
-      "registration_id": 366,
-      "student_id": 202300093,
-      "class_id": 21
+    "registration_id": 364,
+    "student_id": 202300225,
+    "class_id": 3
   },
   {
-      "registration_id": 367,
-      "student_id": 202300093,
-      "class_id": 26
+    "registration_id": 365,
+    "student_id": 202300225,
+    "class_id": 15
   },
   {
-      "registration_id": 368,
-      "student_id": 202300094,
-      "class_id": 20
+    "registration_id": 366,
+    "student_id": 202300225,
+    "class_id": 21
   },
   {
-      "registration_id": 369,
-      "student_id": 202300094,
-      "class_id": 46
+    "registration_id": 367,
+    "student_id": 202300225,
+    "class_id": 22
   },
   {
-      "registration_id": 370,
-      "student_id": 202300094,
-      "class_id": 55
+    "registration_id": 368,
+    "student_id": 202300226,
+    "class_id": 5
   },
   {
-      "registration_id": 371,
-      "student_id": 202300094,
-      "class_id": 6
+    "registration_id": 369,
+    "student_id": 202300226,
+    "class_id": 24
   },
   {
-      "registration_id": 372,
-      "student_id": 202300095,
-      "class_id": 48
+    "registration_id": 370,
+    "student_id": 202300226,
+    "class_id": 16
   },
   {
-      "registration_id": 373,
-      "student_id": 202300095,
-      "class_id": 32
+    "registration_id": 371,
+    "student_id": 202300227,
+    "class_id": 14
   },
   {
-      "registration_id": 374,
-      "student_id": 202300095,
-      "class_id": 34
+    "registration_id": 372,
+    "student_id": 202300227,
+    "class_id": 15
   },
   {
-      "registration_id": 375,
-      "student_id": 202300095,
-      "class_id": 47
+    "registration_id": 373,
+    "student_id": 202300228,
+    "class_id": 11
   },
   {
-      "registration_id": 376,
-      "student_id": 202300096,
-      "class_id": 26
+    "registration_id": 374,
+    "student_id": 202300228,
+    "class_id": 4
   },
   {
-      "registration_id": 377,
-      "student_id": 202300096,
-      "class_id": 50
+    "registration_id": 375,
+    "student_id": 202300229,
+    "class_id": 18
   },
   {
-      "registration_id": 378,
-      "student_id": 202300096,
-      "class_id": 45
+    "registration_id": 376,
+    "student_id": 202300229,
+    "class_id": 7
   },
   {
-      "registration_id": 379,
-      "student_id": 202300096,
-      "class_id": 3
+    "registration_id": 377,
+    "student_id": 202300230,
+    "class_id": 21
   },
   {
-      "registration_id": 380,
-      "student_id": 202300096,
-      "class_id": 47
+    "registration_id": 378,
+    "student_id": 202300230,
+    "class_id": 3
   },
   {
-      "registration_id": 381,
-      "student_id": 202300097,
-      "class_id": 11
+    "registration_id": 379,
+    "student_id": 202300231,
+    "class_id": 23
   },
   {
-      "registration_id": 382,
-      "student_id": 202300097,
-      "class_id": 7
+    "registration_id": 380,
+    "student_id": 202300231,
+    "class_id": 20
   },
   {
-      "registration_id": 383,
-      "student_id": 202300097,
-      "class_id": 45
+    "registration_id": 381,
+    "student_id": 202300231,
+    "class_id": 7
   },
   {
-      "registration_id": 384,
-      "student_id": 202300097,
-      "class_id": 15
+    "registration_id": 382,
+    "student_id": 202300232,
+    "class_id": 13
   },
   {
-      "registration_id": 385,
-      "student_id": 202300098,
-      "class_id": 32
+    "registration_id": 383,
+    "student_id": 202300232,
+    "class_id": 20
   },
   {
-      "registration_id": 386,
-      "student_id": 202300098,
-      "class_id": 46
+    "registration_id": 384,
+    "student_id": 202300233,
+    "class_id": 10
   },
   {
-      "registration_id": 387,
-      "student_id": 202300098,
-      "class_id": 47
+    "registration_id": 385,
+    "student_id": 202300233,
+    "class_id": 2
   },
   {
-      "registration_id": 388,
-      "student_id": 202300098,
-      "class_id": 40
+    "registration_id": 386,
+    "student_id": 202300234,
+    "class_id": 2
   },
   {
-      "registration_id": 389,
-      "student_id": 202300099,
-      "class_id": 56
+    "registration_id": 387,
+    "student_id": 202300234,
+    "class_id": 7
   },
   {
-      "registration_id": 390,
-      "student_id": 202300099,
-      "class_id": 22
+    "registration_id": 388,
+    "student_id": 202300234,
+    "class_id": 6
   },
   {
-      "registration_id": 391,
-      "student_id": 202300099,
-      "class_id": 21
+    "registration_id": 389,
+    "student_id": 202300234,
+    "class_id": 3
   },
   {
-      "registration_id": 392,
-      "student_id": 202300100,
-      "class_id": 16
+    "registration_id": 390,
+    "student_id": 202300235,
+    "class_id": 8
   },
   {
-      "registration_id": 393,
-      "student_id": 202300100,
-      "class_id": 20
+    "registration_id": 391,
+    "student_id": 202300235,
+    "class_id": 17
   },
   {
-      "registration_id": 394,
-      "student_id": 202300100,
-      "class_id": 50
+    "registration_id": 392,
+    "student_id": 202300235,
+    "class_id": 24
   },
   {
-      "registration_id": 395,
-      "student_id": 202300100,
-      "class_id": 49
+    "registration_id": 393,
+    "student_id": 202300236,
+    "class_id": 2
   },
   {
-      "registration_id": 396,
-      "student_id": 202300100,
-      "class_id": 48
+    "registration_id": 394,
+    "student_id": 202300236,
+    "class_id": 3
+  },
+  {
+    "registration_id": 395,
+    "student_id": 202300237,
+    "class_id": 24
+  },
+  {
+    "registration_id": 396,
+    "student_id": 202300237,
+    "class_id": 20
+  },
+  {
+    "registration_id": 397,
+    "student_id": 202300237,
+    "class_id": 12
+  },
+  {
+    "registration_id": 398,
+    "student_id": 202300237,
+    "class_id": 5
+  },
+  {
+    "registration_id": 399,
+    "student_id": 202300238,
+    "class_id": 6
+  },
+  {
+    "registration_id": 400,
+    "student_id": 202300238,
+    "class_id": 12
+  },
+  {
+    "registration_id": 401,
+    "student_id": 202300238,
+    "class_id": 22
+  },
+  {
+    "registration_id": 402,
+    "student_id": 202300238,
+    "class_id": 13
+  },
+  {
+    "registration_id": 403,
+    "student_id": 202300239,
+    "class_id": 21
+  },
+  {
+    "registration_id": 404,
+    "student_id": 202300239,
+    "class_id": 15
+  },
+  {
+    "registration_id": 405,
+    "student_id": 202300239,
+    "class_id": 2
+  },
+  {
+    "registration_id": 406,
+    "student_id": 202300239,
+    "class_id": 12
+  },
+  {
+    "registration_id": 407,
+    "student_id": 202300240,
+    "class_id": 21
+  },
+  {
+    "registration_id": 408,
+    "student_id": 202300240,
+    "class_id": 23
+  },
+  {
+    "registration_id": 409,
+    "student_id": 202300241,
+    "class_id": 12
+  },
+  {
+    "registration_id": 410,
+    "student_id": 202300241,
+    "class_id": 22
+  },
+  {
+    "registration_id": 411,
+    "student_id": 202300242,
+    "class_id": 20
+  },
+  {
+    "registration_id": 412,
+    "student_id": 202300242,
+    "class_id": 21
+  },
+  {
+    "registration_id": 413,
+    "student_id": 202300242,
+    "class_id": 10
+  },
+  {
+    "registration_id": 414,
+    "student_id": 202300243,
+    "class_id": 5
+  },
+  {
+    "registration_id": 415,
+    "student_id": 202300243,
+    "class_id": 10
+  },
+  {
+    "registration_id": 416,
+    "student_id": 202300243,
+    "class_id": 18
+  },
+  {
+    "registration_id": 417,
+    "student_id": 202300244,
+    "class_id": 9
+  },
+  {
+    "registration_id": 418,
+    "student_id": 202300244,
+    "class_id": 4
+  },
+  {
+    "registration_id": 419,
+    "student_id": 202300244,
+    "class_id": 8
+  },
+  {
+    "registration_id": 420,
+    "student_id": 202300245,
+    "class_id": 20
+  },
+  {
+    "registration_id": 421,
+    "student_id": 202300245,
+    "class_id": 3
+  },
+  {
+    "registration_id": 422,
+    "student_id": 202300245,
+    "class_id": 19
+  },
+  {
+    "registration_id": 423,
+    "student_id": 202300246,
+    "class_id": 9
+  },
+  {
+    "registration_id": 424,
+    "student_id": 202300246,
+    "class_id": 23
+  },
+  {
+    "registration_id": 425,
+    "student_id": 202300246,
+    "class_id": 13
+  },
+  {
+    "registration_id": 426,
+    "student_id": 202300246,
+    "class_id": 4
+  },
+  {
+    "registration_id": 427,
+    "student_id": 202300247,
+    "class_id": 12
+  },
+  {
+    "registration_id": 428,
+    "student_id": 202300247,
+    "class_id": 7
+  },
+  {
+    "registration_id": 429,
+    "student_id": 202300248,
+    "class_id": 24
+  },
+  {
+    "registration_id": 430,
+    "student_id": 202300248,
+    "class_id": 18
+  },
+  {
+    "registration_id": 431,
+    "student_id": 202300248,
+    "class_id": 17
+  },
+  {
+    "registration_id": 432,
+    "student_id": 202300249,
+    "class_id": 6
+  },
+  {
+    "registration_id": 433,
+    "student_id": 202300249,
+    "class_id": 8
+  },
+  {
+    "registration_id": 434,
+    "student_id": 202300250,
+    "class_id": 15
+  },
+  {
+    "registration_id": 435,
+    "student_id": 202300250,
+    "class_id": 12
+  },
+  {
+    "registration_id": 436,
+    "student_id": 202300250,
+    "class_id": 20
+  },
+  {
+    "registration_id": 437,
+    "student_id": 202300250,
+    "class_id": 4
+  },
+  {
+    "registration_id": 438,
+    "student_id": 202300251,
+    "class_id": 4
+  },
+  {
+    "registration_id": 439,
+    "student_id": 202300251,
+    "class_id": 11
+  },
+  {
+    "registration_id": 440,
+    "student_id": 202300251,
+    "class_id": 9
+  },
+  {
+    "registration_id": 441,
+    "student_id": 202300252,
+    "class_id": 3
+  },
+  {
+    "registration_id": 442,
+    "student_id": 202300252,
+    "class_id": 14
+  },
+  {
+    "registration_id": 443,
+    "student_id": 202300252,
+    "class_id": 24
+  },
+  {
+    "registration_id": 444,
+    "student_id": 202300253,
+    "class_id": 20
+  },
+  {
+    "registration_id": 445,
+    "student_id": 202300253,
+    "class_id": 5
+  },
+  {
+    "registration_id": 446,
+    "student_id": 202300253,
+    "class_id": 4
+  },
+  {
+    "registration_id": 447,
+    "student_id": 202300254,
+    "class_id": 2
+  },
+  {
+    "registration_id": 448,
+    "student_id": 202300254,
+    "class_id": 8
+  },
+  {
+    "registration_id": 449,
+    "student_id": 202300255,
+    "class_id": 11
+  },
+  {
+    "registration_id": 450,
+    "student_id": 202300255,
+    "class_id": 10
+  },
+  {
+    "registration_id": 451,
+    "student_id": 202300255,
+    "class_id": 21
+  },
+  {
+    "registration_id": 452,
+    "student_id": 202300256,
+    "class_id": 19
+  },
+  {
+    "registration_id": 453,
+    "student_id": 202300256,
+    "class_id": 6
+  },
+  {
+    "registration_id": 454,
+    "student_id": 202300256,
+    "class_id": 9
+  },
+  {
+    "registration_id": 455,
+    "student_id": 202300256,
+    "class_id": 14
+  },
+  {
+    "registration_id": 456,
+    "student_id": 202300257,
+    "class_id": 7
+  },
+  {
+    "registration_id": 457,
+    "student_id": 202300257,
+    "class_id": 19
+  },
+  {
+    "registration_id": 458,
+    "student_id": 202300257,
+    "class_id": 13
+  },
+  {
+    "registration_id": 459,
+    "student_id": 202300258,
+    "class_id": 7
+  },
+  {
+    "registration_id": 460,
+    "student_id": 202300258,
+    "class_id": 19
+  },
+  {
+    "registration_id": 461,
+    "student_id": 202300259,
+    "class_id": 1
+  },
+  {
+    "registration_id": 462,
+    "student_id": 202300259,
+    "class_id": 22
+  },
+  {
+    "registration_id": 463,
+    "student_id": 202300259,
+    "class_id": 6
+  },
+  {
+    "registration_id": 464,
+    "student_id": 202300259,
+    "class_id": 10
+  },
+  {
+    "registration_id": 465,
+    "student_id": 202300260,
+    "class_id": 6
+  },
+  {
+    "registration_id": 466,
+    "student_id": 202300260,
+    "class_id": 4
+  },
+  {
+    "registration_id": 467,
+    "student_id": 202300261,
+    "class_id": 8
+  },
+  {
+    "registration_id": 468,
+    "student_id": 202300261,
+    "class_id": 20
+  },
+  {
+    "registration_id": 469,
+    "student_id": 202300261,
+    "class_id": 11
+  },
+  {
+    "registration_id": 470,
+    "student_id": 202300261,
+    "class_id": 10
+  },
+  {
+    "registration_id": 471,
+    "student_id": 202300262,
+    "class_id": 18
+  },
+  {
+    "registration_id": 472,
+    "student_id": 202300262,
+    "class_id": 20
+  },
+  {
+    "registration_id": 473,
+    "student_id": 202300263,
+    "class_id": 10
+  },
+  {
+    "registration_id": 474,
+    "student_id": 202300263,
+    "class_id": 8
+  },
+  {
+    "registration_id": 475,
+    "student_id": 202300264,
+    "class_id": 21
+  },
+  {
+    "registration_id": 476,
+    "student_id": 202300264,
+    "class_id": 24
+  },
+  {
+    "registration_id": 477,
+    "student_id": 202300264,
+    "class_id": 9
+  },
+  {
+    "registration_id": 478,
+    "student_id": 202300264,
+    "class_id": 20
+  },
+  {
+    "registration_id": 479,
+    "student_id": 202300265,
+    "class_id": 19
+  },
+  {
+    "registration_id": 480,
+    "student_id": 202300265,
+    "class_id": 1
+  },
+  {
+    "registration_id": 481,
+    "student_id": 202300265,
+    "class_id": 11
+  },
+  {
+    "registration_id": 482,
+    "student_id": 202300265,
+    "class_id": 12
+  },
+  {
+    "registration_id": 483,
+    "student_id": 202300266,
+    "class_id": 13
+  },
+  {
+    "registration_id": 484,
+    "student_id": 202300266,
+    "class_id": 16
+  },
+  {
+    "registration_id": 485,
+    "student_id": 202300267,
+    "class_id": 13
+  },
+  {
+    "registration_id": 486,
+    "student_id": 202300267,
+    "class_id": 24
+  },
+  {
+    "registration_id": 487,
+    "student_id": 202300268,
+    "class_id": 22
+  },
+  {
+    "registration_id": 488,
+    "student_id": 202300268,
+    "class_id": 13
+  },
+  {
+    "registration_id": 489,
+    "student_id": 202300269,
+    "class_id": 14
+  },
+  {
+    "registration_id": 490,
+    "student_id": 202300269,
+    "class_id": 16
+  },
+  {
+    "registration_id": 491,
+    "student_id": 202300269,
+    "class_id": 20
+  },
+  {
+    "registration_id": 492,
+    "student_id": 202300270,
+    "class_id": 1
+  },
+  {
+    "registration_id": 493,
+    "student_id": 202300270,
+    "class_id": 6
+  },
+  {
+    "registration_id": 494,
+    "student_id": 202300271,
+    "class_id": 14
+  },
+  {
+    "registration_id": 495,
+    "student_id": 202300271,
+    "class_id": 3
+  },
+  {
+    "registration_id": 496,
+    "student_id": 202300271,
+    "class_id": 24
+  },
+  {
+    "registration_id": 497,
+    "student_id": 202300271,
+    "class_id": 16
+  },
+  {
+    "registration_id": 498,
+    "student_id": 202300272,
+    "class_id": 4
+  },
+  {
+    "registration_id": 499,
+    "student_id": 202300272,
+    "class_id": 6
+  },
+  {
+    "registration_id": 500,
+    "student_id": 202300272,
+    "class_id": 23
+  },
+  {
+    "registration_id": 501,
+    "student_id": 202300272,
+    "class_id": 14
+  },
+  {
+    "registration_id": 502,
+    "student_id": 202300273,
+    "class_id": 15
+  },
+  {
+    "registration_id": 503,
+    "student_id": 202300273,
+    "class_id": 23
+  },
+  {
+    "registration_id": 504,
+    "student_id": 202300273,
+    "class_id": 3
+  },
+  {
+    "registration_id": 505,
+    "student_id": 202300273,
+    "class_id": 1
+  },
+  {
+    "registration_id": 506,
+    "student_id": 202300274,
+    "class_id": 12
+  },
+  {
+    "registration_id": 507,
+    "student_id": 202300274,
+    "class_id": 24
+  },
+  {
+    "registration_id": 508,
+    "student_id": 202300275,
+    "class_id": 4
+  },
+  {
+    "registration_id": 509,
+    "student_id": 202300275,
+    "class_id": 11
+  },
+  {
+    "registration_id": 510,
+    "student_id": 202300276,
+    "class_id": 3
+  },
+  {
+    "registration_id": 511,
+    "student_id": 202300276,
+    "class_id": 1
+  },
+  {
+    "registration_id": 512,
+    "student_id": 202300276,
+    "class_id": 8
+  },
+  {
+    "registration_id": 513,
+    "student_id": 202300276,
+    "class_id": 14
+  },
+  {
+    "registration_id": 514,
+    "student_id": 202300277,
+    "class_id": 10
+  },
+  {
+    "registration_id": 515,
+    "student_id": 202300277,
+    "class_id": 1
+  },
+  {
+    "registration_id": 516,
+    "student_id": 202300278,
+    "class_id": 4
+  },
+  {
+    "registration_id": 517,
+    "student_id": 202300278,
+    "class_id": 19
+  },
+  {
+    "registration_id": 518,
+    "student_id": 202300279,
+    "class_id": 20
+  },
+  {
+    "registration_id": 519,
+    "student_id": 202300279,
+    "class_id": 8
+  },
+  {
+    "registration_id": 520,
+    "student_id": 202300280,
+    "class_id": 24
+  },
+  {
+    "registration_id": 521,
+    "student_id": 202300280,
+    "class_id": 19
+  },
+  {
+    "registration_id": 522,
+    "student_id": 202300280,
+    "class_id": 2
+  },
+  {
+    "registration_id": 523,
+    "student_id": 202300281,
+    "class_id": 21
+  },
+  {
+    "registration_id": 524,
+    "student_id": 202300281,
+    "class_id": 14
+  },
+  {
+    "registration_id": 525,
+    "student_id": 202300282,
+    "class_id": 16
+  },
+  {
+    "registration_id": 526,
+    "student_id": 202300282,
+    "class_id": 23
+  },
+  {
+    "registration_id": 527,
+    "student_id": 202300283,
+    "class_id": 21
+  },
+  {
+    "registration_id": 528,
+    "student_id": 202300283,
+    "class_id": 1
+  },
+  {
+    "registration_id": 529,
+    "student_id": 202300283,
+    "class_id": 22
+  },
+  {
+    "registration_id": 530,
+    "student_id": 202300284,
+    "class_id": 13
+  },
+  {
+    "registration_id": 531,
+    "student_id": 202300284,
+    "class_id": 8
+  },
+  {
+    "registration_id": 532,
+    "student_id": 202300284,
+    "class_id": 15
+  },
+  {
+    "registration_id": 533,
+    "student_id": 202300284,
+    "class_id": 23
+  },
+  {
+    "registration_id": 534,
+    "student_id": 202300285,
+    "class_id": 10
+  },
+  {
+    "registration_id": 535,
+    "student_id": 202300285,
+    "class_id": 9
+  },
+  {
+    "registration_id": 536,
+    "student_id": 202300285,
+    "class_id": 20
+  },
+  {
+    "registration_id": 537,
+    "student_id": 202300286,
+    "class_id": 1
+  },
+  {
+    "registration_id": 538,
+    "student_id": 202300286,
+    "class_id": 17
+  },
+  {
+    "registration_id": 539,
+    "student_id": 202300287,
+    "class_id": 18
+  },
+  {
+    "registration_id": 540,
+    "student_id": 202300287,
+    "class_id": 8
+  },
+  {
+    "registration_id": 541,
+    "student_id": 202300288,
+    "class_id": 20
+  },
+  {
+    "registration_id": 542,
+    "student_id": 202300288,
+    "class_id": 19
+  },
+  {
+    "registration_id": 543,
+    "student_id": 202300289,
+    "class_id": 14
+  },
+  {
+    "registration_id": 544,
+    "student_id": 202300289,
+    "class_id": 16
+  },
+  {
+    "registration_id": 545,
+    "student_id": 202300289,
+    "class_id": 8
+  },
+  {
+    "registration_id": 546,
+    "student_id": 202300290,
+    "class_id": 11
+  },
+  {
+    "registration_id": 547,
+    "student_id": 202300290,
+    "class_id": 5
+  },
+  {
+    "registration_id": 548,
+    "student_id": 202300291,
+    "class_id": 6
+  },
+  {
+    "registration_id": 549,
+    "student_id": 202300291,
+    "class_id": 9
+  },
+  {
+    "registration_id": 550,
+    "student_id": 202300291,
+    "class_id": 5
+  },
+  {
+    "registration_id": 551,
+    "student_id": 202300291,
+    "class_id": 2
+  },
+  {
+    "registration_id": 552,
+    "student_id": 202300292,
+    "class_id": 12
+  },
+  {
+    "registration_id": 553,
+    "student_id": 202300292,
+    "class_id": 8
+  },
+  {
+    "registration_id": 554,
+    "student_id": 202300292,
+    "class_id": 23
+  },
+  {
+    "registration_id": 555,
+    "student_id": 202300293,
+    "class_id": 10
+  },
+  {
+    "registration_id": 556,
+    "student_id": 202300293,
+    "class_id": 20
+  },
+  {
+    "registration_id": 557,
+    "student_id": 202300293,
+    "class_id": 11
+  },
+  {
+    "registration_id": 558,
+    "student_id": 202300293,
+    "class_id": 14
+  },
+  {
+    "registration_id": 559,
+    "student_id": 202300294,
+    "class_id": 2
+  },
+  {
+    "registration_id": 560,
+    "student_id": 202300294,
+    "class_id": 17
+  },
+  {
+    "registration_id": 561,
+    "student_id": 202300294,
+    "class_id": 24
+  },
+  {
+    "registration_id": 562,
+    "student_id": 202300294,
+    "class_id": 23
+  },
+  {
+    "registration_id": 563,
+    "student_id": 202300295,
+    "class_id": 14
+  },
+  {
+    "registration_id": 564,
+    "student_id": 202300295,
+    "class_id": 13
+  },
+  {
+    "registration_id": 565,
+    "student_id": 202300295,
+    "class_id": 16
+  },
+  {
+    "registration_id": 566,
+    "student_id": 202300296,
+    "class_id": 17
+  },
+  {
+    "registration_id": 567,
+    "student_id": 202300296,
+    "class_id": 5
+  },
+  {
+    "registration_id": 568,
+    "student_id": 202300296,
+    "class_id": 14
+  },
+  {
+    "registration_id": 569,
+    "student_id": 202300297,
+    "class_id": 15
+  },
+  {
+    "registration_id": 570,
+    "student_id": 202300297,
+    "class_id": 20
+  },
+  {
+    "registration_id": 571,
+    "student_id": 202300298,
+    "class_id": 5
+  },
+  {
+    "registration_id": 572,
+    "student_id": 202300298,
+    "class_id": 13
+  },
+  {
+    "registration_id": 573,
+    "student_id": 202300298,
+    "class_id": 12
+  },
+  {
+    "registration_id": 574,
+    "student_id": 202300298,
+    "class_id": 23
+  },
+  {
+    "registration_id": 575,
+    "student_id": 202300299,
+    "class_id": 6
+  },
+  {
+    "registration_id": 576,
+    "student_id": 202300299,
+    "class_id": 20
+  },
+  {
+    "registration_id": 577,
+    "student_id": 202300300,
+    "class_id": 10
+  },
+  {
+    "registration_id": 578,
+    "student_id": 202300300,
+    "class_id": 23
+  },
+  {
+    "registration_id": 579,
+    "student_id": 202300300,
+    "class_id": 2
+  },
+  {
+    "registration_id": 580,
+    "student_id": 202300300,
+    "class_id": 19
+  },
+  {
+    "registration_id": 581,
+    "student_id": 202300301,
+    "class_id": 6
+  },
+  {
+    "registration_id": 582,
+    "student_id": 202300301,
+    "class_id": 7
+  },
+  {
+    "registration_id": 583,
+    "student_id": 202300301,
+    "class_id": 17
+  },
+  {
+    "registration_id": 584,
+    "student_id": 202300301,
+    "class_id": 16
+  },
+  {
+    "registration_id": 585,
+    "student_id": 202300302,
+    "class_id": 6
+  },
+  {
+    "registration_id": 586,
+    "student_id": 202300302,
+    "class_id": 9
+  },
+  {
+    "registration_id": 587,
+    "student_id": 202300302,
+    "class_id": 16
+  },
+  {
+    "registration_id": 588,
+    "student_id": 202300302,
+    "class_id": 15
+  },
+  {
+    "registration_id": 589,
+    "student_id": 202300303,
+    "class_id": 22
+  },
+  {
+    "registration_id": 590,
+    "student_id": 202300303,
+    "class_id": 8
+  },
+  {
+    "registration_id": 591,
+    "student_id": 202300303,
+    "class_id": 6
+  },
+  {
+    "registration_id": 592,
+    "student_id": 202300304,
+    "class_id": 1
+  },
+  {
+    "registration_id": 593,
+    "student_id": 202300304,
+    "class_id": 21
+  },
+  {
+    "registration_id": 594,
+    "student_id": 202300305,
+    "class_id": 7
+  },
+  {
+    "registration_id": 595,
+    "student_id": 202300305,
+    "class_id": 5
+  },
+  {
+    "registration_id": 596,
+    "student_id": 202300305,
+    "class_id": 18
+  },
+  {
+    "registration_id": 597,
+    "student_id": 202300306,
+    "class_id": 3
+  },
+  {
+    "registration_id": 598,
+    "student_id": 202300306,
+    "class_id": 22
+  },
+  {
+    "registration_id": 599,
+    "student_id": 202300307,
+    "class_id": 14
+  },
+  {
+    "registration_id": 600,
+    "student_id": 202300307,
+    "class_id": 1
+  },
+  {
+    "registration_id": 601,
+    "student_id": 202300307,
+    "class_id": 23
+  },
+  {
+    "registration_id": 602,
+    "student_id": 202300308,
+    "class_id": 20
+  },
+  {
+    "registration_id": 603,
+    "student_id": 202300308,
+    "class_id": 12
+  },
+  {
+    "registration_id": 604,
+    "student_id": 202300309,
+    "class_id": 22
+  },
+  {
+    "registration_id": 605,
+    "student_id": 202300309,
+    "class_id": 15
+  },
+  {
+    "registration_id": 606,
+    "student_id": 202300310,
+    "class_id": 18
+  },
+  {
+    "registration_id": 607,
+    "student_id": 202300310,
+    "class_id": 6
+  },
+  {
+    "registration_id": 608,
+    "student_id": 202300311,
+    "class_id": 16
+  },
+  {
+    "registration_id": 609,
+    "student_id": 202300311,
+    "class_id": 4
+  },
+  {
+    "registration_id": 610,
+    "student_id": 202300312,
+    "class_id": 19
+  },
+  {
+    "registration_id": 611,
+    "student_id": 202300312,
+    "class_id": 21
+  },
+  {
+    "registration_id": 612,
+    "student_id": 202300312,
+    "class_id": 17
+  },
+  {
+    "registration_id": 613,
+    "student_id": 202300313,
+    "class_id": 14
+  },
+  {
+    "registration_id": 614,
+    "student_id": 202300313,
+    "class_id": 23
+  },
+  {
+    "registration_id": 615,
+    "student_id": 202300313,
+    "class_id": 18
+  },
+  {
+    "registration_id": 616,
+    "student_id": 202300314,
+    "class_id": 12
+  },
+  {
+    "registration_id": 617,
+    "student_id": 202300314,
+    "class_id": 9
+  },
+  {
+    "registration_id": 618,
+    "student_id": 202300314,
+    "class_id": 15
+  },
+  {
+    "registration_id": 619,
+    "student_id": 202300314,
+    "class_id": 11
+  },
+  {
+    "registration_id": 620,
+    "student_id": 202300315,
+    "class_id": 19
+  },
+  {
+    "registration_id": 621,
+    "student_id": 202300315,
+    "class_id": 15
+  },
+  {
+    "registration_id": 622,
+    "student_id": 202300315,
+    "class_id": 12
+  },
+  {
+    "registration_id": 623,
+    "student_id": 202300316,
+    "class_id": 2
+  },
+  {
+    "registration_id": 624,
+    "student_id": 202300316,
+    "class_id": 11
+  },
+  {
+    "registration_id": 625,
+    "student_id": 202300317,
+    "class_id": 8
+  },
+  {
+    "registration_id": 626,
+    "student_id": 202300317,
+    "class_id": 19
+  },
+  {
+    "registration_id": 627,
+    "student_id": 202300318,
+    "class_id": 23
+  },
+  {
+    "registration_id": 628,
+    "student_id": 202300318,
+    "class_id": 24
+  },
+  {
+    "registration_id": 629,
+    "student_id": 202300318,
+    "class_id": 16
+  },
+  {
+    "registration_id": 630,
+    "student_id": 202300319,
+    "class_id": 19
+  },
+  {
+    "registration_id": 631,
+    "student_id": 202300319,
+    "class_id": 15
+  },
+  {
+    "registration_id": 632,
+    "student_id": 202300319,
+    "class_id": 22
+  },
+  {
+    "registration_id": 633,
+    "student_id": 202300320,
+    "class_id": 12
+  },
+  {
+    "registration_id": 634,
+    "student_id": 202300320,
+    "class_id": 19
+  },
+  {
+    "registration_id": 635,
+    "student_id": 202300320,
+    "class_id": 18
+  },
+  {
+    "registration_id": 636,
+    "student_id": 202300320,
+    "class_id": 22
+  },
+  {
+    "registration_id": 637,
+    "student_id": 202300321,
+    "class_id": 2
+  },
+  {
+    "registration_id": 638,
+    "student_id": 202300321,
+    "class_id": 6
+  },
+  {
+    "registration_id": 639,
+    "student_id": 202300321,
+    "class_id": 11
+  },
+  {
+    "registration_id": 640,
+    "student_id": 202300321,
+    "class_id": 7
+  },
+  {
+    "registration_id": 641,
+    "student_id": 202300322,
+    "class_id": 12
+  },
+  {
+    "registration_id": 642,
+    "student_id": 202300322,
+    "class_id": 8
+  },
+  {
+    "registration_id": 643,
+    "student_id": 202300323,
+    "class_id": 3
+  },
+  {
+    "registration_id": 644,
+    "student_id": 202300323,
+    "class_id": 6
+  },
+  {
+    "registration_id": 645,
+    "student_id": 202300323,
+    "class_id": 8
+  },
+  {
+    "registration_id": 646,
+    "student_id": 202300324,
+    "class_id": 15
+  },
+  {
+    "registration_id": 647,
+    "student_id": 202300324,
+    "class_id": 20
+  },
+  {
+    "registration_id": 648,
+    "student_id": 202300325,
+    "class_id": 13
+  },
+  {
+    "registration_id": 649,
+    "student_id": 202300325,
+    "class_id": 7
+  },
+  {
+    "registration_id": 650,
+    "student_id": 202300325,
+    "class_id": 3
+  },
+  {
+    "registration_id": 651,
+    "student_id": 202300326,
+    "class_id": 10
+  },
+  {
+    "registration_id": 652,
+    "student_id": 202300326,
+    "class_id": 6
+  },
+  {
+    "registration_id": 653,
+    "student_id": 202300326,
+    "class_id": 16
+  },
+  {
+    "registration_id": 654,
+    "student_id": 202300327,
+    "class_id": 24
+  },
+  {
+    "registration_id": 655,
+    "student_id": 202300327,
+    "class_id": 15
+  },
+  {
+    "registration_id": 656,
+    "student_id": 202300327,
+    "class_id": 12
+  },
+  {
+    "registration_id": 657,
+    "student_id": 202300327,
+    "class_id": 20
+  },
+  {
+    "registration_id": 658,
+    "student_id": 202300328,
+    "class_id": 5
+  },
+  {
+    "registration_id": 659,
+    "student_id": 202300328,
+    "class_id": 15
+  },
+  {
+    "registration_id": 660,
+    "student_id": 202300329,
+    "class_id": 6
+  },
+  {
+    "registration_id": 661,
+    "student_id": 202300329,
+    "class_id": 20
+  },
+  {
+    "registration_id": 662,
+    "student_id": 202300329,
+    "class_id": 4
+  },
+  {
+    "registration_id": 663,
+    "student_id": 202300329,
+    "class_id": 2
+  },
+  {
+    "registration_id": 664,
+    "student_id": 202300330,
+    "class_id": 11
+  },
+  {
+    "registration_id": 665,
+    "student_id": 202300330,
+    "class_id": 16
+  },
+  {
+    "registration_id": 666,
+    "student_id": 202300330,
+    "class_id": 8
+  },
+  {
+    "registration_id": 667,
+    "student_id": 202300330,
+    "class_id": 6
+  },
+  {
+    "registration_id": 668,
+    "student_id": 202300331,
+    "class_id": 14
+  },
+  {
+    "registration_id": 669,
+    "student_id": 202300331,
+    "class_id": 1
+  },
+  {
+    "registration_id": 670,
+    "student_id": 202300331,
+    "class_id": 6
+  },
+  {
+    "registration_id": 671,
+    "student_id": 202300332,
+    "class_id": 16
+  },
+  {
+    "registration_id": 672,
+    "student_id": 202300332,
+    "class_id": 23
+  },
+  {
+    "registration_id": 673,
+    "student_id": 202300333,
+    "class_id": 6
+  },
+  {
+    "registration_id": 674,
+    "student_id": 202300333,
+    "class_id": 19
+  },
+  {
+    "registration_id": 675,
+    "student_id": 202300334,
+    "class_id": 3
+  },
+  {
+    "registration_id": 676,
+    "student_id": 202300334,
+    "class_id": 6
+  },
+  {
+    "registration_id": 677,
+    "student_id": 202300334,
+    "class_id": 22
+  },
+  {
+    "registration_id": 678,
+    "student_id": 202300334,
+    "class_id": 9
+  },
+  {
+    "registration_id": 679,
+    "student_id": 202300335,
+    "class_id": 3
+  },
+  {
+    "registration_id": 680,
+    "student_id": 202300335,
+    "class_id": 11
+  },
+  {
+    "registration_id": 681,
+    "student_id": 202300335,
+    "class_id": 1
+  },
+  {
+    "registration_id": 682,
+    "student_id": 202300335,
+    "class_id": 10
+  },
+  {
+    "registration_id": 683,
+    "student_id": 202300336,
+    "class_id": 8
+  },
+  {
+    "registration_id": 684,
+    "student_id": 202300336,
+    "class_id": 9
+  },
+  {
+    "registration_id": 685,
+    "student_id": 202300336,
+    "class_id": 4
+  },
+  {
+    "registration_id": 686,
+    "student_id": 202300337,
+    "class_id": 11
+  },
+  {
+    "registration_id": 687,
+    "student_id": 202300337,
+    "class_id": 2
+  },
+  {
+    "registration_id": 688,
+    "student_id": 202300338,
+    "class_id": 13
+  },
+  {
+    "registration_id": 689,
+    "student_id": 202300338,
+    "class_id": 1
+  },
+  {
+    "registration_id": 690,
+    "student_id": 202300339,
+    "class_id": 19
+  },
+  {
+    "registration_id": 691,
+    "student_id": 202300339,
+    "class_id": 3
+  },
+  {
+    "registration_id": 692,
+    "student_id": 202300339,
+    "class_id": 10
+  },
+  {
+    "registration_id": 693,
+    "student_id": 202300340,
+    "class_id": 5
+  },
+  {
+    "registration_id": 694,
+    "student_id": 202300340,
+    "class_id": 12
+  },
+  {
+    "registration_id": 695,
+    "student_id": 202300340,
+    "class_id": 20
+  },
+  {
+    "registration_id": 696,
+    "student_id": 202300340,
+    "class_id": 22
+  },
+  {
+    "registration_id": 697,
+    "student_id": 202300341,
+    "class_id": 15
+  },
+  {
+    "registration_id": 698,
+    "student_id": 202300341,
+    "class_id": 5
+  },
+  {
+    "registration_id": 699,
+    "student_id": 202300341,
+    "class_id": 19
+  },
+  {
+    "registration_id": 700,
+    "student_id": 202300341,
+    "class_id": 13
+  },
+  {
+    "registration_id": 701,
+    "student_id": 202300342,
+    "class_id": 14
+  },
+  {
+    "registration_id": 702,
+    "student_id": 202300342,
+    "class_id": 8
+  },
+  {
+    "registration_id": 703,
+    "student_id": 202300343,
+    "class_id": 2
+  },
+  {
+    "registration_id": 704,
+    "student_id": 202300343,
+    "class_id": 21
+  },
+  {
+    "registration_id": 705,
+    "student_id": 202300343,
+    "class_id": 13
+  },
+  {
+    "registration_id": 706,
+    "student_id": 202300343,
+    "class_id": 3
+  },
+  {
+    "registration_id": 707,
+    "student_id": 202300344,
+    "class_id": 8
+  },
+  {
+    "registration_id": 708,
+    "student_id": 202300344,
+    "class_id": 18
+  },
+  {
+    "registration_id": 709,
+    "student_id": 202300345,
+    "class_id": 17
+  },
+  {
+    "registration_id": 710,
+    "student_id": 202300345,
+    "class_id": 7
+  },
+  {
+    "registration_id": 711,
+    "student_id": 202300345,
+    "class_id": 18
+  },
+  {
+    "registration_id": 712,
+    "student_id": 202300346,
+    "class_id": 1
+  },
+  {
+    "registration_id": 713,
+    "student_id": 202300346,
+    "class_id": 7
+  },
+  {
+    "registration_id": 714,
+    "student_id": 202300346,
+    "class_id": 24
+  },
+  {
+    "registration_id": 715,
+    "student_id": 202300347,
+    "class_id": 3
+  },
+  {
+    "registration_id": 716,
+    "student_id": 202300347,
+    "class_id": 12
+  },
+  {
+    "registration_id": 717,
+    "student_id": 202300347,
+    "class_id": 20
+  },
+  {
+    "registration_id": 718,
+    "student_id": 202300348,
+    "class_id": 6
+  },
+  {
+    "registration_id": 719,
+    "student_id": 202300348,
+    "class_id": 14
+  },
+  {
+    "registration_id": 720,
+    "student_id": 202300349,
+    "class_id": 9
+  },
+  {
+    "registration_id": 721,
+    "student_id": 202300349,
+    "class_id": 21
+  },
+  {
+    "registration_id": 722,
+    "student_id": 202300349,
+    "class_id": 18
+  },
+  {
+    "registration_id": 723,
+    "student_id": 202300349,
+    "class_id": 23
+  },
+  {
+    "registration_id": 724,
+    "student_id": 202300350,
+    "class_id": 2
+  },
+  {
+    "registration_id": 725,
+    "student_id": 202300350,
+    "class_id": 4
+  },
+  {
+    "registration_id": 726,
+    "student_id": 202300351,
+    "class_id": 7
+  },
+  {
+    "registration_id": 727,
+    "student_id": 202300351,
+    "class_id": 6
+  },
+  {
+    "registration_id": 728,
+    "student_id": 202300351,
+    "class_id": 24
+  },
+  {
+    "registration_id": 729,
+    "student_id": 202300351,
+    "class_id": 9
+  },
+  {
+    "registration_id": 730,
+    "student_id": 202300352,
+    "class_id": 9
+  },
+  {
+    "registration_id": 731,
+    "student_id": 202300352,
+    "class_id": 20
+  },
+  {
+    "registration_id": 732,
+    "student_id": 202300352,
+    "class_id": 19
+  },
+  {
+    "registration_id": 733,
+    "student_id": 202300352,
+    "class_id": 2
+  },
+  {
+    "registration_id": 734,
+    "student_id": 202300353,
+    "class_id": 2
+  },
+  {
+    "registration_id": 735,
+    "student_id": 202300353,
+    "class_id": 16
+  },
+  {
+    "registration_id": 736,
+    "student_id": 202300353,
+    "class_id": 19
+  },
+  {
+    "registration_id": 737,
+    "student_id": 202300353,
+    "class_id": 7
+  },
+  {
+    "registration_id": 738,
+    "student_id": 202300354,
+    "class_id": 11
+  },
+  {
+    "registration_id": 739,
+    "student_id": 202300354,
+    "class_id": 1
+  },
+  {
+    "registration_id": 740,
+    "student_id": 202300355,
+    "class_id": 3
+  },
+  {
+    "registration_id": 741,
+    "student_id": 202300355,
+    "class_id": 1
+  },
+  {
+    "registration_id": 742,
+    "student_id": 202300355,
+    "class_id": 20
+  },
+  {
+    "registration_id": 743,
+    "student_id": 202300356,
+    "class_id": 15
+  },
+  {
+    "registration_id": 744,
+    "student_id": 202300356,
+    "class_id": 2
+  },
+  {
+    "registration_id": 745,
+    "student_id": 202300357,
+    "class_id": 16
+  },
+  {
+    "registration_id": 746,
+    "student_id": 202300357,
+    "class_id": 5
+  },
+  {
+    "registration_id": 747,
+    "student_id": 202300358,
+    "class_id": 18
+  },
+  {
+    "registration_id": 748,
+    "student_id": 202300358,
+    "class_id": 9
+  },
+  {
+    "registration_id": 749,
+    "student_id": 202300358,
+    "class_id": 8
+  },
+  {
+    "registration_id": 750,
+    "student_id": 202300359,
+    "class_id": 11
+  },
+  {
+    "registration_id": 751,
+    "student_id": 202300359,
+    "class_id": 22
+  },
+  {
+    "registration_id": 752,
+    "student_id": 202300359,
+    "class_id": 1
+  },
+  {
+    "registration_id": 753,
+    "student_id": 202300360,
+    "class_id": 17
+  },
+  {
+    "registration_id": 754,
+    "student_id": 202300360,
+    "class_id": 12
+  },
+  {
+    "registration_id": 755,
+    "student_id": 202300360,
+    "class_id": 1
+  },
+  {
+    "registration_id": 756,
+    "student_id": 202300360,
+    "class_id": 14
+  },
+  {
+    "registration_id": 757,
+    "student_id": 202300361,
+    "class_id": 17
+  },
+  {
+    "registration_id": 758,
+    "student_id": 202300361,
+    "class_id": 12
+  },
+  {
+    "registration_id": 759,
+    "student_id": 202300362,
+    "class_id": 19
+  },
+  {
+    "registration_id": 760,
+    "student_id": 202300362,
+    "class_id": 13
+  },
+  {
+    "registration_id": 761,
+    "student_id": 202300363,
+    "class_id": 5
+  },
+  {
+    "registration_id": 762,
+    "student_id": 202300363,
+    "class_id": 22
+  },
+  {
+    "registration_id": 763,
+    "student_id": 202300363,
+    "class_id": 11
+  },
+  {
+    "registration_id": 764,
+    "student_id": 202300363,
+    "class_id": 17
+  },
+  {
+    "registration_id": 765,
+    "student_id": 202300364,
+    "class_id": 16
+  },
+  {
+    "registration_id": 766,
+    "student_id": 202300364,
+    "class_id": 22
+  },
+  {
+    "registration_id": 767,
+    "student_id": 202300364,
+    "class_id": 10
+  },
+  {
+    "registration_id": 768,
+    "student_id": 202300364,
+    "class_id": 14
+  },
+  {
+    "registration_id": 769,
+    "student_id": 202300365,
+    "class_id": 14
+  },
+  {
+    "registration_id": 770,
+    "student_id": 202300365,
+    "class_id": 9
+  },
+  {
+    "registration_id": 771,
+    "student_id": 202300365,
+    "class_id": 10
+  },
+  {
+    "registration_id": 772,
+    "student_id": 202300366,
+    "class_id": 4
+  },
+  {
+    "registration_id": 773,
+    "student_id": 202300366,
+    "class_id": 6
+  },
+  {
+    "registration_id": 774,
+    "student_id": 202300366,
+    "class_id": 16
+  },
+  {
+    "registration_id": 775,
+    "student_id": 202300367,
+    "class_id": 15
+  },
+  {
+    "registration_id": 776,
+    "student_id": 202300367,
+    "class_id": 12
+  },
+  {
+    "registration_id": 777,
+    "student_id": 202300368,
+    "class_id": 24
+  },
+  {
+    "registration_id": 778,
+    "student_id": 202300368,
+    "class_id": 18
+  },
+  {
+    "registration_id": 779,
+    "student_id": 202300369,
+    "class_id": 6
+  },
+  {
+    "registration_id": 780,
+    "student_id": 202300369,
+    "class_id": 15
+  },
+  {
+    "registration_id": 781,
+    "student_id": 202300369,
+    "class_id": 18
+  },
+  {
+    "registration_id": 782,
+    "student_id": 202300369,
+    "class_id": 13
+  },
+  {
+    "registration_id": 783,
+    "student_id": 202300370,
+    "class_id": 20
+  },
+  {
+    "registration_id": 784,
+    "student_id": 202300370,
+    "class_id": 19
+  },
+  {
+    "registration_id": 785,
+    "student_id": 202300371,
+    "class_id": 19
+  },
+  {
+    "registration_id": 786,
+    "student_id": 202300371,
+    "class_id": 23
+  },
+  {
+    "registration_id": 787,
+    "student_id": 202300371,
+    "class_id": 17
+  },
+  {
+    "registration_id": 788,
+    "student_id": 202300371,
+    "class_id": 20
+  },
+  {
+    "registration_id": 789,
+    "student_id": 202300372,
+    "class_id": 15
+  },
+  {
+    "registration_id": 790,
+    "student_id": 202300372,
+    "class_id": 4
+  },
+  {
+    "registration_id": 791,
+    "student_id": 202300372,
+    "class_id": 14
+  },
+  {
+    "registration_id": 792,
+    "student_id": 202300372,
+    "class_id": 9
+  },
+  {
+    "registration_id": 793,
+    "student_id": 202300373,
+    "class_id": 4
+  },
+  {
+    "registration_id": 794,
+    "student_id": 202300373,
+    "class_id": 8
+  },
+  {
+    "registration_id": 795,
+    "student_id": 202300373,
+    "class_id": 22
+  },
+  {
+    "registration_id": 796,
+    "student_id": 202300374,
+    "class_id": 5
+  },
+  {
+    "registration_id": 797,
+    "student_id": 202300374,
+    "class_id": 20
+  },
+  {
+    "registration_id": 798,
+    "student_id": 202300375,
+    "class_id": 19
+  },
+  {
+    "registration_id": 799,
+    "student_id": 202300375,
+    "class_id": 24
+  },
+  {
+    "registration_id": 800,
+    "student_id": 202300375,
+    "class_id": 14
+  },
+  {
+    "registration_id": 801,
+    "student_id": 202300376,
+    "class_id": 1
+  },
+  {
+    "registration_id": 802,
+    "student_id": 202300376,
+    "class_id": 22
+  },
+  {
+    "registration_id": 803,
+    "student_id": 202300377,
+    "class_id": 9
+  },
+  {
+    "registration_id": 804,
+    "student_id": 202300377,
+    "class_id": 7
+  },
+  {
+    "registration_id": 805,
+    "student_id": 202300377,
+    "class_id": 12
+  },
+  {
+    "registration_id": 806,
+    "student_id": 202300378,
+    "class_id": 4
+  },
+  {
+    "registration_id": 807,
+    "student_id": 202300378,
+    "class_id": 14
+  },
+  {
+    "registration_id": 808,
+    "student_id": 202300379,
+    "class_id": 8
+  },
+  {
+    "registration_id": 809,
+    "student_id": 202300379,
+    "class_id": 5
+  },
+  {
+    "registration_id": 810,
+    "student_id": 202300379,
+    "class_id": 17
+  },
+  {
+    "registration_id": 811,
+    "student_id": 202300379,
+    "class_id": 15
+  },
+  {
+    "registration_id": 812,
+    "student_id": 202300380,
+    "class_id": 8
+  },
+  {
+    "registration_id": 813,
+    "student_id": 202300380,
+    "class_id": 17
+  },
+  {
+    "registration_id": 814,
+    "student_id": 202300380,
+    "class_id": 12
+  },
+  {
+    "registration_id": 815,
+    "student_id": 202300381,
+    "class_id": 22
+  },
+  {
+    "registration_id": 816,
+    "student_id": 202300381,
+    "class_id": 24
+  },
+  {
+    "registration_id": 817,
+    "student_id": 202300381,
+    "class_id": 17
+  },
+  {
+    "registration_id": 818,
+    "student_id": 202300382,
+    "class_id": 22
+  },
+  {
+    "registration_id": 819,
+    "student_id": 202300382,
+    "class_id": 11
+  },
+  {
+    "registration_id": 820,
+    "student_id": 202300382,
+    "class_id": 8
+  },
+  {
+    "registration_id": 821,
+    "student_id": 202300382,
+    "class_id": 13
+  },
+  {
+    "registration_id": 822,
+    "student_id": 202300383,
+    "class_id": 22
+  },
+  {
+    "registration_id": 823,
+    "student_id": 202300383,
+    "class_id": 16
+  },
+  {
+    "registration_id": 824,
+    "student_id": 202300383,
+    "class_id": 3
+  },
+  {
+    "registration_id": 825,
+    "student_id": 202300383,
+    "class_id": 24
+  },
+  {
+    "registration_id": 826,
+    "student_id": 202300384,
+    "class_id": 15
+  },
+  {
+    "registration_id": 827,
+    "student_id": 202300384,
+    "class_id": 16
+  },
+  {
+    "registration_id": 828,
+    "student_id": 202300384,
+    "class_id": 14
+  },
+  {
+    "registration_id": 829,
+    "student_id": 202300385,
+    "class_id": 10
+  },
+  {
+    "registration_id": 830,
+    "student_id": 202300385,
+    "class_id": 7
+  },
+  {
+    "registration_id": 831,
+    "student_id": 202300385,
+    "class_id": 19
+  },
+  {
+    "registration_id": 832,
+    "student_id": 202300385,
+    "class_id": 17
+  },
+  {
+    "registration_id": 833,
+    "student_id": 202300386,
+    "class_id": 18
+  },
+  {
+    "registration_id": 834,
+    "student_id": 202300386,
+    "class_id": 12
+  },
+  {
+    "registration_id": 835,
+    "student_id": 202300386,
+    "class_id": 9
+  },
+  {
+    "registration_id": 836,
+    "student_id": 202300386,
+    "class_id": 8
+  },
+  {
+    "registration_id": 837,
+    "student_id": 202300387,
+    "class_id": 2
+  },
+  {
+    "registration_id": 838,
+    "student_id": 202300387,
+    "class_id": 22
+  },
+  {
+    "registration_id": 839,
+    "student_id": 202300388,
+    "class_id": 16
+  },
+  {
+    "registration_id": 840,
+    "student_id": 202300388,
+    "class_id": 23
+  },
+  {
+    "registration_id": 841,
+    "student_id": 202300388,
+    "class_id": 14
+  },
+  {
+    "registration_id": 842,
+    "student_id": 202300389,
+    "class_id": 6
+  },
+  {
+    "registration_id": 843,
+    "student_id": 202300389,
+    "class_id": 18
+  },
+  {
+    "registration_id": 844,
+    "student_id": 202300389,
+    "class_id": 11
+  },
+  {
+    "registration_id": 845,
+    "student_id": 202300389,
+    "class_id": 23
+  },
+  {
+    "registration_id": 846,
+    "student_id": 202300390,
+    "class_id": 3
+  },
+  {
+    "registration_id": 847,
+    "student_id": 202300390,
+    "class_id": 20
+  },
+  {
+    "registration_id": 848,
+    "student_id": 202300390,
+    "class_id": 22
+  },
+  {
+    "registration_id": 849,
+    "student_id": 202300390,
+    "class_id": 1
+  },
+  {
+    "registration_id": 850,
+    "student_id": 202300391,
+    "class_id": 13
+  },
+  {
+    "registration_id": 851,
+    "student_id": 202300391,
+    "class_id": 11
+  },
+  {
+    "registration_id": 852,
+    "student_id": 202300392,
+    "class_id": 15
+  },
+  {
+    "registration_id": 853,
+    "student_id": 202300392,
+    "class_id": 8
+  },
+  {
+    "registration_id": 854,
+    "student_id": 202300392,
+    "class_id": 24
+  },
+  {
+    "registration_id": 855,
+    "student_id": 202300393,
+    "class_id": 19
+  },
+  {
+    "registration_id": 856,
+    "student_id": 202300393,
+    "class_id": 17
+  },
+  {
+    "registration_id": 857,
+    "student_id": 202300394,
+    "class_id": 18
+  },
+  {
+    "registration_id": 858,
+    "student_id": 202300394,
+    "class_id": 15
+  },
+  {
+    "registration_id": 859,
+    "student_id": 202300395,
+    "class_id": 20
+  },
+  {
+    "registration_id": 860,
+    "student_id": 202300395,
+    "class_id": 6
+  },
+  {
+    "registration_id": 861,
+    "student_id": 202300395,
+    "class_id": 4
+  },
+  {
+    "registration_id": 862,
+    "student_id": 202300396,
+    "class_id": 7
+  },
+  {
+    "registration_id": 863,
+    "student_id": 202300396,
+    "class_id": 1
+  },
+  {
+    "registration_id": 864,
+    "student_id": 202300397,
+    "class_id": 15
+  },
+  {
+    "registration_id": 865,
+    "student_id": 202300397,
+    "class_id": 13
+  },
+  {
+    "registration_id": 866,
+    "student_id": 202300397,
+    "class_id": 14
+  },
+  {
+    "registration_id": 867,
+    "student_id": 202300397,
+    "class_id": 20
+  },
+  {
+    "registration_id": 868,
+    "student_id": 202300398,
+    "class_id": 23
+  },
+  {
+    "registration_id": 869,
+    "student_id": 202300398,
+    "class_id": 20
+  },
+  {
+    "registration_id": 870,
+    "student_id": 202300398,
+    "class_id": 17
+  },
+  {
+    "registration_id": 871,
+    "student_id": 202300399,
+    "class_id": 16
+  },
+  {
+    "registration_id": 872,
+    "student_id": 202300399,
+    "class_id": 7
   }
 ]

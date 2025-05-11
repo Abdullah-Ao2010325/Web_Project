@@ -1,5 +1,4 @@
-import { getAverageCoursesPerStudent } from '../../serverActions/statistics-actions';
-
+import { getAverageCoursesPerStudent } from '@/app/server-actions/actions';
 export default async function AverageCoursesPerStudent() {
   const result = await getAverageCoursesPerStudent();
   return (

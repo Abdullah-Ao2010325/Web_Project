@@ -1,4 +1,4 @@
-import { getRegisteredStudentsPerTerm } from '../../serverActions/statistics-actions';
+import { getRegisteredStudentsPerTerm } from '@/app/server-actions/actions';
 
 export default async function RegisteredStudentsPerTerm() {
   const result = await getRegisteredStudentsPerTerm();

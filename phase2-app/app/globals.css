@@ -203,4 +203,114 @@ tr:hover {
     content: attr(data-label);
     font-weight: bold;
   }
+
+  .blur-bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.form-interface {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 15;
+  width: 95%;
+  max-width: 720px;
+  background: #fff;
+  border: 2px solid #fff;
+  transform: translate(-50%, -50%);
+}
+
+.login-form-box {
+  display: flex;
+  width: 100%;
+}
+
+.form-info {
+  width: 100%;
+  max-width: 330px;
+  color: #fff;
+  background-image: url("/images/login.jpg");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-info h2 {
+  margin-bottom: 10px;
+}
+
+.form-container {
+  padding: 35px;
+  width: 100%;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.input-field {
+  position: relative;
+  margin-top: 20px;
+  height: 50px;
+}
+
+.input-field input {
+  height: 100%;
+  width: 100%;
+  padding: 0 15px;
+  border: 1px solid #717171;
+  border-radius: 3px;
+  font-size: 0.95rem;
+}
+
+.input-field input:focus {
+  border-color: #540303;
+}
+
+.input-field label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #4a4646;
+  transition: 0.2s ease;
+}
+
+.input-field input:focus ~ label,
+.input-field input:valid ~ label {
+  transform: translateY(-120%);
+  font-size: 0.75rem;
+  color: #4e0904;
+}
+
+form button {
+  width: 100%;
+  margin: 25px 0;
+  padding: 14px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  background: #6d1204;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+form button:hover {
+  background: #4c0e00;
+}
 }

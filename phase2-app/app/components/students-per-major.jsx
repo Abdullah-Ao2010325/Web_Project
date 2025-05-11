@@ -1,4 +1,4 @@
-import { getStudentsPerMajor } from '../../serverActions/statistics-actions';
+import { getStudentsPerMajor } from '@/app/server-actions/actions';
 
 export default async function StudentsPerMajor() {
   const result = await getStudentsPerMajor();

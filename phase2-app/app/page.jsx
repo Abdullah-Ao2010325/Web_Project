@@ -1,43 +1,65 @@
 'use client';
 
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
-export default function Home() {
+export default function LoginPage() {
   const router = useRouter();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-  const statsLinks = [
-    { name: 'Total Students', path: '/stats/total-students' },
-    { name: 'Total Courses', path: '/stats/total-courses' },
-    { name: 'Registered Students per Term', path: '/stats/registered-students-per-term' },
-    { name: 'Average CGPA', path: '/stats/average-cgpa' },
-    { name: 'Students per Major', path: '/stats/students-per-major' },
-    { name: 'Top Registered Courses', path: '/stats/top-registered-courses' },
-    { name: 'Failure Rate per Course', path: '/stats/failure-rate-per-course' },
-    { name: 'Total Credit Hours Completed', path: '/stats/total-credit-hours-completed' },
-    { name: 'Students per Advisor', path: '/stats/students-per-advisor' },
-    { name: 'Average Courses per Student', path: '/stats/average-courses-per-student' },
-    { name: 'Percentage CGPA > 3.0', path: '/stats/percentage-cgpa-above-three' },
-  ];
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const res = await fetch('/api/login', {
+      method: 'POST',
+      body: JSON.stringify({ username, password }),
+    });
 
-  const handleClick = (path) => {
-    router.push(path);
+    const data = await res.json();
+    if (data.success) {
+      router.push('/stats');
+    } else {
+      setError(data.message);
+    }
   };
 
   return (
-    <div className="container">
-      <h1 className="welcome-content">Statistics Overview</h1>
-      <div className="course-section">
-        <ul className="progress-details">
-          {statsLinks.map((link, index) => (
-            <li key={index} className="progress-item">
-              <button onClick={() => handleClick(link.path)} className="register-btn">
-                {link.name}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <>
+      <div className="blur-bg-overlay show-popup" />
+      <section className="form-interface show-popup">
+        <div className="login-form-box">
+          <div className="form-info">
+            <h2>Admin Access</h2>
+            <p>Only administrators can access system statistics.</p>
+          </div>
+          <div className="form-container">
+            <h2>Login</h2>
+            <form onSubmit={handleLogin}>
+              <div className="input-field">
+                <input
+                  type="text"
+                  required
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+                <label>Username</label>
+              </div>
+              <div className="input-field">
+                <input
+                  type="password"
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <label>Password</label>
+              </div>
+              <button type="submit">Login</button>
+              {error && <p style={{ color: 'red' }}>{error}</p>}
+            </form>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

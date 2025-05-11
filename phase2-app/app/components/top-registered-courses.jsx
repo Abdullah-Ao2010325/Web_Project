@@ -1,5 +1,4 @@
-import { getTopRegisteredCourses } from '../../serverActions/statistics-actions';
-
+import { getTopRegisteredCourses } from '@/app/server-actions/actions';
 export default async function TopRegisteredCourses() {
   const result = await getTopRegisteredCourses();
   return (
