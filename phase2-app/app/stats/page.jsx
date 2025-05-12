@@ -1,9 +1,25 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import React, { useEffect, useState } from "react";
+import Cookies from "js-cookie";
+
+
+const JWT_SECRET = process.env.JWT_SECRET;
 
 export default function Home() {
   const router = useRouter();
+
+
+  useEffect(() => {
+    const token = Cookies.get('token');
+
+    if (!token) {
+      router.push('/');
+    }
+  }, [router]);
+
+
 
   const statsLinks = [
     { name: 'Total Students', path: '/stats/total-students' },

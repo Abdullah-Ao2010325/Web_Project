@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
-     
+
+
     loadClasses();
     displayCourses(JSON.parse(localStorage.courses));
     loadCourseOptions();
@@ -119,8 +119,8 @@ function displayCourses(courses) {
 
         let statusColor = course.status === "open-for-registration" ? "orange"
             : course.status === "in-progress" ? "green"
-            : course.status === "closed" ? "blue"
-            : "red";
+                : course.status === "closed" ? "blue"
+                    : "red";
 
         coursdiv.innerHTML = `
             <div class="course-header">
