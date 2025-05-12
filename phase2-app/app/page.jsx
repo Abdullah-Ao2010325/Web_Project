@@ -142,8 +142,12 @@ export default function Login() {
   };
 
 
-  const handleGitHubLogin = () => { //third party
-    signIn("github");
+  // const handleGitHubLogin = () => { //third party
+  //   signIn("github");
+  // };
+
+  const handleGitHubLogin = () => {
+    signIn("github", { callbackUrl: "/stats" });
   };
 
 
