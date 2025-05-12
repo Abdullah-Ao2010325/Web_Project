@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { signOut } from 'next-auth/react';
 import Cookies from 'js-cookie';
 import {
   getTotalStudents,
@@ -124,7 +125,7 @@ export default function StatisticsDashboard() {
 
   const handleLogout = () => {
     Cookies.remove('token');
-    router.push('/login');
+    signOut({ callbackUrl: '/' });
   };
 
   return (

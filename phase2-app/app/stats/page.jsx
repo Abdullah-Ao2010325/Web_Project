@@ -1,8 +1,9 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
-import Cookies from "js-cookie";
+import { signOut } from 'next-auth/react';
+import Cookies from 'js-cookie';
 import {
   getTotalStudents,
   getTotalCourses,
@@ -11,24 +12,35 @@ import {
 import '@/app/styles/dashboard.css';
 
 export default function Home() {
-  const router = useRouter();
-  const { data: session, status } = useSession();
-
-
-  useEffect(() => {
-    const token = Cookies.get("token");
-
-    // Only allow access if either GitHub session OR token exists
-    if (!session && !token && status !== 'loading') {
-      router.push('/');
-    }
-  }, [session, status, router]);
-
   const [summary, setSummary] = useState({
     totalStudents: 0,
     totalCourses: 0,
     totalInstructors: 0,
   });
+
+  const router = useRouter();
+  const { data: session, status } = useSession();
+
+  useEffect(() => {
+    const token = Cookies.get("token");
+    if (!session && !token && status !== 'loading') {
+      router.push('/');
+    }
+
+    const fetchSummary = async () => {
+      const totalStudents = await getTotalStudents();
+      const totalCourses = await getTotalCourses();
+      const totalInstructors = await getTotalInstructors();
+
+      setSummary({
+        totalStudents: totalStudents.success ? totalStudents.data.length : 0,
+        totalCourses: totalCourses.success ? totalCourses.data.length : 0,
+        totalInstructors: totalInstructors.success ? totalInstructors.count : 0,
+      });
+    };
+
+    fetchSummary();
+  }, [session, status, router]);
 
   const statsLinks = [
     { name: 'Total Students', path: '/stats/total-students', icon: 'fas fa-users' },
@@ -50,29 +62,13 @@ export default function Home() {
     { name: 'Courses by Major', path: '/stats/courses-by-major', icon: 'fas fa-table' },
   ];
 
-  useEffect(() => {
-    const fetchSummary = async () => {
-      const totalStudents = await getTotalStudents();
-      const totalCourses = await getTotalCourses();
-      const totalInstructors = await getTotalInstructors();
-
-      setSummary({
-        totalStudents: totalStudents.success ? totalStudents.data.length : 0,
-        totalCourses: totalCourses.success ? totalCourses.data.length : 0,
-        totalInstructors: totalInstructors.success ? totalInstructors.count : 0,
-      });
-    };
-
-    fetchSummary();
-  }, []);
-
   const handleClick = (path) => {
     router.push(path);
   };
 
   const handleLogout = () => {
     Cookies.remove('token');
-    router.push('/login');
+    signOut({ callbackUrl: '/' });
   };
 
   return (
@@ -83,11 +79,7 @@ export default function Home() {
           <h1 className="dashboard-title">
             <i className="fas fa-tachometer-alt"></i> Statistics Dashboard
           </h1>
-          <button
-            className="logout-button"
-            onClick={handleLogout}
-            aria-label="Logout"
-          >
+          <button onClick={handleLogout} className="logout-button" aria-label="Logout">
             <i className="fas fa-sign-out-alt"></i> Logout
           </button>
         </div>
