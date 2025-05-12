@@ -1,8 +1,8 @@
 [
   {
     "major": "CMPS",
-    "totalCreditHours": 120,
-    "totalNumberofCourses": 75,
+    "totalCreditHours": 36,
+    "totalNumberofCourses": 12,
     "courses": [
       "OOP",
       "Web Development",
@@ -20,8 +20,8 @@
   },
   {
     "major": "CMPE",
-    "totalCreditHours": 128,
-    "totalNumberofCourses": 80,
+    "totalCreditHours": 33,
+    "totalNumberofCourses": 11,
     "courses": [
       "Computer Architecture 1",
       "Data Structures",
@@ -31,15 +31,13 @@
       "Digital Logic Design",
       "Microprocessors",
       "Embedded Systems",
-      "Core Curriculum",
-      "Algorithms",
       "Computer Architecture 2"
     ]
   },
   {
     "major": "MATH",
-    "totalCreditHours": 130,
-    "totalNumberofCourses": 65,
+    "totalCreditHours": 24,
+    "totalNumberofCourses": 8,
     "courses": [
       "Linear Algebra",
       "Calculus 1",

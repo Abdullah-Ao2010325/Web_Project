@@ -5,7 +5,7 @@
     "term": "Fall",
     "section": "L01",
     "instructor_id": 23449,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300100,
@@ -47,7 +47,7 @@
     "term": "Spring",
     "section": "L02",
     "instructor_id": 23450,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300101,
@@ -93,7 +93,7 @@
     "term": "Fall",
     "section": "L03",
     "instructor_id": 23451,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300112,
@@ -136,7 +136,7 @@
     "term": "Spring",
     "section": "L01",
     "instructor_id": 23452,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300101,
@@ -182,7 +182,7 @@
     "term": "Fall",
     "section": "L02",
     "instructor_id": 23453,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300111,
@@ -217,7 +217,7 @@
     "term": "Spring",
     "section": "L03",
     "instructor_id": 23454,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300104,
@@ -272,7 +272,7 @@
     "term": "Fall",
     "section": "L01",
     "instructor_id": 23455,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300117,
@@ -313,7 +313,7 @@
     "term": "Spring",
     "section": "L02",
     "instructor_id": 23456,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300101,
@@ -371,7 +371,7 @@
     "term": "Fall",
     "section": "L03",
     "instructor_id": 23457,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300109,
@@ -413,7 +413,7 @@
     "term": "Spring",
     "section": "L01",
     "instructor_id": 23458,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300102,
@@ -460,7 +460,7 @@
     "term": "Fall",
     "section": "L02",
     "instructor_id": 23449,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300110,
@@ -501,7 +501,7 @@
     "term": "Spring",
     "section": "L03",
     "instructor_id": 23450,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300108,
@@ -546,7 +546,7 @@
     "term": "Fall",
     "section": "L01",
     "instructor_id": 23451,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300103,
@@ -600,7 +600,7 @@
     "term": "Spring",
     "section": "L02",
     "instructor_id": 23452,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300102,
@@ -657,7 +657,7 @@
     "term": "Fall",
     "section": "L03",
     "instructor_id": 23453,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300110,
@@ -709,7 +709,7 @@
     "term": "Spring",
     "section": "L01",
     "instructor_id": 23454,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300114,
@@ -758,7 +758,7 @@
     "term": "Fall",
     "section": "L02",
     "instructor_id": 23455,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300102,
@@ -805,7 +805,7 @@
     "term": "Spring",
     "section": "L03",
     "instructor_id": 23456,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300100,
@@ -850,7 +850,7 @@
     "term": "Fall",
     "section": "L01",
     "instructor_id": 23457,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300119,
@@ -899,7 +899,7 @@
     "term": "Spring",
     "section": "L02",
     "instructor_id": 23458,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300113,
@@ -955,7 +955,7 @@
     "term": "Fall",
     "section": "L03",
     "instructor_id": 23449,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300112,
@@ -994,7 +994,7 @@
     "term": "Spring",
     "section": "L01",
     "instructor_id": 23450,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300103,
@@ -1049,7 +1049,7 @@
     "term": "Fall",
     "section": "L02",
     "instructor_id": 23451,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300101,
@@ -1095,7 +1095,7 @@
     "term": "Spring",
     "section": "L03",
     "instructor_id": 23452,
-    "capacity": 40,
+    "capacity": 50,
     "status": "open-for-registration",
     "registered_students": [
       202300122,

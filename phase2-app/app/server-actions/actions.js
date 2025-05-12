@@ -1,55 +1,22 @@
 'use server';
 
 import statisticsRepo from '@/app/repo/stats-repo';
-import { PrismaClient } from '@prisma/client';
-const prisma = new PrismaClient();
 
-export async function getTotalStudents() {
-  return  await statisticsRepo.getTotalStudents();
-}
-
-export async function getTotalCourses() {
-  return await statisticsRepo.getTotalCourses();
-}
-
-export async function getRegisteredStudentsPerTerm() {
-  return await statisticsRepo.getRegisteredStudentsPerTerm() ;
-}
-
-export async function getAverageCGPA() {
-  return await statisticsRepo.getAverageCGPA() ;
-}
-
-export async function getStudentsPerMajor() {
-  return await statisticsRepo.getStudentsPerMajor() ;
-}
-
-export async function getTopRegisteredCourses() {
-  return await statisticsRepo.getTopRegisteredCourses() ;
-}
-
-export async function getLowCGPARatePerCourse() {
-  return await statisticsRepo.getLowCGPARatePerCourse();
-}
-
-export async function getTotalCreditHoursCompleted() {
-  return await statisticsRepo.getTotalCreditHoursCompleted() ;
-}
-
-export async function getStudentsPerAdvisor() {
-  return await statisticsRepo.getStudentsPerAdvisor() ;
-}
-
-export async function getAverageCoursesPerStudent() {
-  return await statisticsRepo.getAverageCoursesPerStudent() ;
-}
-
-export async function getPercentageCGPAAboveThree() {
-  return await statisticsRepo.getPercentageCGPAAboveThree() ;
-}
-
-export async function getDynamicAverageGPA() {
-  return await statisticsRepo.getDynamicAverageGPA(); // ✅ Just return directly
-}
-
-
+export const getTotalStudents = async () => await statisticsRepo.getTotalStudents();
+export const getTotalCourses = async () => await statisticsRepo.getTotalCourses();
+export const getTotalInstructors = async () => await statisticsRepo.getTotalInstructors();
+export const getRegisteredStudentsPerTerm = async () => await statisticsRepo.getRegisteredStudentsPerTerm();
+export const getDynamicAverageGPA = async () => await statisticsRepo.getDynamicAverageGPA();
+export const getStudentsPerMajor = async () => await statisticsRepo.getStudentsPerMajor();
+export const getTopRegisteredCourses = async () => await statisticsRepo.getTopRegisteredCourses();
+export const getLowCGPARatePerCourse = async () => await statisticsRepo.getLowCGPARatePerCourse();
+export const getStudentsPerAdvisor = async () => await statisticsRepo.getStudentsPerAdvisor();
+export const getAverageCoursesPerStudent = async () => await statisticsRepo.getAverageCoursesPerStudent();
+export const getPercentageCGPAAboveThree = async () => await statisticsRepo.getPercentageCGPAAboveThree();
+export const getCourseCompletionRate = async () => await statisticsRepo.getCourseCompletionRate();
+export const getInstructorEffectiveness = async () => await statisticsRepo.getInstructorEffectiveness();
+export const getPrerequisiteEffectiveness = async () => await statisticsRepo.getPrerequisiteEffectiveness();
+export const getStudentProgress = async () => await statisticsRepo.getStudentProgress();
+export const getCGPATrendsByTerm = async () => await statisticsRepo.getCGPATrendsByTerm();
+export const getAdvisorWorkload = async () => await statisticsRepo.getAdvisorWorkload();
+export const getCoursesByMajor = async () => await statisticsRepo.getCoursesByMajor();

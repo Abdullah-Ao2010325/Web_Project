@@ -24,7 +24,8 @@
     "course_name": "Programming Concepts",
     "course_number": "CMPS 303",
     "major": [
-      "CMPS"
+      "CMPS",
+      "CMPE"
     ],
     "prerequisites": [],
     "status": "open-for-registration"
@@ -34,7 +35,8 @@
     "course_name": "Data Structures",
     "course_number": "CMPS 304",
     "major": [
-      "CMPS"
+      "CMPS",
+      "CMPE"
     ],
     "prerequisites": [
       2
@@ -46,7 +48,8 @@
     "course_name": "Operating Systems",
     "course_number": "CMPS 305",
     "major": [
-      "CMPS"
+      "CMPS",
+      "CMPE"
     ],
     "prerequisites": [
       4
@@ -137,6 +140,136 @@
     "prerequisites": [
       6
     ],
+    "status": "open-for-registration"
+  },
+  {
+    "course_id": 13,
+    "course_name": "Computer Architecture 1",
+    "course_number": "CMPE 301",
+    "major": [
+      "CMPE"
+    ],
+    "prerequisites": [],
+    "status": "open-for-registration"
+  },
+  {
+    "course_id": 14,
+    "course_name": "Electronics",
+    "course_number": "CMPE 303",
+    "major": [
+      "CMPE"
+    ],
+    "prerequisites": [15],
+    "status": "open-for-registration"
+  },
+  {
+    "course_id": 15,
+    "course_name": "Digital Logic Design",
+    "course_number": "CMPE 306",
+    "major": [
+      "CMPE"
+    ],
+    "prerequisites": [],
+    "status": "open-for-registration"
+  },
+  {
+    "course_id": 16,
+    "course_name": "Microprocessors",
+    "course_number": "CMPE 307",
+    "major": [
+      "CMPE"
+    ],
+    "prerequisites": [15],
+    "status": "open-for-registration"
+  },
+  {
+    "course_id": 17,
+    "course_name": "Embedded Systems",
+    "course_number": "CMPE 308",
+    "major": [
+      "CMPE"
+    ],
+    "prerequisites": [],
+    "status": "open-for-registration"
+  },
+  {
+    "course_id": 18,
+    "course_name": "Computer Architecture 2",
+    "course_number": "CMPE 311",
+    "major": [
+      "CMPE"
+    ],
+    "prerequisites": [13],
+    "status": "open-for-registration"
+  },
+  {
+    "course_id": 19,
+    "course_name": "Linear Algebra",
+    "course_number": "MATH 301",
+    "major": [
+      "MATH"
+    ],
+    "prerequisites": [21],
+    "status": "open-for-registration"
+  },
+  {
+    "course_id": 20,
+    "course_name": "Calculus 1",
+    "course_number": "MATH 302",
+    "major": [
+      "MATH"
+    ],
+    "prerequisites": [],
+    "status": "open-for-registration"
+  },
+  {
+    "course_id": 21,
+    "course_name": "Calculus 2",
+    "course_number": "MATH 303",
+    "major": [
+      "MATH"
+    ],
+    "prerequisites": [20],
+    "status": "open-for-registration"
+  },
+  {
+    "course_id": 22,
+    "course_name": "Discrete Mathematics",
+    "course_number": "MATH 304",
+    "major": [
+      "MATH"
+    ],
+    "prerequisites": [],
+    "status": "open-for-registration"
+  },
+  {
+    "course_id": 23,
+    "course_name": "Probability and Statistics",
+    "course_number": "MATH 305",
+    "major": [
+      "MATH"
+    ],
+    "prerequisites": [],
+    "status": "open-for-registration"
+  },
+  {
+    "course_id": 24,
+    "course_name": "Numerical Methods",
+    "course_number": "MATH 306",
+    "major": [
+      "MATH"
+    ],
+    "prerequisites": [21],
+    "status": "open-for-registration"
+  },
+  {
+    "course_id": 25,
+    "course_name": "Abstract Algebra",
+    "course_number": "MATH 307",
+    "major": [
+      "MATH"
+    ],
+    "prerequisites": [19],
     "status": "open-for-registration"
   }
 ]

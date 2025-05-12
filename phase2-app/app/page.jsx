@@ -102,7 +102,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { signIn } from "next-auth/react";
-
+import "@/app/styles/login.css"; 
 
 export default function Login() {
   const [username, setUsername] = useState("");

@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* .login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e6f0fa 0%, #f5f7fa 100%);
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.login-box {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  padding: 40px;
+  text-align: center;
+}
+
+.login-header {
+  margin-bottom: 30px;
+}
+
+.login-header i {
+  font-size: 2.5rem;
+  color: #2563eb;
+  margin-bottom: 15px;
+}
+
+.login-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1f2a44;
+  margin: 10px 0;
+}
+
+.login-header p {
+  font-size: 1rem;
+  color: #64748b;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.2);
+}
+
+.input-group input.filled + label,
+.input-group input:focus + label {
+  transform: translateY(-24px) scale(0.85);
+  color: #2563eb;
+}
+
+.input-group label {
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  color: #64748b;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.input-group input:not(:placeholder-shown) + label {
+  transform: translateY(-24px) scale(0.85);
+  color: #2563eb;
+}
+
+.login-form button {
+  background: #2563eb;
+  color: #ffffff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.login-form button:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.login-form button:disabled {
+  background: #93c5fd;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #dc2626;
+  font-size: 0.9rem;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .login-box {
+    padding: 30px;
+    max-width: 90%;
+  }
+
+  .login-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .login-header i {
+    font-size: 2rem;
+  }
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  /* background: url("../images/QU.jpg") center/cover no-repeat; */
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-container h2 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 25px;
+}
+
+.input-field {
+  position: relative;
+  margin-top: 20px;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #717171;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.input-field label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #4a4646;
+  pointer-events: none;
+  transition: 0.2s ease;
+}
+
+.input-field input:focus,
+.input-field input:valid {
+  padding-top: 18px;
+}
+
+.input-field input:is(:focus, :valid)~label {
+  transform: translateY(-140%);
+  font-size: 0.75rem;
+  color: #007bff;
+}
+
+.login-btn,
+.github-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.login-btn {
+  background: #007bff;
+  color: #fff;
+}
+
+.login-btn:hover {
+  background: #007bff;
+}
+
+.github-btn {
+  background: #333;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.github-btn:hover {
+  background: #000;
+}
+
+.github-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.forgot-pass {
+  display: block;
+  text-align: right;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.forgot-pass a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.forgot-pass a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+  .login-container {
+    padding: 30px 20px;
+  }
+}
