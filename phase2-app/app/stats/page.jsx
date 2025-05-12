@@ -1,25 +1,22 @@
 'use client';
 
+import { useEffect } from "react";
 import { useRouter } from 'next/navigation';
-import React, { useEffect, useState } from "react";
+import { useSession } from 'next-auth/react';
 import Cookies from "js-cookie";
-
-
-const JWT_SECRET = process.env.JWT_SECRET;
 
 export default function Home() {
   const router = useRouter();
-
+  const { data: session, status } = useSession();
 
   useEffect(() => {
-    const token = Cookies.get('token');
+    const token = Cookies.get("token");
 
-    if (!token) {
+    // Only allow access if either GitHub session OR token exists
+    if (!session && !token && status !== 'loading') {
       router.push('/');
     }
-  }, [router]);
-
-
+  }, [session, status, router]);
 
   const statsLinks = [
     { name: 'Total Students', path: '/stats/total-students' },
